@@ -1,0 +1,30 @@
+{#
+For guidance on how to use layouts see:
+https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
+#}
+{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+
+
+{% from "govuk/components/footer/macro.njk" import govukFooter %}
+
+{% block footer %}
+
+{{ govukFooter({
+  meta: {
+    items: [
+      {
+        href: "../../../_common/not-testing.html",
+        text: "Feedback and support"
+      },
+      {
+        href: "../../../_common/not-testing.html",
+        text: "Terms and conditions"
+      },
+      {
+        href: "/manage-prototype/clear-data",
+        text: "Clear data"
+      }
+    ]
+  }
+}) }}
+{% endblock %}

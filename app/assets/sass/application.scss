@@ -1,0 +1,306 @@
+//
+// For guidance on how to add CSS and SCSS see:
+// https://prototype-kit.service.gov.uk/docs/adding-css-javascript-and-images
+// 
+
+// Add extra styles here
+
+@import 'components/cvl-header';
+@import 'components/cvl-card';
+@import 'components/cvl-footer';
+
+
+// DPS header
+
+.moj-header_dps {
+    border-bottom: none;
+}
+
+// Sign in
+.show-password {
+    font-size: 16px;
+    background-color: #f3f2f1;
+    color: #0b0c0c;
+    width: 80px;
+    line-height: 1.2;
+    box-shadow: 0 2px 0 #929191;
+    margin-bottom: 0;
+}
+
+// Wide width
+
+.govuk-width-container--wide {
+    @include govuk-width-container(1200px);
+  }
+  
+  .app-width-wide .govuk-width-container {
+    @include govuk-width-container(1200px);
+  }
+
+
+  // Case list red accent 
+
+  .urgent-highlight {
+    border-left: 5px solid #d4351c;
+    font-weight: bold;
+    padding-left: 5px;
+    display: block;
+}
+
+.urgent-highlight-message {
+    color: #0b0c0c;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.25;
+}
+
+
+  // Prisoner subheader
+
+.pipe-separated__item:not(:last-child):after {
+  content: " | ";
+}
+
+.border-bottom:after {
+  content: "";
+  display: block;
+  border-bottom: 1px solid #b1b4b6;
+}
+
+
+// Custom tags
+
+.status-badge {
+  padding: 3px 5px;
+  font-weight: 700;
+  display: inline-block;
+  white-space: nowrap;
+  text-align: center;
+  min-width: 10em;
+  text-transform: none;
+}
+
+// PP case list
+
+.pp-caselist-name {
+  font-weight: bold; 
+  display: block;
+}
+
+.pp-caselist-crn {
+  color: #505a5f;
+}
+
+// Timeline document
+
+.moj-timeline__document-link {
+  background-image: url(/public/images/icon-document.svg);
+  background-repeat: no-repeat;
+  background-size: 20px 16px;
+  background-position: 0 50%;
+  padding-left: 25px;
+}
+
+.moj-timeline__no-image {
+  padding-left: 25px;
+}
+
+// Horizontal row styling
+
+.border-style {
+  border: 0.25px solid #b1b4b6;
+}
+
+
+// Custom summary list
+
+
+@media (min-width: 40.0625em) {
+  .govuk-summary-list__key-custom, .govuk-summary-list__value-custom {
+      display: block;
+      width: 100%;
+  }
+}
+
+.govuk-summary-list__key-custom {
+  font-weight: 400;
+  padding-bottom: 0px!important;
+  margin-bottom: 0px;
+}
+
+.govuk-summary-list__value-custom {
+  font-weight: 700;
+  padding-top: 0px;
+  margin-top: 0px;
+}
+
+
+// Custom grid
+
+.govuk-grid-column-twenty {
+   width: 20%;
+   float: left;
+   overflow-wrap: break-word;
+}
+
+.govuk-grid-column-forty {
+  width: 40%;
+  float: left;
+}
+
+
+// Bold
+.bold {
+  font-weight: bold;
+}
+
+// Remove bold
+.remove-bold {
+  font-weight: normal;
+}
+
+
+// Curfew hours input 
+
+.curfew-group {
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 40.0625em) {
+  .curfew-group {
+    margin-bottom: 15px;
+    margin-right: -15px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+  }
+}
+
+.extra-padding-curfew {
+    padding-right: 25px;
+  }
+
+
+
+  .curfew-hour-wrapper {
+    border-bottom: 1px solid #b1b4b6;
+    }
+  @media (min-width: 40.0625em) {
+    .curfew-hour-wrapper {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+    }
+  }
+
+  @media (max-width: 40.0625em) {
+    .curfew-hour-wrapper {
+      margin-bottom: 20px;
+    }
+  }
+  
+
+@media (min-width: 40.0625em) {
+  .curfew-hour__title {
+      margin-bottom: 5px;
+  }
+}
+@media (min-width: 40.0625em) {
+  .curfew-hour__title {
+      font-size: 1.1875rem;
+      line-height: 1.3157894737;
+  }
+}
+.curfew-hour__title {
+  font-family: "GDS Transport", arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 700;
+  color: #0b0c0c;
+  margin: 5px 20px 15px 0;
+}
+
+
+@media (min-width: 40.0625em) {
+  .curfew-hour__actions {
+      justify-content: right;
+      text-align: right;
+  }
+}
+@media (min-width: 40.0625em) {
+  .curfew-hour__actions {
+      font-size: 1.1875rem;
+      line-height: 1.3157894737;
+  }
+}
+
+.curfew-hour__actions {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 10px;
+  margin: 5px 0 15px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.curfew-hour__action {
+  display: inline;
+  margin: 0 10px 0 0;
+  padding-right: 10px;
+  border-right: 1px solid #b1b4b6;
+}
+@media (min-width: 40.0625em) {
+  .curfew-hour__action {
+    margin-right: 0;
+  }
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .curfew-hour__action {
+    margin-bottom: 5px;
+  }
+}
+
+.curfew-hour__action:last-child {
+  margin: 0;
+  padding-right: 0;
+  border-right: none;
+}
+@media (min-width: 40.0625em) {
+  .curfew-hour__action:last-child {
+    padding-left: 10px;
+  }
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .curfew-hour__action:last-child {
+    margin-bottom: 0;
+  }
+}
+
+
+.select-custom-width-am-pm {
+  min-width: 4.5em;
+}
+
+.select-custom-width-day {
+  min-width: 6em;
+}
+
+.curfew-hr {
+  border-top: 1px solid #b1b4b6;
+  border-bottom: transparent;
+}
+
+
+// Exclusion zone image
+
+.exclusion-zone {
+    margin-bottom: 15px;
+    margin-right: 15px;
+    border: 1px solid #b1b4b6;
+    position: relative;
+    width: 150px;
+    height: 200px;
+    padding: 2px;
+}
+
+

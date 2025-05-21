@@ -1,0 +1,62 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Have you completed the residential address checks?" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-pp-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<div class="govuk-phase-banner" style="border-bottom: none;">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      BETA
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service - your <a class="govuk-link govuk-link--no-visited-state" href="../../../../_common/not-testing.html">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% include "components/prisoner-subheader/include.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+        <div class="moj-interruption-card">
+          <div class="moj-interruption-card__content">
+            <h1 class="govuk-heading-l moj-interruption-card__heading">Are you sure you want to continue with this licence variation?</h1>
+            <div class="govuk-body-l moj-interruption-card__body">
+
+              <p>You'll need to provide a reason for not completing the residential address checks before sending this variation for approval.</p>
+              <p>If you want to save these changes and continue later, go back to your case list.</p>
+            </div>
+            <div class="govuk-button-group moj-interruption-card__actions">
+        
+              <a href="enter-new-address" role="button" draggable="false" class="govuk-button govuk-button--inverse" data-module="govuk-button">
+                Continue
+              </a>
+        
+              <a class="govuk-link govuk-link--inverse" href="#">Go back to my case list</a>
+        
+            </div>
+          </div>
+        </div>
+  </div>
+</div>
+
+{% endblock %}
+
+
+{% block footer %}
+
+{% include "components/cvl-pp-footer/include.html" %}
+
+{% endblock %}

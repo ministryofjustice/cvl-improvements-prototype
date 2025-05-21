@@ -1,0 +1,134 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="When does this person need to go to the initial appointment?" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-pp-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<div class="govuk-phase-banner" style="border-bottom: none;">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      BETA
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service - your <a class="govuk-link govuk-link--no-visited-state" href="../../../_common/not-testing.html">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% include "components/prisoner-subheader/include.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <h1 class="govuk-fieldset__heading">
+          When does this person need to go to the initial appointment?
+        </h1>
+      </legend>
+
+      <div class="moj-datepicker" data-module="moj-date-picker">
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="date">
+            Date
+          </label>
+      
+          <div id="date-hint" class="govuk-hint">
+            For example, 17/5/2024
+          </div>
+      
+          <input class="govuk-input moj-js-datepicker-input " id="date" name="date" type="text" aria-describedby="date-hint" autocomplete="off">
+      
+        </div>
+      
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="date">
+          Time
+        </label>
+    
+      
+      <div id="time-hint" class="govuk-hint ">
+        For example, 9:30am or 2:55pm
+    </div>
+
+    <div class="govuk-date-input" id="time">
+      <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="time-hour">
+                  Hour
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2 " maxlength="2" id="time-hour" name="time[hour]" type="text" pattern="[0-9]*" inputmode="numeric" value="">
+          </div>
+      </div>
+      <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="time-minute">
+                  Minute
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2 " maxlength="2" id="time-minute" name="time[minute]" type="text" pattern="[0-9]*" inputmode="numeric" value="">
+          </div>
+      </div>
+      <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="time-ampm">
+                  am or pm
+              </label>
+              <select class="govuk-select govuk-date-input__input govuk-input--width-2 " id="time-ampm" name="time[ampm]">
+                  <option value="">
+                      -
+                  </option>
+                  <option value="am">
+                      am
+                  </option>
+                  <option value="pm">
+                      pm
+                  </option>
+              </select>
+          </div>
+      </div>
+  </div>
+
+  </div>
+
+      
+    </fieldset>
+
+
+        <div class="govuk-button-group">
+          <a href="additional-conditions">
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+        </a>
+        <a href="additional-conditions">
+          <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            Skip this for now
+          </button>
+        </a>
+        </div>
+
+  </div>
+</div>
+
+{% endblock %}
+
+
+{% block footer %}
+
+{% include "components/cvl-pp-footer/include.html" %}
+
+{% endblock %}

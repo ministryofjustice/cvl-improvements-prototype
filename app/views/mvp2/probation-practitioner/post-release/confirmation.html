@@ -1,0 +1,77 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Licence variation for Cyphoonifer Bransabert sent" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-pp-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<div class="govuk-phase-banner" style="border-bottom: none;">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      BETA
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service - your <a class="govuk-link govuk-link--no-visited-state" href="../../../../_common/not-testing.html">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">
+        Licence variation for Cyphoonifer Bransabert sent
+      </h1>
+    </div>
+
+    <h2 class="govuk-heading-m">
+      What happens next
+     </h2>
+
+        <p>We have sent the variation request to the head of the Probation Delivery Unit (PDU) for approval. </p>
+
+        <p>They will contact you if they need more information.</p>
+
+
+        <h3 class="govuk-heading-m">
+          After the licence is approved
+        </h3>
+    
+        <p>You will get an email when the variation is approved and you will be able to print and issue the licence or post sentence supervision order.</p>
+
+        <p class="govuk-!-margin-bottom-5">You'll need to contact the Electronic Monitoring Service (EMS) to let them know about the changes to Cyphoonifer Bransabert's licence.</p>
+
+
+        <a href="case-list-view">
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+           Return to caselist
+          </button>
+        </a>
+
+
+
+        <p class="govuk-!-margin-top-6"><a href="/mvp2/pdu-head/case-list" class="govuk-link--no-visited-state">Jump to PDU head approval flow</a></p>
+
+
+  </div>
+</div>
+
+{% endblock %}
+
+
+{% block footer %}
+
+{% include "components/cvl-pp-footer/include.html" %}
+
+{% endblock %}

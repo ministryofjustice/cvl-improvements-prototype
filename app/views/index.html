@@ -1,0 +1,44 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Home" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <h1 class="govuk-heading-xl">
+      HDC - CVL prototype
+    </h1>
+
+
+    <h2 class="govuk-heading-l">
+      Home Detention Curfew
+    </h2>
+
+
+    <div>
+    {{ govukButton({
+      text: "MVP1",
+      href: "mvp1/index",
+      isStartButton: true
+    }) }}
+    </div>
+
+    <div>
+    {{ govukButton({
+      text: "MVP2",
+      href: "mvp2/index",
+      isStartButton: true
+    }) }}
+    </div>
+
+
+
+
+    
+  </div>
+</div>
+
+{% endblock %}
