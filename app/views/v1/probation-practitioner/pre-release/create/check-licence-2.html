@@ -9,20 +9,10 @@
 {% endblock %}
 
 {%- block beforeContent -%}
-<div class="govuk-phase-banner" style="border-bottom: none;">
-  <p class="govuk-phase-banner__content">
-    <strong class="govuk-tag govuk-phase-banner__content__tag">
-      BETA
-    </strong>
-    <span class="govuk-phase-banner__text">
-      This is a new service - your <a class="govuk-link govuk-link--no-visited-state" href="#">feedback</a> will help us to improve it.
-    </span>
-  </p>
-</div>
 <a href="javascript:history.back()" class="govuk-back-link">Back</a>
 {% include "components/prisoner-subheader/include.html" %}
-
 {% endblock %}
+
 
 {% block content %}
 
@@ -122,126 +112,6 @@
               </div>
             </dl>
 
-        <h2 class="govuk-heading-m">
-          HDC curfew details
-            </h2>
-        <dl class="govuk-summary-list">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Address
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['curfew-addressLine1'] or "12 Fairmount Drive" }},
-              {% if data['curfew-addressLine2'] %}{{ data['curfew-addressLine2'] | default('Fake on Fake') }},{% endif %} 
-              {{ data['curfew-addressTown'] or "Chichester" }}, 
-              {% if data['curfew-addressCounty'] %}{{ data['curfew-addressCounty'] | default('Fakeshire') }},{% endif %} 
-              {{ data['curfew-addressPostcode'] or "PO18 8YE" }}
-              </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              First night curfew hours
-            </dt>
-            <dd class="govuk-summary-list__value">
-              3pm to 7am
-            </dd>
-          </div>
-
-        {% if data['sameEachDay'] == 'yes' %}  
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Curfew hours
-          </dt>
-          <dd class="govuk-summary-list__value">
-            Monday to Sunday<br>
-            {{ data['start-time-hour'] | int or '7' }}{% if data['start-time-minute'] not in ['0', '00', ''] and data['start-time-minute'] is not undefined %}{{ ':' ~ data['start-time-minute'] }}{% endif %}{{ data['start-time-ampm'] or 'pm' }} to {{ data['end-time-hour'] | int or '7' }}{% if data['end-time-minute'] not in ['0', '00', ''] and data['end-time-minute'] is not undefined %}{{ ':' ~ data['end-time-minute'] }}{% endif %}{{ data['end-time-ampm'] or 'pm' }}
-          </dd>
-        </div>
-      </dl>
-
-
-
-      {% elif data['sameEachDay'] == 'no' %}  
-    </dl>
-
-
-    <table class="govuk-table">
-      <caption class="govuk-table__caption govuk-table__caption--s govuk-!-margin-bottom-2">Curfew hours</caption>
-      <thead class="govuk-table__head">
-        <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Start time</th>
-          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">End time</th>
-          <th scope="col" class="govuk-table__header remove-bold govuk-!-width-one-half">
-          </th>
-
-
-        </tr>
-      </thead>
-      <tbody class="govuk-table__body">
-        <tr class="govuk-table__row">
-
-          <td class="govuk-table__cell">{{ data['monday-start-time-hour'] | int or '7' }}{% if data['monday-start-time-minute'] not in ['0', '00', ''] and data['monday-start-time-minute'] is not undefined %}{{ ':' ~ data['monday-start-time-minute'] }}{% endif %}{{ data['monday-start-time-ampm'] or 'pm' }} on Monday</td>
-          <td class="govuk-table__cell">{{ data['monday-end-time-hour'] | int or '7' }}{% if data['monday-end-time-minute'] not in ['0', '00', ''] and data['monday-end-time-minute'] is not undefined %}{{ ':' ~ data['monday-end-time-minute'] }}{% endif %}{{ data['monday-end-time-ampm'] or 'pm' }} on {{ data['monday-end-time-day'] or 'Tuesday' }}</td>
-          <td class="govuk-table__cell"></td>
-
-        </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">{{ data['tuesday-start-time-hour'] | int or '7' }}{% if data['tuesday-start-time-minute'] not in ['0', '00', ''] and data['tuesday-start-time-minute'] is not undefined %}{{ ':' ~ data['tuesday-start-time-minute'] }}{% endif %}{{ data['tuesday-start-time-ampm'] or 'pm' }} on Tuesday</td>
-          <td class="govuk-table__cell">{{ data['tuesday-end-time-hour'] | int or '7' }}{% if data['tuesday-end-time-minute'] not in ['0', '00', ''] and data['tuesday-end-time-minute'] is not undefined %}{{ ':' ~ data['tuesday-end-time-minute'] }}{% endif %}{{ data['tuesday-end-time-ampm'] or 'pm' }} on {{ data['tuesday-end-time-day'] or 'Wednesday' }}</td>
-          <td class="govuk-table__cell"></td>
-
-        </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">{{ data['wednesday-start-time-hour'] | int or '7' }}{% if data['wednesday-start-time-minute'] not in ['0', '00', ''] and data['wednesday-start-time-minute'] is not undefined %}{{ ':' ~ data['wednesday-start-time-minute'] }}{% endif %}{{ data['wednesday-start-time-ampm'] or 'pm' }} on Wednesday</td>
-          <td class="govuk-table__cell">{{ data['wednesday-end-time-hour'] | int or '7' }}{% if data['wednesday-end-time-minute'] not in ['0', '00', ''] and data['wednesday-end-time-minute'] is not undefined %}{{ ':' ~ data['wednesday-end-time-minute'] }}{% endif %}{{ data['wednesday-end-time-ampm'] or 'pm' }} on {{ data['wednesday-end-time-day'] or 'Thursday' }}</td>
-          <td class="govuk-table__cell"></td>
-
-        </tr>
-
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">{{ data['thursday-start-time-hour'] | int or '7' }}{% if data['thursday-start-time-minute'] not in ['0', '00', ''] and data['thursday-start-time-minute'] is not undefined %}{{ ':' ~ data['thursday-start-time-minute'] }}{% endif %}{{ data['thursday-start-time-ampm'] or 'pm' }} on Thursday</td>
-          <td class="govuk-table__cell">{{ data['thursday-end-time-hour'] | int or '7' }}{% if data['thursday-end-time-minute'] not in ['0', '00', ''] and data['thursday-end-time-minute'] is not undefined %}{{ ':' ~ data['thursday-end-time-minute'] }}{% endif %}{{ data['thursday-end-time-ampm'] or 'pm' }} on {{ data['thursday-end-time-day'] or 'Friday' }}</td>
-          <td class="govuk-table__cell"></td>
-
-        </tr>
-
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">{{ data['friday-start-time-hour'] | int or '7' }}{% if data['friday-start-time-minute'] not in ['0', '00', ''] and data['friday-start-time-minute'] is not undefined %}{{ ':' ~ data['friday-start-time-minute'] }}{% endif %}{{ data['friday-start-time-ampm'] or 'pm' }} on Friday</td>
-          <td class="govuk-table__cell">{{ data['friday-end-time-hour'] | int or '7' }}{% if data['friday-end-time-minute'] not in ['0', '00', ''] and data['friday-end-time-minute'] is not undefined %}{{ ':' ~ data['friday-end-time-minute'] }}{% endif %}{{ data['friday-end-time-ampm'] or 'pm' }} on {{ data['friday-end-time-day'] or 'Saturday' }}</td>
-          <td class="govuk-table__cell"></td>
-
-        </tr>
-
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">{{ data['saturday-start-time-hour'] | int or '7' }}{% if data['saturday-start-time-minute'] not in ['0', '00', ''] and data['saturday-start-time-minute'] is not undefined %}{{ ':' ~ data['saturday-start-time-minute'] }}{% endif %}{{ data['saturday-start-time-ampm'] or 'pm' }} on Saturday</td>
-          <td class="govuk-table__cell">{{ data['saturday-end-time-hour'] | int or '7' }}{% if data['saturday-end-time-minute'] not in ['0', '00', ''] and data['saturday-end-time-minute'] is not undefined %}{{ ':' ~ data['saturday-end-time-minute'] }}{% endif %}{{ data['saturday-end-time-ampm'] or 'pm' }} on {{ data['saturday-end-time-day'] or 'Sunday' }}</td>
-          <td class="govuk-table__cell"></td>
-
-        </tr>
-
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell">{{ data['sunday-start-time-hour'] | int or '7' }}{% if data['sunday-start-time-minute'] not in ['0', '00', ''] and data['sunday-start-time-minute'] is not undefined %}{{ ':' ~ data['sunday-start-time-minute'] }}{% endif %}{{ data['sunday-start-time-ampm'] or 'pm' }} on Sunday</td>
-          <td class="govuk-table__cell">{{ data['sunday-end-time-hour'] | int or '7' }}{% if data['sunday-end-time-minute'] not in ['0', '00', ''] and data['sunday-end-time-minute'] is not undefined %}{{ ':' ~ data['sunday-end-time-minute'] }}{% endif %}{{ data['sunday-end-time-ampm'] or 'pm' }} on {{ data['sunday-end-time-day'] or 'Monday' }}</td>
-          <td class="govuk-table__cell"></td>
-
-        </tr>
-
-      </tbody>
-    </table>
-        
-        {% else %}  
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Curfew hours
-          </dt>
-          <dd class="govuk-summary-list__value">
-            Monday to Sunday<br>7pm to 7am
-          </dd>
-        </div>
-      </dl>
-
-
-        {% endif %}  
 
 
         {% if data['additionalConditionsPresent'] == 'yes' %}  
