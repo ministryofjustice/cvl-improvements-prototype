@@ -13,8 +13,6 @@ var version = '/v1';
 // Add your routes here
 
 
-// MVP2 - general flow
-
 
 router.post(version + '/are-you-sure-answer2', function(request, response) {
 
@@ -27,8 +25,6 @@ router.post(version + '/are-you-sure-answer2', function(request, response) {
 })
 
 
-
-// Licence conditions
 
 router.post(version + '/additional-conditions-answer2', function(request, response) {
 
