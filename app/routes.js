@@ -11,6 +11,7 @@ const router = govukPrototypeKit.requests.setupRouter()
 
 //require('./routes/routes.js')(router);
 require('./routes/v1.js')(router);
+require('./routes/v2.js')(router);
 
 
 //require('./views/'+version+'/routes/mainrouter.js')(router);
