@@ -8,19 +8,6 @@
 {% include "components/cvl-pp-header/include.html" %}
 {% endblock %}
 
-{%- block beforeContent -%}
-<div class="govuk-phase-banner" style="border-bottom: none;">
-  <p class="govuk-phase-banner__content">
-    <strong class="govuk-tag govuk-phase-banner__content__tag">
-      BETA
-    </strong>
-    <span class="govuk-phase-banner__text">
-      This is a new service - your <a class="govuk-link govuk-link--no-visited-state" href="../../../../_common/not-testing.html">feedback</a> will help us to improve it.
-    </span>
-  </p>
-</div>
-
-{% endblock %}
 
 {% block content %}
 
@@ -46,17 +33,16 @@
           If you need to make any changes
        </h2>
 
-       <p>You can make changes to reporting instructions through the Create and vary a licence service. These changes do not need to be reapproved by the prison, but a case administrator may need to reprint the licence.</p>
-
-       <p>To request a change to the curfew address or first night curfew hours, email createandvaryalicence@digital.justice.gov.uk.</p>
+       <p>You can do so up to 2 days before a standard release. From this point, you can only ask the prison to change the initial appointment details. Other changes must be made after release.
+          You can continue to work on licences for people being released early after the 2-day point.</p>
  
-        <a href="case-list">
+        <a href="case-list-submitted">
           <button type="submit" class="govuk-button" data-module="govuk-button">
            Return to caselist
           </button>
         </a>
 
-        <p class="govuk-!-margin-top-6"><a href="/mvp2/approver/cvl-home" class="govuk-link--no-visited-state">Jump to approver flow</a></p>
+        <p class="govuk-!-margin-top-6"><a href="/v1/approver/cvl-home" class="govuk-link--no-visited-state">Jump to approver flow</a></p>
 
 
   </div>
