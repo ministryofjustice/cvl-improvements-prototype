@@ -32,7 +32,7 @@
 
     <fieldset class="govuk-fieldset">
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-        <h1 class="govuk-fieldset__heading">Where is the initial appointment?</h1>
+        <h1 class="govuk-fieldset__heading">Enter address</h1>
       </legend>
     </fieldset>
   </div>
@@ -52,14 +52,14 @@
         <div class="govuk-form-group">
 
           <label class="govuk-label" for="address-line-1">
-            Building and street <span class="govuk-visually-hidden">line 1 of 2</span>
+            Address line 1
           </label>
           <input class="govuk-input" {%if (data.address1) %}
             value="{{data.address1}}" {% endif %} id="address-line-1" name="address1" type="text" autocomplete="address-line1"></div>
 
           <div class="govuk-form-group">
           <label class="govuk-label" for="address-line-2">
-            <span class="govuk-visually-hidden">Building and street line 2 of 2</span>
+            Address line 2 (optional) 
           </label>
           <input class="govuk-input" {%if (data.address2) %}
             value="{{data.address2}}" {% endif %} id="address-line-2" name="address2" type="text" autocomplete="address-line2"></div>
@@ -70,13 +70,6 @@
           </label>
           <input class="govuk-input govuk-!-width-two-thirds" {%if (data.addresstown) %}
             value="{{data.addresstown}}" {% endif %} id="address-town" name="addresstown" type="text" autocomplete="address-level2"></div>
-
-          <div class="govuk-form-group">
-          <label class="govuk-label" for="address-county">
-            County (optional)
-          </label>
-          <input class="govuk-input govuk-!-width-two-thirds" {%if (data.addresscounty) %}
-            value="{{data.addresscounty}}" {% endif %} id="address-county" name="addresscounty" type="text"></div>
 
           <div class="govuk-form-group">
           <label class="govuk-label" for="address-postcode">
@@ -94,7 +87,7 @@
 
 
     <!--save for later-->
-    <h2 class="govuk-heading-m">Save this address (optional)</h2>
+    <h2 class="govuk-heading-m">????? Save this address (optional)</h2>
 
     <div class="govuk-form-group">
       <fieldset class="govuk-fieldset">
@@ -122,8 +115,10 @@
 
   </form>
 
-</div>
+  <p><a class="govuk-link govuk-link--no-visited-state" href="saved-addresses">Find an address</a></p>
 
+
+</div>
 
  </div>
 
