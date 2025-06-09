@@ -35,7 +35,7 @@
         <h1 class="govuk-fieldset__heading">Confirm initial appointment address</h1>
       </legend>
 
-    <p>We found the following probation office close to this person’s release address postcode of <strong>AL9 4PQ</strong>.</p>
+    <p>One address found for <strong>AL9 4PQ</strong>. <a class="govuk-link govuk-link--no-visited-state" href="saved-addresses">Search again</a></p>
 
     <div class="govuk-inset-text">
       62-72 Victoria Street</br>
@@ -44,21 +44,38 @@
       AL1 3SD
     </div>
 
+    <!--save for later-->
+    <h2 class="govuk-heading-m">Save this address (optional)</h2>
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc">
+            <label class="govuk-label govuk-checkboxes__label" for="organisation">
+              Add to your list of saved addresses
+            </label>
+            <div id="signIn-item-hint" class="govuk-hint govuk-checkboxes__hint">
+              
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
 
     <form action="../contact-number" method="get">
 
       <div class="govuk-button-group">
       <button class="govuk-button" data-module="govuk-button" name="submit" value="continue">
-        Use this address
+        Continue
       </button>
   
       </div>
 
     </form>
 
-    <p><a class="govuk-link govuk-link--no-visited-state" href="empty-state">Search with a different postcode</a></p>
-
-    <p><a class="govuk-link govuk-link--no-visited-state" href="manual-entry">Enter initial appointment address manually</a></p>
+    <p><a class="govuk-link govuk-link--no-visited-state" href="manual-entry">Enter address manually</a></p>
 
 
   </div>
