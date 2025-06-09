@@ -1,0 +1,77 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Licence conditions for Cyphoonifer Bransabert sent" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-pp-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<div class="govuk-phase-banner" style="border-bottom: none;">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      BETA
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service - your <a class="govuk-link govuk-link--no-visited-state" href="../../../../_common/not-testing.html">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% include "components/prisoner-subheader/include.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">
+        Licence conditions for Cyphoonifer Bransabert sent
+      </h1>
+    </div>
+
+    <h2 class="govuk-heading-m">
+      What happens next
+     </h2>
+
+        <p>We have sent the licence to Pentonville (HMP) for approval.</p>
+
+        <p>They will contact you if they need more information.</p>
+
+        <h2 class="govuk-heading-m">
+          If you need to make any changes
+       </h2>
+
+       <p>You can make changes to reporting instructions through the Create and vary a licence service. These changes do not need to be reapproved by the prison, but a case administrator may need to reprint the licence.</p>
+
+       <p>To request a change to the curfew address or first night curfew hours, email createandvaryalicence@digital.justice.gov.uk.</p>
+ 
+        <a href="#">
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+           Return to caselist
+          </button>
+        </a>
+
+        <p class="govuk-!-margin-top-6"><a href="/mvp2/approver/cvl-home" class="govuk-link--no-visited-state">Jump to approver flow</a></p>
+
+        <p class=""><a href="/mvp2/probation-practitioner/post-release/case-list-view?varyFlow=True" class="govuk-link--no-visited-state">Jump to probation practitioner vary flow</a></p>
+
+
+  </div>
+</div>
+
+{% endblock %}
+
+
+{% block footer %}
+
+{% include "components/cvl-pp-footer/include.html" %}
+
+{% endblock %}

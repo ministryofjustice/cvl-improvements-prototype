@@ -1,0 +1,78 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Licence approved" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-dm-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<div class="govuk-phase-banner" style="border-bottom: none;">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      BETA
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service - your <a class="govuk-link govuk-link--no-visited-state" href="../../../_common/not-testing.html">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+    
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            Licence approved
+          </h1>
+        </div>
+
+        <h2 class="govuk-heading-m">
+          What happens next
+            </h2>
+
+        <p>A case administrator can now print the licence for Cyphoonifer Bransabert.</p>
+          
+        <p>We will email the probation practitioner automatically to tell them this licence has been approved.</p>
+        
+
+        <h2 class="govuk-heading-m">
+          If changes are made
+            </h2>
+
+        <p>Changes to HDC curfew hours and licence conditions need to be reapproved.</p>
+        
+        <p>Changes to reporting instructions do not need to be reapproved, but a case administrator might need to reprint the licence.</p> 
+        
+        
+        <a href="case-list-app-needed">
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Approve another licence
+        </button>
+      </a>
+
+
+      <p class="govuk-!-margin-top-6"><a href="/mvp2/probation-practitioner/pre-release/edit/case-list" class="govuk-link--no-visited-state">Jump to probation practitioner edit flow</a></p>
+
+      <p class=""><a href="/mvp2/probation-practitioner/post-release/case-list-view?varyFlow=True" class="govuk-link--no-visited-state">Jump to probation practitioner vary flow</a></p>
+
+  </div>
+</div>
+
+
+
+
+
+
+{% endblock %}
+
+{% block footer %}
+
+{% include "components/cvl-dm-ca-footer/include.html" %}
+
+{% endblock %}
