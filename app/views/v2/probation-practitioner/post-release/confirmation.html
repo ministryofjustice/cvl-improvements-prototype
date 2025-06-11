@@ -8,22 +8,8 @@
 {% include "components/cvl-pp-header/include.html" %}
 {% endblock %}
 
-{%- block beforeContent -%}
-<div class="govuk-phase-banner" style="border-bottom: none;">
-  <p class="govuk-phase-banner__content">
-    <strong class="govuk-tag govuk-phase-banner__content__tag">
-      BETA
-    </strong>
-    <span class="govuk-phase-banner__text">
-      This is a new service - your <a class="govuk-link govuk-link--no-visited-state" href="../../../../_common/not-testing.html">feedback</a> will help us to improve it.
-    </span>
-  </p>
-</div>
-
-{% endblock %}
 
 {% block content %}
-
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
@@ -50,8 +36,6 @@
     
         <p>You will get an email when the variation is approved and you will be able to print and issue the licence or post sentence supervision order.</p>
 
-        <p class="govuk-!-margin-bottom-5">You'll need to contact the Electronic Monitoring Service (EMS) to let them know about the changes to Cyphoonifer Bransabert's licence.</p>
-
 
         <a href="case-list-view">
           <button type="submit" class="govuk-button" data-module="govuk-button">
@@ -61,7 +45,7 @@
 
 
 
-        <p class="govuk-!-margin-top-6"><a href="/mvp2/pdu-head/case-list" class="govuk-link--no-visited-state">Jump to PDU head approval flow</a></p>
+        <p class="govuk-!-margin-top-6"><a href="/v2/pdu-head/case-list" class="govuk-link--no-visited-state">Jump to PDU head approval flow</a></p>
 
 
   </div>

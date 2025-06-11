@@ -20,7 +20,7 @@ router.post(version + '/are-you-sure-answer2', function(request, response) {
     if (areyousure == "yes"){
         response.redirect(version + "/probation-practitioner/pre-release/create/who-with")
     } else {
-        response.redirect(version + "/probation-practitioner/pre-release/create/case-list")
+        response.redirect(version + "/probation-practitioner/pre-release/create/case-list-start")
     }
 })
 
@@ -72,25 +72,7 @@ router.post(version + '/are-you-sure-edit-answer', function(request, response) {
     }
 })
 
-router.post(version + '/standard-curfew-edit-3-answer', function(request, response) {
 
-    var standard = request.session.data['standardCurfew']
-    if (standard == "yes"){
-        response.redirect(version + "/probation-practitioner/pre-release/edit/check-licence-edit")
-    } else {
-        response.redirect(version + "/probation-practitioner/pre-release/edit/same-each-day")
-    }
-})
-
-router.post(version + '/same-each-day-edit-3-answer', function(request, response) {
-
-    var sameDay = request.session.data['sameEachDay']
-    if (sameDay == "yes"){
-        response.redirect(version + "/probation-practitioner/pre-release/edit/enter-curfew-same")
-    } else {
-        response.redirect(version + "/probation-practitioner/pre-release/edit/enter-curfew-diff")
-    }
-})
 
 
 
@@ -103,51 +85,6 @@ router.post(version + '/are-you-sure-vary-answer', function(request, response) {
         response.redirect(version + "/probation-practitioner/post-release/discuss-spo")
     } else {
         response.redirect(version + "/probation-practitioner/post-release/case-list-view")
-    }
-})
-
-
-
-router.post(version + '/address-type-answer', function(request, response) {
-
-    var addType = request.session.data['addressType']
-    if (addType == "res"){
-        response.redirect(version + "/probation-practitioner/post-release/address-checks")
-    } else {
-        response.redirect(version + "/probation-practitioner/post-release/enter-new-address")
-    }
-})
-
-router.post(version + '/standard-curfew-vary-answer', function(request, response) {
-
-    var standard = request.session.data['standardCurfew']
-    if (standard == "yes"){
-        response.redirect(version + "/probation-practitioner/post-release/vary-licence-details")
-    } else {
-        response.redirect(version + "/probation-practitioner/post-release/same-each-day")
-    }
-})
-
-
-
-router.post(version + '/same-each-day-vary-answer', function(request, response) {
-
-    var sameDay = request.session.data['sameEachDay']
-    if (sameDay == "yes"){
-        response.redirect(version + "/probation-practitioner/post-release/enter-curfew-same")
-    } else {
-        response.redirect(version + "/probation-practitioner/post-release/enter-curfew-diff")
-    }
-})
-
-
-router.post(version + '/address-checks-answer-2', function(request, response) {
-
-    var addCheck2 = request.session.data['addressChecks']
-    if (addCheck2 == "no"){
-        response.redirect(version + "/probation-practitioner/post-release/interrupt-card")
-    } else {
-        response.redirect(version + "/probation-practitioner/post-release/enter-new-address")
     }
 })
 
