@@ -8,18 +8,6 @@
 {% include "components/cvl-dm-header/include.html" %}
 {% endblock %}
 
-{%- block beforeContent -%}
-<div class="govuk-phase-banner" style="border-bottom: none;">
-  <p class="govuk-phase-banner__content">
-    <strong class="govuk-tag govuk-phase-banner__content__tag">
-      BETA
-    </strong>
-    <span class="govuk-phase-banner__text">
-      This is a new service - your <a class="govuk-link govuk-link--no-visited-state" href="../../../_common/not-testing.html">feedback</a> will help us to improve it.
-    </span>
-  </p>
-</div>
-{% endblock %}
 
 {% block content %}
 
@@ -45,9 +33,8 @@
           If changes are made
             </h2>
 
-        <p>Changes to HDC curfew hours and licence conditions need to be reapproved.</p>
+        <p>Probation practitioners can make changes up to 2 days before a standard release. After this, they can only ask the prison to change the initial appointment details. Other changes must be made after release. Probation practitioners can continue to work on licences for people being released early after the 2-day point.</p>
         
-        <p>Changes to reporting instructions do not need to be reapproved, but a case administrator might need to reprint the licence.</p> 
         
         
         <a href="case-list-app-needed">
@@ -57,9 +44,9 @@
       </a>
 
 
-      <p class="govuk-!-margin-top-6"><a href="/mvp2/probation-practitioner/pre-release/edit/case-list" class="govuk-link--no-visited-state">Jump to probation practitioner edit flow</a></p>
+      <p class="govuk-!-margin-top-6"><a href="/v2/probation-practitioner/pre-release/edit/case-list" class="govuk-link--no-visited-state">Jump to probation practitioner edit flow</a></p>
 
-      <p class=""><a href="/mvp2/probation-practitioner/post-release/case-list-view?varyFlow=True" class="govuk-link--no-visited-state">Jump to probation practitioner vary flow</a></p>
+      <p class=""><a href="/v2/probation-practitioner/post-release/case-list-view?varyFlow=True" class="govuk-link--no-visited-state">Jump to probation practitioner vary flow</a></p>
 
   </div>
 </div>
