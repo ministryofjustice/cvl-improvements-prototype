@@ -71,6 +71,13 @@
           <input class="govuk-input govuk-!-width-two-thirds" {%if (data.addresstown) %}
             value="{{data.addresstown}}" {% endif %} id="address-town" name="addresstown" type="text" autocomplete="address-level2"></div>
 
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="address-town">
+                County (optional)
+              </label>
+              <input class="govuk-input govuk-!-width-two-thirds" {%if (data.addresstown) %}
+                value="{{data.addresstown}}" {% endif %} id="address-town" name="addresstown" type="text" autocomplete="address-level2"></div>
+
           <div class="govuk-form-group">
           <label class="govuk-label" for="address-postcode">
             Postcode
@@ -87,7 +94,7 @@
 
 
     <!--save for later-->
-    <h2 class="govuk-heading-m">????? Save this address (optional)</h2>
+    <h2 class="govuk-heading-m">Save this address (optional)</h2>
 
     <div class="govuk-form-group">
       <fieldset class="govuk-fieldset">
