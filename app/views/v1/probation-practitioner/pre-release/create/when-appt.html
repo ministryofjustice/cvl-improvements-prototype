@@ -22,18 +22,29 @@
   <div class="govuk-grid-column-two-thirds">
 
 
+
     <form action="additional-conditions" method="get">
 
-    <fieldset class="govuk-fieldset">
-      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-        <h1 class="govuk-fieldset__heading">
-          When does this person need to go to the initial appointment?
-        </h1>
-      </legend>
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        When does this person need to go to the initial appointment?
+      </h1>
+    </legend>
+    <div class="govuk-radios" data-module="govuk-radios">
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="appointment-time" name="appointment-time" type="radio" value="specific" data-aria-controls="conditional-appointment-time" checked>
+        <label class="govuk-label govuk-radios__label" for="appointment-time">
+          At a specific date or time
+        </label>
+      </div>
+      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-appointment-time">
 
       <div class="moj-datepicker" data-module="moj-date-picker">
 
-        <div class="govuk-form-group">
+        <div class="govuk-form-group govuk-!-margin-bottom-5">
           <label class="govuk-label" for="date">
             Date
           </label>
@@ -60,7 +71,7 @@
 
     <div class="govuk-date-input" id="time">
       <div class="govuk-date-input__item">
-          <div class="govuk-form-group">
+          <div class="govuk-form-group govuk-!-margin-bottom-2">
               <label class="govuk-label govuk-date-input__label" for="time-hour">
                   Hour
               </label>
@@ -97,9 +108,26 @@
 
   </div>
 
-      
-    </fieldset>
+      </div>
 
+            <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="appointment-time-2" name="appointment-time" type="radio" value="immediately">
+        <label class="govuk-label govuk-radios__label" for="appointment-time-2">
+          Immediately after release
+        </label>
+      </div>
+
+
+            <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="appointment-time-3" name="appointment-time" type="radio" value="nextWorkingDay">
+        <label class="govuk-label govuk-radios__label" for="appointment-time-3">
+          By 2pm on the next working day after their release
+        </label>
+      </div>
+      
+    </div>
+  </fieldset>
+</div>
 
         <div class="govuk-button-group">
           <button type="submit" class="govuk-button" data-module="govuk-button">
@@ -110,6 +138,8 @@
           </button>
         </div>
         </form>
+
+    
 
   </div>
 </div>

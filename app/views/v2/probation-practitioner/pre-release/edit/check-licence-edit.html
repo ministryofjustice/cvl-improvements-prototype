@@ -67,40 +67,62 @@
                   <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> contact phone number</span></a>
                 </dd>
               </div>
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Date
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  {% if data['date'] %} 
-                  {{ data['date'] | formatDateString("D/M/YYYY","D MMMM YYYY")}}
-                  {% else %} 
-                  25 February 2025
-                  {% endif %} 
-                 </dd>
-                <dd class="govuk-summary-list__actions">
-                  <ul class="govuk-summary-list__actions-list">
-                    <li class="govuk-summary-list__actions-list-item">
-                      <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> date</span></a>
-                    </li>
-                  </ul>
-                </dd>
-              </div>
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Time
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  {{ data | formatTime('1', '', 'pm') }}
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                  <ul class="govuk-summary-list__actions-list">
-                    <li class="govuk-summary-list__actions-list-item">
-                      <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> time</span></a>
-                    </li>
-                  </ul>
-                </dd>
-              </div>
+           {% if data['appointment-time'] == 'specific' %}  
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['date'] %} 
+              {{ data['date'] | formatDateString("D/M/YYYY","D MMMM YYYY")}}
+              {% else %} 
+              11 March 2025
+              {% endif %} 
+             </dd>
+            <dd class="govuk-summary-list__actions">
+              <ul class="govuk-summary-list__actions-list">
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> date</span></a>
+                </li>
+              </ul>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Time
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data | formatTime('1', '', 'pm') }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <ul class="govuk-summary-list__actions-list">
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> time</span></a>
+                </li>
+              </ul>
+            </dd>
+          </div>
+         {% else %} 
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date/time
+            </dt>
+            <dd class="govuk-summary-list__value">
+            {% if data['appointment-time'] == 'immediately' %}  
+              Immediately after release
+             {% else %} 
+              By 2pm on the next working day after their release
+            {% endif %} 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <ul class="govuk-summary-list__actions-list">
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> time</span></a>
+                </li>
+              </ul>
+            </dd>
+          </div>
+         {% endif %} 
             </dl>
 
 
