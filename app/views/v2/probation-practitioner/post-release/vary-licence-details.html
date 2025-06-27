@@ -68,139 +68,119 @@
                 </ul>
               </dd>
             </div>
-            {% if data['addressType'] == 'res' %}  
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Have you completed the residential address checks?
-              </dt>
-              <dd class="govuk-summary-list__value">
-                {% if data['addressChecks'] == 'no' %}  
-                No
-                {% else %}  
-                Yes
-                {% endif %}  
-              </dd>
-              <dd class="govuk-summary-list__actions">
-                <ul class="govuk-summary-list__actions-list">
-                  <li class="govuk-summary-list__actions-list-item">
-                    <a class="govuk-link govuk-link--no-visited-state" href="address-checks-edit">Change<span class="govuk-visually-hidden"> if you have completed the residential address checks</span></a>
-                  </li>
-                </ul>
-              </dd>
-            </div>
-            {% endif %}  
           </dl>
   
+          {% if data['additionalConditionsPresent'] == 'yes' %}  
 
-        {% if data['additionalConditionsPresent'] == 'yes' %}  
-
-        <div class="govuk-!-margin-bottom-9 govuk-!-margin-top-8">
-          <h2 class="govuk-heading-m" style="display: inline;">
-            Additional licence conditions (2)
-              </h2>
-
-              
-              <a href="../../../../_common/not-testing.html">
-                <button type="submit" style="float: right;" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-                  Add or remove conditions
-                </button>
-              </a>
-
-              <dl class="govuk-summary-list">
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    Condition 1 key
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    Condition 1 value
-                  </dd>
-                  <dd class="govuk-summary-list__actions">
-                    <ul class="govuk-summary-list__actions-list">
-                      <li class="govuk-summary-list__actions-list-item">
-                        <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> ?</span></a>
-                      </li>
-                    </ul>
-                  </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    Condition 2 key
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    Condition 2 value
-                  </dd>
-                  <dd class="govuk-summary-list__actions">
-                    <ul class="govuk-summary-list__actions-list">
-                      <li class="govuk-summary-list__actions-list-item">
-                        <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> ?</span></a>
-                      </li>
-                    </ul>
-                  </dd>
-                </div>
-              </dl>
-        </div>
-        {% else %}  
-        <div class="govuk-!-margin-bottom-9 govuk-!-margin-top-8">
-          <h2 class="govuk-heading-m" style="display: inline;">
-            Additional licence conditions (0)
-              </h2>
-              <a href="../../../../_common/not-testing.html">
-                <button type="submit" style="float: right;" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-                  Add conditions
-                </button>
-              </a>
-        </div>
-        {% endif %}  
-
-
-        {% if data['bespokeConditionsPresent'] == 'yes' %}  
-
-        <div class="govuk-!-margin-bottom-9">
-          <h2 class="govuk-heading-m" style="display: inline;">
-            Bespoke licence conditions (1)
-              </h2>
-
-              
-              <a href="../../../../_common/not-testing.html">
-                <button type="submit" style="float: right;" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-                  Add or remove conditions
-                </button>
-              </a>
-
-              <dl class="govuk-summary-list">
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    Condition 1 key
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    {{ data['bespokeDetail'] or "Bespoke condition value" }}
-                  </dd>
-                  <dd class="govuk-summary-list__actions">
-                    <ul class="govuk-summary-list__actions-list">
-                      <li class="govuk-summary-list__actions-list-item">
-                        <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> ?</span></a>
-                      </li>
-                    </ul>
-                  </dd>
-                </div>
-              </dl>
-        </div>
-        {% else %}  
-
-        <div class="govuk-!-margin-bottom-9">
-          <h2 class="govuk-heading-m" style="display: inline;">
-            Bespoke licence conditions (0)
-              </h2>
-
-              
-              <a href="../../../../_common/not-testing.html">
-                <button type="submit" style="float: right;" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-                  Add conditions
-                </button>
-              </a>
-            </div>
-
-        {% endif %}  
+          <div class="govuk-!-margin-bottom-9 govuk-!-margin-top-8">
+            <h2 class="govuk-heading-m" style="display: inline;">
+              Additional licence conditions (2)
+                </h2>
+  
+                
+                <a href="../../../../_common/not-testing.html">
+                  <button type="submit" style="float: right;" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                    Add or remove conditions
+                  </button>
+                </a>
+  
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Electronic monitoring	
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      <p>You will be subject to trail monitoring. Your whereabouts will be electronically monitored by GPS Satellite Tagging, ending on Thursday 18th December 2025, and you must cooperate with the monitoring as directed by your supervising officer unless otherwise authorised by your supervising officer.</p>
+                      <p class="hint-condition-custom">Thursday 18th December 2025</p>
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <ul class="govuk-summary-list__actions-list">
+                        <li class="govuk-summary-list__actions-list-item">
+                          <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> ?</span></a>
+                        </li>
+                      </ul>
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Electronic monitoring	
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      <p>You must stay at {{ data['approvedAddressLine1'] or "102 Petty France" }}, {% if data['approvedAddressLine2'] %}{{ data['approvedAddressLine2'] | default('Westminster') }},{% endif %} {{ data['approvedAddressTown'] or "London" }}, {% if data['approvedAddressCounty'] %}{{ data['approvedAddressCounty'] | default('Greater London') }},{% endif %} {{ data['approvedAddressPostcode'] or "SW1H 9AJ" }} between 5pm and midnight every day until your electronic tag is installed unless otherwise authorised by your supervising officer.</p>
+                      <p class="hint-condition-custom">{{ data['approvedAddressLine1'] or "102 Petty France" }}, {% if data['approvedAddressLine2'] %}{{ data['approvedAddressLine2'] | default('Westminster') }},{% endif %} {{ data['approvedAddressTown'] or "London" }}, {% if data['approvedAddressCounty'] %}{{ data['approvedAddressCounty'] | default('Greater London') }},{% endif %} {{ data['approvedAddressPostcode'] or "SW1H 9AJ" }}</p>
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <ul class="govuk-summary-list__actions-list">
+                        <li class="govuk-summary-list__actions-list-item">
+                          <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> ?</span></a>
+                        </li>
+                      </ul>
+                    </dd>
+                  </div>
+                </dl>
+          </div>
+          {% else %}  
+          <div class="govuk-!-margin-bottom-9 govuk-!-margin-top-8">
+            <h2 class="govuk-heading-m" style="display: inline;">
+              Additional licence conditions (0)
+                </h2>
+                <a href="../../../../_common/not-testing.html">
+                  <button type="submit" style="float: right;" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                    Add conditions
+                  </button>
+                </a>
+          </div>
+          {% endif %}  
+  
+  
+          {% if data['bespokeConditionsPresent'] == 'yes' %}  
+  
+          <div class="govuk-!-margin-bottom-9">
+            <h2 class="govuk-heading-m" style="display: inline;">
+              Bespoke licence conditions (1)
+                </h2>
+  
+                
+                <a href="../../../../_common/not-testing.html">
+                  <button type="submit" style="float: right;" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                    Add or remove conditions
+                  </button>
+                </a>
+  
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Bespoke condition	
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data['bespokeDetail'] or "Do not enter your local park" }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <ul class="govuk-summary-list__actions-list">
+                        <li class="govuk-summary-list__actions-list-item">
+                          <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> ?</span></a>
+                        </li>
+                      </ul>
+                    </dd>
+                  </div>
+                </dl>
+          </div>
+          {% else %}  
+  
+          <div class="govuk-!-margin-bottom-9">
+            <h2 class="govuk-heading-m" style="display: inline;">
+              Bespoke licence conditions (0)
+                </h2>
+  
+                
+                <a href="../../../../_common/not-testing.html">
+                  <button type="submit" style="float: right;" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                    Add conditions
+                  </button>
+                </a>
+              </div>
+  
+          {% endif %}  
 
 
         <div class="govuk-button-group govuk-!-margin-top-8">
@@ -210,7 +190,7 @@
         <a href="#" type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
             Discard changes
         </a>
-        <a class="govuk-link govuk-!-font-size-19 govuk-link--no-visited-state" href="case-list-view">
+        <a class="govuk-link govuk-!-font-size-19 govuk-link--no-visited-state" href="#">
             Return to caselist
         </a>
         </div>
