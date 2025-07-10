@@ -205,14 +205,6 @@
                 </div>
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
-                    Contact phone number
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    {{ data['contactNumber'] or "01234567890" }}
-                  </dd>
-                </div>
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
                     Date/time
                   </dt>
                   <dd class="govuk-summary-list__value">
@@ -242,10 +234,18 @@
                 </div>
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
-                     Phone number
+                    Contact phone number
                   </dt>
                   <dd class="govuk-summary-list__value">
-                    0123456789
+                    {{ data['phoneNumber'] or "01632 960901" }}             
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Alternative phone number
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ data['AlternativePhoneNumber'] or "Not entered" }}       
                   </dd>
                 </div>
                 <div class="govuk-summary-list__row">
