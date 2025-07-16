@@ -42,6 +42,17 @@
     <span class="pipe-separated__item">Date of birth: 5 Jan 1978</span>
 </div>
 <span class="govuk-heading-m">Guy Richards</span>
+ 
+{% elif data['prisoner'] == 'maxwell' %}  
+        <span class="pipe-separated__item">CRN: A5677DD</span>
+        {% if data['varyFlow'] == 'True' %}  
+          <span class="pipe-separated__item">Licence end date: 10 Oct 2025</span>
+          {% else %}  
+         <span class="pipe-separated__item">Release date: 25 Feb 2025</span>
+         {% endif %}  
+         <span class="pipe-separated__item">Date of birth: 22 Apr 1993</span>
+            </div>
+            <span class="govuk-heading-m">Maxwell Kirby</span>
         {% else %}  
         <span class="pipe-separated__item">CRN: A693826</span>
         {% if data['varyFlow'] == 'True' %}  

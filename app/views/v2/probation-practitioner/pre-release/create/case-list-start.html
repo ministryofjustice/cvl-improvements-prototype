@@ -105,20 +105,24 @@
          <tr class="govuk-table__row">
 
           <td class="govuk-table__cell">
-            <a href="../../../../../_common/not-testing.html" class="govuk-link--no-visited-state pp-caselist-name">
+          {% if data['maxwell'] == 'approved' %}  
+            <a href="licence-created-by-prison" class="govuk-link--no-visited-state pp-caselist-name">
+          {% else %}  
+            <a href="prison-will-create?prisoner=maxwell" class="govuk-link--no-visited-state pp-caselist-name">
+          {% endif %}  
             Maxwell Kirby</a>
             <span class="govuk-!-font-size-16 pp-caselist-crn">CRN: A5677DD</span>
           </td>
     
           <td class="govuk-table__cell">Standard determinate</td>
     
-          <td class="govuk-table__cell"><a href="../../../../../_common/not-testing.html" class="govuk-link--no-visited-state">Sally Rooney</a></td>
+          <td class="govuk-table__cell"><a href="../../../../../_common/not-testing.html" class="govuk-link--no-visited-state">Stephen McVeigh</a></td>
     
-          <td class="govuk-table__cell" data-sort-value="20250225"><span class="urgent-highlight">25 Feb 2025</span><span class="urgent-highlight urgent-highlight-message">Early release</span></td>
-    
+          <td class="govuk-table__cell" data-sort-value="20250225">25 Feb 2025</td>
+
           <td class="govuk-table__cell">
-            <strong class="govuk-tag govuk-tag--green status-badge">
-              Approved
+            <strong class="govuk-tag govuk-tag--grey status-badge">
+              Timed Out
             </strong>
           </td>
            </tr>
@@ -182,7 +186,7 @@
       
             <td class="govuk-table__cell">Standard determinate</br>Post sentence supervision</td>
       
-            <td class="govuk-table__cell"><a href="../../../../../_common/not-testing.html" class="govuk-link--no-visited-state">Sally Rooney</a></td>
+            <td class="govuk-table__cell"><a href="../../../../../_common/not-testing.html" class="govuk-link--no-visited-state">Stephen McVeigh</a></td>
       
             <td class="govuk-table__cell" data-sort-value="20250326">26 Mar 2025</td>
       
@@ -203,7 +207,7 @@
         
               <td class="govuk-table__cell">Standard determinate</td>
         
-              <td class="govuk-table__cell"><a href="../../../../../_common/not-testing.html" class="govuk-link--no-visited-state">Sally Rooney</a></td>
+              <td class="govuk-table__cell"><a href="../../../../../_common/not-testing.html" class="govuk-link--no-visited-state">Stephen McVeigh</a></td>
         
               <td class="govuk-table__cell" data-sort-value="20250408">8 Apr 2025</td>
         
@@ -295,6 +299,6 @@
 
 {% block footer %}
 
-{% include "components/cvl-dm-ca-footer/include.html" %}
+{% include "components/cvl-pp-footer/include.html" %}
 
 {% endblock %}

@@ -18,7 +18,7 @@
 
     <div class="govuk-panel govuk-panel--confirmation">
       <h1 class="govuk-panel__title">
-        Variation for Cyphoonifer Bransabert approved
+        Variation for {% if data['prisoner'] == 'maxwell' %}Maxwell Kirby{% else %}Cyphoonifer Bransabert{% endif %} approved
       </h1>
     </div>
 
@@ -26,7 +26,7 @@
       What happens next
      </h2>
 
-        <p>The variation for Cyphoonifer Bransabert has been approved with your digital signature.</p>
+        <p>The variation for {% if data['prisoner'] == 'maxwell' %}Maxwell Kirby{% else %}Cyphoonifer Bransabert{% endif %} has been approved with your digital signature.</p>
 
         <p>We have sent an email notification to the probation practitioner.</p>
 

@@ -82,8 +82,89 @@
             </ul>
             <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="next-2-days">
               <h2 class="govuk-heading-l">Release in next 2 working days</h2>
-              <p class="govuk-body govuk-!-font-weight-bold">There are no licences which match the search criteria.</p>
+              <!--<p class="govuk-body govuk-!-font-weight-bold">There are no licences which match the search criteria.</p>-->
+              <p>From 2 days before release:</p>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>probation practitioners can no longer work on licences</li>
+                <li>you can generate a standard licence if a probation practitioner has not submitted one for approval</li>
+             </ul>
+             <p>You will not be able to generate a standard licence for someone being released early if the probation practitioner has not submitted one.</p>
+
+             <table class="govuk-table" data-module="moj-sortable-table">
+
+                <thead class="govuk-table__head">
+                  <tr class="govuk-table__row">
+            
+                  <th scope="col" class="govuk-table__header" aria-sort="none">Name</th>
+            
+                  <th scope="col" class="govuk-table__header" aria-sort="none">Prison number</th>
+            
+                  <th scope="col" class="govuk-table__header" aria-sort="none">Probation practitioner</th>
+            
+                  <th scope="col" class="govuk-table__header" aria-sort="ascending">Release date</th>
+
+                  <th scope="col" class="govuk-table__header" aria-sort="none">Last worked on by</th>
+            
+                  <th scope="col" class="govuk-table__header" aria-sort="none">Status</th>
+            
+                </tr>
+              </thead>
+            
+              <tbody class="govuk-table__body"> 
+            
+            
+                   <tr class="govuk-table__row">
+            
+                    <td class="govuk-table__cell">
+                    {% if data['maxwell'] == 'approved' %}  
+                      <a href="./hard-stop/print-licence" class="govuk-link--no-visited-state pp-caselist-name">Maxwell Kirby</a>
+                    {% elif data['maxwell'] == 'submitted' %}  
+                      <a href="#" class="govuk-link--no-visited-state pp-caselist-name">Maxwell Kirby</a>
+                    {% else %}  
+                      <a href="./hard-stop/are-you-sure-generate" class="govuk-link--no-visited-state pp-caselist-name">Maxwell Kirby</a>
+                    {% endif %}  
+                    </td>
+              
+                    <td class="govuk-table__cell">A5677DD</td>
+              
+                    <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Stephen McVeigh</a></td>
+              
+                    <td class="govuk-table__cell" data-sort-value="20250527">Post-recall release date (PRRD):<br> 25 Feb 2025</td>
+                    
+                    <td class="govuk-table__cell">
+                       {% if data['maxwell'] == 'approved' %}  
+                        John Cooper
+                      {% else %}  
+                      {% endif %}  
+                    </td>
+
+                    <td class="govuk-table__cell">
+
+                  {% if data['maxwell'] == 'submitted' %}  
+                   <strong class="govuk-tag govuk-tag--pink status-badge">
+                    Submitted
+                  </strong>
+                  {% elif data['maxwell'] == 'approved' %}  
+                  <strong class="govuk-tag govuk-tag--green status-badge">
+                    Approved
+                  </strong>
+                  {% else %}  
+                   <strong class="govuk-tag govuk-tag--yellow status-badge">
+                  Not started
+                </strong>
+                 {% endif %}  
+                 </tbody>
+                </table>
+
+
+
+
             </div>
+
+
+
+
+
             <div class="govuk-tabs__panel" id="past-week">
               <h2 class="govuk-heading-l">Future releases</h2>
               <p>Licences for people within 4 weeks of release or that have been started before then.</p>
