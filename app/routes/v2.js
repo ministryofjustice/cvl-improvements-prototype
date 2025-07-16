@@ -13,7 +13,7 @@ var version = '/v2';
 // Add your routes here
 
 
-// MVP2 - general flow
+// Creation
 
 
 router.post(version + '/are-you-sure-answer2', function(request, response) {
@@ -117,5 +117,27 @@ router.post(version + '/are-you-sure-vary-answer', function(request, response) {
 })
 
 
+// Hard stop
+
+router.post(version + '/are-you-sure-generate-answer', function(request, response) {
+
+    var areyousuregenerate = request.session.data['generateLicence']
+    if (areyousuregenerate == "yes"){
+        response.redirect(version + "/case-admin/hard-stop/who-with")
+    } else {
+        response.redirect(version + "/case-admin/case-list-pip-approved")
+    }
+})
+
+
+router.post(version + '/licence-need-changing-answer', function(request, response) {
+
+    var doesLicenceNeedChanging = request.session.data['licenceNeedChanging']
+    if (doesLicenceNeedChanging == "yes"){
+        response.redirect(version + "/probation-practitioner/post-release/are-you-sure-vary")
+    } else {
+        response.redirect(version + "/probation-practitioner/post-release/hard-stop/licence-history")
+    }
+})
 
 }

@@ -24,7 +24,7 @@
       Add reasons for the variation
         </h1>
 
-        <form method="get">
+    <form action="variation-summary" method="get">
 
 
 
@@ -134,14 +134,16 @@
 
               </div>
             </details>
-            <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
+            <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
           </div>
 
 
         <div class="govuk-button-group govuk-!-margin-top-8">
-          <a href="variation-summary" type="submit" class="govuk-button" data-module="govuk-button">
-            Continue
-        </a>
+       <button type="submit" class="govuk-button" data-module="govuk-button">
+           Continue
+          </button>
+        </form>
+
         <a href="../../../../_common/not-testing" type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
             Discard changes
         </a>

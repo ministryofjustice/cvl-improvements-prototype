@@ -24,7 +24,7 @@
           What happens next
             </h2>
 
-        <p>A case administrator can now print the licence for Cyphoonifer Bransabert.</p>
+        <p>A case administrator can now print the licence for {% if data['prisoner'] == 'maxwell' %}Maxwell Kirby{% else %}Cyphoonifer Bransabert{% endif %}.</p>
           
         <p>We will email the probation practitioner automatically to tell them this licence has been approved.</p>
         
@@ -43,10 +43,17 @@
         </button>
       </a>
 
+      {% if data['prisoner'] == 'maxwell' %}  
+        <p class="govuk-!-margin-top-6"><a href="/v2/case-admin/case-list-pip-approved?maxwell=approved" class="govuk-link--no-visited-state">Jump to case admin flow</a></p>
 
-      <p class="govuk-!-margin-top-6"><a href="/v2/probation-practitioner/pre-release/edit/case-list" class="govuk-link--no-visited-state">Jump to probation practitioner edit flow</a></p>
+        <p class="govuk-!-margin-top-6"><a href="/v2/probation-practitioner/pre-release/create/case-list-start?maxwell=approved" class="govuk-link--no-visited-state">Jump to probation practitioner flow</a></p>
 
-      <p class=""><a href="/v2/probation-practitioner/post-release/case-list-view?varyFlow=True" class="govuk-link--no-visited-state">Jump to probation practitioner vary flow</a></p>
+      {% else %}  
+        <p class="govuk-!-margin-top-6"><a href="/v2/probation-practitioner/pre-release/edit/case-list" class="govuk-link--no-visited-state">Jump to probation practitioner edit flow</a></p>
+        
+        <p class=""><a href="/v2/probation-practitioner/post-release/case-list-view?varyFlow=True" class="govuk-link--no-visited-state">Jump to probation practitioner vary flow</a></p>
+      {% endif %}  
+
 
   </div>
 </div>

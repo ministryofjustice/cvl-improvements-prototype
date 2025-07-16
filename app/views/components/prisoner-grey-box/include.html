@@ -8,7 +8,11 @@
               Name
             </dt>
             <dd class="govuk-summary-list__value">
+            {% if data['prisoner'] == 'maxwell' %}  
+              Maxwell Kirby
+            {% else %}  
               Cyphoonifer Bransabert
+            {% endif %}  
             </dd>
           </div>
           <div class="govuk-summary-list__row">
@@ -16,15 +20,23 @@
               Date of birth
             </dt>
             <dd class="govuk-summary-list__value">
+            {% if data['prisoner'] == 'maxwell' %}  
+              22 April 1993
+            {% else %}  
               10 November 1970
-            </dd>
+            {% endif %}  
+          </dd>
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Prison number
             </dt>
             <dd class="govuk-summary-list__value">
+            {% if data['prisoner'] == 'maxwell' %}  
+              A890301
+            {% else %}  
               A693826
+            {% endif %}  
             </dd>
           </div>
           <div class="govuk-summary-list__row">

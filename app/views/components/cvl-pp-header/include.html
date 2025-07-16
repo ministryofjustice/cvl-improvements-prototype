@@ -20,7 +20,11 @@
         
           <li class="connect-dps-external-header__navigation__item">
             <a class="connect-dps-external-header__link" href="#">
+              {% if data['prisoner'] == 'maxwell' %}
+              <span>S. McVeigh</span>
+              {% else %}
               <span>S. Rooney</span>
+              {% endif %}
               <span class="connect-dps-external-header__link__sub-text">Manage your details</span>
             </a>
           </li>
