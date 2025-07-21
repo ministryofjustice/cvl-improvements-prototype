@@ -129,8 +129,11 @@
               
                     <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Stephen McVeigh</a></td>
               
-                    <td class="govuk-table__cell" data-sort-value="20250527">Post-recall release date (PRRD):<br> 25 Feb 2025</td>
-                    
+                      
+                    <td class="govuk-table__cell" data-sort-value="20250527">
+                      {% if data['recallCase'] == 'true' %}Post-recall release date (PRRD):<br> 25 Feb 2025{% else %}25 Feb 2025{% endif %}
+                    </td>
+                     
                     <td class="govuk-table__cell">
                        {% if data['maxwell'] == 'approved' %}  
                         John Cooper
