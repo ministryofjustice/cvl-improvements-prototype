@@ -48,13 +48,19 @@
           <ul class="moj-sub-navigation__list">
               <li class="moj-sub-navigation__item">
                   <a class="moj-sub-navigation__link" aria-current="page" href="case-list-submitted">My cases
+                  {% if data['maxwell'] == 'active' %}  
+                  {% else %}   
                     <span id="notifications" class="moj-notification-badge">1</span>
+                  {% endif %}  
                   </a>
                   
               </li>
               <li class="moj-sub-navigation__item">
                   <a class="moj-sub-navigation__link" href="#">Team cases
+                 {% if data['maxwell'] == 'active' %}  
+                 {% else %}   
                     <span id="notifications" class="moj-notification-badge">1</span>
+                  {% endif %}  
                   </a>
               </li>
           </ul>
@@ -98,7 +104,7 @@
         <td class="govuk-table__cell">27 May 2025</td>
   
         <td class="govuk-table__cell">
-          <strong class="govuk-tag govuk-tag--green status-badge">
+          <strong class="govuk-tag govuk-tag--turquoise status-badge">
           Active
         </strong>
         </td>
@@ -117,12 +123,23 @@
   
         <td class="govuk-table__cell"><a href="../../../_common/not-testing.html" class="govuk-link--no-visited-state">Stephen McVeigh</a></td>
   
-            <td class="govuk-table__cell" data-sort-value="20250225"><span class="urgent-highlight">25 Feb 2025</span><span class="urgent-highlight urgent-highlight-message">Timed out</span></td>
-  
+         {% if data['maxwell'] == 'active' %}  
+          <td class="govuk-table__cell" data-sort-value="20250225">25 Feb 2025</td>
+         {% else %}  
+         <td class="govuk-table__cell" data-sort-value="20250225"><span class="urgent-highlight">25 Feb 2025</span><span class="urgent-highlight urgent-highlight-message">Timed out</span></td>
+         {% endif %}  
+
         <td class="govuk-table__cell">
+          {% if data['maxwell'] == 'active' %}  
+          <strong class="govuk-tag govuk-tag--turquoise status-badge">
+            Active
+          </strong>
+          {% else %}  
           <strong class="govuk-tag govuk-tag--red status-badge">
           Review needed
         </strong>
+        {% endif %}  
+
         </td>
          </tr>
 
