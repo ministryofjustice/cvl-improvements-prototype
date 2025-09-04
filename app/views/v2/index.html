@@ -86,9 +86,36 @@
 
 
     <h3 class="govuk-heading-s govuk-!-margin-top-7">Individual links to pages per user type</h3>
+
+
+
     {{ govukAccordion({
       id: "accordion-default",
       items: [
+
+
+      {
+        heading: {
+          text: "Email reminders"
+        },
+        content: {
+          html: '
+          
+          <h2 class="govuk-heading-m">Probation Practitioner (PP)</h2>
+      
+          <ul class="govuk-list">
+            <li><a class="govuk-link--no-visited-state" href="./probation-practitioner/emails/cvl-home">CVL home</a></li>
+            <li><a class="govuk-link--no-visited-state" href="./probation-practitioner/emails/manage-email-reminders">Manage email reminders</a></li>
+          </ul>
+
+          <h2 class="govuk-heading-m">Case admin (CA)</h2>
+          <p>TBC</p>
+
+      
+          
+          '
+        }
+      },
         
         {
           heading: {
@@ -129,36 +156,20 @@
     </h3>
 
     <ul class="govuk-list">
-      <li>
-        <a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/are-you-sure">Are you sure you want to create this licence?</a>
-      </li>
-      <li>
-        <a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/who-with">Who is the initial appointment with?</a>
-      </li>
-      <li>
-        <a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/where-appt/empty-state">Where is the initial appointment? (Empty state)</a>
-      </li>
-      <li>
-        <a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/where-appt/saved-addresses.html">Where is the initial appointment? (Saved addresses)</a>
-      </li>
-      <li>
-        <a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/where-appt/searchresult-one.html">Where is the initial appointment? (One search result)</a>
-      </li>
-      <li>
-        <a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/where-appt/searchresult-multiple.html">Where is the initial appointment? (Multiple search results)</a>
-      </li>
-      <li>
-        <a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/where-appt/searchresult-none.html">Where is the initial appointment? (No search results)</a>
-      </li>
-      <li>
-        <a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/where-appt/manual-entry.html">Where is the initial appointment? (Manual entry)</a>
-      </li>
-      <li>
-        <a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/contact-number">What is the contact phone number for the initial appointment? (Alternative phone number)</a>
-      </li>
-      <li>
-        <a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/when-appt">When does this person need to go to the initial appointment?</a>
-      </li>
+      <li><a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/are-you-sure">Are you sure you want to create this licence?</a></li>
+      <li><a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/are-you-sure-friday-release">Are you sure you want to create this licence? (Friday release WIP)</a></li></br>
+
+      <li><a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/who-with">Who is the initial appointment with?</a></li></br>
+
+      <li><a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/where-appt/empty-state">Where is the initial appointment? (Empty state)</a></li>
+      <li><a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/where-appt/saved-addresses.html">Where is the initial appointment? (Saved addresses)</a></li>
+      <li><a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/where-appt/searchresult-one.html">Where is the initial appointment? (One search result)</a></li>
+      <li><a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/where-appt/searchresult-multiple.html">Where is the initial appointment? (Multiple search results)</a></li>
+      <li><a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/where-appt/searchresult-none.html">Where is the initial appointment? (No search results)</a></li>
+      <li><a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/where-appt/manual-entry.html">Where is the initial appointment? (Manual entry)</a></li></br>
+      
+      <li><a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/contact-number">What is the contact phone number for the initial appointment? (Alternative phone number)</a></li></br>
+      <li><a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/when-appt">When does this person need to go to the initial appointment?</a></li>
     </ul>
 
 
@@ -311,6 +322,10 @@
       '
           }
         },
+
+
+
+
         {
           heading: {
             text: "View or edit before release"
