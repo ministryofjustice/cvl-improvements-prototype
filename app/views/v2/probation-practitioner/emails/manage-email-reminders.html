@@ -1,0 +1,91 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Are you sure you want to create this licence?" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-pp-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-4">
+      Manage email reminders
+    </h1>
+
+    <p>You can receive email reminders to help you keep track of licences.</br>
+      The preferences you choose below will apply to all your licences.</p>
+
+    <p>Emails will be sent to <strong>s.rooney@justice.gov.uk</strong>. You can update this address on NOMIS.</p>
+
+  <form action="./cvl-home" method="post" novalidate>
+
+
+
+  <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="reminder-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      <h1 class="govuk-fieldset__heading govuk-!-margin-top-4">
+      Send me an email reminder
+      </h1>
+    </legend>
+    <!--<div id="reminder-hint" class="govuk-hint">
+      Select all that apply.
+    </div>-->
+    <div class="govuk-checkboxes">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="reminder" name="reminder" type="checkbox" value="before handover starts" checked="true">
+        <label class="govuk-label govuk-checkboxes__label" for="reminder">
+          To let you know to start planning for handover
+        </label>
+        <div class="govuk-hint govuk-checkboxes__hint">
+          We send this 8 weeks before COM allocation to give you time to prepare more complex cases.
+        </div>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="reminder-2" name="reminder" type="checkbox" value="handover start date" checked="true">
+        <label class="govuk-label govuk-checkboxes__label" for="reminder-2">
+          When a COM has been allocated
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="reminder-3" name="reminder" type="checkbox" value="missing com" checked="true">
+        <label class="govuk-label govuk-checkboxes__label" for="reminder-3">
+          If COM allocation is overdue
+        </label>
+      </div>
+    </div>
+  </fieldset>
+  </div>
+
+        
+
+
+    <div class="govuk-button-group" style="margin-top: 40px;">
+      <button class="govuk-button" data-module="govuk-button" name="emailreminders" value="updated">Update</button>
+      <a class="govuk-link" class="govuk-link--no-visited-state" href="./cvl-home">Cancel</a>
+    </div>
+
+  </form>
+             
+
+
+  </div>
+</div>
+{% endblock %}
+
+
+{% block footer %}
+
+{% include "components/cvl-pp-footer/include.html" %}
+
+{% endblock %}
