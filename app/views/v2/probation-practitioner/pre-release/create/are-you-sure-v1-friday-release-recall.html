@@ -1,0 +1,124 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Are you sure you want to create this licence?" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-pp-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% include "components/prisoner-subheader/include.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+
+<h1 class="govuk-heading-l">Are you sure you want to create this licence?</h1>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+
+    <div class="govuk-summary-card govuk-!-margin-top-2">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">
+          Case details
+        </h2>
+        <!--<ul class="govuk-summary-card__actions">
+          <li class="govuk-summary-card__action">
+            <a class="govuk-link govuk-link--no-visited-state" href="#">See full DPS profile</a>
+          </li>
+        </ul>-->
+      </div>
+      <div class="govuk-summary-card__content">
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Cyphoonifer Bransabert
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              CRN
+            </dt>
+            <dd class="govuk-summary-list__value">
+              A693826
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Imprisonment status
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Fixed Term Recall
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Release date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Friday, {{ "today" |  duration(96) | govukDate }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <span class="moj-badge moj-badge--black">Nomis</span>
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+    
+
+  </div>
+</div>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h2 class="govuk-heading-m">Consider the following:</h2>
+
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>This person is eligible for an earlier release. It may affect their initial appointment. Find more information in the <a class="govuk-link" href="#">Friday or pre-bank holiday release policy framework (opens in new tab).</a></li>
+      <li style="margin-top: 10px;">It's a recall, check EPF2 and previous licence</li>
+    </ul>
+
+
+
+  <form action="/v2/are-you-sure-answer2" method="post">
+
+    <div class="govuk-button-group govuk-!-margin-top-8">
+      <button type="submit" class="govuk-button" data-module="govuk-button" name="areyousure" value="createLicence">
+        Continue and create licence
+      </button>
+      <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="areyousure" value="caselist">
+        Return to case list
+      </button>
+    </div>
+
+  </form>
+
+
+  </div>
+</div>
+{% endblock %}
+
+
+{% block footer %}
+
+{% include "components/cvl-pp-footer/include.html" %}
+
+{% endblock %}
