@@ -23,9 +23,9 @@
     </h1>
 
     <p>You can receive email reminders to help you keep track of licences.</br>
-      The preferences you choose below will apply to all your licences.</p>
+      The preferences you choose below will apply to licences for all the people you are allocated to.</p>
 
-    <p>Emails will be sent to <strong>s.rooney@justice.gov.uk</strong>. You can update this address on NOMIS.</p>
+    <p>Emails will be sent to <strong>s.rooney@justice.gov.uk</strong>. You can update this address on NDelius.</p>
 
   <form action="./cvl-home" method="post" novalidate>
 
@@ -35,7 +35,7 @@
   <fieldset class="govuk-fieldset" aria-describedby="reminder-hint">
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
       <h1 class="govuk-fieldset__heading govuk-!-margin-top-4">
-      Send me an email reminder
+      Send an email reminder
       </h1>
     </legend>
     <!--<div id="reminder-hint" class="govuk-hint">
@@ -45,22 +45,58 @@
       <div class="govuk-checkboxes__item">
         <input class="govuk-checkboxes__input" id="reminder" name="reminder" type="checkbox" value="before handover starts" checked="true">
         <label class="govuk-label govuk-checkboxes__label" for="reminder">
-          To let you know to start planning for handover
+          When you have licences to create
         </label>
         <div class="govuk-hint govuk-checkboxes__hint">
-          We send this 8 weeks before COM allocation to give you time to prepare more complex cases.
+          Sent every Monday for people who have 4 weeks or less to their release date whose licence has not been started in this service.
         </div>
       </div>
       <div class="govuk-checkboxes__item">
         <input class="govuk-checkboxes__input" id="reminder-2" name="reminder" type="checkbox" value="handover start date" checked="true">
         <label class="govuk-label govuk-checkboxes__label" for="reminder-2">
-          When a COM has been allocated
+          If you have been reallocated to someone who needs a licence
         </label>
       </div>
       <div class="govuk-checkboxes__item">
         <input class="govuk-checkboxes__input" id="reminder-3" name="reminder" type="checkbox" value="missing com" checked="true">
         <label class="govuk-label govuk-checkboxes__label" for="reminder-3">
-          If COM allocation is overdue
+          When the prison generate a standard licence for someone using this service
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="reminder-4" name="reminder" type="checkbox" value="missing com" checked="true">
+        <label class="govuk-label govuk-checkboxes__label" for="reminder-4">
+          To let you know that the prison has changed some dates
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="reminder-4" name="reminder" type="checkbox" value="missing com" checked="true">
+        <label class="govuk-label govuk-checkboxes__label" for="reminder-4">
+          If changes you made to an approved licence do not get reapproved in time for release 
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="reminder-4" name="reminder" type="checkbox" value="missing com" checked="true">
+        <label class="govuk-label govuk-checkboxes__label" for="reminder-4">
+          If changes you made to an approved licence do not get reapproved in time for the prison's final release checks
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="reminder-4" name="reminder" type="checkbox" value="missing com" checked="true">
+        <label class="govuk-label govuk-checkboxes__label" for="reminder-4">
+          When a licence variation is approved
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="reminder-4" name="reminder" type="checkbox" value="missing com" checked="true">
+        <label class="govuk-label govuk-checkboxes__label" for="reminder-4">
+          To let you know that a licence variation needs more work before approval
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="reminder-4" name="reminder" type="checkbox" value="missing com" checked="true">
+        <label class="govuk-label govuk-checkboxes__label" for="reminder-4">
+          When a review of a standard licence is overdue
         </label>
       </div>
     </div>
