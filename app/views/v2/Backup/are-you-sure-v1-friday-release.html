@@ -17,15 +17,15 @@
 {% block content %}
 
 
-<h1 class="govuk-heading-l">Are you sure you want to create this person's licence?</h1>
+<h1 class="govuk-heading-l">Are you sure you want to create this licence?</h1>
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-one-half">
 
     <div class="govuk-summary-card govuk-!-margin-top-2">
       <div class="govuk-summary-card__title-wrapper">
         <h2 class="govuk-summary-card__title">
-          Personal information
+          Case details
         </h2>
         <!--<ul class="govuk-summary-card__actions">
           <li class="govuk-summary-card__action">
@@ -60,7 +60,7 @@
               Imprisonment status
             </dt>
             <dd class="govuk-summary-list__value">
-              Sentenced
+              Fixed Term Recall
             </dd>
             <dd class="govuk-summary-list__actions">
             </dd>
@@ -70,8 +70,7 @@
               Release date
             </dt>
             <dd class="govuk-summary-list__value">
-              <span class="urgent-highlight">Friday, {{ "today" |  duration(96) | govukDate }}</span>
-              <span class="urgent-highlight urgent-highlight-message">Eligible for the Friday or pre-bank holiday release scheme. This may affect their initial appointment.</span>
+              Friday, {{ "today" |  duration(96) | govukDate }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <span class="moj-badge moj-badge--black">Nomis</span>
@@ -81,6 +80,25 @@
       </div>
     </div>
     
+
+  </div>
+</div>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h2 class="govuk-heading-m">Consider the following:</h2>
+
+    <p class="govuk-body">This person is eligible for an earlier release. It may affect their initial appointment. Find more information in the <a class="govuk-link" href="#">Friday or pre-bank holiday release policy framework (opens in new tab).</a></p>
+
+
+    <!--<ul class="govuk-list govuk-list--bullet">
+      <li>This person is eligible for an earlier release. It may affect their initial appointment. Find more information in the <a class="govuk-link" href="#">Friday or pre-bank holiday release policy framework (opens in new tab).</a></li>
+      <li style="margin-top: 10px;">It's a recall, check EPF2 and previous licence</li>
+    </ul>-->
+
+
 
   <form action="/v2/are-you-sure-answer2" method="post">
 
