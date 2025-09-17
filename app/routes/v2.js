@@ -22,7 +22,7 @@ router.post(version + '/are-you-sure-answer2', function(request, response) {
     if (areyousure == "yes"){
         response.redirect(version + "/probation-practitioner/pre-release/create/who-with")
     } else {
-        response.redirect(version + "/probation-practitioner/pre-release/create/case-list-start")
+        response.redirect(version + "/probation-practitioner/pre-release/create/who-with")
     }
 })
 
