@@ -1,7 +1,33 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full border-bottom">
         <div class="govuk-caption-m">
- {% if data['prisoner'] == 'diego' %}  
+
+    
+  {% if data['prisoner'] == 'kairo' %}  
+          <span class="pipe-separated__item">CRN: R885645</span>
+          <span class="pipe-separated__item">Release date: {{ "today" | duration(13) | govukDate(truncate=true) }}</span>
+          <span class="pipe-separated__item">Date of birth: 5 Dec 1966</span>
+      </div>
+      <span class="govuk-heading-m">Kairo Watson</span>
+
+
+  {% elif data['prisoner'] == 'marcel' %}  
+          <span class="pipe-separated__item">CRN: F246831</span>
+          <span class="pipe-separated__item">Release date: {{ "today" | duration(12) | govukDate(truncate=true) }}</span>
+          <span class="pipe-separated__item">Date of birth: 11 Nov 1984</span>
+      </div>
+      <span class="govuk-heading-m">Marcel Evans</span>
+
+
+  {% elif data['prisoner'] == 'gabriel' %}  
+              <span class="pipe-separated__item">CRN: V279953</span>
+              <span class="pipe-separated__item">Release date: {{ "today" | duration(11) | govukDate(truncate=true) }}</span>
+              <span class="pipe-separated__item">Date of birth: 20 Feb 2000</span>
+          </div>
+          <span class="govuk-heading-m">Gabriel Collins</span>
+
+
+ {% elif data['prisoner'] == 'diego' %}  
             <span class="pipe-separated__item">CRN: S674889</span>
             {% if data['varyFlow'] == 'True' %}  
             <span class="pipe-separated__item">Licence end date: 15 Oct 2025</span>
@@ -11,6 +37,8 @@
             <span class="pipe-separated__item">Date of birth: 17 June 1999</span>
         </div>
         <span class="govuk-heading-m">Diego Rodriguez</span>
+
+
  {% elif data['prisoner'] == 'cyphoonifer' %}  
     <span class="pipe-separated__item">CRN: A693826</span>
 {% if data['varyFlow'] == 'True' %}  
@@ -21,6 +49,8 @@
  <span class="pipe-separated__item">Date of birth: 10 Nov 1970</span>
     </div>
     <span class="govuk-heading-m">Cyphoonifer Bransabert</span>
+
+
   {% elif data['prisoner'] == 'montgomery' %}  
         <span class="pipe-separated__item">CRN: F906211</span>
         {% if data['varyFlow'] == 'True' %}  
@@ -32,6 +62,7 @@
     </div>
     <span class="govuk-heading-m">Montgomery Talbot</span>
 
+
  {% elif data['prisoner'] == 'guy' %}  
     <span class="pipe-separated__item">CRN: Z503727</span>
     {% if data['varyFlow'] == 'True' %}  
@@ -42,6 +73,7 @@
     <span class="pipe-separated__item">Date of birth: 5 Jan 1978</span>
 </div>
 <span class="govuk-heading-m">Guy Richards</span>
+
  
 {% elif data['prisoner'] == 'maxwell' %}  
         <span class="pipe-separated__item">CRN: A5677DD</span>
@@ -64,5 +96,7 @@
             </div>
             <span class="govuk-heading-m">Cyphoonifer Bransabert</span>
         {% endif %}  
+
+
     </div>
 </div>

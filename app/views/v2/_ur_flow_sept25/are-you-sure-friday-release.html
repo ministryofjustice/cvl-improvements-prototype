@@ -32,7 +32,7 @@
           Name
         </dt>
         <dd class="govuk-summary-list__value">
-          Cyphoonifer Bransabert
+          Marcel Evans
         </dd>
         <dd class="govuk-summary-list__actions">
         </dd>
@@ -42,7 +42,7 @@
           CRN
         </dt>
         <dd class="govuk-summary-list__value">
-          A693826
+          F246831
         </dd>
         <dd class="govuk-summary-list__actions">
         </dd>
@@ -63,7 +63,7 @@
           Release date
         </dt>
         <dd class="govuk-summary-list__value">
-          <span class="urgent-highlight">Friday, 12 December 2025</span>
+          <span class="urgent-highlight">Friday, {{ "today" | duration(12) | govukDate(truncate=false) }}</span>
           <span class="urgent-highlight urgent-highlight-message">Check this date with the prison. It may change because it is on or just before a weekend or bank holiday. This may affect the initial appointment.</span>
         </dd>
         <dd class="govuk-summary-list__actions">
@@ -122,10 +122,10 @@
   <form action="/v2/are-you-sure-answer2" method="post">
 
     <div class="govuk-button-group govuk-!-margin-top-8">
-      <button type="submit" class="govuk-button" data-module="govuk-button" name="areyousure" value="createLicence">
+      <button type="submit" class="govuk-button" data-module="govuk-button" name="areyousure" value="yes">
         Continue and create licence
       </button>
-      <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="areyousure" value="caselist">
+      <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="areyousure" value="no">
         Return to case list
       </button>
     </div>
