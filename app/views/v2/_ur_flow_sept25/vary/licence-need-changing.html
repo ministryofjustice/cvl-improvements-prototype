@@ -29,78 +29,31 @@
   <div class="govuk-form-group">
   <fieldset class="govuk-fieldset">
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-      <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-3">
+      <h1 class="govuk-fieldset__heading">
         Does anything on this licence need changing?
       </h1>
     </legend>
 
-    <p class="govuk-body">You can vary this licence to add information such as additional licence conditions or leave it unchanged if you are happy with it.</p>
-
-
-
-    <dl class="govuk-summary-list">
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Name
-        </dt>
-        <dd class="govuk-summary-list__value">
-          Reuben Lee
-        </dd>
-        <dd class="govuk-summary-list__actions">
-        </dd>
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          CRN
-        </dt>
-        <dd class="govuk-summary-list__value">
-          C762241
-        </dd>
-        <dd class="govuk-summary-list__actions">
-        </dd>
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Status
-        </dt>
-        <dd class="govuk-summary-list__value">
-          <span class="urgent-highlight"> Fixed-term recall</span>
-          <span class="urgent-highlight urgent-highlight-message">Check their previous licence conditions.</br>You should do this using <a class="govuk-link--no-visited-state" href="#">EPF 2</a>.</span>
-        </dd>
-        <dd class="govuk-summary-list__actions">
-        </dd>
-      </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Release date
-        </dt>
-        <dd class="govuk-summary-list__value">
-          Wednesday, {{ "today" | duration(0) | govukDate(truncate=false) }}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <span class="moj-badge moj-badge--black">Nomis</span>
-        </dd>
-      </div>
-    </dl>
-    
-
-
-
-
-
-
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-visually-hidden">Warning</span>
+        This person was released following a <strong>fixed-term recall</strong>.</br>
+        Check their previous licence conditions. You should do this using <a class="govuk-link--no-visited-state" href="#">EPF 2</a>.
+      </strong>
+    </div>
 
     <div class="govuk-radios" data-module="govuk-radios">
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="licenceNeedChanging" name="licenceNeedChanging" type="radio" value="yes">
         <label class="govuk-label govuk-radios__label" for="licenceNeedChanging">
-          Yes - vary this licence now
+          Yes – vary this licence now
         </label>
       </div>
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="licenceNeedChanging-2" name="licenceNeedChanging" type="radio" value="no">
         <label class="govuk-label govuk-radios__label" for="licenceNeedChanging-2">
-          No - return to licence history
+          No – leave unchanged and return to licence history
         </label>
       </div>
     </div>

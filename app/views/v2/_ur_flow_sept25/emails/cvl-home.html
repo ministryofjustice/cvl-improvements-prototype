@@ -79,6 +79,11 @@
 
         </div>
 
+
+        {% if data.emailreminders=="updated" %}
+        <p><a class="govuk-link--no-visited-state" href="./email-recall">Go to emails</a></p>
+        {% endif %}
+
   </div>
 </div>
 {% endblock %}
