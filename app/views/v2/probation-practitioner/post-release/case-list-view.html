@@ -89,6 +89,68 @@
   <tbody class="govuk-table__body"> 
 
 
+    <tr class="govuk-table__row">
+
+      <td class="govuk-table__cell">
+        <a href="./hard-stop/licence-history" class="govuk-link--no-visited-state pp-caselist-name">
+        Maxwell Kirby</a>
+        <span class="govuk-!-font-size-16 pp-caselist-crn">CRN: A5677DD</span>
+      </td>
+
+      <td class="govuk-table__cell">Standard determinate</td>
+
+      <td class="govuk-table__cell"><a href="../../../_common/not-testing.html" class="govuk-link--no-visited-state">Sally Rooney</a></td>
+
+       {% if data['maxwell'] == 'active' %}  
+        <td class="govuk-table__cell" data-sort-value="1">{{ "today" | duration(0) | govukDate(truncate=true) }}</td>
+       {% else %}  
+       <td class="govuk-table__cell" data-sort-value="1"><span class="urgent-highlight">{{ "today" | duration(0) | govukDate(truncate=true) }}</span><span class="urgent-highlight urgent-highlight-message">Timed out</span></td>
+       {% endif %}  
+
+      <td class="govuk-table__cell">
+        {% if data['maxwell'] == 'active' %}  
+        <strong class="govuk-tag govuk-tag--turquoise status-badge">
+          Active
+        </strong>
+        {% else %}  
+        <strong class="govuk-tag govuk-tag--red status-badge">
+        Review needed
+      </strong>
+      {% endif %}  
+
+      </td>
+
+    </tr>
+
+
+
+    <tr class="govuk-table__row">
+
+      <td class="govuk-table__cell">
+        <a href="../../_ur_flow_sept25/vary/licence-history?prisoner=reuben" class="govuk-link--no-visited-state pp-caselist-name">
+          Reuben Lee</a>
+        <span class="govuk-!-font-size-16 pp-caselist-crn">CRN: C762241</span>
+      </td>
+
+      <td class="govuk-table__cell">Standard determinate</td>
+
+      <td class="govuk-table__cell"><a href="../../../_common/not-testing.html" class="govuk-link--no-visited-state">Sally Rooney</a></td>
+
+       
+       <td class="govuk-table__cell" data-sort-value="1"><span class="urgent-highlight">{{ "today" | duration(0) | govukDate(truncate=true) }}</span><span class="urgent-highlight urgent-highlight-message">Timed out</span></td>
+
+
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-tag--red status-badge">
+        Review needed
+      </strong>
+
+
+      </td>
+
+    </tr>
+
+
        <tr class="govuk-table__row">
 
         <td class="govuk-table__cell">
@@ -111,37 +173,7 @@
          </tr>
 
 
-      <tr class="govuk-table__row">
-
-        <td class="govuk-table__cell">
-          <a href="./hard-stop/licence-history" class="govuk-link--no-visited-state pp-caselist-name">
-          Maxwell Kirby</a>
-          <span class="govuk-!-font-size-16 pp-caselist-crn">CRN: A5677DD</span>
-        </td>
-  
-        <td class="govuk-table__cell">Standard determinate</td>
-  
-        <td class="govuk-table__cell"><a href="../../../_common/not-testing.html" class="govuk-link--no-visited-state">Stephen McVeigh</a></td>
-  
-         {% if data['maxwell'] == 'active' %}  
-          <td class="govuk-table__cell" data-sort-value="20250225">25 Feb 2025</td>
-         {% else %}  
-         <td class="govuk-table__cell" data-sort-value="20250225"><span class="urgent-highlight">25 Feb 2025</span><span class="urgent-highlight urgent-highlight-message">Timed out</span></td>
-         {% endif %}  
-
-        <td class="govuk-table__cell">
-          {% if data['maxwell'] == 'active' %}  
-          <strong class="govuk-tag govuk-tag--turquoise status-badge">
-            Active
-          </strong>
-          {% else %}  
-          <strong class="govuk-tag govuk-tag--red status-badge">
-          Review needed
-        </strong>
-        {% endif %}  
-
-        </td>
-         </tr>
+ 
 
 
          <tr class="govuk-table__row">
@@ -154,7 +186,7 @@
     
           <td class="govuk-table__cell">Standard determinate</td>
     
-          <td class="govuk-table__cell"><a href="../../../../_common/not-testing.html" class="govuk-link--no-visited-state">Stephen McVeigh</a></td>
+          <td class="govuk-table__cell"><a href="../../../../_common/not-testing.html" class="govuk-link--no-visited-state">Sally Rooney</a></td>
     
           <td class="govuk-table__cell" data-sort-value="20250121">21 Jan 2025</td>
     
@@ -243,7 +275,7 @@
             
                   <td class="govuk-table__cell">Standard determinate</td>
             
-                  <td class="govuk-table__cell"><a href="../../../../_common/not-testing.html" class="govuk-link--no-visited-state">Stephen McVeigh</a></td>
+                  <td class="govuk-table__cell"><a href="../../../../_common/not-testing.html" class="govuk-link--no-visited-state">Sally Rooney</a></td>
             
                   <td class="govuk-table__cell" data-sort-value="20241009">9 Oct 2024</td>
             

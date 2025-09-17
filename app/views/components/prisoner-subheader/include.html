@@ -2,8 +2,16 @@
     <div class="govuk-grid-column-full border-bottom">
         <div class="govuk-caption-m">
 
+
+    {% if data['prisoner'] == 'reuben' %}  
+            <span class="pipe-separated__item">CRN: C762241</span>
+            <span class="pipe-separated__item">Release date: {{ "today" | duration(0) | govukDate(truncate=true) }}</span>
+            <span class="pipe-separated__item">Date of birth: 26 Sept 1960</span>
+        </div>
+        <span class="govuk-heading-m">Reuben Lee</span>
+
     
-  {% if data['prisoner'] == 'kairo' %}  
+  {% elif data['prisoner'] == 'kairo' %}  
           <span class="pipe-separated__item">CRN: R885645</span>
           <span class="pipe-separated__item">Release date: {{ "today" | duration(13) | govukDate(truncate=true) }}</span>
           <span class="pipe-separated__item">Date of birth: 5 Dec 1966</span>
