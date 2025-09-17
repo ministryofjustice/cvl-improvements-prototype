@@ -18,7 +18,17 @@
 
     <div class="govuk-panel govuk-panel--confirmation">
       <h1 class="govuk-panel__title">
-        Licence conditions for Cyphoonifer Bransabert sent
+        Licence conditions for</br>
+        {% if data['prisoner'] == 'kairo' %} 
+        Kairo Watson
+        {% elseif data['prisoner'] == 'marcel' %}  
+        Marcel Evans
+        {% elseif data['prisoner'] == 'gabriel' %}
+        Gabriel Collins
+        {% else %}  
+        Cyphoonifer Bransabert
+        {% endif %}  
+        sent
       </h1>
     </div>
     <h2 class="govuk-heading-m">

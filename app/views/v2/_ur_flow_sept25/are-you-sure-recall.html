@@ -30,7 +30,7 @@
           Name
         </dt>
         <dd class="govuk-summary-list__value">
-          Cyphoonifer Bransabert
+          Gabriel Collins
         </dd>
         <dd class="govuk-summary-list__actions">
         </dd>
@@ -40,7 +40,7 @@
           CRN
         </dt>
         <dd class="govuk-summary-list__value">
-          A693826
+          V279953
         </dd>
         <dd class="govuk-summary-list__actions">
         </dd>
@@ -61,7 +61,7 @@
           Release date
         </dt>
         <dd class="govuk-summary-list__value">
-          Tuesday, 9 December 2025
+          Tuesday, {{ "today" | duration(11) | govukDate(truncate=false) }}
         </dd>
         <dd class="govuk-summary-list__actions">
           <span class="moj-badge moj-badge--black">Nomis</span>
@@ -130,10 +130,10 @@
   <form action="/v2/are-you-sure-answer2" method="post">
 
     <div class="govuk-button-group govuk-!-margin-top-8">
-      <button type="submit" class="govuk-button" data-module="govuk-button" name="areyousure" value="createLicence">
+      <button type="submit" class="govuk-button" data-module="govuk-button" name="areyousure" value="yes">
         Continue and create licence
       </button>
-      <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="areyousure" value="caselist">
+      <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="areyousure" value="no">
         Return to case list
       </button>
     </div>
