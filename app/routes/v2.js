@@ -104,7 +104,7 @@ router.post(version + '/are-you-sure-edit-answer', function(request, response) {
 
 
 
-// Vary routing
+// Vary routing - PLANING TO REMOVING THIS PAGE - IF SO AFTER UR SEPT 2025 THEN DELETE THIS CODE
 
 router.post(version + '/are-you-sure-vary-answer', function(request, response) {
 
@@ -134,10 +134,28 @@ router.post(version + '/licence-need-changing-answer', function(request, respons
 
     var doesLicenceNeedChanging = request.session.data['licenceNeedChanging']
     if (doesLicenceNeedChanging == "yes"){
-        response.redirect(version + "/probation-practitioner/post-release/are-you-sure-vary")
+        response.redirect(version + "/probation-practitioner/post-release/discuss-spo")
     } else {
         response.redirect(version + "/probation-practitioner/post-release/hard-stop/licence-history")
     }
 })
 
+
+// For UR Sept 2026
+
+router.post(version + '/licence-need-changing-answer-ur', function(request, response) {
+
+    var doesLicenceNeedChanging = request.session.data['licenceNeedChanging']
+    if (doesLicenceNeedChanging == "yes"){
+        response.redirect(version + "/probation-practitioner/post-release/discuss-spo")
+    } else {
+        response.redirect(version + "/_ur_flow_sept25/vary/licence-history")
+    }
+})
+
 }
+
+
+
+
+
