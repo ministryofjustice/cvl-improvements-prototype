@@ -1,0 +1,170 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Select a person to create licences and supervision orders" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-pp-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+    
+  
+    <h1 class="govuk-heading-xl">
+      Select a person to create licences and supervision orders
+        </h1>
+
+        </div>
+      </div>
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+        
+   
+        <div class="govuk-form-group">
+          <h2 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--s" for="event-name">
+              Find a case
+            </label>
+          </h2>
+          <div id="event-name-hint" class="govuk-hint">
+            Search by name, CRN or probation practitioner
+          </div>
+          <input class="govuk-input govuk-!-width-one-third" id="event-name" name="eventName" type="text" aria-describedby="event-name-hint">
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Search
+          </button>
+        </div>
+
+        <nav class="moj-sub-navigation" aria-label="Sub navigation">
+          <ul class="moj-sub-navigation__list">
+              <li class="moj-sub-navigation__item">
+                  <a class="moj-sub-navigation__link" href="case-list-start">My cases</a>
+              </li>
+              <li class="moj-sub-navigation__item">
+                  <a class="moj-sub-navigation__link" aria-current="page" href="case-list-start-team">Team cases</a>
+              </li>
+          </ul>
+      </nav>
+
+
+
+    <table class="govuk-table" data-module="moj-sortable-table">
+
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+
+      <th scope="col" class="govuk-table__header" aria-sort="none">Name</th>
+
+      <th scope="col" class="govuk-table__header" >Licence type</th>
+
+      <th scope="col" class="govuk-table__header" aria-sort="none">Probation practitioner</th>
+
+      <th scope="col" class="govuk-table__header" aria-sort="ascending">Release date</th>
+
+      <th scope="col" class="govuk-table__header" aria-sort="none">Status</th>
+
+    </tr>
+  </thead>
+
+  <tbody class="govuk-table__body"> 
+
+
+      
+                   <tr class="govuk-table__row">
+      
+                    <td class="govuk-table__cell">
+                      <a href="../../../_ur_flow_sept25/are-you-sure-friday-release-recall?prisoner=kairo" class="govuk-link--no-visited-state pp-caselist-name">
+                        Kairo Watson</a>
+                      <span class="govuk-!-font-size-16 pp-caselist-crn">CRN: R885645</span>
+                    </td>
+              
+                    <td class="govuk-table__cell">Standard determinate</td>
+              
+                    <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Frankie Francis</a></td>
+              
+                    <td class="govuk-table__cell" data-sort-value="9">{{ "today" | duration(13) | govukDate(truncate=true) }}</td>
+              
+                    <td class="govuk-table__cell">
+                    <strong class="govuk-tag govuk-tag--yellow status-badge">
+                      Not started
+                    </strong>
+                     </tr>
+
+
+
+
+               <tr class="govuk-table__row">
+
+                <td class="govuk-table__cell">
+                  <a href="../../../../../_common/not-testing.html" class="govuk-link--no-visited-state pp-caselist-name">
+                   Damiano De Angelis</a>
+                  <span class="govuk-!-font-size-16 pp-caselist-crn">CRN: N4412GG</span>
+                </td>
+          
+                <td class="govuk-table__cell">Standard determinate</br>Post sentence supervision</td>
+          
+                <td class="govuk-table__cell"><a href="../../../../../_common/not-testing.html" class="govuk-link--no-visited-state">Nicky Davidson</a></td>
+          
+                <td class="govuk-table__cell" data-sort-value="10">{{ "today" | duration(20) | govukDate(truncate=true) }}</td>
+          
+                <td class="govuk-table__cell">
+                  <strong class="govuk-tag govuk-tag--yellow status-badge">
+                    Not started
+                  </strong>
+                  </td>
+                
+                </tr>
+
+
+                <tr class="govuk-table__row">
+
+                  <td class="govuk-table__cell">
+                    <a href="../../../../../_common/not-testing.html" class="govuk-link--no-visited-state pp-caselist-name">
+                     Ivan Jordolfo</a>
+                    <span class="govuk-!-font-size-16 pp-caselist-crn">CRN: Z503729</span>
+                  </td>
+            
+                  <td class="govuk-table__cell">Standard determinate</td>
+            
+                  <td class="govuk-table__cell"><a href="../../../../../_common/not-testing.html" class="govuk-link--no-visited-state">Stephen McVeigh</a></td>
+            
+                  <td class="govuk-table__cell" data-sort-value="11">{{ "today" | duration(25) | govukDate(truncate=true) }}</td>
+            
+                  <td class="govuk-table__cell">
+                    <strong class="govuk-tag govuk-tag--yellow status-badge">
+                      Not started
+                    </strong>
+                    </td>
+
+                  </tr>
+
+
+
+
+
+
+     </tbody>
+    </table>
+
+
+</div>
+</div>
+
+
+{% endblock %}
+
+{% block footer %}
+
+{% include "components/cvl-pp-footer/include.html" %}
+
+{% endblock %}
