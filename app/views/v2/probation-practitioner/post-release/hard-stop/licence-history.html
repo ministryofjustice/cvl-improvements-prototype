@@ -86,12 +86,12 @@
                 <div class="moj-timeline__header">
                   <h2 class="moj-timeline__title">Licence reviewed without being varied</h2>
             
-                  <p class="moj-timeline__byline">by Steven McVeigh</p>
+                  <p class="moj-timeline__byline">by Sally Rooney</p>
             
                 </div>
             
                 <p class="moj-timeline__date">
-                  <time datetime="2019-05-28T10:45:00.000Z">23 June 2025 at 04:31 pm</time>
+                  <time datetime="2019-05-28T10:45:00.000Z">{{ "today" | duration(0) | govukDate(truncate=true) }} at 04:31 pm</time>
                 </p>
 
               </div>
@@ -109,7 +109,7 @@
                 </div>
             
                 <p class="moj-timeline__date">
-                  <time datetime="2025-06-19T05:20:00.000Z">19 June 2025 at 05:20 pm</time>
+                  <time datetime="2025-06-19T05:20:00.000Z">{{ "today" | duration(-2) | govukDate(truncate=true) }} at 05:20 pm</time>
                 </p>
             
                 <div class="moj-timeline__description">
