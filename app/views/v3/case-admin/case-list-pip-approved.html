@@ -111,9 +111,27 @@
               </thead>
             
               <tbody class="govuk-table__body"> 
+
+
+                <tr class="govuk-table__row">
+            
+                  <td class="govuk-table__cell"><a href="./timeserved/are-you-sure-generate.html" class="govuk-link--no-visited-state pp-caselist-name">Dwayne Briggs</a></td>
+            
+                  <td class="govuk-table__cell">G5613GT</td>
+            
+                  <td class="govuk-table__cell">Not allocated yet</td>
+            
+                    
+                  <td class="govuk-table__cell" data-sort-value="1">{{ "today" | duration(0) | govukDate(truncate=true) }}</td>
+                   
+                  <td class="govuk-table__cell"></td>
+
+                  <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow status-badge">Not started</strong></td>
+
+                </tr>
             
             
-                   <tr class="govuk-table__row">
+                <tr class="govuk-table__row">
             
                     <td class="govuk-table__cell">
                     {% if data['maxwell'] == 'approved' %}  
@@ -130,8 +148,8 @@
                     <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Stephen McVeigh</a></td>
               
                       
-                    <td class="govuk-table__cell" data-sort-value="20250527">
-                      {% if data['recallCase'] == 'true' %}Post-recall release date (PRRD):<br> 25 Feb 2025{% else %}25 Feb 2025{% endif %}
+                    <td class="govuk-table__cell" data-sort-value="2">
+                      {% if data['recallCase'] == 'true' %}Post-recall release date (PRRD):<br> 25 Feb 2025{% else %}{{ "today" | duration(2) | govukDate(truncate=true) }}{% endif %}
                     </td>
                      
                     <td class="govuk-table__cell">
@@ -141,7 +159,7 @@
                       {% endif %}  
                     </td>
 
-                    <td class="govuk-table__cell">
+                  <td class="govuk-table__cell">
 
                   {% if data['maxwell'] == 'submitted' %}  
                    <strong class="govuk-tag govuk-tag--pink status-badge">
@@ -154,8 +172,26 @@
                   {% else %}  
                    <strong class="govuk-tag govuk-tag--yellow status-badge">
                   Not started
-                </strong>
+                  </strong>
                  {% endif %}  
+                  </td>
+
+                </tr>
+
+
+
+                
+
+
+
+
+
+
+
+
+
+
+
                  </tbody>
                 </table>
 
