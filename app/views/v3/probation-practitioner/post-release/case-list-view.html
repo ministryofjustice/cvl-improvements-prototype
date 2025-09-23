@@ -1,0 +1,361 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Select a person to vary licences and supervision orders" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-pp-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+    
+  
+    <h1 class="govuk-heading-xl">
+      Select a person to vary licences and supervision orders
+        </h1>
+
+        </div>
+      </div>
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+        
+   
+        <div class="govuk-form-group">
+          <h2 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--s" for="event-name">
+              Find a case
+            </label>
+          </h2>
+          <div id="event-name-hint" class="govuk-hint">
+            Search by name, CRN or probation practitioner
+          </div>
+          <input class="govuk-input govuk-!-width-one-third" id="event-name" name="eventName" type="text" aria-describedby="event-name-hint">
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Search
+          </button>
+        </div>
+
+        <nav class="moj-sub-navigation" aria-label="Sub navigation">
+          <ul class="moj-sub-navigation__list">
+              <li class="moj-sub-navigation__item">
+                  <a class="moj-sub-navigation__link" aria-current="page" href="case-list-submitted">My cases
+                  {% if data['reuben'] == 'active' %} 
+                  <span id="notifications" class="moj-notification-badge">1</span>
+                  {% elseif data['maxwell'] == 'active' %}  
+                  {% else %}   
+                    <span id="notifications" class="moj-notification-badge">2</span>
+                  {% endif %}  
+                  </a>
+                  
+              </li>
+              <li class="moj-sub-navigation__item">
+                  <a class="moj-sub-navigation__link" href="#">Team cases
+                 {% if data['maxwell'] == 'active' %}  
+                 {% else %}   
+                    <span id="notifications" class="moj-notification-badge">1</span>
+                  {% endif %}  
+                  </a>
+              </li>
+          </ul>
+      </nav>
+
+
+
+    <table class="govuk-table" data-module="moj-sortable-table">
+
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+
+      <th scope="col" class="govuk-table__header" aria-sort="none">Name</th>
+
+      <th scope="col" class="govuk-table__header" >Licence type</th>
+
+      <th scope="col" class="govuk-table__header" aria-sort="none">Probation practitioner</th>
+
+      <th scope="col" class="govuk-table__header" aria-sort="ascending">Release date</th>
+
+      <th scope="col" class="govuk-table__header" aria-sort="none">Status</th>
+
+    </tr>
+  </thead>
+
+  <tbody class="govuk-table__body"> 
+
+
+    <tr class="govuk-table__row">
+
+      <td class="govuk-table__cell">
+        <a href="./hard-stop/licence-history" class="govuk-link--no-visited-state pp-caselist-name">
+        Maxwell Kirby</a>
+        <span class="govuk-!-font-size-16 pp-caselist-crn">CRN: A5677DD</span>
+      </td>
+
+      <td class="govuk-table__cell">Standard determinate</td>
+
+      <td class="govuk-table__cell"><a href="../../../_common/not-testing.html" class="govuk-link--no-visited-state">Sally Rooney</a></td>
+
+       {% if data['maxwell'] == 'active' %}  
+        <td class="govuk-table__cell" data-sort-value="1">{{ "today" | duration(0) | govukDate(truncate=true) }}</td>
+       {% else %}  
+       <td class="govuk-table__cell" data-sort-value="1"><span class="urgent-highlight">{{ "today" | duration(0) | govukDate(truncate=true) }}</span><span class="urgent-highlight urgent-highlight-message">Timed out</span></td>
+       {% endif %}  
+
+      <td class="govuk-table__cell">
+        {% if data['maxwell'] == 'active' %}  
+        <strong class="govuk-tag govuk-tag--turquoise status-badge">
+          Active
+        </strong>
+        {% else %}  
+        <strong class="govuk-tag govuk-tag--red status-badge">
+        Review needed
+      </strong>
+      {% endif %}  
+
+      </td>
+
+    </tr>
+
+
+
+    <tr class="govuk-table__row">
+
+      <td class="govuk-table__cell">
+        <a href="../../_ur_flow_sept25/vary/licence-history?prisoner=reuben" class="govuk-link--no-visited-state pp-caselist-name">
+          Reuben Lee</a>
+        <span class="govuk-!-font-size-16 pp-caselist-crn">CRN: C762241</span>
+      </td>
+
+      <td class="govuk-table__cell">Standard determinate</td>
+
+      <td class="govuk-table__cell"><a href="../../../_common/not-testing.html" class="govuk-link--no-visited-state">Sally Rooney</a></td>
+
+
+
+       {% if data['reuben'] == 'active' %}  
+        <td class="govuk-table__cell" data-sort-value="2">{{ "today" | duration(0) | govukDate(truncate=true) }}</td>
+       {% else %}  
+       <td class="govuk-table__cell" data-sort-value="2"><span class="urgent-highlight">{{ "today" | duration(0) | govukDate(truncate=true) }}</span><span class="urgent-highlight urgent-highlight-message">Timed out</span></td>
+       {% endif %}  
+
+      <td class="govuk-table__cell">
+        {% if data['reuben'] == 'active' %}  
+        <strong class="govuk-tag govuk-tag--turquoise status-badge">
+          Active
+        </strong>
+        {% else %}  
+        <strong class="govuk-tag govuk-tag--red status-badge">
+        Review needed
+      </strong>
+      {% endif %}  
+
+
+      </td>
+
+    </tr>
+
+
+  
+  
+  
+           <tr class="govuk-table__row">
+
+            <td class="govuk-table__cell">
+              <a href="../../../../_common/not-testing.html" class="govuk-link--no-visited-state pp-caselist-name">
+              Jack Lloyd</a>
+              <span class="govuk-!-font-size-16 pp-caselist-crn">CRN: R854990</span>
+            </td>
+      
+            <td class="govuk-table__cell">Standard determinate</br>Post sentence supervision</td>
+      
+            <td class="govuk-table__cell"><a href="../../../../_common/not-testing.html" class="govuk-link--no-visited-state">Sally Rooney</a></td>
+      
+            <td class="govuk-table__cell" data-sort-value="3">{{ "today" | duration(-38) | govukDate(truncate=true) }}</td>
+      
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--turquoise status-badge">
+              Active
+            </strong>
+          </td>
+             </tr>
+  
+
+             <tr class="govuk-table__row">
+  
+              <td class="govuk-table__cell">
+                <a href="../../../../_common/not-testing.html" class="govuk-link--no-visited-state pp-caselist-name">
+                Romero Donté</a>
+                <span class="govuk-!-font-size-16 pp-caselist-crn">CRN: W643862</span>
+              </td>
+        
+              <td class="govuk-table__cell">Standard determinate</br>Post sentence supervision</td>
+        
+              <td class="govuk-table__cell"><a href="../../../../_common/not-testing.html" class="govuk-link--no-visited-state">Sally Rooney</a></td>
+        
+              <td class="govuk-table__cell" data-sort-value="4">{{ "today" | duration(-58) | govukDate(truncate=true) }}</td>
+        
+              <td class="govuk-table__cell">
+                <strong class="govuk-tag govuk-tag--blue status-badge">
+                 Variation in progress
+                </strong>
+              </td>
+               </tr>
+
+
+  
+             <tr class="govuk-table__row">
+  
+              <td class="govuk-table__cell">
+                <a href="../../../../_common/not-testing.html" class="govuk-link--no-visited-state pp-caselist-name">
+                Marcus Reid-Smith</a>
+                <span class="govuk-!-font-size-16 pp-caselist-crn">CRN: E332841</span>
+              </td>
+        
+              <td class="govuk-table__cell">Standard determinate</td>
+        
+              <td class="govuk-table__cell"><a href="../../../../_common/not-testing.html" class="govuk-link--no-visited-state">Sally Rooney</a></td>
+        
+              <td class="govuk-table__cell" data-sort-value="5">{{ "today" | duration(-166) | govukDate(truncate=true) }}</td>
+        
+              <td class="govuk-table__cell">
+                <strong class="govuk-tag govuk-tag--turquoise status-badge">
+               Active
+              </strong>
+            </td>
+               </tr>
+  
+  
+        
+  
+  
+                 <tr class="govuk-table__row">
+  
+                  <td class="govuk-table__cell">
+                    <a href="../../../../_common/not-testing.html" class="govuk-link--no-visited-state pp-caselist-name">
+                    Sylvester Geller</a>
+                    <span class="govuk-!-font-size-16 pp-caselist-crn">CRN: S500941</span>
+                  </td>
+            
+                  <td class="govuk-table__cell">Standard determinate</td>
+            
+                  <td class="govuk-table__cell"><a href="../../../../_common/not-testing.html" class="govuk-link--no-visited-state">Sally Rooney</a></td>
+            
+                  <td class="govuk-table__cell" data-sort-value="6">{{ "today" | duration(-189) | govukDate(truncate=true) }}</td>
+            
+                  <td class="govuk-table__cell">
+                    <strong class="govuk-tag govuk-tag--pink status-badge">
+                    Variation submitted
+                  </strong>
+                </td>
+                   </tr>
+  
+                   <tr class="govuk-table__row">
+  
+                    <td class="govuk-table__cell">
+                      <a href="../../../../_common/not-testing.html" class="govuk-link--no-visited-state pp-caselist-name">
+                      Gordon Carpenter</a>
+                      <span class="govuk-!-font-size-16 pp-caselist-crn">CRN: A901833</span>
+                    </td>
+              
+                    <td class="govuk-table__cell">Standard determinate</td>
+              
+                    <td class="govuk-table__cell"><a href="../../../../_common/not-testing.html" class="govuk-link--no-visited-state">Sally Rooney</a></td>
+              
+                    <td class="govuk-table__cell" data-sort-value="7">{{ "today" | duration(-239) | govukDate(truncate=true) }}</td>
+              
+                    <td class="govuk-table__cell">
+                      <strong class="govuk-tag govuk-tag--turquoise status-badge">
+                       Active
+                      </strong>
+                    </td>
+                     </tr>
+  
+                     <tr class="govuk-table__row">
+  
+                      <td class="govuk-table__cell">
+                        <a href="../../../../_common/not-testing.html" class="govuk-link--no-visited-state pp-caselist-name">
+                        Rizwan Malik</a>
+                        <span class="govuk-!-font-size-16 pp-caselist-crn">CRN: A901833 </span>
+                      </td>
+                
+                      <td class="govuk-table__cell">Standard determinate</td>
+                
+                      <td class="govuk-table__cell"><a href="../../../../_common/not-testing.html" class="govuk-link--no-visited-state">Sally Rooney</a></td>
+                
+                      <td class="govuk-table__cell" data-sort-value="8">{{ "today" | duration(-282) | govukDate(truncate=true) }}</td>
+                
+                      <td class="govuk-table__cell">
+                        <strong class="govuk-tag govuk-tag--turquoise status-badge">
+                          Active
+                        </strong>
+                      </td>
+                       </tr>
+
+
+                       <tr class="govuk-table__row">
+
+                        <td class="govuk-table__cell">
+                          <a href="../../../../_common/not-testing.html" class="govuk-link--no-visited-state pp-caselist-name">
+                          Diego Rodriguez</a>
+                          <span class="govuk-!-font-size-16 pp-caselist-crn">CRN: S674889</span>
+                        </td>
+                  
+                        <td class="govuk-table__cell">Standard determinate</td>
+                  
+                        <td class="govuk-table__cell"><a href="../../../../_common/not-testing.html" class="govuk-link--no-visited-state">Sally Rooney</a></td>
+                  
+                        <td class="govuk-table__cell" data-sort-value="9">{{ "today" | duration(-350) | govukDate(truncate=true) }}</td>
+                  
+                        <td class="govuk-table__cell">
+                          <strong class="govuk-tag govuk-tag--turquoise status-badge">
+                          Active
+                        </strong>
+                        </td>
+                         </tr>
+
+
+                       <tr class="govuk-table__row">
+
+                        <td class="govuk-table__cell">
+                          <a href="licence-history" class="govuk-link--no-visited-state pp-caselist-name">
+                          Cyphoonifer Bransabert</a>
+                          <span class="govuk-!-font-size-16 pp-caselist-crn">CRN: A693826</span>
+                        </td>
+                  
+                        <td class="govuk-table__cell">Standard determinate</td>
+                  
+                        <td class="govuk-table__cell"><a href="../../../_common/not-testing.html" class="govuk-link--no-visited-state">Sally Rooney</a></td>
+                  
+                        <td class="govuk-table__cell" data-sort-value="10">{{ "today" | duration(-389) | govukDate(truncate=true) }}</td>
+                  
+                        <td class="govuk-table__cell">
+                          <strong class="govuk-tag govuk-tag--turquoise status-badge">
+                          Active
+                        </strong>
+                        </td>
+                      
+                      </tr>
+
+     </tbody>
+    </table>
+
+
+</div>
+</div>
+
+
+{% endblock %}
+
+{% block footer %}
+
+{% include "components/cvl-dm-ca-footer/include.html" %}
+
+{% endblock %}

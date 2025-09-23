@@ -1,0 +1,76 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Who is the initial appointment with?" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-pp-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% include "components/prisoner-subheader/include.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+
+        <h1 class="govuk-heading-l">Where is the initial appointment?</h1>
+
+        <h2 class="govuk-heading-m" style="margin-top: 40px;">Use a saved address</h1>
+
+        <p>Once you choose to save an address, it will appear here.</p>
+
+
+
+        </div>
+      </div>
+          
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-half-from-desktop"> 
+          
+
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <h2 class="govuk-fieldset__heading" style="margin-top: 40px;">Find an address</h2>
+              </legend>
+    
+              <div class="moj-search">
+    
+                <form action="searchresult-one" method="post">
+              
+                  <div class="govuk-form-group">
+                    <label class="govuk-label moj-search__label govuk-!-font-weight-bold" for="search">
+                      Type an address or postcode 
+                    </label>
+              
+                    <!--<div id="search-hint" class="govuk-hint moj-search__hint ">
+                      Type an address or postcode 
+                    </div>-->
+              
+                    <input class="govuk-input moj-search__input " id="search" name="search" type="search" aria-describedby="search-hint">
+              
+                  </div>
+              
+                  <button class="govuk-button moj-search__button " data-module="govuk-button">
+                    Find address
+                  </button>
+              
+                </form>
+              </div>
+
+              
+              <p style="margin-top: 20px;"><a class="govuk-link govuk-link--no-visited-state" href="manual-entry">Enter address manually</a></p>
+              
+              </fieldset>
+    
+      </div>
+    </div>
+{% endblock %}

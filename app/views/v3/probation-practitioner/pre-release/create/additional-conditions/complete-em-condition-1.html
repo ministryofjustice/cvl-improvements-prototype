@@ -1,0 +1,99 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Complete the licence condition" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-pp-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% include "components/prisoner-subheader/include.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+    <form action="#" method="get">
+
+<div class="govuk-form-group govuk-!-margin-bottom-8">
+  <fieldset class="govuk-fieldset" aria-describedby="condition-tag-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-3">
+        Complete the licence condition
+      </h1>
+    </legend>
+      <p>Allow person(s) as designated by your supervising officer to install an electronic monitoring tag on you and access to install any associated equipment in your property, and for the purpose of ensuring that equipment is functioning correctly. You must not damage or tamper with these devices and ensure that the tag is charged, and report to your supervising officer and the EM provider immediately if the tag or the associated equipment are not working correctly. This will be for the purpose of monitoring your [INSERT TYPES OF CONDITIONS TO BE ELECTRONICALLY MONITORED HERE] licence condition(s) unless otherwise authorised by your supervising officer.</p>
+   
+       <div id="hint" class="govuk-hint hint-condition-custom">
+      Select all that apply
+      </div>
+
+      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="condition-tag" name="condition-tag" type="checkbox" value="exclusion">
+        <label class="govuk-label govuk-checkboxes__label" for="condition-tag">
+          exclusion zone
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="condition-tag-2" name="condition-tag" type="checkbox" value="curfew">
+        <label class="govuk-label govuk-checkboxes__label" for="condition-tag-2">
+         curfew
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="condition-tag-3" name="condition-tag" type="checkbox" value="location-monitoring">
+        <label class="govuk-label govuk-checkboxes__label" for="condition-tag-3">
+          location monitoring
+        </label>
+      </div>
+            <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="condition-tag-4" name="condition-tag" type="checkbox" value="attendance">
+        <label class="govuk-label govuk-checkboxes__label" for="condition-tag-4">
+          attendance at appointments
+        </label>
+      </div>
+            <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="condition-tag-5" name="condition-tag" type="checkbox" value="alcohol-monitoring">
+        <label class="govuk-label govuk-checkboxes__label" for="condition-tag-5">
+          alcohol monitoring
+        </label>
+      </div>
+            <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="condition-tag-6" name="condition-tag" type="checkbox" value="alcohol-abstinence">
+        <label class="govuk-label govuk-checkboxes__label" for="condition-tag-6">
+          alcohol abstinence
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+<div class="govuk-button-group">
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Continue
+  </button>
+  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+    Delete this condition
+  </button>
+</div>
+        </form>
+  </div>
+</div>
+
+{% endblock %}
+
+
+{% block footer %}
+
+{% include "components/cvl-pp-footer/include.html" %}
+
+{% endblock %}

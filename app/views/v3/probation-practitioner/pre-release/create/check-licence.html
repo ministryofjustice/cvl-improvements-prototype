@@ -1,0 +1,306 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Check licence details" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-pp-header/include.html" %}
+{% endblock %}
+
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% include "components/prisoner-subheader/include.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-l">
+      Check licence details
+        </h1>
+
+        <h2 class="govuk-heading-m">
+          Initial appointment details
+            </h2>
+    
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['whoApptWith'] or "Seb Stevens" }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> name</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['addressLine1'] or "123 Fake St" }},
+              {% if data['addressLine2'] %}{{ data['addressLine2'] | default('Fake on Fake') }},{% endif %} 
+              {{ data['addressTown'] or "Fakerton" }}, 
+              {% if data['addressCounty'] %}{{ data['addressCounty'] | default('Fakeshire') }},{% endif %} 
+              {{ data['addressPostcode'] or "FA1 1KE" }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Contact phone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['phoneNumber'] or "01632 960901" }}             
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> contact phone number</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Alternative contact phone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['AlternativePhoneNumber'] or "Not entered" }}       
+              
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> contact phone number</span></a>
+            </dd>
+          </div>
+
+
+            {% if data['appointment-time'] == 'specific' %}  
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['date'] %} 
+              {{ data['date'] | formatDateString("D/M/YYYY","D MMMM YYYY")}}
+              {% else %} 
+              11 March 2025
+              {% endif %} 
+             </dd>
+            <dd class="govuk-summary-list__actions">
+              <ul class="govuk-summary-list__actions-list">
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> date</span></a>
+                </li>
+              </ul>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Time
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data | formatTime('1', '', 'pm') }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <ul class="govuk-summary-list__actions-list">
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> time</span></a>
+                </li>
+              </ul>
+            </dd>
+          </div>
+         {% else %} 
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date/time
+            </dt>
+            <dd class="govuk-summary-list__value">
+            {% if data['appointment-time'] == 'immediately' %}  
+              Immediately after release
+             {% else %} 
+              By 2pm on the next working day after their release
+            {% endif %} 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <ul class="govuk-summary-list__actions-list">
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> time</span></a>
+                </li>
+              </ul>
+            </dd>
+          </div>
+         {% endif %} 
+        </dl>
+
+
+          {% if data['additionalConditionsPresent'] == 'yes' %}  
+
+          <div class="govuk-!-margin-bottom-9 govuk-!-margin-top-8">
+            <h2 class="govuk-heading-m" style="display: inline;">
+              Additional licence conditions (2)
+                </h2>
+  
+                
+                <a href="../../../../_common/not-testing.html">
+                  <button type="submit" style="float: right;" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                    Add or remove conditions
+                  </button>
+                </a>
+  
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Electronic monitoring	
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      <p>You will be subject to trail monitoring. Your whereabouts will be electronically monitored by GPS Satellite Tagging, ending on Thursday 18th December 2025, and you must cooperate with the monitoring as directed by your supervising officer unless otherwise authorised by your supervising officer.</p>
+                      <p class="hint-condition-custom">Thursday 18th December 2025</p>
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <ul class="govuk-summary-list__actions-list">
+                        <li class="govuk-summary-list__actions-list-item">
+                          <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> ?</span></a>
+                        </li>
+                      </ul>
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Electronic monitoring	
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      <p>You must stay at {{ data['approvedAddressLine1'] or "102 Petty France" }}, {% if data['approvedAddressLine2'] %}{{ data['approvedAddressLine2'] | default('Westminster') }},{% endif %} {{ data['approvedAddressTown'] or "London" }}, {% if data['approvedAddressCounty'] %}{{ data['approvedAddressCounty'] | default('Greater London') }},{% endif %} {{ data['approvedAddressPostcode'] or "SW1H 9AJ" }} between 5pm and midnight every day until your electronic tag is installed unless otherwise authorised by your supervising officer.</p>
+                      <p class="hint-condition-custom">{{ data['approvedAddressLine1'] or "102 Petty France" }}, {% if data['approvedAddressLine2'] %}{{ data['approvedAddressLine2'] | default('Westminster') }},{% endif %} {{ data['approvedAddressTown'] or "London" }}, {% if data['approvedAddressCounty'] %}{{ data['approvedAddressCounty'] | default('Greater London') }},{% endif %} {{ data['approvedAddressPostcode'] or "SW1H 9AJ" }}</p>
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <ul class="govuk-summary-list__actions-list">
+                        <li class="govuk-summary-list__actions-list-item">
+                          <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> ?</span></a>
+                        </li>
+                      </ul>
+                    </dd>
+                  </div>
+                </dl>
+          </div>
+          {% else %}  
+          <div class="govuk-!-margin-bottom-9 govuk-!-margin-top-8">
+            <h2 class="govuk-heading-m" style="display: inline;">
+              Additional licence conditions (0)
+                </h2>
+                <a href="../../../../_common/not-testing.html">
+                  <button type="submit" style="float: right;" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                    Add conditions
+                  </button>
+                </a>
+          </div>
+          {% endif %}  
+  
+  
+          {% if data['bespokeConditionsPresent'] == 'yes' %}  
+  
+          <div class="govuk-!-margin-bottom-9">
+            <h2 class="govuk-heading-m" style="display: inline;">
+              Bespoke licence conditions (1)
+                </h2>
+  
+                
+                <a href="../../../../_common/not-testing.html">
+                  <button type="submit" style="float: right;" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                    Add or remove conditions
+                  </button>
+                </a>
+  
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Bespoke condition	
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data['bespokeDetail'] or "Do not enter your local park" }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <ul class="govuk-summary-list__actions-list">
+                        <li class="govuk-summary-list__actions-list-item">
+                          <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> ?</span></a>
+                        </li>
+                      </ul>
+                    </dd>
+                  </div>
+                </dl>
+          </div>
+          {% else %}  
+  
+          <div class="govuk-!-margin-bottom-9">
+            <h2 class="govuk-heading-m" style="display: inline;">
+              Bespoke licence conditions (0)
+                </h2>
+  
+                
+                <a href="../../../../_common/not-testing.html">
+                  <button type="submit" style="float: right;" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                    Add conditions
+                  </button>
+                </a>
+              </div>
+  
+          {% endif %}  
+
+
+          {% if data['additionalConditionsPresent'] == 'yes' %}  
+
+
+            <h2 class="govuk-heading-m">
+               Additional information
+            </h2>
+
+            <p>This information will not appear on the licence.</p>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+         <div class="govuk-summary-list__row">
+           <dt class="govuk-summary-list__key">
+              Are they being tagged as part of a pathfinder or programme?
+           </dt>
+          <dd class="govuk-summary-list__value">
+            {% if data['pathfinder-choice'] == 'yes' %}  
+             <p>Yes</p>
+            <p>{{ data['pathfinderDetail'] or "DAPOL" }}</p>
+            {% else %}  
+            No
+           {% endif %}  
+
+          </dd>
+         <dd class="govuk-summary-list__actions">
+           <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> if they are being tagged as part of a pathfinder or programme</span></a>
+          </dd>
+         </div>
+        </dl>
+  {% endif %}
+
+
+            <div class="govuk-button-group">
+              <a href="confirmation" type="submit" class="govuk-button" data-module="govuk-button">
+                Send to prison for approval
+            </a>
+            <a class="govuk-link govuk-!-font-size-19 govuk-link--no-visited-state" href="#">
+                Return to caselist
+            </a>
+            </div>
+
+  </div>
+</div>
+
+{% endblock %}
+
+
+{% block footer %}
+
+{% include "components/cvl-pp-footer/include.html" %}
+
+{% endblock %}
