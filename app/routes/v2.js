@@ -141,7 +141,21 @@ router.post(version + '/licence-need-changing-answer', function(request, respons
 })
 
 
+
 // For UR Sept 2026
+
+
+router.post(version + '/are-you-sure-answer-ur', function(request, response) {
+
+    var areyousure = request.session.data['createLicence']
+    if (areyousure == "yes"){
+        response.redirect(version + "/probation-practitioner/pre-release/create/who-with")
+    } else {
+        response.redirect(version + "/probation-practitioner/pre-release/create/case-list-start")
+    }
+})
+
+
 
 router.post(version + '/licence-need-changing-answer-ur', function(request, response) {
 
