@@ -122,7 +122,30 @@
                   <td class="govuk-table__cell">Not allocated yet</td>
             
                     
-                  <td class="govuk-table__cell" data-sort-value="1">{{ "today" | duration(0) | govukDate(truncate=true) }}</td>
+                  <td class="govuk-table__cell" data-sort-value="1">
+                    <span class="urgent-highlight">{{ "today" | duration(0) | govukDate(truncate=true) }}</span>
+                    <span class="urgent-highlight urgent-highlight-message">Time-served release</span>
+                  </td>
+                   
+                  <td class="govuk-table__cell"></td>
+
+                  <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow status-badge">Not started</strong></td>
+
+                </tr>
+
+
+                <tr class="govuk-table__row">
+            
+                  <td class="govuk-table__cell"><a href="./timeserved/nomis-use" class="govuk-link--no-visited-state pp-caselist-name">Charlie Martin</a></td>
+            
+                  <td class="govuk-table__cell">C389095</td>
+            
+                  <td class="govuk-table__cell">Not allocated yet</td>
+            
+                  <td class="govuk-table__cell" data-sort-value="2">
+                    <span class="urgent-highlight">{{ "today" | duration(0) | govukDate(truncate=true) }}</span>
+                    <span class="urgent-highlight urgent-highlight-message">Time-served release</span>
+                  </td>
                    
                   <td class="govuk-table__cell"></td>
 
@@ -148,7 +171,7 @@
                     <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Stephen McVeigh</a></td>
               
                       
-                    <td class="govuk-table__cell" data-sort-value="2">
+                    <td class="govuk-table__cell" data-sort-value="3">
                       {% if data['recallCase'] == 'true' %}Post-recall release date (PRRD):<br> 25 Feb 2025{% else %}{{ "today" | duration(2) | govukDate(truncate=true) }}{% endif %}
                     </td>
                      
