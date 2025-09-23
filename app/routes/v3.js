@@ -6,7 +6,7 @@
 
 module.exports = function (router) {
 
-var version = '/v2';
+var version = '/v3';
 
 
 
@@ -139,6 +139,61 @@ router.post(version + '/licence-need-changing-answer', function(request, respons
         response.redirect(version + "/probation-practitioner/post-release/hard-stop/licence-history")
     }
 })
+
+
+
+// Time served
+
+
+//Timeserved - Prison admin creating a new licence
+router.post('/ca-new-licence-timeserved', function (req, res) {
+    var CAnewlicenceTimeserved = req.session.data['activatecreate']
+  
+    // Check whether the variable matches a condition
+    if (CAnewlicenceTimeserved == "yes"){
+     
+     // Send user to next page
+      res.redirect(version + '/timeserved/meet')
+    } else {
+      // Send user to ineligible page
+      res.redirect(version + '/list')
+    }
+  
+  });
+  
+  
+  //Timeserved - Approver view from approve licence page to approve and back to case list
+  router.post(version + '/approvals/approve-timeserved', function(req, res) {
+    var route = req.session.data['approve-a-licence'];
+    if (route == "approvenow"){
+      res.redirect(version + '/approvals/confirmation-timeserved');
+    }
+    else if (route == "returntocases"){
+      res.redirect(version + '/list');
+    }
+  });
+
+
+  //Timeserved - Approver view from confirmation list to approve another licence
+  router.post(version + '/approvals/confirmation-timeserved', function(req, res) {
+    res.redirect(version + '/list');
+  });
+
+  
+  //Time served - from confirmation back to case list
+  router.post(version + '/timeserved/confirmation', function(req, res) {
+    var saveexit = req.session.data['submit'];
+    if (saveexit == "continue"){
+      res.redirect(version + '/list#releases-two-days');
+    }
+  });
+  
+  
+  
+  
+
+
+
 
 
 

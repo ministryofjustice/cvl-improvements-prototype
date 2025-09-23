@@ -1,0 +1,165 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Add reasons for the variation" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-pp-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% include "components/prisoner-subheader/include.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-l">
+      Add reasons for the variation
+        </h1>
+
+    <form action="variation-summary" method="get">
+
+
+
+          <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+              <h2 class="govuk-summary-card__title">
+                Variation details
+              </h2>
+            </div>
+
+            
+            <div class="govuk-summary-card__content">
+              <dl class="govuk-summary-list">
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    SPO consultation
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    Have you discussed this variation request with your SPO?
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    {% if data['discussSPO'] == 'no' %}  
+                    No
+                    {% else %}  
+                    Yes
+                    {% endif %}  
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    VLO consultation
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    Have you consulted with the victim liaison officer (VLO) for this case?
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    {% if data['consultVLO'] == 'no' %}  
+                    Not applicable
+                    {% else %}  
+                    Yes
+                    {% endif %}  
+                  </dd>
+                </div> 
+              </dl>
+            </div>
+          </div>
+
+
+          <div class="govuk-form-group">
+            <div id="event-name-hint" class="govuk-hint">
+              Add a short explanation for everything you want to vary. Include: 
+            <ul class="govuk-list govuk-list--bullet" style="color: #505a5f;">
+              <li>why the changes are being made now and why they're necessary to manage risk</li>
+               <li>who you have consulted about the variations and if they support your decision</li>
+            </ul>         
+            </div>
+            <details class="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  View variation details
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+
+                <div class="govuk-summary-card">
+                  <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">
+                      Licence conditions added
+                    </h2>
+                  </div>
+  
+                  <div class="govuk-summary-card__content">
+                    <dl class="govuk-summary-list">
+                      <div class="govuk-summary-list__row">
+                       <dt class="govuk-summary-list__key">
+                         Condition category here
+                      </dt>
+                    <dd class="govuk-summary-list__value">
+                         Condition here
+                   </dd>
+                </div>
+                  </dl>
+                </div>
+              </div>
+
+
+                              <div class="govuk-summary-card">
+                  <div class="govuk-summary-card__title-wrapper">
+                    <h2 class="govuk-summary-card__title">
+                      Licence conditions removed
+                    </h2>
+                  </div>
+  
+                  <div class="govuk-summary-card__content">
+                    <dl class="govuk-summary-list">
+                      <div class="govuk-summary-list__row">
+                       <dt class="govuk-summary-list__key">
+                         Condition category here
+                      </dt>
+                    <dd class="govuk-summary-list__value">
+                         Condition here
+                   </dd>
+                </div>
+                  </dl>
+                </div>
+              </div>
+
+              </div>
+            </details>
+            <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+          </div>
+
+
+        <div class="govuk-button-group govuk-!-margin-top-8">
+       <button type="submit" class="govuk-button" data-module="govuk-button">
+           Continue
+          </button>
+        </form>
+
+        <a href="../../../../_common/not-testing" type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            Discard changes
+        </a>
+        </div>
+
+      </form>
+
+
+  </div>
+</div>
+
+{% endblock %}
+
+
+{% block footer %}
+
+{% include "components/cvl-pp-footer/include.html" %}
+
+{% endblock %}

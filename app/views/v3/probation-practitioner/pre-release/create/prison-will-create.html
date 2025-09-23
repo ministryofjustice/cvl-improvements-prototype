@@ -1,0 +1,81 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Prison will create this licence" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-pp-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% include "components/prisoner-subheader/include.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+
+        <h1 class="govuk-heading-l">
+          Prison will create this licence
+        </h1>
+
+        <p>You can no longer create a licence for this person as you did not get one approved in time for the prison's final release checks.</p>
+
+        <p>The prison will now create a licence. You will need to review it once this person is released.</p>
+
+
+        <h2 class="govuk-heading-m">
+          Initial appointment
+        </h2>
+
+        <ul class="govuk-list govuk-list--bullet">
+         <li>The prison can tell this person to report immediately after release or by 2pm the next working day</li>
+         <li>Or they can set a specific date and time, for example if you request this by contacting test@justice.gov.uk</li>
+        </ul>
+
+        <h2 class="govuk-heading-m">
+          Licence conditions
+        </h2>
+
+        <p>By default, the licence will automatically contain the following restrictions:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+         <li>standard conditions</li>
+         <li>the following additional condition:</li>
+        </ul>
+
+        <div class="govuk-inset-text">
+          Not to approach or communicate with any victims of your offences without the prior approval of your supervising officer.
+        </div>
+
+        <p>The prison <strong>cannot</strong> add any other additional or bespoke conditions.</p>
+
+        <p>If you need to add any additional or bespoke licence conditions, you can do so after release.</p>
+
+    <form action="case-list-start" method="get">
+          <button type="submit" class="govuk-button govuk-!-margin-top-4" data-module="govuk-button">
+           Return to caselist
+          </button>
+    </form>
+
+   
+    <p class="govuk-!-margin-top-6"><a href="/v2/case-admin/cvl-home" class="govuk-link--no-visited-state">Jump to case admin flow</a></p>
+
+
+  </div>
+</div>
+
+{% endblock %}
+
+
+{% block footer %}
+
+{% include "components/cvl-pp-footer/include.html" %}
+
+{% endblock %}

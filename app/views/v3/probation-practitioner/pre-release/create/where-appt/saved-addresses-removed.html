@@ -1,0 +1,125 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Who is the initial appointment with?" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-pp-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% include "components/prisoner-subheader/include.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <div role="region" class="moj-alert moj-alert--success" aria-label="success: Upload successful" data-module="moj-alert">
+          <div>
+            <svg class="moj-alert__icon" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" height="30" width="30">
+              <path d="M11.2869 24.6726L2.00415 15.3899L4.62189 12.7722L11.2869 19.4186L25.3781 5.32739L27.9958 7.96369L11.2869 24.6726Z" fill="currentColor" />
+            </svg>
+          </div>
+          <div class="moj-alert__content">Address removed</div>
+        
+          <div class="moj-alert__action">
+            <button class="moj-alert__dismiss" hidden>Dismiss</button>
+          </div>
+        </div>
+
+
+        <h1 class="govuk-heading-l">Where is the initial appointment?</h1>
+
+        <h2 class="govuk-heading-m" style="margin-top: 40px;">Use a saved address</h1>
+
+        <form action="../contact-number" method="get">
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <div class="govuk-radios" data-module="govuk-radios">
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="probationoffice1" name="probationoffice1" type="radio" value="probationoffice1">
+                  <label class="govuk-label govuk-radios__label" for="probationoffice1">
+                    Derwent Centre, 1 Stuart Street, Derby, DE1 2EQ<a class="govuk-link--no-visited-state" href="#" style="margin-left: 10px;">Remove this saved address</a>
+                  </label>
+                </div>
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="probationoffice3" name="probationoffice3" type="radio" value="probationoffice3">
+                  <label class="govuk-label govuk-radios__label" for="probationoffice3">
+                    South West Hertfordshire Probation Centre, Leet Court, 16-22 King Street, Watford, Hertfordshire, WD18 0BN<a class="govuk-link--no-visited-state" href="#" style="margin-left: 10px;">Remove this saved address</a>
+                  </label>
+                </div>
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="probationoffice4" name="probationoffice4" type="radio" value="probationoffice4">
+                  <label class="govuk-label govuk-radios__label" for="probationoffice4">
+                    The Boathouse Business Centre, 1 Harbour Square, Wisbech, PE13 3BH<a class="govuk-link--no-visited-state" href="#" style="margin-left: 10px;">Remove this saved address</a>
+                  </label>
+                </div>
+
+              </div>
+            </fieldset>
+          </div>
+
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Use this address
+          </button>
+
+        </form>
+
+
+
+
+        </div>
+      </div>
+          
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-half-from-desktop"> 
+          
+
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <h2 class="govuk-fieldset__heading" style="margin-top: 40px;">Find an address</h2>
+              </legend>
+    
+              <div class="moj-search">
+    
+                <form action="searchresult-multiple" method="post">
+              
+                  <div class="govuk-form-group">
+                    <label class="govuk-label moj-search__label govuk-!-font-weight-bold" for="search">
+                      Type an address or postcode 
+                    </label>
+              
+                    <!--<div id="search-hint" class="govuk-hint moj-search__hint ">
+                      Type an address or postcode 
+                    </div>-->
+              
+                    <input class="govuk-input moj-search__input " id="search" name="search" type="search" aria-describedby="search-hint">
+              
+                  </div>
+              
+                  <button class="govuk-button moj-search__button " data-module="govuk-button">
+                    Find address
+                  </button>
+              
+                </form>
+              </div>
+
+              
+              <p style="margin-top: 20px;"><a class="govuk-link govuk-link--no-visited-state" href="manual-entry">Enter address manually</a></p>
+              
+              </fieldset>
+    
+      </div>
+    </div>
+{% endblock %}

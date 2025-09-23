@@ -1,0 +1,95 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Create and vary a licence" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+
+{% include "components/cvl-pp-header/include.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+
+
+    {% if data.emailreminders=="updated" %}
+    <div role="region" class="moj-alert moj-alert--success" aria-label="success: Upload successful" data-module="moj-alert">
+      <div>
+        <svg class="moj-alert__icon" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" height="30" width="30">
+          <path d="M11.2869 24.6726L2.00415 15.3899L4.62189 12.7722L11.2869 19.4186L25.3781 5.32739L27.9958 7.96369L11.2869 24.6726Z" fill="currentColor" />
+        </svg>
+      </div>
+      <div class="moj-alert__content">Email reminders updated</div>
+    
+      <div class="moj-alert__action">
+        <button class="moj-alert__dismiss" hidden>Dismiss</button>
+      </div>
+    </div>
+    {% else %}
+    {% endif %}
+    
+  
+    <h1 class="govuk-heading-l">Create and vary a licence</h1>
+   
+
+        <div class="govuk-grid-row card-group">
+                
+          <div class="govuk-grid-column-one-third card-group__item">
+              
+              <div id="createLicenceCard" class="card card--clickable" data-qa="create-licence-link">
+              <h2 class="govuk-heading-m card__heading">
+                <a class="govuk-link card__link govuk-link--no-visited-state" href="case-list-start">Create and edit a licence before a release date</a>
+              </h2>
+              <p class="govuk-body card__description">Create standard determinate licences and post sentence supervision orders for people in custody and send to prison for approval.</p>
+              </div>
+
+          </div>
+      
+
+      
+          <div class="govuk-grid-column-one-third card-group__item">
+              
+              <div class="card card--clickable">
+              <h2 class="govuk-heading-m card__heading">
+                <a class="govuk-link card__link govuk-link--no-visited-state" href="#">View and vary a licence after a release date</a>
+              </h2>
+              <p class="govuk-body card__description">Find standard determinate licences and post sentence supervision orders for people on licence and send variation requests to the PDU head for approval.</p>
+              </div>
+
+          </div>
+
+
+
+          <div class="govuk-grid-column-one-third card-group__item">
+              
+            <div class="card card--clickable">
+            <h2 class="govuk-heading-m card__heading">
+              <a class="govuk-link card__link govuk-link--no-visited-state" href="./manage-email-reminders">Manage email reminders</a>
+            </h2>
+            <p class="govuk-body card__description">Choose when we send you emails to remind you about licences.</p>
+            </div>
+
+        </div>
+
+        </div>
+
+
+        {% if data.emailreminders=="updated" %}
+        <p><a class="govuk-link--no-visited-state" href="./email-recall">Go to emails</a></p>
+        {% endif %}
+
+  </div>
+</div>
+{% endblock %}
+
+ {% block footer %}
+
+{% include "components/cvl-pp-footer/include.html" %}
+
+{% endblock %}
