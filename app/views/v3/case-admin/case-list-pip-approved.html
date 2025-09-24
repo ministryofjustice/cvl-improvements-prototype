@@ -139,9 +139,9 @@
                     {% if data.timeservedsubmitted=="yes" %}
                     <a href="#" class="govuk-link--no-visited-state pp-caselist-name">Dwayne Briggs</a>
                     {% elseif data.systemchoice=="nomis" %}
-                    <a href="./timeserved/are-you-sure-generate-edit" class="govuk-link--no-visited-state pp-caselist-name">Dwayne Briggs</a>
+                    <a href="./timeserved/are-you-sure-generate-edit?prisoner=dwayne" class="govuk-link--no-visited-state pp-caselist-name">Dwayne Briggs</a>
                     {% else %}
-                    <a href="./timeserved/are-you-sure-generate" class="govuk-link--no-visited-state pp-caselist-name">Dwayne Briggs</a>
+                    <a href="./timeserved/are-you-sure-generate?prisoner=dwayne" class="govuk-link--no-visited-state pp-caselist-name">Dwayne Briggs</a>
                     {% endif %}
                   </td>
             
@@ -161,7 +161,7 @@
                     {% if data.timeservedsubmitted=="yes" %}
                     <strong class="govuk-tag govuk-tag--pink status-badge">Submitted</strong>
                     {% elseif data.systemchoice=="nomis" %}
-                    <strong class="govuk-tag govuk-tag--grey status-badge">Label?</strong>
+                    <strong class="govuk-tag govuk-tag--grey status-badge">NOMIS licence</strong>
                     {% else %}
                     <strong class="govuk-tag govuk-tag--yellow status-badge">Not started</strong>
                     {% endif %}
