@@ -16,6 +16,26 @@
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
+
+
+        {% if data.timeservedsubmitted=="yes" %}
+        {% elseif data.systemchoice=="nomis" %}
+        <div role="region" class="moj-alert moj-alert--success moj-alert--with-heading" aria-label="success: File uploaded successfully" data-module="moj-alert">
+          <div>
+            <svg class="moj-alert__icon" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" height="30" width="30">
+              <path d="M11.2869 24.6726L2.00415 15.3899L4.62189 12.7722L11.2869 19.4186L25.3781 5.32739L27.9958 7.96369L11.2869 24.6726Z" fill="currentColor" />
+            </svg>
+          </div>
+          <div class="moj-alert__content">
+            Confirmed. Go to NOMIS to create this licence or change your selection by choosing this person from the case list. 
+          </div>
+        
+          <div class="moj-alert__action">
+            <button class="moj-alert__dismiss" hidden>Dismiss</button>
+          </div>
+        </div>
+        {% else %}
+        {% endif %}
     
   
     <h1 class="govuk-heading-xl">
@@ -115,7 +135,15 @@
 
                 <tr class="govuk-table__row">
             
-                  <td class="govuk-table__cell"><a href="./timeserved/are-you-sure-generate.html" class="govuk-link--no-visited-state pp-caselist-name">Dwayne Briggs</a></td>
+                  <td class="govuk-table__cell">
+                    {% if data.timeservedsubmitted=="yes" %}
+                    <a href="#" class="govuk-link--no-visited-state pp-caselist-name">Dwayne Briggs</a>
+                    {% elseif data.systemchoice=="nomis" %}
+                    <a href="./timeserved/are-you-sure-generate-edit" class="govuk-link--no-visited-state pp-caselist-name">Dwayne Briggs</a>
+                    {% else %}
+                    <a href="./timeserved/are-you-sure-generate" class="govuk-link--no-visited-state pp-caselist-name">Dwayne Briggs</a>
+                    {% endif %}
+                  </td>
             
                   <td class="govuk-table__cell">G5613GT</td>
             
@@ -129,12 +157,20 @@
                    
                   <td class="govuk-table__cell"></td>
 
-                  <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow status-badge">Not started</strong></td>
+                  <td class="govuk-table__cell">
+                    {% if data.timeservedsubmitted=="yes" %}
+                    <strong class="govuk-tag govuk-tag--pink status-badge">Submitted</strong>
+                    {% elseif data.systemchoice=="nomis" %}
+                    <strong class="govuk-tag govuk-tag--grey status-badge">Label?</strong>
+                    {% else %}
+                    <strong class="govuk-tag govuk-tag--yellow status-badge">Not started</strong>
+                    {% endif %}
+                  </td>
 
                 </tr>
 
 
-                <tr class="govuk-table__row">
+                <!--<tr class="govuk-table__row">
             
                   <td class="govuk-table__cell"><a href="./timeserved/nomis-use" class="govuk-link--no-visited-state pp-caselist-name">Charlie Martin</a></td>
             
@@ -151,7 +187,7 @@
 
                   <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow status-badge">Not started</strong></td>
 
-                </tr>
+                </tr>-->
             
             
                 <tr class="govuk-table__row">

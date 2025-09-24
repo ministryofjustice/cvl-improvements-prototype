@@ -1,6 +1,6 @@
 {% extends "layouts/cvl.html" %}
 
-{% set pageName="Who is the initial appointment with?" %}
+{% set pageName="You must contact the probation team" %}
 
 {% set htmlClasses = 'app-width-wide' %}
 
@@ -16,75 +16,96 @@
 
 {% block content %}
 
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    
 
-    <form action="./appt-who" method="post">
+    <form action="/v3/nomisuse" method="post">
+
+    <!--START set dynamic radio hide/show text-->
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+    {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+    {% set textHtmlOther %}
+    {{ govukTextarea({
+      label: {
+        text: "Enter a reason for using NOMIS ",
+        classes: "govuk-label--s",
+        isPageHeading: true
+      },
+      hint: {
+        text: "Telling us this helps us understand how the Prison Service and the Probation Service work together on time-served licences."
+      }
+
+    }) }}
+    {% endset -%}
+    <!--END set dynamic radio hide/show text-->
+
+
+    {{ govukRadios({
+      name: "systemchoice",
+      fieldset: {
+        legend: {
+          text: "Do you want to create the licence on this service?  ",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
       
-      <div class="govuk-form-group">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-            <h1 class="govuk-fieldset__heading" style="margin-bottom: 10px;">
-              Are you sure you want to create a standard licence for this person?
-            </h1>
-          </legend>
+
+      items: [
 
 
-          <p class="govuk-body">By default, the licence will automatically contain the following restrictions:</p>
+      {
+        value: "cvl",
+        text: "Yes, I will continue and create the licence on this service ",
+        hint: {
+          text: "The licence will contain standard conditions and an additional condition telling this person not to approach or communicate with any victims of their offences. "
+        }
+      },
+
+      
+      {
+        value: "nomis",
+        text: "No, I will create the licence on NOMIS ",
+        hint: {
+          text: " If you create a licence using NOMIS, the probation practitioner will not be able to view or vary the licence on Create and vary a licence. "
+        },
+        conditional: {
+          html: textHtmlOther
+        },
+        checked: true
+      }
+
+    
+
+      ]
+    }) }}
+
+
+
+
+    
+
+    
   
-          <ul class="govuk-list govuk-list--bullet" style="margin-top: 10px; margin-bottom: 10px;">
-            <li>standard conditions</li>
-            <li>the following additional condition:</li>
-            <p class="govuk-inset-text">Not to approach or communicate with any victims of your offences without the prior approval of your supervising officer.
-            </p>
-          </ul>
-            
-          <p class="govuk-body">You cannot add any other additional or bespoke licence conditions.</p>
-
-          <p class="govuk-body">A community probation practitioner can do this after release.</p>
-
-      <!--<span class="govuk-hint">
-
-         The licence will contain:
-
-          <ul class="govuk-list govuk-list--bullet govuk-hint" style="margin-top: 10px; margin-bottom: 10px;">
-            <li>standard conditions</li>
-            <li>an additional condition stopping this person contacting any victims of their main offences</li>
-          </ul>
-          
-          You cannot add any other additional or bespoke licence conditions.
-          
-        </span>-->
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+  
+    </form>
 
 
-          <div class="govuk-form-group" style="margin-top: 15px;">
-            <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
-              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              </legend>
-              <input name="releaseDateChanged" value="no" type="hidden" />
-              <div class="govuk-radios govuk-radios--inline">
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="changed-name" name="activatecreate" type="radio" value="yes">
-                  <label class="govuk-label govuk-radios__label" for="changed-name">
-                    Yes
-                  </label>
-                </div>
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="changed-name-2" name="activatecreate" type="radio" value="no">
-                  <label class="govuk-label govuk-radios__label" for="changed-name-2">
-                    No
-                  </label>
-                </div>
-              </div>
-            </fieldset><br />
-          </div>
-          <button class="govuk-button" data-module="govuk-button">Continue</button>
-        </div>
-      </form>
 
-    </div>
+
+  </div>
 </div>
+{% endblock %}
 
 
+{% block footer %}
 
+{% include "components/cvl-pp-footer/include.html" %}
 
 {% endblock %}
