@@ -20,7 +20,7 @@ router.post(version + '/are-you-sure-answer2', function(request, response) {
 
     var areyousure = request.session.data['createLicence']
     if (areyousure == "yes"){
-        response.redirect(version + "/probation-practitioner/pre-release/create/who-with")
+        response.redirect(version + "/probation-practitioner/pre-release/create/appt-who")
     } else {
         response.redirect(version + "/probation-practitioner/pre-release/create/case-list-start")
     }
@@ -123,7 +123,7 @@ router.post(version + '/are-you-sure-generate-answer', function(request, respons
 
     var areyousuregenerate = request.session.data['generateLicence']
     if (areyousuregenerate == "yes"){
-        response.redirect(version + "/case-admin/hard-stop/who-with")
+        response.redirect(version + "/case-admin/hard-stop/appt-who")
     } else {
         response.redirect(version + "/case-admin/case-list-pip-approved")
     }
@@ -149,7 +149,7 @@ router.post(version + '/are-you-sure-answer-ur', function(request, response) {
 
     var areyousure = request.session.data['createLicence']
     if (areyousure == "yes"){
-        response.redirect(version + "/probation-practitioner/pre-release/create/who-with")
+        response.redirect(version + "/probation-practitioner/pre-release/create/appt-who")
     } else {
         response.redirect(version + "/probation-practitioner/pre-release/create/case-list-start")
     }
