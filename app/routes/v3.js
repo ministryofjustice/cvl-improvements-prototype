@@ -145,43 +145,21 @@ router.post(version + '/licence-need-changing-answer', function(request, respons
 // Time served
 
 
-
 // Routing a timeserved case to either continue on CVL or noting that the licene is done on NOMIS
-
 router.post(version + '/nomisuse', function(request, response) {
-    var systemchoice = req.session.data['systemchoice']
-  
-    // Check whether the variable matches a condition
-    if (systemchoice == "systemcvl"){
-     
-     // Send user to next CVL page
-      res.redirect(version + '/case-admin/timeserved/are-you-sure-generate')
+
+    var WhichSystemChoice = request.session.data['systemchoice']
+    if (WhichSystemChoice == "cvl"){
+        response.redirect(version + "/case-admin/timeserved/appt-who")
     } else {
-      // Send user back to case list with confirmation banner
-      res.redirect(version + '/case-admin-case-list-pip-approved')
+        response.redirect(version + "/case-admin/case-list-pip-approved")
     }
-  
-  });
+})
 
 
 
+// ARE THESE TIMESERVED ONES STILL BEING USED?
 
-//Timeserved - Prison admin creating a new licence
-router.post('/ca-new-licence-timeserved', function (req, res) {
-    var CAnewlicenceTimeserved = req.session.data['activatecreate']
-  
-    // Check whether the variable matches a condition
-    if (CAnewlicenceTimeserved == "yes"){
-     
-     // Send user to next page
-      res.redirect(version + '/timeserved/meet')
-    } else {
-      // Send user to ineligible page
-      res.redirect(version + '/list')
-    }
-  
-  });
-  
   
   //Timeserved - Approver view from approve licence page to approve and back to case list
   router.post(version + '/approvals/approve-timeserved', function(req, res) {
