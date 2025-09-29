@@ -15,14 +15,10 @@
 
 
 {% block content %}
-
-
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full-from-desktop">
 
-      <h1 class="govuk-heading-l" style="margin-top: 40px;">Check licence details</h1><br>
-
+      <h1 class="govuk-heading-l">Check licence details</h1><br>
 
 
         <h2 class="govuk-heading-m">Initial appointment details</h2>
@@ -33,17 +29,15 @@
               Name
             </dt>
             <dd class="govuk-summary-list__value">
-              {%if (data.who2) %}{{data.who2}}
+              {% if data.apptwho=="who2" %}
+              Sally Rooney
               {% elseif (data.who4) %}{{data.who4}}
-              {% else %}Duty Officer
+              {% else %}
+              Duty Officer
               {% endif %}
-
-
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
-                Change<span class="govuk-visually-hidden"></span>
-              </a>
+              <a class="govuk-link" href="./appt-who">Change</a>
             </dd>
           </div>
 
@@ -95,9 +89,7 @@
 
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
-                Change<span class="govuk-visually-hidden"> licence type</span>
-              </a>
+              <a class="govuk-link" href="#">Change</a>
             </dd>
           </div>
 
@@ -114,15 +106,56 @@
 
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
-                Change<span class="govuk-visually-hidden"> </span>
-              </a>
+              <a class="govuk-link" href="#">Change</a>
             </dd>
           </div>
 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
+             Alternative contact phone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {%if (data.contactnumber1) %}{{data.contactnumber1}}
+              {% elseif (data.contactnumber2) %}{{data.contactnumber2}}
+              {% elseif (data.contactnumber3) %}{{data.contactnumber3}}
+              {% else %}01273 800 900
+              {% endif %}
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change</a>
+            </dd>
+          </div>
+
+
+          {% if data.appointment-time=="nextWorkingDay" %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
               Date/time
+            </dt>
+            <dd class="govuk-summary-list__value">
+              By 2pm on the next working day after their release
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="./appt-when">Change</a>
+            </dd>
+          </div>
+          {% elseif data.appointment-time=="immediately" %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date/time
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Immediately after release
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="./appt-when">Change</a>
+            </dd>
+          </div>
+          {% else %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date
             </dt>
             <dd class="govuk-summary-list__value">
               {{data.passportissuedday}} {{data.passportissuedmonth }} {{data.passportissuedyear}}
@@ -136,16 +169,39 @@
               {{ "today" | govukDate("truncate") }}
               {% endif %} {% endif %}
               
-              
-              
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="./appt-when">Change</a>
+            </dd>
+          </div>
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Time
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data.passportissuedday}} {{data.passportissuedmonth }} {{data.passportissuedyear}}
+              {%if (data.passportissuedday2) %}{{data.passportissuedday2}}.{{data.passportissuedmonth2}}{{data.whenam}}
+              {% elseif data.contact2=="As soon as possible by 2pm on the next working day after release" %}
+             
+              {{ "today" | duration(1) | govukDate("truncate") }}
+              {% else %}
+              {%if (data.contact2) %}{{data.contact2}}
+              {% else %}
+              {{ "today" | govukDate("truncate") }}
+              {% endif %} {% endif %}
               
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
-                Change<span class="govuk-visually-hidden"> </span>
-              </a>
+              <a class="govuk-link" href="./appt-when">Change</a>
             </dd>
           </div>
+          {% endif %}
+
+
+
+
         </dl>
 
 
@@ -160,19 +216,23 @@
             </p>
           </ul>
 
+  
+        <form action="/v3/checkyouranswers" method="post">
 
+          <div class="govuk-button-group" style="margin-top: 50px;">
+            <button type="submit" class="govuk-button" data-module="govuk-button" name="sendlicenceforapproval" value="yes">
+              Send for approval
+            </button>
+            <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="sendlicenceforapproval" value="no">
+              Return to case list
+            </button>
+          </div>
 
+        </form>
 
-          <a href="./contact-the-probation-team" class="govuk-button">Send for approval</a>
-          <a href="/v23/list.html" class="govuk-button govuk-button--secondary">Return to case list</a>
 
 
   
   </div>
-
-
-
-
-
-
+</div>
 {% endblock %}

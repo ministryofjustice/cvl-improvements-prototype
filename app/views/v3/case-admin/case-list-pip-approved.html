@@ -72,7 +72,7 @@
           People in prison
             </h2>
 
-            <div class="govuk-!-padding-top-2 govuk-!-margin-bottom-2">
+            <div class="govuk-!-padding-top-2" style="margin-bottom: 40px;">
               <p>
                   Showing:
                   <span class="govuk-body govuk-!-font-weight-bold">
@@ -101,14 +101,14 @@
               </li>
             </ul>
             <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="next-2-days">
-              <h2 class="govuk-heading-l">Release in next 2 working days</h2>
+              <h2 class="govuk-heading-l">Releases in next 2 working days</h2>
               <!--<p class="govuk-body govuk-!-font-weight-bold">There are no licences which match the search criteria.</p>-->
               <p>From 2 days before release:</p>
               <ul class="govuk-list govuk-list--bullet">
                 <li>probation practitioners can no longer work on licences</li>
-                <li>you can generate a standard licence if a probation practitioner has not submitted one for approval</li>
+                <li>you can generate a standard licence if a probation practitioner has not submitted one or for time-served releases </li>
              </ul>
-             <p>You will not be able to generate a standard licence for someone being released early if the probation practitioner has not submitted one.</p>
+             
 
              <table class="govuk-table" data-module="moj-sortable-table">
 
@@ -136,7 +136,7 @@
                 <tr class="govuk-table__row">
             
                   <td class="govuk-table__cell">
-                    {% if data.timeservedsubmitted=="yes" %}
+                    {% if data.timeservedsubmitted=="dwayne" %}
                     <a href="#" class="govuk-link--no-visited-state pp-caselist-name">Dwayne Briggs</a>
                     {% elseif data.systemchoice=="nomis" %}
                     <a href="./timeserved/are-you-sure-generate-edit?prisoner=dwayne" class="govuk-link--no-visited-state pp-caselist-name">Dwayne Briggs</a>
@@ -155,10 +155,15 @@
                     <span class="urgent-highlight urgent-highlight-message">Time-served release</span>
                   </td>
                    
-                  <td class="govuk-table__cell"></td>
+                  <td class="govuk-table__cell">
+                    {% if data.timeservedsubmitted=="dwayne" %}
+                    Joanne Cooper
+                    {% else %}
+                    {% endif %}
+                  </td>
 
                   <td class="govuk-table__cell">
-                    {% if data.timeservedsubmitted=="yes" %}
+                    {% if data.timeservedsubmitted=="dwayne" %}
                     <strong class="govuk-tag govuk-tag--pink status-badge">Submitted</strong>
                     {% elseif data.systemchoice=="nomis" %}
                     <strong class="govuk-tag govuk-tag--grey status-badge">NOMIS licence</strong>
@@ -170,24 +175,45 @@
                 </tr>
 
 
-                <!--<tr class="govuk-table__row">
+                <tr class="govuk-table__row">
             
-                  <td class="govuk-table__cell"><a href="./timeserved/nomis-use" class="govuk-link--no-visited-state pp-caselist-name">Charlie Martin</a></td>
-            
+                  <td class="govuk-table__cell">
+                    {% if data.timeservedsubmitted=="charlie" %}
+                    <a href="#" class="govuk-link--no-visited-state pp-caselist-name">Charlie Martin</a>
+                    {% elseif data.systemchoice=="nomis" %}
+                    <a href="./timeserved/are-you-sure-generate-edit?prisoner=charlie" class="govuk-link--no-visited-state pp-caselist-name">Charlie Martin</a>
+                    {% else %}
+                    <a href="./timeserved/are-you-sure-generate?prisoner=charlie" class="govuk-link--no-visited-state pp-caselist-name">Charlie Martin</a>
+                    {% endif %}
+                  </td>
+
                   <td class="govuk-table__cell">C389095</td>
             
-                  <td class="govuk-table__cell">Not allocated yet</td>
+                  <td class="govuk-table__cell">Sally Rooney</td>
             
                   <td class="govuk-table__cell" data-sort-value="2">
                     <span class="urgent-highlight">{{ "today" | duration(0) | govukDate(truncate=true) }}</span>
                     <span class="urgent-highlight urgent-highlight-message">Time-served release</span>
                   </td>
                    
-                  <td class="govuk-table__cell"></td>
+                  <td class="govuk-table__cell">
+                    {% if data.timeservedsubmitted=="charlie" %}
+                    Joanne Cooper
+                    {% else %}
+                    {% endif %}
+                  </td>
 
-                  <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow status-badge">Not started</strong></td>
+                  <td class="govuk-table__cell">
+                    {% if data.timeservedsubmitted=="charlie" %}
+                    <strong class="govuk-tag govuk-tag--pink status-badge">Submitted</strong>
+                    {% elseif data.systemchoice=="nomis" %}
+                    <strong class="govuk-tag govuk-tag--grey status-badge">NOMIS licence</strong>
+                    {% else %}
+                    <strong class="govuk-tag govuk-tag--yellow status-badge">Not started</strong>
+                    {% endif %}
+                  </td>
 
-                </tr>-->
+                </tr>
             
             
                 <tr class="govuk-table__row">
@@ -320,7 +346,7 @@
               
                     <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Margaret Bennett</a></td>
               
-                     <td class="govuk-table__cell" data-sort-value="20250602"><span class="urgent-highlight">Confirmed release date: <br>2 Jun 2025</span><span class="urgent-highlight urgent-highlight-message">Early release</span></td>
+                     <td class="govuk-table__cell" data-sort-value="20250602">Confirmed release date: 2 Jun 2025</td>
 
               
                     <td class="govuk-table__cell">
@@ -344,7 +370,7 @@
               
                     <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Margaret Bennett</a></td>
               
-                     <td class="govuk-table__cell" data-sort-value="20250605"><span class="urgent-highlight">Confirmed release date: <br>5 Jun 2025</span><span class="urgent-highlight urgent-highlight-message">Early release</span></td>
+                     <td class="govuk-table__cell" data-sort-value="20250605">Confirmed release date: 5 Jun 2025</td>
 
               
                     <td class="govuk-table__cell">
@@ -409,7 +435,7 @@
               
                     <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Sabrina Rodrigo</a></td>
               
-                     <td class="govuk-table__cell" data-sort-value="20250615"><span class="urgent-highlight">Confirmed release date: <br>5 Jun 2025</span><span class="urgent-highlight urgent-highlight-message">Early release</span></td>
+                     <td class="govuk-table__cell" data-sort-value="20250615">Confirmed release date: 5 Jun 2025</td>
               
                     <td class="govuk-table__cell">
                       <strong class="govuk-tag govuk-tag--pink status-badge">
@@ -428,7 +454,7 @@
               
                     <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Margaret Bennett</a></td>
               
-                     <td class="govuk-table__cell" data-sort-value="20250615"><span class="urgent-highlight">Confirmed release date: <br>15 Jun 2025</span><span class="urgent-highlight urgent-highlight-message">Early release</span></td>
+                     <td class="govuk-table__cell" data-sort-value="20250615">Confirmed release date: 15 Jun 2025</span></td>
 
               
                     <td class="govuk-table__cell">

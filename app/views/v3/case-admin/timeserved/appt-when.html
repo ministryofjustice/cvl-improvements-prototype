@@ -15,181 +15,132 @@
 
 
 {% block content %}
-
-
-
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-        <div class="govuk-form-group">
-          <form method="" action="./check-your-answers">
-
-          <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h1 class="govuk-fieldset__heading">
-              <!--  When does {% if data.edit=="yes" %}Edith Bradshaw{% else %}Adam Balasaravika{% endif %} need to go to their initial appointment?-->
-              When do they need to go to their initial appointment?
-              </h1>
-            </legend><br>
-            
-
-            <div class="govuk-hint">
-              Only enter a specific date and time if you have confirmed one with this person’s community probation practitioner or the community probation team. 
-            </div>
-
-            
-           <!--START set dynamic radio hide/show text-->
-    {% from "govuk/components/radios/macro.njk" import govukRadios %}
-    {% from "govuk/components/input/macro.njk" import govukInput %}
-
-   
-
-    {% set textHtmlTimesOne %}
-    <div class="govuk-form-group">
-    <div class="time-picker">
-      <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
-        Date
-      </label>
-    <div id="passport-issued-hint" class="govuk-hint">
-    For example, 20 12 2021
-    </div>
-    <div class="govuk-date-input" id="passport-issued">
-      <div class="govuk-date-input__item">
-        <div class="govuk-form-group">
-          <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
-            Day
-          </label>
-          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" {%if (data.passportissuedday) %}
-            value="{{data.passportissuedday}}" {% endif %} name="passportissuedday" type="text" pattern="[0-9]*" inputmode="numeric">
-          </div>
-      </div>
-      <div class="govuk-date-input__item">
-        <div class="govuk-form-group">
-          <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
-            Month
-          </label>
-          <input {%if (data.passportissuedmonth) %}
-            value="{{data.passportissuedmonth}}" {% endif %} class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passportissuedmonth" type="text" pattern="[0-9]*" inputmode="numeric"></div>
-      </div>
-      <div class="govuk-date-input__item">
-        <div class="govuk-form-group">
-          <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
-            Year
-          </label>
-          <input {%if (data.passportissuedyear) %}
-            value="{{data.passportissuedyear}}" {% endif %} class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passportissuedyear" type="text" pattern="[0-9]*" inputmode="numeric"></div>
-      </div>
-    </div>
-    <br />
-    </div>
-    </div>
-    <div class="govuk-form-group">
-      <div class="time-picker">
-        <label class="govuk-label" for="Time">
-         Time
-        </label>
-      <div id="passport-issued-hint" class="govuk-hint">
-        For example, 9:30am or 2:55pm
-      </div>
-      <div class="govuk-date-input" id="passport-issued">
-            <div class="govuk-date-input__item">
-              <div class="govuk-form-group">
-                <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
-                  Hour
-                </label>
-                <input {%if (data.passportissuedday2) %}
-                  value="{{data.passportissuedday2}}" {% endif %} class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passportissuedday2" type="text" pattern="[0-9]*" inputmode="numeric"></div>
-            </div>
-            <div class="govuk-date-input__item">
-              <div class="govuk-form-group">
-                <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
-                  Minute
-                </label>
-                <input {%if (data.passportissuedmonth2) %}
-                  value="{{data.passportissuedmonth2}}" {% endif %} class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passportissuedmonth2" type="text" pattern="[0-9]*" inputmode="numeric"></div>
-            </div>
-            <div class="govuk-date-input__item">
-              <div class="govuk-form-group">
-                <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
-                  am or pm
-                </label>
-                <select class="govuk-select" id="when-am" name="whenam" {%if (data.passportissuedmonth2) %}
-                  value="{{data.passportissuedmonth2}}" {% endif %} >
-                  <option value="am">am</option>
-                  <option value="pm" selected>pm</option>
-
-                </select>
-              </div>
-          </div>
-        </div>
-      <br /><br />
-      </div>
-      </div>
-    {% endset -%}
 
 
-    <!--END set dynamic radio hide/show text-->
-           
-    {{ govukRadios({
-      idPrefix: "contact2",
-      name: "contact2",
-      fieldset: {
-        legend: {
-          text: "",
-          isPageHeading: true,
-          classes: "govuk-fieldset__legend--s"
-        }
-      },
-      hint: {
-        text: ""
-      },
-      items: [
+    <form action="check-licence" method="get">
 
-        {
-          value: "Immediately after release",
-          text: "Immediately after release",
-          conditional: {
-            html: textHtmlTimesTwo
-          }
-        },
-
-
-        {
-          value: "By 2pm on the next working day after their release",
-          text: "By 2pm on the next working day after their release",
-          conditional: {
-            html: textHtmlTimesThree
-          }
-        },
-
-
-        {
-          value: "At a specific date and time",
-          text: "At a specific date and time",
-          conditional: {
-            html: textHtmlTimesOne
-          }
-        }
-       
-      ]
-    }) }}
       
- 
-          </fieldset>
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              When does this person need to go to the initial appointment?
+            </h1>
+          </legend>
+          <div id="specific-time-hint" class="govuk-hint">
+          Only enter a specific date and time if you have confirmed one with this person's probation practitioner.
+          </div>
+          <div class="govuk-radios" data-module="govuk-radios">
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="appointment-time" name="appointment-time" type="radio" value="specific" data-aria-controls="conditional-appointment-time" checked>
+              <label class="govuk-label govuk-radios__label" for="appointment-time">
+                At a specific date or time
+              </label>
+            </div>
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-appointment-time">
+
+            <div class="moj-datepicker" data-module="moj-date-picker">
+
+              <div class="govuk-form-group govuk-!-margin-bottom-5">
+                <label class="govuk-label" for="date">
+                  Date
+                </label>
+            
+                <div id="date-hint" class="govuk-hint">
+                  For example, 12/11/2024
+                </div>
+            
+                <input class="govuk-input moj-js-datepicker-input" id="date" name="date" type="text" aria-describedby="date-hint" autocomplete="off">
+            
+              </div>
+            
+            </div>
+
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="date">
+                Time
+              </label>
+          
+            
+            <div id="time-hint" class="govuk-hint">
+              For example, 9:30am or 2:55pm
+          </div>
+
+          <div class="govuk-date-input" id="time">
+            <div class="govuk-date-input__item">
+                <div class="govuk-form-group govuk-!-margin-bottom-2">
+                    <label class="govuk-label govuk-date-input__label" for="time-hour">
+                        Hour
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-2 " maxlength="2" id="time-hour" name="time-hour" type="text" pattern="[0-9]*" inputmode="numeric" value="">
+                </div>
+            </div>
+            <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="time-minute">
+                        Minute
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-2 " maxlength="2" id="time-minute" name="time-minute" type="text" pattern="[0-9]*" inputmode="numeric" value="">
+                </div>
+            </div>
+            <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="time-ampm">
+                        am or pm
+                    </label>
+                    <select class="govuk-select govuk-date-input__input govuk-input--width-2 " id="time-ampm" name="time-ampm">
+                        <option value="">
+                            Choose am or pm
+                        </option>
+                        <option value="am">
+                            am
+                        </option>
+                        <option value="pm">
+                            pm
+                        </option>
+                    </select>
+                </div>
+            </div>
         </div>
-   
 
-    <div class="govuk-button-group">
-    <button class="govuk-button" data-module="govuk-button" name="submit" value="continue">
-      Continue
-    </button>
-    <!--<button class="govuk-button govuk-button--secondary" data-module="govuk-button" name="submit" value="exit">
-      Save and exit
-    </button>-->
-    </div>
-  </form>
+        </div>
+
+            </div>
+
+                  <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="appointment-time-2" name="appointment-time" type="radio" value="immediately">
+              <label class="govuk-label govuk-radios__label" for="appointment-time-2">
+                Immediately after release
+              </label>
+            </div>
 
 
+                  <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="appointment-time-3" name="appointment-time" type="radio" value="nextWorkingDay">
+              <label class="govuk-label govuk-radios__label" for="appointment-time-3">
+                By 2pm on the next working day after their release
+              </label>
+            </div>
+            
+          </div>
+        </fieldset>
+      </div>
 
+              <div class="govuk-button-group">
+                <button type="submit" class="govuk-button" data-module="govuk-button">
+                  Continue
+                </button>
+                <!--<button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                  Skip this for now
+                </button>-->
+              </div>
+        </form>
+
+    
+
+  </div>
 </div>
-
 {% endblock %}
