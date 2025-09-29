@@ -30,6 +30,8 @@
 
 
 
+{% if data['prisoner'] == 'charlie' %}  
+
 <!--START set dynamic radio hide/show text-->
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 {% from "govuk/components/input/macro.njk" import govukInput %}
@@ -38,8 +40,6 @@
 {{ govukInput({
   id: "who4",
   name: "who4",
-  type: "tel",
-  autocomplete: "tel",
   classes: "govuk-fieldset__legend--s govuk-input govuk-input--width-30",
   label: {
     text: "Enter name"
@@ -60,19 +60,22 @@
 
   items: [
   {
-    idPrefix: "who2",
-    name: "who2",
-    value: "Duty officer",
-    text: "Duty officer
-    ",
+    name: "who1",
+    text: "Duty officer",
     conditional: {
       html: emailHtml
     }
   },
 
+  {
+    name: "who2",
+    text: "Sally Rooney, this person's community probation practitioner",
+    conditional: {
+      html: emailHtml
+    }
+  },
 
   {
-    idPrefix: "who3",
     name: "who3",
     text: "Someone else",
     hint: {
@@ -87,6 +90,65 @@
 
   ]
 }) }}
+
+
+{% else %} 
+
+<!--START set dynamic radio hide/show text-->
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% set textHtmlOther %}
+{{ govukInput({
+  name: "who4",
+  classes: "govuk-fieldset__legend--s govuk-input govuk-input--width-30",
+  label: {
+    text: "Enter name"
+  }
+}) }}
+{% endset -%}
+
+
+{{ govukRadios({
+  
+  fieldset: {
+    legend: {
+      name: "apptwho",
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+
+  items: [
+  {
+    name: "who1",
+    text: "Duty officer",
+    conditional: {
+      html: emailHtml
+    }
+  },
+
+
+  {
+    name: "who3",
+    text: "Someone else",
+    hint: {
+      text: "For example, someone at an approved premises or a different probation practitioner."
+    },
+    conditional: {
+      html: textHtmlOther
+    }
+
+  }
+
+
+  ]
+}) }}
+
+
+{% endif %}  
+
 
 <form method="" action="./appt-where/saved-addresses">
 

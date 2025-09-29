@@ -145,12 +145,24 @@ router.post(version + '/licence-need-changing-answer', function(request, respons
 // Time served
 
 
-// Routing a timeserved case to either continue on CVL or noting that the licene is done on NOMIS
+// CA - Routing a timeserved case to either continue on CVL or noting that the licene is done on NOMIS
 router.post(version + '/nomisuse', function(request, response) {
 
     var WhichSystemChoice = request.session.data['systemchoice']
     if (WhichSystemChoice == "cvl"){
         response.redirect(version + "/case-admin/timeserved/appt-who")
+    } else {
+        response.redirect(version + "/case-admin/case-list-pip-approved")
+    }
+})
+
+
+// CA - Send licence for approval (contact probation page) or return to case list
+router.post(version + '/checkyouranswers', function(request, response) {
+
+    var SendLicenceForApproval = request.session.data['sendlicenceforapproval']
+    if (SendLicenceForApproval == "yes"){
+        response.redirect(version + "/case-admin/timeserved/contact-the-probation-team")
     } else {
         response.redirect(version + "/case-admin/case-list-pip-approved")
     }

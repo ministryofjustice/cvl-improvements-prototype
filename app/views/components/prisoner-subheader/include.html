@@ -2,7 +2,14 @@
     <div class="govuk-grid-column-full border-bottom">
         <div class="govuk-caption-m">
 
-{% if data['prisoner'] == 'dwayne' %}  
+{% if data['prisoner'] == 'charlie' %}  
+            <span class="pipe-separated__item">CRN: C389095</span>
+            <span class="pipe-separated__item">Release date: {{ "today" | duration(0) | govukDate(truncate=true) }}</span>
+            <span class="pipe-separated__item">Date of birth: 20 May 1984</span>
+        </div>
+        <span class="govuk-heading-m">Charlie Martin</span>
+
+{% elif data['prisoner'] == 'dwayne' %}  
             <span class="pipe-separated__item">CRN: G5613GT</span>
             <span class="pipe-separated__item">Release date: {{ "today" | duration(0) | govukDate(truncate=true) }}</span>
             <span class="pipe-separated__item">Date of birth: 13 Apr 1977</span>
