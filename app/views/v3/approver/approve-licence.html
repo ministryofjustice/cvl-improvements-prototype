@@ -371,6 +371,11 @@
               </h3>
             </div>
             <div id="accordion-default-content-2" class="govuk-accordion__section-content">
+
+
+              {% if data['prisoner'] == 'dwayne' %} 
+              <p class="govuk-body">Not allocated yet</p>
+              {% else %} 
               <dl class="govuk-summary-list">
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
@@ -405,15 +410,18 @@
                   </dd>
                 </div>
               </dl> 
-              </div>
+              {% endif %} 
+            
+            </div>
           </div>
         </div>
 
-        <h2 class="govuk-heading-l">
-          Approve this licence
-            </h2>
+      <h2 class="govuk-heading-l">Approve this licence</h2>
 
-       {% if data['prisoner'] == 'maxwell' %}  
+       
+      {% if (data['prisoner'] == 'dwayne') or (data['prisoner'] == 'charlie') %}
+      <p></p>
+      {% elif data['prisoner'] == 'maxwell' %}  
         <p>Contact Joanne Cooper if you need more information about something. They will only be able to change the initial appointment.</p>
        {% else %}  
         <p>Contact the probation practitioner if you need more information.</p>
