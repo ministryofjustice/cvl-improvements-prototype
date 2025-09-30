@@ -47,22 +47,25 @@
         <nav class="moj-sub-navigation" aria-label="Sub navigation">
           <ul class="moj-sub-navigation__list">
               <li class="moj-sub-navigation__item">
-                  <a class="moj-sub-navigation__link" aria-current="page" href="case-list-submitted">My cases
-                  {% if data['reuben'] == 'active' %} 
-                  <span id="notifications" class="moj-notification-badge">1</span>
+                  <a class="moj-sub-navigation__link" aria-current="page" href="./case-list-submitted">My cases
+                  {% if data['charlie'] == 'active' %} 
+                    <span id="notifications" class="moj-notification-badge">2</span>
+                  {% elif data['reuben'] == 'active' %} 
+                    <span id="notifications" class="moj-notification-badge">2</span>
                   {% elseif data['maxwell'] == 'active' %}  
                   {% else %}   
-                    <span id="notifications" class="moj-notification-badge">2</span>
+                    <span id="notifications" class="moj-notification-badge">3</span>
                   {% endif %}  
                   </a>
                   
               </li>
               <li class="moj-sub-navigation__item">
-                  <a class="moj-sub-navigation__link" href="#">Team cases
-                 {% if data['maxwell'] == 'active' %}  
-                 {% else %}   
-                    <span id="notifications" class="moj-notification-badge">1</span>
-                  {% endif %}  
+                  <a class="moj-sub-navigation__link" href="./case-list-team">Team cases
+                    {% if data['dwayne'] == 'active' %}
+                    {% elif data['maxwell'] == 'active' %}  
+                    {% else %}   
+                      <span id="notifications" class="moj-notification-badge">1</span>
+                    {% endif %}   
                   </a>
               </li>
           </ul>
@@ -119,7 +122,6 @@
         Review needed
       </strong>
       {% endif %}  
-
       </td>
 
     </tr>
@@ -138,8 +140,6 @@
 
       <td class="govuk-table__cell"><a href="../../../_common/not-testing.html" class="govuk-link--no-visited-state">Sally Rooney</a></td>
 
-
-
        {% if data['reuben'] == 'active' %}  
         <td class="govuk-table__cell" data-sort-value="2">{{ "today" | duration(0) | govukDate(truncate=true) }}</td>
        {% else %}  
@@ -156,8 +156,34 @@
         Review needed
       </strong>
       {% endif %}  
+      </td>
+
+    </tr>
 
 
+    <tr class="govuk-table__row">
+
+      <td class="govuk-table__cell">
+        <a href="./timeserved/licence-history?prisoner=charlie" class="govuk-link--no-visited-state pp-caselist-name">Charlie Martin</a>
+        <span class="govuk-!-font-size-16 pp-caselist-crn">CRN: C389095</span>
+      </td>
+
+      <td class="govuk-table__cell">Standard determinate</td>
+
+      <td class="govuk-table__cell"><a href="../../../_common/not-testing.html" class="govuk-link--no-visited-state">Sally Rooney</a></td>
+
+       {% if data['charlie'] == 'active' %}  
+        <td class="govuk-table__cell" data-sort-value="3">{{ "today" | duration(0) | govukDate(truncate=true) }}</td>
+       {% else %}  
+       <td class="govuk-table__cell" data-sort-value="3"><span class="urgent-highlight">{{ "today" | duration(0) | govukDate(truncate=true) }}</span><span class="urgent-highlight urgent-highlight-message">Time-served release</span></td>
+       {% endif %}  
+
+      <td class="govuk-table__cell">
+        {% if data['charlie'] == 'active' %}  
+        <strong class="govuk-tag govuk-tag--turquoise status-badge">Active</strong>
+        {% else %} 
+        <strong class="govuk-tag govuk-tag--red status-badge">Review needed</strong>
+      {% endif %}  
       </td>
 
     </tr>
