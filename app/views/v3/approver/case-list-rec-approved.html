@@ -86,6 +86,35 @@
 
   <tbody class="govuk-table__body">
 
+
+    {% if data.timeservedapproved=="dwayne" %}
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Dwayne Briggs</a></td>
+      <td class="govuk-table__cell">G5613GT</td>
+      <td class="govuk-table__cell">Not allocated yet</td>
+      <td class="govuk-table__cell">{{ "today" | duration(0) | govukDate(truncate=true) }}</td>
+      <td class="govuk-table__cell">John Cooper</td>
+      <td class="govuk-table__cell" data-sort-value="8">{{ "today" | duration(0) | govukDate(truncate=true) }}</td>
+    </tr>
+    {% else %}
+    {% endif %}
+
+
+    {% if data.timeservedapproved=="charlie" %}
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Charlie Martin</a></td>
+      <td class="govuk-table__cell">C389095</td>
+      <td class="govuk-table__cell"><a href="./pp-page" class="govuk-link--no-visited-state">Sally Rooney</a></td>
+      <td class="govuk-table__cell">{{ "today" | duration(0) | govukDate(truncate=true) }}</td>
+      <td class="govuk-table__cell">John Cooper</td>
+      <td class="govuk-table__cell" data-sort-value="7">{{ "today" | duration(0) | govukDate(truncate=true) }}</td>
+    </tr>
+    {% else %}
+    {% endif %}
+
+
+
+
     {% if data['approved'] == 'True' %}  
 
     <tr class="govuk-table__row">
@@ -100,7 +129,7 @@
 
       <td class="govuk-table__cell">John Cooper</td>
 
-      <td class="govuk-table__cell">11 Dec 2024</td>
+      <td class="govuk-table__cell" data-sort-value="6">11 Dec 2024</td>
 
     </tr>
 
@@ -118,7 +147,7 @@
 
       <td class="govuk-table__cell">John Cooper</td>
 
-      <td class="govuk-table__cell">11 Dec 2024</td>
+      <td class="govuk-table__cell" data-sort-value="5">11 Dec 2024</td>
 
     </tr>
 
@@ -135,7 +164,7 @@
 
       <td class="govuk-table__cell">Simon Frost</td>
 
-      <td class="govuk-table__cell">10 Dec 2024</td>
+      <td class="govuk-table__cell" data-sort-value="4">10 Dec 2024</td>
 
     </tr>
 
@@ -152,7 +181,7 @@
 
       <td class="govuk-table__cell">John Cooper</td>
 
-      <td class="govuk-table__cell">10 Dec 2024</td>
+      <td class="govuk-table__cell" data-sort-value="3">10 Dec 2024</td>
 
     </tr>
 
@@ -168,7 +197,7 @@
 
       <td class="govuk-table__cell">John Cooper</td>
 
-      <td class="govuk-table__cell">10 Dec 2024</td>
+      <td class="govuk-table__cell" data-sort-value="2">10 Dec 2024</td>
 
     </tr>
 
@@ -184,7 +213,7 @@
 
       <td class="govuk-table__cell">Simon Frost</td>
 
-      <td class="govuk-table__cell">9 Dec 2024</td>
+      <td class="govuk-table__cell" data-sort-value="1">9 Dec 2024</td>
 
     </tr>
 

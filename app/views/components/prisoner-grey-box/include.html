@@ -8,7 +8,11 @@
               Name
             </dt>
             <dd class="govuk-summary-list__value">
-            {% if data['prisoner'] == 'maxwell' %}  
+            {% if data['prisoner'] == 'dwayne' %} 
+              Dwayne Briggs
+            {% elif data['prisoner'] == 'charlie' %} 
+              Charlie Martin
+            {% elif data['prisoner'] == 'maxwell' %}  
               Maxwell Kirby
             {% else %}  
               Cyphoonifer Bransabert
@@ -20,7 +24,11 @@
               Date of birth
             </dt>
             <dd class="govuk-summary-list__value">
-            {% if data['prisoner'] == 'maxwell' %}  
+            {% if data['prisoner'] == 'dwayne' %} 
+              13 April 1977
+            {% elif data['prisoner'] == 'charlie' %} 
+              20 May 1984
+            {% elif data['prisoner'] == 'maxwell' %}  
               22 April 1993
             {% else %}  
               10 November 1970
@@ -32,7 +40,11 @@
               Prison number
             </dt>
             <dd class="govuk-summary-list__value">
-            {% if data['prisoner'] == 'maxwell' %}  
+            {% if data['prisoner'] == 'dwayne' %} 
+              G5613GT
+            {% elif data['prisoner'] == 'charlie' %} 
+              C389095
+            {% elif data['prisoner'] == 'maxwell' %}  
               A890301
             {% else %}  
               A693826
