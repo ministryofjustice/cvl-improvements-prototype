@@ -82,7 +82,7 @@
 
       <th scope="col" class="govuk-table__header" aria-sort="none">Submitted by</th>
 
-      <th scope="col" class="govuk-table__header" aria-sort="none">Release date</th>
+      <th scope="col" class="govuk-table__header" aria-sort="ascending">Release date</th>
 
 
     </tr>
@@ -90,21 +90,46 @@
 
   <tbody class="govuk-table__body"> 
 
+      {% if data.timeservedapproved=="dwayne" %}
+      {% else %}
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell"><a href="./approve-licence?prisoner=dwayne" class="govuk-link--no-visited-state">Dwayne Briggs</a></td>
+        <td class="govuk-table__cell">G5613GT</td>
+        <td class="govuk-table__cell">Not allocated yet</td>
+        <td class="govuk-table__cell">Joanne Cooper</td>
+        <td class="govuk-table__cell">
+          <span class="urgent-highlight" data-sort-value="1">{{ "today" | duration(0) | govukDate(truncate=true) }}</span>
+          <span class="urgent-highlight urgent-highlight-message">Urgent approval required for
+          </br>upcoming release</span></td>
+      </tr>
+      {% endif %}
 
-       <tr class="govuk-table__row">
 
+      {% if data.timeservedapproved=="charlie" %}
+      {% else %}
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell"><a href="./approve-licence?prisoner=charlie" class="govuk-link--no-visited-state">Charlie Martin</a></td>
+        <td class="govuk-table__cell">C389095</td>
+        <td class="govuk-table__cell"><a href="./pp-page" class="govuk-link--no-visited-state">Sally Rooney</a></td>
+        <td class="govuk-table__cell">Joanne Cooper</td>
+        <td class="govuk-table__cell">
+          <span class="urgent-highlight" data-sort-value="2">{{ "today" | duration(0) | govukDate(truncate=true) }}</span>
+          <span class="urgent-highlight urgent-highlight-message">Urgent approval required for
+          </br>upcoming release</span></td>
+      </tr>
+      {% endif %}
+
+      
+      <tr class="govuk-table__row">
         <td class="govuk-table__cell"><a href="approve-licence" class="govuk-link--no-visited-state">Maxwell Kirby</a></td>
-  
         <td class="govuk-table__cell">A5677DD</td>
-  
         <td class="govuk-table__cell"><a href="../../../_common/not-testing.html" class="govuk-link--no-visited-state">Stephen McVeigh</a></td>
-  
         <td class="govuk-table__cell">Stephen McVeigh</td>
-  
-        <td class="govuk-table__cell"><span class="urgent-highlight">25 Feb 2025</span><span class="urgent-highlight urgent-highlight-message">Urgent approval required for
+        <td class="govuk-table__cell">
+          <span class="urgent-highlight" data-sort-value="3">{{ "today" | duration(2) | govukDate(truncate=true) }}</span>
+          <span class="urgent-highlight urgent-highlight-message">Urgent approval required for
           <br>upcoming release</span></td>
-  
-         </tr>
+      </tr>
 
 
 
@@ -118,7 +143,7 @@
   
         <td class="govuk-table__cell">Moira Reagan</td>
   
-        <td class="govuk-table__cell"><span class="urgent-highlight">19 Dec 2024</span><span class="urgent-highlight urgent-highlight-message">Early release</span></td>
+        <td class="govuk-table__cell" data-sort-value="4">{{ "today" | duration(35) | govukDate(truncate=true) }}</td>
   
          </tr>
 
@@ -133,7 +158,7 @@
       
             <td class="govuk-table__cell">Tom Scott</td>
       
-            <td class="govuk-table__cell">29 Dec 2024</td>
+            <td class="govuk-table__cell" data-sort-value="5">{{ "today" | duration(69) | govukDate(truncate=true) }}</td>
       
              </tr>
 
@@ -147,7 +172,7 @@
         
               <td class="govuk-table__cell">Fiona Lyon</td>
         
-              <td class="govuk-table__cell">4 Jan 2025</td>
+              <td class="govuk-table__cell" data-sort-value="6">{{ "today" | duration(99) | govukDate(truncate=true) }}</td>
         
                </tr>
 
@@ -159,11 +184,11 @@
            
                  <td class="govuk-table__cell">A693826</td>
            
-                 <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Sally Rooney</a></td>
+                 <td class="govuk-table__cell"><a href="./pp-page" class="govuk-link--no-visited-state">Sally Rooney</a></td>
            
                  <td class="govuk-table__cell">Sally Rooney</td>
            
-                 <td class="govuk-table__cell">27 May 2025</td>
+                 <td class="govuk-table__cell" data-sort-value="7">{{ "today" | duration(111) | govukDate(truncate=true) }}</td>
            
                   </tr>
            
@@ -179,7 +204,7 @@
           
                 <td class="govuk-table__cell">Granville Hart</td>
           
-                <td class="govuk-table__cell">2 March 2025</td>
+                <td class="govuk-table__cell" data-sort-value="8">{{ "today" | duration(141) | govukDate(truncate=true) }}</td>
           
                  </tr>
 
