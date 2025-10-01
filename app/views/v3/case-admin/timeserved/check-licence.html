@@ -55,38 +55,6 @@
               {% elseif data.postcodeaddress-2=="AL13 9SF" %}{{data.postcodeaddress-2}}
               
               {% endif %}
-
-
-          
-
-
-              <!--{%if (data.address1) %}
-                {{data.address1}}
-
-              {% else %}
-                Lewisham Probation Office{% endif %}
-
-              , {%if (data.address2) %}{{data.address2}}
-
-              {% else %}
-               {% endif %}
-
-              , {%if (data.addresstown) %}
-                {{data.addresstown}}
-
-              {% else %}, London{% endif %}
-
-              , {%if (data.addresscounty) %}{{data.addresscounty}}
-                {% endif %}
-
-              , {%if (data.addresspostcode) %}
-                {{data.addresspostcode}}
-
-              {% else %}
-                , SE13 4HY
-              {% endif %}-->
-
-
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">Change</a>
@@ -103,7 +71,6 @@
               {% elseif (data.contactnumber3) %}{{data.contactnumber3}}
               {% else %}01273 800 900
               {% endif %}
-
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">Change</a>
@@ -120,7 +87,6 @@
               {% elseif (data.contactnumber3) %}{{data.contactnumber3}}
               {% else %}01273 800 900
               {% endif %}
-
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">Change</a>
@@ -128,7 +94,7 @@
           </div>
 
 
-          {% if data.appointment-time=="nextWorkingDay" %}
+          {% if data.appointment-time == "nextWorkingDay" %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Date/time
@@ -140,7 +106,7 @@
               <a class="govuk-link" href="./appt-when">Change</a>
             </dd>
           </div>
-          {% elseif data.appointment-time=="immediately" %}
+          {% elseif data.appointment-time == "immediately" %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Date/time
