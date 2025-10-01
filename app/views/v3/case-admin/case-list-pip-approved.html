@@ -19,7 +19,7 @@
 
 
         {% if data.timeservedsubmitted=="yes" %}
-        {% elseif data.systemchoice=="nomis" %}
+        {% elseif (data.systemchoice=="nomischarlie") or (data.systemchoice=="nomisdwayne") %}
         <div role="region" class="moj-alert moj-alert--success moj-alert--with-heading" aria-label="success: File uploaded successfully" data-module="moj-alert">
           <div>
             <svg class="moj-alert__icon" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" height="30" width="30">
@@ -138,7 +138,7 @@
                   <td class="govuk-table__cell">
                     {% if data.timeservedsubmitted=="dwayne" %}
                     <a href="#" class="govuk-link--no-visited-state pp-caselist-name">Dwayne Briggs</a>
-                    {% elseif data.systemchoice=="nomis" %}
+                    {% elseif data.systemchoice=="nomisdwayne" %}
                     <a href="./timeserved/are-you-sure-generate-edit?prisoner=dwayne" class="govuk-link--no-visited-state pp-caselist-name">Dwayne Briggs</a>
                     {% else %}
                     <a href="./timeserved/are-you-sure-generate?prisoner=dwayne" class="govuk-link--no-visited-state pp-caselist-name">Dwayne Briggs</a>
@@ -165,8 +165,8 @@
                   <td class="govuk-table__cell">
                     {% if data.timeservedsubmitted=="dwayne" %}
                     <strong class="govuk-tag govuk-tag--pink status-badge">Submitted</strong>
-                    {% elseif data.systemchoice=="nomis" %}
-                    <strong class="govuk-tag govuk-tag--grey status-badge">NOMIS licence</strong>
+                    {% elseif data.systemchoice=="nomisdwayne" %}
+                      <strong class="govuk-tag govuk-tag--grey status-badge">NOMIS licence</strong>
                     {% else %}
                     <strong class="govuk-tag govuk-tag--yellow status-badge">Not started</strong>
                     {% endif %}
@@ -180,7 +180,7 @@
                   <td class="govuk-table__cell">
                     {% if data.timeservedsubmitted=="charlie" %}
                     <a href="#" class="govuk-link--no-visited-state pp-caselist-name">Charlie Martin</a>
-                    {% elseif data.systemchoice=="nomis" %}
+                    {% elseif data.systemchoice=="nomischarlie" %}
                     <a href="./timeserved/are-you-sure-generate-edit?prisoner=charlie" class="govuk-link--no-visited-state pp-caselist-name">Charlie Martin</a>
                     {% else %}
                     <a href="./timeserved/are-you-sure-generate?prisoner=charlie" class="govuk-link--no-visited-state pp-caselist-name">Charlie Martin</a>
@@ -205,11 +205,11 @@
 
                   <td class="govuk-table__cell">
                     {% if data.timeservedsubmitted=="charlie" %}
-                    <strong class="govuk-tag govuk-tag--pink status-badge">Submitted</strong>
-                    {% elseif data.systemchoice=="nomis" %}
-                    <strong class="govuk-tag govuk-tag--grey status-badge">NOMIS licence</strong>
+                      <strong class="govuk-tag govuk-tag--pink status-badge">Submitted</strong>
+                    {% elseif data.systemchoice=="nomischarlie" %}
+                      <strong class="govuk-tag govuk-tag--grey status-badge">NOMIS licence</strong>
                     {% else %}
-                    <strong class="govuk-tag govuk-tag--yellow status-badge">Not started</strong>
+                      <strong class="govuk-tag govuk-tag--yellow status-badge">Not started</strong>
                     {% endif %}
                   </td>
 
