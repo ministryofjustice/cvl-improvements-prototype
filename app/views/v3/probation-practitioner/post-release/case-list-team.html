@@ -99,11 +99,7 @@
 
       <td class="govuk-table__cell">Not allocated yet</td>
 
-       {% if data['dwayne'] == 'active' %}  
-        <td class="govuk-table__cell" data-sort-value="1">{{ "today" | duration(0) | govukDate(truncate=true) }}</td>
-       {% else %}  
-       <td class="govuk-table__cell" data-sort-value="1"><span class="urgent-highlight">{{ "today" | duration(0) | govukDate(truncate=true) }}</span><span class="urgent-highlight urgent-highlight-message">Time-served release</span></td>
-       {% endif %}  
+      <td class="govuk-table__cell" data-sort-value="1"><span class="urgent-highlight">{{ "today" | duration(0) | govukDate(truncate=true) }}</span><span class="urgent-highlight urgent-highlight-message">Time-served release</span></td>
 
       <td class="govuk-table__cell">
         {% if data['dwayne'] == 'active' %}  
