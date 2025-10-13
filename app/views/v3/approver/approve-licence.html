@@ -98,7 +98,7 @@
          </div>
       </div>
 
-    {% if data['prisoner'] == 'dwayne' %} 
+    {% if data.prisoner == 'dwayne' or data.prisoner == 'charlie' %}
     <div class="govuk-accordion__section govuk-accordion__section--expanded">
       <div class="govuk-accordion__section-header">
         <h3 class="govuk-accordion__section-heading">
@@ -291,7 +291,9 @@
                      Appointment with
                   </dt>
                   <dd class="govuk-summary-list__value">
-                    {% if data['prisoner'] == 'maxwell' %}  
+                    {% if data['prisoner'] == 'charlie' %}  
+                      Philamina Rogers
+                    {% elif data['prisoner'] == 'maxwell' %}  
                        {% if data['hard-stop-who'] == 'dutyOfficer' %}  
                          Duty Officer
                        {% elif data['hard-stop-who'] == 'someoneElse' %}  
@@ -405,7 +407,7 @@
                   {% if data['prisoner'] == 'maxwell' %}  
                     stephen.mcveigh@fake-email.com
                  {% else %}  
-                    sally.rooney@fake-email.com
+                 philamina.rogers@fake-email.com
                    {% endif %}  
                   </dd>
                 </div>
