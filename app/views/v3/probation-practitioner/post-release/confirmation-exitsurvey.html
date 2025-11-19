@@ -1,0 +1,78 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Licence variation for Cyphoonifer Bransabert sent" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-pp-header/include.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">
+        Licence variation for {% if data['prisoner'] == 'maxwell' %}Maxwell Kirby{% else %}Cyphoonifer Bransabert{% endif %} sent
+      </h1>
+    </div>
+
+    <h2 class="govuk-heading-m" style="margin-top: 25px;">
+      What happens next
+     </h2>
+
+        <p>We have sent the variation request to the head of the Probation Delivery Unit (PDU) for approval. </p>
+
+        <p>They will contact you if they need more information.</p>
+
+
+        <h3 class="govuk-heading-m">
+          After the licence is approved
+        </h3>
+    
+        <p>You will get an email when the variation is approved and you will be able to print and issue the licence or post sentence supervision order.</p>
+
+
+        <a href="case-list-variation-submitted">
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+           Return to caselist
+          </button>
+        </a>
+
+
+        <hr class="govuk-section-break govuk-section-break--visible" style="margin-bottom: 30px; margin-top: 15px;">
+
+
+        <h2 class="govuk-heading-m">
+          Help improve this service
+         </h2>
+
+         <p>Fixed-term recalls are new to this service. Your feedback will help make it better.</br>
+          To give feedback you can:</p>
+
+         <ul class="govuk-list govuk-list--bullet" style="margin-top: -10px; margin-bottom: 40px;">
+          <li><a class="govuk-link" href="#">complete a short survey</a></li>
+          <li><a class="govuk-link" href="#">report a specific problem</a></li>
+        </ul>
+
+
+
+
+        <!--<p class="govuk-!-margin-top-6"><a href="/v2/pdu-head/case-list" class="govuk-link--no-visited-state">Jump to PDU head approval flow</a></p>-->
+
+
+  </div>
+</div>
+
+{% endblock %}
+
+
+{% block footer %}
+
+{% include "components/cvl-pp-footer/include.html" %}
+
+{% endblock %}
