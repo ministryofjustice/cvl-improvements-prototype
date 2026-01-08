@@ -1,0 +1,174 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="You must contact the probation team" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-dm-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% include "components/prisoner-subheader/include.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+
+    <form action="/v4/nomisuse" method="post">
+
+    {% if data['prisoner'] == 'charlie' %} 
+
+    <!--START set dynamic radio hide/show text-->
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+    {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+    {% set textHtmlOther %}
+    {{ govukTextarea({
+      label: {
+        text: "Enter a reason for using NOMIS ",
+        classes: "govuk-label--s",
+        isPageHeading: true
+      },
+      hint: {
+        text: "Telling us this helps us understand how the Prison Service and the Probation Service work together on licences for people released with time served."
+      }
+
+    }) }}
+    {% endset -%}
+    <!--END set dynamic radio hide/show text-->
+
+
+    {{ govukRadios({
+      name: "systemchoice",
+      fieldset: {
+        legend: {
+          text: "Do you want to create the licence on this service?  ",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      
+
+      items: [
+
+
+      {
+        value: "cvl",
+        text: "Yes, I will continue and create the licence on this service ",
+        hint: {
+          text: "The licence will contain standard conditions and an additional condition telling this person not to approach or communicate with any victims of their offences. "
+        }
+      },
+
+      
+      {
+        value: "nomischarlie",
+        text: "No, I will create the licence on NOMIS ",
+        hint: {
+          text: " If you create a licence using NOMIS, the probation practitioner will not be able to view or vary the licence on Create and vary a licence. "
+        },
+        conditional: {
+          html: textHtmlOther
+        }
+      }
+
+    
+
+      ]
+    }) }}
+
+
+    {% elif data['prisoner'] == 'dwayne' %}   
+    
+        <!--START set dynamic radio hide/show text-->
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+        {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+    
+        {% set textHtmlOther %}
+        {{ govukTextarea({
+          label: {
+            text: "Enter a reason for using NOMIS ",
+            classes: "govuk-label--s",
+            isPageHeading: true
+          },
+          hint: {
+            text: "Telling us this helps us understand how the Prison Service and the Probation Service work together on licences for people released with time served."
+          }
+    
+        }) }}
+        {% endset -%}
+        <!--END set dynamic radio hide/show text-->
+    
+    
+        {{ govukRadios({
+          name: "systemchoice",
+          fieldset: {
+            legend: {
+              text: "Do you want to create the licence on this service?  ",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          
+    
+          items: [
+    
+    
+          {
+            value: "cvl",
+            text: "Yes, I will continue and create the licence on this service ",
+            hint: {
+              text: "The licence will contain standard conditions and an additional condition telling this person not to approach or communicate with any victims of their offences. "
+            }
+          },
+    
+          
+          {
+            value: "nomisdwayne",
+            text: "No, I will create the licence on NOMIS ",
+            hint: {
+              text: " If you create a licence using NOMIS, the probation practitioner will not be able to view or vary the licence on Create and vary a licence. "
+            },
+            conditional: {
+              html: textHtmlOther
+            }
+          }
+    
+        
+    
+          ]
+        }) }}
+
+
+
+    {% endif %} 
+
+  
+    
+  
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+  
+    </form>
+
+
+
+
+  </div>
+</div>
+{% endblock %}
+
+
+{% block footer %}
+
+{% include "components/cvl-pp-footer/include.html" %}
+
+{% endblock %}

@@ -1,0 +1,647 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Home" %}
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<span class="govuk-caption-xl">Create and vary a licence Prototype v4</span>
+    <h1 class="govuk-heading-xl">
+      Further CVL improvements
+    </h1>
+
+
+  
+  
+    <h2 class="govuk-heading-m">
+     End-to end flows
+    </h2>
+    
+    <h3 class="govuk-heading-s govuk-!-margin-top-5">Standard flow</h3>
+
+    <p>Person to select on case lists: Cyphoonifer Bransabert (CRN: A693826)</p>
+
+    <p class="bold">CRD licence</p>
+
+    <p>There are two versions of the prototype flow you can use to show the creation of a CRD licence, one with example additional and bespoke conditions and one without.</p>
+
+    <p>Links to start flow (starting from PP in CVL create journey):</p>
+
+    <ol class="govuk-list govuk-list--number">
+  <li>
+    <p><a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/cvl-home?additionalConditionsPresent=yes&bespokeConditionsPresent=yes&recallCase=">
+      Start - flow with example additional conditions (Electronic monitoring conditions 2 and 3) and a bespoke condition</a></p> 
+      <p>To use this version, choose 'Yes' on additional conditions and bespoke conditions.</p>
+  </li>
+  <li>
+    <p><a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/cvl-home?additionalConditionsPresent=&bespokeConditionsPresent=&recallCase=">
+      Start - flow with no additional or bespoke conditions</a></p> 
+      <p>To use this version, choose 'No' on additional conditions and bespoke conditions.</p>
+  </li>
+</ol>
+
+    <p class="bold">Post-recall release licence</p>
+
+    <p>There are two versions of the prototype flow you can use to show the creation of a PRRD licence, one with example additional and bespoke conditions and one without.</p>
+
+    <p>Links to start flow (starting from PP in CVL create journey):</p>
+
+    <ol class="govuk-list govuk-list--number">
+  <li>
+    <p><a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/cvl-home?additionalConditionsPresent=yes&bespokeConditionsPresent=yes&recallCase=true">
+      Start - flow with example additional conditions (Electronic monitoring conditions 2 and 3) and a bespoke condition</a></p> 
+      <p>To use this version, choose 'Yes' on additional conditions and bespoke conditions.</p>
+  </li>
+  <li>
+    <p><a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/cvl-home?additionalConditionsPresent=&bespokeConditionsPresent=&recallCase=true">
+      Start - flow with no additional or bespoke conditions</a></p> 
+      <p>To use this version, choose 'No' on additional conditions and bespoke conditions.</p>
+  </li>
+</ol>
+
+    <h3 class="govuk-heading-s govuk-!-margin-top-5">Hard stop case</h3>
+
+    <p>Person to select on case lists: Maxwell Kirby (CRN: A5677DD)</p>
+
+    <p>Link to start flow (starting from PP in CVL create journey):</p>
+
+    <p><a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/cvl-home?additionalConditionsPresent=&bespokeConditionsPresent=&recallCase=">
+      Start flow (CRD case)</a></p> 
+
+    <p><a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/cvl-home?additionalConditionsPresent=&bespokeConditionsPresent=&recallCase=true">
+      Start flow (PRRD case)</a></p> 
+
+
+<div class="govuk-warning-text govuk-!-margin-top-7">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-visually-hidden">Warning</span>
+    Remember to clear data (link in footer) between flows
+  </strong>
+</div>
+
+
+    <h3 class="govuk-heading-s govuk-!-margin-top-7">Individual links to pages per user type</h3>
+
+
+
+    {{ govukAccordion({
+      id: "accordion-default",
+      items: [
+
+
+      {
+        heading: {
+          text: "Global search (TBC)"
+        },
+        content: {
+          html: '
+          
+          
+
+         
+          
+          '
+        }
+      },
+
+
+
+  
+  
+        {
+          heading: {
+            text: "Case list search"
+          },
+          content: {
+            html: '
+
+
+            <h2 class="govuk-heading-m">
+              Probation Practitioner (PP)
+            </h2>
+        
+            <h3 class="govuk-heading-s">
+              Limited access offender (LAO)
+            </h3>
+        
+            <ul class="govuk-list">
+              <li>
+                <a class="govuk-link--no-visited-state" href="">Search results page</a></br>
+                <a class="govuk-link--no-visited-state" href="">LAO detail page</a>
+              </li>
+            </ul>
+            
+
+           
+            
+            '
+          }
+        },
+
+
+        
+        {
+          heading: {
+            text: "Creation and approval journey"
+          },
+          content: {
+            html: '
+            
+    <h2 class="govuk-heading-m">
+      Probation Practitioner (PP)
+    </h2>
+
+    <h3 class="govuk-heading-s">
+      Start
+    </h3>
+
+    <ul class="govuk-list">
+      <li>
+        <a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/cvl-home">CVl home</a>
+      </li>
+      <li>
+        <a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/case-list-start">Case list</a>
+      </li>
+    </ul>
+
+    <h3 class="govuk-heading-s">
+      Hard stop case timed out (Maxwell Kirby)
+    </h3>
+
+    <ul class="govuk-list">
+      <li>
+        <a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/prison-will-create">Prison will create this licence</a>
+      </li>
+    </ul>
+
+    <h3 class="govuk-heading-s">
+      Add reporting instructions
+    </h3>
+
+    <ul class="govuk-list">
+      <li><a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/are-you-sure">Are you sure you want to create this licence?</a></li>
+      <li><a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/are-you-sure-friday-release-recall">Are you sure you want to create this licence? (Friday release and recall)</a></li>
+      <li><a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/are-you-sure-friday-release">Are you sure you want to create this licence? (Friday release)</a></li>
+      <li><a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/are-you-sure-recall">Are you sure you want to create this licence? (Recall)</a></li></br>
+
+      <li><a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/who-with">Who is the initial appointment with?</a></li></br>
+
+      <li><a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/appt-where/empty-state">Where is the initial appointment? (Empty state)</a></li>
+      <li><a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/appt-where/saved-addresses">Where is the initial appointment? (Saved addresses)</a></li>
+      <li><a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/appt-where/saved-addresses-removed">Where is the initial appointment? (Removed saved address)</a></li>
+      <li><a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/appt-where/searchresult-one">Where is the initial appointment? (One search result)</a></li>
+      <li><a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/appt-where/searchresult-multiple">Where is the initial appointment? (Multiple search results)</a></li>
+      <li><a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/appt-where/searchresult-none">Where is the initial appointment? (No search results)</a></li>
+      <li><a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/appt-where/manual-entry">Where is the initial appointment? (Manual entry)</a></li></br>
+      
+      <li><a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/contact-number">What is the contact phone number for the initial appointment? (Alternative phone number)</a></li></br>
+
+      <li><a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/when-appt">When does this person need to go to the initial appointment?</a></li>
+      <li><a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/when-appt-friday-release">When does this person need to go to the initial appointment? (Friday release)</a></li></br>
+    </ul>
+
+
+    <h3 class="govuk-heading-s">
+      Add additional conditions
+    </h3>
+    <ul class="govuk-list">
+      <li>
+        <a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/additional-conditions/additional-conditions">Do they need additional licence conditions?</a>
+      </li>
+      <li>
+        <a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/additional-conditions/enter-additional-conditions">Select additional licence conditions</a>
+      </li>
+      <li>
+        <a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/additional-conditions/complete-em-condition-2">Example - Complete electronic monitoring condition number 2</a>
+      </li>
+      <li>
+        <a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/additional-conditions/complete-em-condition-3">Example - Complete electronic monitoring condition number 3</a>
+      </li>
+      <li>
+        <a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/additional-conditions/pathfinder-programme">Are they being tagged as part of a pathfinder or programme?</a>
+      </li>
+    </ul>
+
+
+
+    <h3 class="govuk-heading-s">
+      Add bespoke conditions
+    </h3>
+     <ul class="govuk-list">
+      <li>
+        <a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/bespoke-conditions">Do they need bespoke licence conditions?</a>
+      </li>
+      <li>
+        <a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/create-bespoke-condition">Create a bespoke condition</a>
+      </li>
+    </ul>
+
+
+
+    <h3 class="govuk-heading-s">
+      Check and confirm
+    </h3>
+
+    <ul class="govuk-list">
+
+    <li>
+      <a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/check-licence">Check licence details</a>
+    </li>
+    <li>
+      <a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/confirmation">Confirmation</a>
+    </li>
+    <li>
+      <a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/case-list-submitted">Case list (status - submitted)</a>
+    </li>
+  </ul>
+
+  <h3 class="govuk-heading-s">
+    Edit before approval
+  </h3>
+
+  <h3 class="govuk-heading-s">
+    Check and confirm
+  </h3>
+
+  <ul class="govuk-list">
+
+  <li>
+    <a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/check-licence-2">Check licence details</a>
+  </li>
+</ul>
+
+
+    <h2 class="govuk-heading-m">
+    Case admin (CA)
+  </h2>
+
+    <h3 class="govuk-heading-s">
+      Hard stop case timed out (Maxwell Kirby)
+    </h3>
+
+    <ul class="govuk-list">
+      <li>
+        <a class="govuk-link--no-visited-state" href="./case-admin/cvl-home">CVL home</a>
+      </li>
+      <li>
+        <a class="govuk-link--no-visited-state" href="./case-admin/case-list-pip-approved">Case list</a>
+      </li>
+      <li>
+        <a class="govuk-link--no-visited-state" href="./case-admin/hard-stop/are-you-sure-generate">Are you sure you want to generate a standard licence?</a>
+      </li>
+      <li>
+        <a class="govuk-link--no-visited-state" href="./case-admin/hard-stop/who-with">Who is the initial appointment with?</a>
+      </li>
+      <li>
+        <a class="govuk-link--no-visited-state" href="./case-admin/hard-stop/where-appt">Where is the initial appointment?</a>
+      </li>
+      <li>
+        <a class="govuk-link--no-visited-state" href="./case-admin/hard-stop/contact-number">What is the contact phone number for the initial appointment?</a>
+      </li>
+      <li>
+        <a class="govuk-link--no-visited-state" href="./case-admin/hard-stop/when-appt">When does this person need to go to their initial appointment?</a>
+      </li>
+      <li>
+        <a class="govuk-link--no-visited-state" href="./case-admin/hard-stop/check-licence">Check licence details</a>
+      </li>
+      <li>
+        <a class="govuk-link--no-visited-state" href="./case-admin/hard-stop/confirmation">Confirmation</a>
+      </li>
+    </ul>
+
+
+    <h3 class="govuk-heading-s">Time-served cases (Dwayne Briggs, Charlie Martin)</h3>
+
+    <ul class="govuk-list">
+      <li><a class="govuk-link--no-visited-state" href="./case-admin/cvl-home">CVL home</a></li>
+      <li><a class="govuk-link--no-visited-state" href="./case-admin/case-list-pip-approved">Case list</a></li></br>
+
+      <li><a class="govuk-link--no-visited-state" href="./case-admin/timeserved/are-you-sure-generate">Do you want to create the licence on this service?</a></li>
+      <li><a class="govuk-link--no-visited-state" href="./case-admin/timeserved/are-you-sure-generate-edit">Edit: Do you want to create the licence on this service?</a></li></br>
+
+      <li><a class="govuk-link--no-visited-state" href="./case-admin/timeserved/appt-who">Who is the initial appointment with?</a></li></br>
+
+      <li><a class="govuk-link--no-visited-state" href="./case-admin/timeserved/appt-where/empty-state">Where is the initial appointment? (Empty state)</a></li>
+      <li><a class="govuk-link--no-visited-state" href="./case-admin/timeserved/appt-where/saved-addresses">Where is the initial appointment? (Saved addresses)</a></li>
+      <li><a class="govuk-link--no-visited-state" href="./case-admin/timeserved/appt-where/saved-addresses-removed">Where is the initial appointment? (Removed saved address)</a></li>
+      <li><a class="govuk-link--no-visited-state" href="./case-admin/timeserved/appt-where/searchresult-one">Where is the initial appointment? (One search result)</a></li>
+      <li><a class="govuk-link--no-visited-state" href="./case-admin/timeserved/appt-where/searchresult-multiple">Where is the initial appointment? (Multiple search results)</a></li>
+      <li><a class="govuk-link--no-visited-state" href="./case-admin/timeserved/appt-where/searchresult-none">Where is the initial appointment? (No search results)</a></li>
+      <li><a class="govuk-link--no-visited-state" href="./case-admin/timeserved/appt-where/manual-entry">Where is the initial appointment? (Manual entry)</a></li></br>
+      
+      <li><a class="govuk-link--no-visited-state" href="./case-admin/timeserved/appt-phone">What is the contact phone number for the initial appointment? (Alternative phone number)</a></li></br>
+
+      <li><a class="govuk-link--no-visited-state" href="./case-admin/timeserved/appt-when">When does this person need to go to the initial appointment?</a></li></br>
+
+      <li><a class="govuk-link--no-visited-state" href="./case-admin/timeserved/check-your-answers">Check licence details</a></li>
+      <li><a class="govuk-link--no-visited-state" href="./case-admin/timeserved/contact-the-probation-team">Contact probation team</a></li>
+      <li><a class="govuk-link--no-visited-state" href="./case-admin/timeserved/confirmation">Confirmation</a></li>
+    </ul>
+
+
+
+
+
+
+    <h2 class="govuk-heading-m">
+    Probation practitioner
+  </h2>
+    <h3 class="govuk-heading-s">
+      Hard stop case timed out (Maxwell Kirby)
+    </h3>
+
+    <ul class="govuk-list">
+      <li>
+        <a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/create/licence-created-by-prison">Licence has been created by prison</a>
+      </li>
+    </ul>
+
+    
+  <h2 class="govuk-heading-m">
+    Approver (DM)
+  </h2>
+
+  <ul class="govuk-list">
+    <li>
+      <a class="govuk-link--no-visited-state" href="./approver/cvl-home">CVL home (DM version)</a>
+    </li>
+    <li>
+      <a class="govuk-link--no-visited-state" href="./approver/case-list-app-needed">Case list (approval needed)</a>
+    </li>
+    <li>
+      <a class="govuk-link--no-visited-state" href="./approver/approve-licence">Approve licence</a>
+    </li>
+    <li>
+      <a class="govuk-link--no-visited-state" href="./approver/licence-approved">Licence approved</a>
+    </li>
+    <li>
+      <a class="govuk-link--no-visited-state" href="./approver/case-list-rec-approved">Case list (recently approved)</a>
+    </li>
+  </ul>
+
+
+
+      '
+          }
+        },
+
+
+
+
+        {
+          heading: {
+            text: "View or edit before release"
+          },
+          content: {
+            html: '
+            <h2 class="govuk-heading-m">
+              Case admin (CA)
+            </h2>
+
+            <h3 class="govuk-heading-s">
+              Print licence (licence has been approved)
+            </h3>
+        
+            <ul class="govuk-list">
+              <li>
+                <a class="govuk-link--no-visited-state" href="./case-admin/case-list-pip-approved">Case list - people in prison</a>
+              </li>
+              <li>
+                <a class="govuk-link--no-visited-state" href="./case-admin/print-licence">Print licence</a>
+              </li>
+              <!-- <li>
+                <a class="govuk-link--no-visited-state" href="./case-admin/case-list-pop-active">Case list - people on probation</a>
+              </li> -->
+            </ul>
+
+            <h2 class="govuk-heading-m">
+              Probation Practitioner (PP)
+            </h2>
+            
+            <h3 class="govuk-heading-s">
+              Edit approved licence
+            </h3>
+
+            <ul class="govuk-list">
+              <li>
+                <a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/edit/case-list">Case list - case approved</a>
+              </li>
+              <li>
+                <a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/edit/check-licence">Check licence details</a>
+              </li>
+              <li>
+                <a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/edit/are-you-sure">Are you sure you want to edit this licence?</a>
+              </li>
+              <li>
+                <a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/edit/check-licence-edit">Check licence details - edit version</a>
+              </li>
+              <li>
+                <a class="govuk-link--no-visited-state" href="./probation-practitioner/pre-release/edit/confirmation">Confirmation</a>
+              </li>
+            </ul>
+
+            
+            '
+          }
+        },
+
+        {
+          heading: {
+            text: "Vary licence (post-release)"
+          },
+          content: {
+            html: '
+            <h2 class="govuk-heading-m">
+              Probation Practitioner (PP)
+            </h2>
+
+        <h3 class="govuk-heading-s">Hard stop case timed out (Maxwell Kirby)</h3>
+
+          <ul class="govuk-list">
+              <li>
+                <a class="govuk-link--no-visited-state" href="./probation-practitioner/post-release/case-list-view">Case list</a>
+              </li>
+              <li>
+                <a class="govuk-link--no-visited-state" href="./probation-practitioner/post-release/hard-stop/licence-history">Licence history</a>
+              </li>
+              <li>
+                <a class="govuk-link--no-visited-state" href="./probation-practitioner/post-release/hard-stop/licence-need-changing">Does anything on this licence need changing?</a>
+              </li>
+            </ul>
+
+
+        <h3 class="govuk-heading-s">Time-served cases (Dwayne Briggs, Charlie Martin)</h3>
+
+          <ul class="govuk-list">
+            <li><a class="govuk-link--no-visited-state" href="./probation-practitioner/post-release/case-list-view">Case list (My cases)</a></li>
+            <li><a class="govuk-link--no-visited-state" href="./probation-practitioner/post-release/case-list-team">Case list (Team cases)</a></li>
+            <li>
+                  <a class="govuk-link--no-visited-state" href="./probation-practitioner/post-release/hard-stop/licence-history">WIP Licence history</a>
+                </li>
+                <li>
+                  <a class="govuk-link--no-visited-state" href="./probation-practitioner/post-release/hard-stop/licence-need-changing">WIP Does anything on this licence need changing?</a>
+                </li>
+          </ul>
+
+      
+            
+            <h3 class="govuk-heading-s">
+              Vary licence
+            </h3>
+
+            <ul class="govuk-list">
+              <li>
+                <a class="govuk-link--no-visited-state" href="./probation-practitioner/post-release/cvl-home">CVL home</a>
+              </li>
+              <li>
+                <a class="govuk-link--no-visited-state" href="./probation-practitioner/post-release/case-list-view">Case list (person is active)</a>
+              </li>
+              <li>
+                <a class="govuk-link--no-visited-state" href="./probation-practitioner/post-release/licence-history">Licence history</a>
+              </li>
+              <li>
+                <a class="govuk-link--no-visited-state" href="./probation-practitioner/post-release/view-licence">View licence</a>
+              </li>
+              <li>
+                <a class="govuk-link--no-visited-state" href="./probation-practitioner/post-release/are-you-sure-vary">Are you sure you want to vary this licence?</a>
+              </li>
+              <li>
+                <a class="govuk-link--no-visited-state" href="./probation-practitioner/post-release/discuss-spo">Have you discussed this variation request with your SPO?</a>
+              </li>
+              <li>
+                <a class="govuk-link--no-visited-state" href="./probation-practitioner/post-release/consult-vlo">Have you consulted with the victim liaison officer (VLO) for this case?</a>
+              </li>
+              <li>
+                <a class="govuk-link--no-visited-state" href="./probation-practitioner/post-release/vary-licence-details">Vary licence details</a>
+              </li>
+              <li>
+                <a class="govuk-link--no-visited-state" href="./probation-practitioner/post-release/add-variation-reasons">Add variation reasons</a>
+              </li>
+              <li>
+                <a class="govuk-link--no-visited-state" href="./probation-practitioner/post-release/variation-summary">Variation summary</a>
+              </li>
+              <li>
+                <a class="govuk-link--no-visited-state" href="./probation-practitioner/post-release/confirmation">Confirmation</a>
+              </li>
+            </ul>
+
+
+
+            <h2 class="govuk-heading-m">
+              PDU head
+            </h2>
+            
+            <h3 class="govuk-heading-s">
+              Approve a licence variation
+            </h3>
+            <ul class="govuk-list">
+              <li>
+                <a class="govuk-link--no-visited-state" href="./pdu-head/cvl-home">CVL home</a>
+              </li>
+              <li>
+                <a class="govuk-link--no-visited-state" href="./pdu-head/case-list">Case list</a>
+              </li>
+              <li>
+                <a class="govuk-link--no-visited-state" href="./pdu-head/variation-summary">Variation summary</a>
+              </li>
+              <li>
+                <a class="govuk-link--no-visited-state" href="./pdu-head/confirmation">Confirmation</a>
+              </li>
+            </ul>
+
+            <h2 class="govuk-heading-m">
+              Probation Practitioner (PP)
+            </h2>
+            
+            <h3 class="govuk-heading-s">
+              View and set to active after PDU head approval
+            </h3>
+
+            <ul class="govuk-list">
+              <li>
+                <a class="govuk-link--no-visited-state" href="./probation-practitioner/post-release/after-pdu-approve/case-list">Case list (variation approved)</a>
+              </li>
+              <li>
+                <a class="govuk-link--no-visited-state" href="./probation-practitioner/post-release/after-pdu-approve/licence-history-inactive">Licence history (inactive to active)</a>
+              </li>
+            </ul>
+            
+            '
+          }
+        }
+
+      ]
+    }) }}
+
+
+<!-- 
+    <h2 class="govuk-heading-m govuk-!-margin-top-9">
+      Prototype for testing w/c [Add date]
+    </h2>
+
+
+
+    <div class="govuk-accordion govuk-!-margin-bottom-9" data-module="govuk-accordion" id="accordion-default">
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              Journey 1 - [Add name]
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
+          <p class="govuk-body">Scenario: [Add description]</p>
+
+          <a href="#" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+            Start 
+            <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+            </svg>
+          </a>
+
+        </div>
+      </div>
+
+
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              Journey 2 - [Add name]
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
+          <p class="govuk-body">Scenario: [Add description]</p>
+
+          <a href="#" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
+            Start 
+            <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
+              <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
+            </svg>
+          </a>
+
+        </div>
+      </div>
+    </div> -->
+
+
+    
+
+
+
+
+
+
+  </div>
+</div>
+
+{% endblock %}

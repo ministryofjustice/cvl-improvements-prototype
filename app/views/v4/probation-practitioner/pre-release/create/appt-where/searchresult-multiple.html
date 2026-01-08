@@ -1,0 +1,88 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Who is the initial appointment with?" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-pp-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% include "components/prisoner-subheader/include.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <h1 class="govuk-fieldset__heading">Select address</h1>
+      </legend>
+
+    <p>2 addresses found for <strong>AL9 4PQ</strong>. <a class="govuk-link govuk-link--no-visited-state" href="saved-addresses">Search again</a></p>
+
+    <form action="../contact-number" method="get">
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <div class="govuk-radios" data-module="govuk-radios">
+          
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="postcodeaddress-1" name="postcodeaddress-1" type="radio" value="AL1 3SD">
+            <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+              62-72 Victoria Street, St Albans, Hertfordshire, AL1 3SD <br><!--<span class="govuk-hint">(1.2 miles from this prison)</span>-->
+            </label>
+          </div>
+
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="postcodeaddress-2" name="postcodeaddress-2" type="radio" value="AL13 9SF">
+            <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+              13 Leeland Road, St Albans, Hertfordshire, AL13 9SF <br><!--<span class="govuk-hint">(1.8 miles from this prison)</span>-->
+            </label>
+          </div>
+
+        </div>
+      </fieldset>
+    </div>
+
+
+    <!--save for later-->
+    <h2 class="govuk-heading-m">Save this address (optional)</h2>
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="organisation" name="organisation" type="checkbox" value="hmrc">
+            <label class="govuk-label govuk-checkboxes__label" for="organisation">
+              Add to your list of saved addresses
+            </label>
+            <div id="signIn-item-hint" class="govuk-hint govuk-checkboxes__hint">
+              
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+    <p><a class="govuk-link govuk-link--no-visited-state" href="manual-entry">Enter address manually</a></p>
+
+  </div>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Who is the initial appointment with?" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-dm-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            Licence for</br>
+            {% if data['prisoner'] == 'charlie' %} 
+            Charlie Martin
+            {% elif data['prisoner'] == 'dwayne' %} 
+            Dwayne Briggs
+            {% endif %}
+            sent
+          </h1>
+        </div>
+
+
+
+        <h2 class="govuk-heading-m" style="margin-top: 30px;">What happens next</h2>
+        
+        <p class="govuk-body">We have sent the licence licence for approval. This is usually done by the prison governor.</p>
+        
+
+        <h2 class="govuk-heading-m">If you need to make any changes</h2>
+
+        <p class="govuk-body">Only the initial appointment can be changed. For example, because a probation practitioner requests a different date or time. You can return to the service to edit this after it has been sent or approved.</p>
+          
+        <p class="govuk-body">The licence will not need to be approved again.</p>
+
+
+          <form action="../case-list-pip-approved" method="post">
+
+            {% if data['prisoner'] == 'charlie' %} 
+            <input type="hidden" name="timeservedsubmitted" value="charlie">
+            {% elif data['prisoner'] == 'dwayne' %}  
+            <input type="hidden" name="timeservedsubmitted" value="dwayne">
+            {% endif %}  
+
+            <button type="submit" class="govuk-button" data-module="govuk-button" style="margin-top: 10px">
+              Return to case list
+            </button>
+
+          </form>
+
+          
+            
+          </div>
+       
+      
+  </div>
+</div>
+{% endblock %}
+

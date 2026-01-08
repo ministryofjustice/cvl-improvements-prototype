@@ -1,0 +1,52 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Who is the initial appointment with?" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-pp-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% include "components/prisoner-subheader/include.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+    <form action="where-appt" method="get">
+
+    <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--l" for="event-name">
+          Who is the initial appointment with?
+        </label>
+      </h1>
+      <input class="govuk-input govuk-!-width-one-third" id="who-with" name="whoApptWith" type="text">
+    </div>
+
+
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+           Continue
+          </button>
+        </form>
+
+  </div>
+</div>
+
+{% endblock %}
+
+
+{% block footer %}
+
+{% include "components/cvl-pp-footer/include.html" %}
+
+{% endblock %}
