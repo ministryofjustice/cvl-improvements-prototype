@@ -1,0 +1,534 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Select someone to view or print licences and supervision orders" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-dm-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+
+        {% if data.timeservedsubmitted=="yes" %}
+        {% elseif (data.systemchoice=="nomischarlie") or (data.systemchoice=="nomisdwayne") %}
+        <div role="region" class="moj-alert moj-alert--success moj-alert--with-heading" aria-label="success: File uploaded successfully" data-module="moj-alert">
+          <div>
+            <svg class="moj-alert__icon" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" height="30" width="30">
+              <path d="M11.2869 24.6726L2.00415 15.3899L4.62189 12.7722L11.2869 19.4186L25.3781 5.32739L27.9958 7.96369L11.2869 24.6726Z" fill="currentColor" />
+            </svg>
+          </div>
+          <div class="moj-alert__content">
+            Confirmed. Go to NOMIS to create this licence or change your selection by choosing this person from the case list. 
+          </div>
+        
+          <div class="moj-alert__action">
+            <button class="moj-alert__dismiss" hidden>Dismiss</button>
+          </div>
+        </div>
+        {% else %}
+        {% endif %}
+    
+  
+    <h1 class="govuk-heading-xl">
+      Select someone to view or print licences and supervision orders
+        </h1>
+   
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--s" for="event-name">
+              Find a case
+            </label>
+          </h1>
+          <div id="event-name-hint" class="govuk-hint">
+            Search by name, prison number or probation practitioner
+          </div>
+          <input class="govuk-input govuk-!-width-one-third" id="event-name" name="eventName" type="text" aria-describedby="event-name-hint">
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Search
+          </button>
+        </div>
+
+        <nav class="moj-sub-navigation" aria-label="Sub navigation">
+          <ul class="moj-sub-navigation__list">
+              <li class="moj-sub-navigation__item">
+                  <a class="moj-sub-navigation__link" aria-current="page" href="case-list-pip-approved">People in prison</a>
+              </li>
+              <li class="moj-sub-navigation__item">
+                  <a class="moj-sub-navigation__link" href="case-list-pop-active">People on probation</a>
+              </li>
+          </ul>
+      </nav>
+
+        <h2 class="govuk-heading-l">
+          People in prison
+            </h2>
+
+            <div class="govuk-!-padding-top-2" style="margin-bottom: 40px;">
+              <p>
+                  Showing:
+                  <span class="govuk-body govuk-!-font-weight-bold">
+                      Pentonville (HMP) 
+                  </span>
+                  <a class="govuk-link govuk-!-margin-left-3 govuk-link--no-visited-state" href="../../../_common/not-testing.html">
+                      Licences for other establishments
+                  </a>
+              </p>
+          </div>
+
+          <div class="govuk-tabs" data-module="govuk-tabs">
+            <h2 class="govuk-tabs__title">
+              Contents
+            </h2>
+            <ul class="govuk-tabs__list">
+              <li class="govuk-tabs__list-item">
+                <a class="govuk-tabs__tab" href="#next-2-days">
+                  Releases in next 2 working days
+                </a>
+              </li>
+              <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+                <a class="govuk-tabs__tab" href="#past-week">
+                  Future releases
+                </a>
+              </li>
+            </ul>
+            <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="next-2-days">
+              <h2 class="govuk-heading-l">Releases in next 2 working days</h2>
+              <!--<p class="govuk-body govuk-!-font-weight-bold">There are no licences which match the search criteria.</p>-->
+              <p>From 2 days before release:</p>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>probation practitioners can no longer work on licences</li>
+                <li>you can generate a standard licence if a probation practitioner has not submitted one or for time-served releases </li>
+             </ul>
+             
+
+             <table class="govuk-table" data-module="moj-sortable-table">
+
+                <thead class="govuk-table__head">
+                  <tr class="govuk-table__row">
+            
+                  <th scope="col" class="govuk-table__header" aria-sort="none">Name</th>
+            
+                  <th scope="col" class="govuk-table__header" aria-sort="none">Prison number</th>
+            
+                  <th scope="col" class="govuk-table__header" aria-sort="none">Probation practitioner</th>
+            
+                  <th scope="col" class="govuk-table__header" aria-sort="ascending">Release date</th>
+
+                  <th scope="col" class="govuk-table__header" aria-sort="none">Last worked on by</th>
+            
+                  <th scope="col" class="govuk-table__header" aria-sort="none">Status</th>
+            
+                </tr>
+              </thead>
+            
+              <tbody class="govuk-table__body"> 
+
+
+                <tr class="govuk-table__row">
+            
+                  <td class="govuk-table__cell">
+                    {% if data.timeservedsubmitted=="dwayne" %}
+                    <a href="#" class="govuk-link--no-visited-state pp-caselist-name">Dwayne Briggs</a>
+                    {% elseif data.systemchoice=="nomisdwayne" %}
+                    <a href="./timeserved/are-you-sure-generate-edit?prisoner=dwayne" class="govuk-link--no-visited-state pp-caselist-name">Dwayne Briggs</a>
+                    {% else %}
+                    <a href="./timeserved/are-you-sure-generate?prisoner=dwayne" class="govuk-link--no-visited-state pp-caselist-name">Dwayne Briggs</a>
+                    {% endif %}
+                  </td>
+            
+                  <td class="govuk-table__cell">G5613GT</td>
+            
+                  <td class="govuk-table__cell">Not allocated yet</td>
+            
+                    
+                  <td class="govuk-table__cell" data-sort-value="1">
+                    <span class="urgent-highlight">{{ "today" | duration(0) | govukDate(truncate=true) }}</span>
+                    <span class="urgent-highlight urgent-highlight-message">Time-served release</span>
+                  </td>
+                   
+                  <td class="govuk-table__cell">
+                    {% if data.timeservedsubmitted=="dwayne" %}
+                    Joanne Cooper
+                    {% else %}
+                    {% endif %}
+                  </td>
+
+                  <td class="govuk-table__cell">
+                    {% if data.timeservedsubmitted=="dwayne" %}
+                    <strong class="govuk-tag govuk-tag--pink status-badge">Submitted</strong>
+                    {% elseif data.systemchoice=="nomisdwayne" %}
+                      <strong class="govuk-tag govuk-tag--grey status-badge">NOMIS licence</strong>
+                    {% else %}
+                    <strong class="govuk-tag govuk-tag--yellow status-badge">Not started</strong>
+                    {% endif %}
+                  </td>
+
+                </tr>
+
+
+                <tr class="govuk-table__row">
+            
+                  <td class="govuk-table__cell">
+                    {% if data.timeservedsubmitted=="charlie" %}
+                    <a href="#" class="govuk-link--no-visited-state pp-caselist-name">Charlie Martin</a>
+                    {% elseif data.systemchoice=="nomischarlie" %}
+                    <a href="./timeserved/are-you-sure-generate-edit?prisoner=charlie" class="govuk-link--no-visited-state pp-caselist-name">Charlie Martin</a>
+                    {% else %}
+                    <a href="./timeserved/are-you-sure-generate?prisoner=charlie" class="govuk-link--no-visited-state pp-caselist-name">Charlie Martin</a>
+                    {% endif %}
+                  </td>
+
+                  <td class="govuk-table__cell">C389095</td>
+            
+                  <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
+            
+                  <td class="govuk-table__cell" data-sort-value="2">
+                    <span class="urgent-highlight">{{ "today" | duration(0) | govukDate(truncate=true) }}</span>
+                    <span class="urgent-highlight urgent-highlight-message">Time-served release</span>
+                  </td>
+                   
+                  <td class="govuk-table__cell">
+                    {% if data.timeservedsubmitted=="charlie" %}
+                    Joanne Cooper
+                    {% else %}
+                    {% endif %}
+                  </td>
+
+                  <td class="govuk-table__cell">
+                    {% if data.timeservedsubmitted=="charlie" %}
+                      <strong class="govuk-tag govuk-tag--pink status-badge">Submitted</strong>
+                    {% elseif data.systemchoice=="nomischarlie" %}
+                      <strong class="govuk-tag govuk-tag--grey status-badge">NOMIS licence</strong>
+                    {% else %}
+                      <strong class="govuk-tag govuk-tag--yellow status-badge">Not started</strong>
+                    {% endif %}
+                  </td>
+
+                </tr>
+            
+            
+                <tr class="govuk-table__row">
+            
+                    <td class="govuk-table__cell">
+                    {% if data['maxwell'] == 'approved' %}  
+                      <a href="./hard-stop/print-licence" class="govuk-link--no-visited-state pp-caselist-name">Maxwell Kirby</a>
+                    {% elif data['maxwell'] == 'submitted' %}  
+                      <a href="#" class="govuk-link--no-visited-state pp-caselist-name">Maxwell Kirby</a>
+                    {% else %}  
+                      <a href="./hard-stop/are-you-sure-generate" class="govuk-link--no-visited-state pp-caselist-name">Maxwell Kirby</a>
+                    {% endif %}  
+                    </td>
+              
+                    <td class="govuk-table__cell">A5677DD</td>
+              
+                    <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Stephen McVeigh</a></td>
+              
+                      
+                    <td class="govuk-table__cell" data-sort-value="3">
+                      {% if data['recallCase'] == 'true' %}Post-recall release date (PRRD):<br> 25 Feb 2025{% else %}{{ "today" | duration(2) | govukDate(truncate=true) }}{% endif %}
+                    </td>
+                     
+                    <td class="govuk-table__cell">
+                       {% if data['maxwell'] == 'approved' %}  
+                        John Cooper
+                      {% else %}  
+                      {% endif %}  
+                    </td>
+
+                  <td class="govuk-table__cell">
+
+                  {% if data['maxwell'] == 'submitted' %}  
+                   <strong class="govuk-tag govuk-tag--pink status-badge">
+                    Submitted
+                  </strong>
+                  {% elif data['maxwell'] == 'approved' %}  
+                  <strong class="govuk-tag govuk-tag--green status-badge">
+                    Approved
+                  </strong>
+                  {% else %}  
+                   <strong class="govuk-tag govuk-tag--yellow status-badge">
+                  Not started
+                  </strong>
+                 {% endif %}  
+                  </td>
+
+                </tr>
+
+
+
+                
+
+
+
+
+
+
+
+
+
+
+
+                 </tbody>
+                </table>
+
+
+
+
+            </div>
+
+
+
+
+
+            <div class="govuk-tabs__panel" id="past-week">
+              <h2 class="govuk-heading-l">Future releases</h2>
+              <p>Licences for people within 4 weeks of release or that have been started before then.</p>
+
+
+              <table class="govuk-table" data-module="moj-sortable-table">
+
+                <thead class="govuk-table__head">
+                  <tr class="govuk-table__row">
+            
+                  <th scope="col" class="govuk-table__header" aria-sort="none">Name</th>
+            
+                  <th scope="col" class="govuk-table__header" aria-sort="none">Prison number</th>
+            
+                  <th scope="col" class="govuk-table__header" aria-sort="none">Probation practitioner</th>
+            
+                  <th scope="col" class="govuk-table__header" aria-sort="ascending" style="width: 25%;">Release date</th>
+            
+                  <th scope="col" class="govuk-table__header" aria-sort="none">Status</th>
+            
+                </tr>
+              </thead>
+            
+              <tbody class="govuk-table__body"> 
+            
+            
+                   <tr class="govuk-table__row">
+            
+                    <td class="govuk-table__cell">
+                      <a href="print-licence" class="govuk-link--no-visited-state pp-caselist-name">
+                      Cyphoonifer Bransabert</a>
+                    </td>
+              
+                    <td class="govuk-table__cell">A693826</td>
+              
+                    <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
+              
+                    <td class="govuk-table__cell" data-sort-value="20250527">CRD:</br>{{ "today" | duration(4) | govukDate(truncate=true) }}</td>
+              
+                    <td class="govuk-table__cell">
+                      <strong class="govuk-tag govuk-tag--green status-badge">
+                      Approved
+                    </strong>
+                     </tr>
+            
+
+                                 
+                   <tr class="govuk-table__row">
+            
+                    <td class="govuk-table__cell hint-condition-custom">
+                      Thomas Curry
+                    </td>
+              
+                    <td class="govuk-table__cell">G994640</td>
+              
+                    <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Muhammet Onay</a></td>
+              
+                     <td class="govuk-table__cell" data-sort-value="20250602">Post-recall release date (PRRD):</br>{{ "today" | duration(6) | govukDate(truncate=true) }}</td>
+
+              
+                    <td class="govuk-table__cell">
+                      <strong class="govuk-tag govuk-tag--yellow status-badge">
+                      Not started
+                    </strong>
+
+                     </tr>
+
+
+                 <tr class="govuk-table__row">
+            
+                    <td class="govuk-table__cell hint-condition-custom">
+                      Riku Kobayashi
+                    </td>
+              
+                    <td class="govuk-table__cell">T384422</td>
+              
+                    <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Muhammet Onay</a></td>
+              
+                     <td class="govuk-table__cell" data-sort-value="20250605">Confirmed release date:</br>{{ "today" | duration(6) | govukDate(truncate=true) }}</td>
+
+              
+                    <td class="govuk-table__cell">
+                      <strong class="govuk-tag govuk-tag--blue status-badge">
+                      In progress
+                    </strong>
+
+                    
+                     </tr>
+
+
+                    <tr class="govuk-table__row">
+            
+                    <td class="govuk-table__cell">
+                      <a href="#" class="govuk-link--no-visited-state pp-caselist-name">
+                      Raymond Wang</a>
+                    </td>
+              
+                    <td class="govuk-table__cell">R214790</td>
+              
+                    <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
+              
+                    <td class="govuk-table__cell" data-sort-value="20250608">Confirmed release date:<br>{{ "today" | duration(20) | govukDate(truncate=true) }}</td>
+              
+                    <td class="govuk-table__cell">
+                      <strong class="govuk-tag govuk-tag--green status-badge">
+                      Approved
+                    </strong>
+                     </tr>
+
+
+                    <tr class="govuk-table__row">
+            
+                    <td class="govuk-table__cell">
+                      <a href="#" class="govuk-link--no-visited-state pp-caselist-name">
+                      Serj Dolmayan</a>
+                    </td>
+              
+                    <td class="govuk-table__cell">E902210</td>
+              
+                    <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Muhammet Onay</a></td>
+              
+                    <td class="govuk-table__cell" data-sort-value="20250612">Confirmed release date:<br>{{ "today" | duration(30) | govukDate(truncate=true) }}</td>
+              
+                    <td class="govuk-table__cell">
+                      <strong class="govuk-tag govuk-tag--green status-badge">
+                      Approved
+                    </strong>
+                     </tr>
+
+
+                    <tr class="govuk-table__row">
+            
+                    <td class="govuk-table__cell">
+                      <a href="#" class="govuk-link--no-visited-state pp-caselist-name">
+                      Shawn Crahan</a>
+                    </td>
+              
+                    <td class="govuk-table__cell">D086783</td>
+              
+                    <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Taru Malli</a></td>
+              
+                     <td class="govuk-table__cell" data-sort-value="20250615">Confirmed release date:</br>{{ "today" | duration(32) | govukDate(truncate=true) }}</td>
+              
+                    <td class="govuk-table__cell">
+                      <strong class="govuk-tag govuk-tag--pink status-badge">
+                      Submitted
+                    </strong>
+                     </tr>
+
+
+                   <tr class="govuk-table__row">
+            
+                    <td class="govuk-table__cell hint-condition-custom">
+                      Anders Casagrande
+                    </td>
+              
+                    <td class="govuk-table__cell">U231895</td>
+              
+                    <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Muhammet Onay</a></td>
+              
+                     <td class="govuk-table__cell" data-sort-value="20250615">Confirmed release date:</br>{{ "today" | duration(35) | govukDate(truncate=true) }}</span></td>
+
+              
+                    <td class="govuk-table__cell">
+                      <strong class="govuk-tag govuk-tag--blue status-badge">
+                      In progress
+                    </strong>
+
+                    <div class="govuk-!-margin-top-2"> 
+                      <img class="moj-banner__icon" src="/public/images/statusBadge.svg"><a href="#" class="govuk-link govuk-link--no-visited-state">View last approved licence</a>
+                    </div>
+
+                    
+                     </tr>
+
+                    
+                    
+                    <tr class="govuk-table__row">
+            
+                    <td class="govuk-table__cell hint-condition-custom">
+                      Joey Taylor
+                    </td>
+              
+                    <td class="govuk-table__cell">S720811</td>
+              
+                    <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Sabrina Rodrigo</a></td>
+              
+                     <td class="govuk-table__cell" data-sort-value="20250617">CRD:</br>{{ "today" | duration(40) | govukDate(truncate=true) }}</td>
+
+
+              
+                    <td class="govuk-table__cell">
+                      <strong class="govuk-tag govuk-tag--blue status-badge">
+                      In progress
+                    </strong>
+
+                    
+
+                     </tr>
+
+
+                  <tr class="govuk-table__row">
+            
+                    <td class="govuk-table__cell hint-condition-custom">
+                      Mick Jones
+                    </td>
+              
+                    <td class="govuk-table__cell">E999130</td>
+              
+                    <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
+              
+                     <td class="govuk-table__cell" data-sort-value="20250617">CRD:</br>{{ "today" | duration(42) | govukDate(truncate=true) }}</td>
+
+
+              
+                    <td class="govuk-table__cell">
+                      <strong class="govuk-tag govuk-tag--blue status-badge">
+                      In progress
+                    </strong>
+                     </tr>
+
+
+                 </tbody>
+                </table>
+              
+            </div>
+          </div>
+
+
+
+
+
+</div>
+</div>
+
+
+{% endblock %}
+
+{% block footer %}
+
+{% include "components/cvl-dm-ca-footer/include.html" %}
+
+{% endblock %}

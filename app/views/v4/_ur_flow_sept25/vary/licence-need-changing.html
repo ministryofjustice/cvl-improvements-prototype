@@ -1,0 +1,119 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Does anything on this licence need changing?" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-pp-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% include "components/prisoner-subheader/include.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+    <form action="/v4/licence-need-changing-answer-ur" method="post">
+
+
+
+  <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        Does anything on this licence need changing?
+      </h1>
+    </legend>
+
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-visually-hidden">Warning</span>
+        This person was released following a <strong>fixed-term recall</strong>.</br>
+        Check their previous licence conditions. You should do this using <a class="govuk-link--no-visited-state" href="#">EPF 2</a>.
+      </strong>
+    </div>
+
+    <div class="govuk-radios" data-module="govuk-radios" style="margin-top: -15px;">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="licenceNeedChanging" name="licenceNeedChanging" type="radio" value="yes">
+        <label class="govuk-label govuk-radios__label" for="licenceNeedChanging">
+          Yes – vary this licence now
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="licenceNeedChanging-2" name="licenceNeedChanging" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="licenceNeedChanging-2">
+          No – leave unchanged and return to licence history
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+           Submit
+          </button>
+        </form>
+
+        <details class="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      What does this licence contain?
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+
+        <p>This licence contains:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+         <li>standard conditions</li>
+         <li>the following additional condition:</li>
+        </ul>
+
+        <div class="govuk-inset-text">
+          Not to approach or communicate with any victims of your offences without the prior approval of your supervising officer.
+        </div>
+
+        <p><a href="govuk-link--no-visited-state">View or print this licence PDF</a></p>
+  </div>
+</details>
+  </div>
+</div>
+
+{% endblock %}
+
+
+{% block footer %}
+
+{% include "components/cvl-pp-footer/include.html" %}
+
+{% endblock %}

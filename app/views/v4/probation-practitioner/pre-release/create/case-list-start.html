@@ -1,0 +1,338 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Select a person to create licences and supervision orders" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-pp-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+    
+  
+    <h1 class="govuk-heading-xl">
+      Select a person to create licences and supervision orders
+        </h1>
+
+        </div>
+      </div>
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+        
+   
+        <div class="govuk-form-group">
+          <h2 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--s" for="event-name">
+              Find a case
+            </label>
+          </h2>
+          <div id="event-name-hint" class="govuk-hint">
+            Search by name, CRN or probation practitioner
+          </div>
+          <input class="govuk-input govuk-!-width-one-third" id="event-name" name="eventName" type="text" aria-describedby="event-name-hint">
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Search
+          </button>
+        </div>
+
+        <nav class="moj-sub-navigation" aria-label="Sub navigation">
+          <ul class="moj-sub-navigation__list">
+              <li class="moj-sub-navigation__item">
+                  <a class="moj-sub-navigation__link" aria-current="page" href="case-list-start">My cases</a>
+              </li>
+              <li class="moj-sub-navigation__item">
+                  <a class="moj-sub-navigation__link" href="case-list-start-team">Team cases</a>
+              </li>
+          </ul>
+      </nav>
+
+
+
+    <table class="govuk-table" data-module="moj-sortable-table">
+
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+
+      <th scope="col" class="govuk-table__header" aria-sort="none">Name</th>
+
+      <th scope="col" class="govuk-table__header" >Licence type</th>
+
+      <th scope="col" class="govuk-table__header" aria-sort="none">Probation practitioner</th>
+
+      <th scope="col" class="govuk-table__header" aria-sort="ascending">Release date</th>
+
+      <th scope="col" class="govuk-table__header" aria-sort="none">Status</th>
+
+    </tr>
+  </thead>
+
+  <tbody class="govuk-table__body"> 
+
+
+
+         <tr class="govuk-table__row">
+
+          <td class="govuk-table__cell">
+          {% if data['maxwell'] == 'approved' %}  
+            <a href="licence-created-by-prison" class="govuk-link--no-visited-state pp-caselist-name">
+          {% else %}  
+            <a href="prison-will-create?prisoner=maxwell" class="govuk-link--no-visited-state pp-caselist-name">
+          {% endif %}  
+            Maxwell Kirby</a>
+            <span class="govuk-!-font-size-16 pp-caselist-crn">CRN: A5677DD</span>
+          </td>
+    
+          <td class="govuk-table__cell">Standard determinate</td>
+    
+          <td class="govuk-table__cell"><a href="../../../../../_common/not-testing.html" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
+    
+          <td class="govuk-table__cell" data-sort-value="1">{{ "today" | duration(0) | govukDate(truncate=true) }}</td>
+
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--grey status-badge">
+              Timed Out
+            </strong>
+          </td>
+          
+        </tr>
+
+
+         <tr class="govuk-table__row">
+
+          <td class="govuk-table__cell">
+            <a href="../../../../../_common/not-testing.html" class="govuk-link--no-visited-state pp-caselist-name">
+            Randall Douglas</a>
+            <span class="govuk-!-font-size-16 pp-caselist-crn">CRN: D7756CC</span>
+          </td>
+    
+          <td class="govuk-table__cell">Standard determinate</td>
+    
+          <td class="govuk-table__cell"><a href="../../../../../_common/not-testing.html" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
+    
+          <td class="govuk-table__cell" data-sort-value="2">
+            {{ "today" | duration(3) | govukDate(truncate=true) }}
+            <!--<span class="urgent-highlight">26 Feb 2025</span><span class="urgent-highlight urgent-highlight-message">Early release</span>-->
+          </td>
+    
+          <td class="govuk-table__cell">
+            <strong class="govuk-tag govuk-tag--pink status-badge">
+              Submitted
+            </strong>
+            </td>
+          
+          </tr>
+
+
+
+          <tr class="govuk-table__row">
+
+            <td class="govuk-table__cell">
+              <a href="../../../../../_common/not-testing.html" class="govuk-link--no-visited-state pp-caselist-name">
+              Guy Richards</a>
+              <span class="govuk-!-font-size-16 pp-caselist-crn">CRN: Z503727</span>
+            </td>
+      
+            <td class="govuk-table__cell">Standard determinate</td>
+      
+            <td class="govuk-table__cell"><a href="../../../../../_common/not-testing.html" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
+      
+            <td class="govuk-table__cell" data-sort-value="3">{{ "today" | duration(4) | govukDate(truncate=true) }}</td>
+      
+            <td class="govuk-table__cell">
+              {% if data['approved'] == 'True' %}  
+              <strong class="govuk-tag govuk-tag--green status-badge">
+              Approved
+            </strong>
+            {% else %}  
+            <strong class="govuk-tag govuk-tag--pink status-badge">
+              Submitted
+            </strong>
+            {% endif %}  
+            </td>
+          
+          </tr>
+
+
+
+          <tr class="govuk-table__row">
+
+            <td class="govuk-table__cell">
+              <a href="../../../../../_common/not-testing.html" class="govuk-link--no-visited-state pp-caselist-name">
+              Kit Vagner</a>
+              <span class="govuk-!-font-size-16 pp-caselist-crn">CRN: T5534EE</span>
+            </td>
+      
+            <td class="govuk-table__cell">Standard determinate</br>Post sentence supervision</td>
+      
+            <td class="govuk-table__cell"><a href="../../../../../_common/not-testing.html" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
+      
+            <td class="govuk-table__cell" data-sort-value="4">{{ "today" | duration(4) | govukDate(truncate=true) }}</td>
+      
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--green status-badge">
+              Approved
+            </strong>
+            </td>
+          
+          </tr>
+
+
+
+            <tr class="govuk-table__row">
+
+              <td class="govuk-table__cell">
+                <a href="../../../../../_common/not-testing.html" class="govuk-link--no-visited-state pp-caselist-name">
+                 Dev Siddiqui</a>
+                <span class="govuk-!-font-size-16 pp-caselist-crn">CRN: G3455FF</span>
+              </td>
+        
+              <td class="govuk-table__cell">Standard determinate</td>
+        
+              <td class="govuk-table__cell"><a href="../../../../../_common/not-testing.html" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
+        
+              <td class="govuk-table__cell" data-sort-value="5">{{ "today" | duration(10) | govukDate(truncate=true) }}</td>
+        
+              <td class="govuk-table__cell">
+                <strong class="govuk-tag govuk-tag--blue status-badge">
+                  In progress
+                </strong>
+                </td>
+            
+            </tr>
+
+
+
+            <tr class="govuk-table__row">
+
+              <td class="govuk-table__cell">
+                <a href="../../../_ur_flow_sept25/are-you-sure" class="govuk-link--no-visited-state pp-caselist-name">
+                Cyphoonifer Bransabert</a>
+                <span class="govuk-!-font-size-16 pp-caselist-crn">CRN: A693826</span>
+              </td>
+        
+              <td class="govuk-table__cell">Standard determinate</td>
+        
+              <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
+        
+              <td class="govuk-table__cell" data-sort-value="6">{{ "today" | duration(11) | govukDate(truncate=true) }}</td>
+        
+              <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--yellow status-badge">
+                Not started
+              </strong>
+               </tr>
+      
+      
+               <tr class="govuk-table__row">
+      
+                <td class="govuk-table__cell">
+                  <a href="../../../_ur_flow_sept25/are-you-sure-recall?prisoner=gabriel" class="govuk-link--no-visited-state pp-caselist-name">
+                    Gabriel Collins</a>
+                  <span class="govuk-!-font-size-16 pp-caselist-crn">CRN: v479953</span>
+                </td>
+          
+                <td class="govuk-table__cell">Standard determinate</td>
+          
+                <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
+          
+                <td class="govuk-table__cell" data-sort-value="7">{{ "today" | duration(11) | govukDate(truncate=true) }}</td>
+          
+                <td class="govuk-table__cell">
+                <strong class="govuk-tag govuk-tag--yellow status-badge">
+                  Not started
+                </strong>
+                 </tr>
+      
+                 <tr class="govuk-table__row">
+      
+                  <td class="govuk-table__cell">
+                    <a href="../../../_ur_flow_sept25/are-you-sure-friday-release?prisoner=marcel" class="govuk-link--no-visited-state pp-caselist-name">
+                      Marcel Evans</a>
+                    <span class="govuk-!-font-size-16 pp-caselist-crn">CRN: F246831</span>
+                  </td>
+            
+                  <td class="govuk-table__cell">Standard determinate</td>
+            
+                  <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
+            
+                  <td class="govuk-table__cell" data-sort-value="8">{{ "today" | duration(12) | govukDate(truncate=true) }}</td>
+            
+                  <td class="govuk-table__cell">
+                  <strong class="govuk-tag govuk-tag--yellow status-badge">
+                    Not started
+                  </strong>
+                   </tr>
+      
+                   <tr class="govuk-table__row">
+      
+                    
+
+                   <tr class="govuk-table__row">
+
+                    <td class="govuk-table__cell">
+                      <a href="../../../../../_common/not-testing.html" class="govuk-link--no-visited-state pp-caselist-name">
+                       Peter Judd</a>
+                      <span class="govuk-!-font-size-16 pp-caselist-crn">CRN: Z503729</span>
+                    </td>
+              
+                    <td class="govuk-table__cell">Standard determinate</td>
+              
+                    <td class="govuk-table__cell"><a href="../../../../../_common/not-testing.html" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
+              
+                    <td class="govuk-table__cell" data-sort-value="12">{{ "today" | duration(30) | govukDate(truncate=true) }}</td>
+              
+                    <td class="govuk-table__cell">
+                      <strong class="govuk-tag govuk-tag--yellow status-badge">
+                        Not started
+                      </strong>
+                      </td>
+                     </tr>
+
+
+                     <tr class="govuk-table__row">
+
+                      <td class="govuk-table__cell">
+                        <a href="../../global/limited-access-offender" class="govuk-link--no-visited-state pp-caselist-name">[LABEL]</a>
+                        <span class="govuk-!-font-size-16 pp-caselist-crn">CRN: J50075</span>
+                      </td>
+                
+                      <td class="govuk-table__cell">[LABEL]</td>
+                
+                      <td class="govuk-table__cell">[LABEL]</a></td>
+                
+                      <td class="govuk-table__cell" data-sort-value="13">[LABEL]</td>
+                
+                      <td class="govuk-table__cell">[LABEL]</td>
+
+                       </tr>
+
+
+
+
+
+
+     </tbody>
+    </table>
+
+
+</div>
+</div>
+
+
+{% endblock %}
+
+{% block footer %}
+
+{% include "components/cvl-pp-footer/include.html" %}
+
+{% endblock %}

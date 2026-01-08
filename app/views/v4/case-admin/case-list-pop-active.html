@@ -1,0 +1,273 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Select someone to view or print licences and supervision orders" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-dm-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+    
+  
+    <h1 class="govuk-heading-xl">
+      Select someone to view or print licences and supervision orders
+        </h1>
+   
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--s" for="event-name">
+              Find a case
+            </label>
+          </h1>
+          <div id="event-name-hint" class="govuk-hint">
+            Search by name, prison number or probation practitioner
+          </div>
+          <input class="govuk-input govuk-!-width-one-third" id="event-name" name="eventName" type="text" aria-describedby="event-name-hint">
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Search
+          </button>
+        </div>
+
+        <nav class="moj-sub-navigation" aria-label="Sub navigation">
+          <ul class="moj-sub-navigation__list">
+              <li class="moj-sub-navigation__item">
+                  <a class="moj-sub-navigation__link" href="case-list-pip-approved">People in prison</a>
+              </li>
+              <li class="moj-sub-navigation__item">
+                  <a class="moj-sub-navigation__link" aria-current="page" href="case-list-pop-active">People on probation</a>
+              </li>
+          </ul>
+      </nav>
+
+        <h2 class="govuk-heading-l">
+          People on probation
+            </h2>
+
+            <div class="govuk-!-padding-top-2 govuk-!-margin-bottom-2" style="border-bottom: 1px solid #b1b4b6;">
+              <p>
+                  Showing:
+                  <span class="govuk-body govuk-!-font-weight-bold">
+                      Pentonville (HMP) 
+                  </span>
+                  <a class="govuk-link govuk-!-margin-left-3 govuk-link--no-visited-state" href="../../../_common/not-testing.html">
+                      Licences for other establishments
+                  </a>
+              </p>
+          </div>
+
+          <table class="govuk-table" data-module="moj-sortable-table">
+
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+        
+              <th scope="col" class="govuk-table__header" aria-sort="none">Name</th>
+        
+              <th scope="col" class="govuk-table__header" aria-sort="none">Prison number</th>
+        
+              <th scope="col" class="govuk-table__header" aria-sort="none">Probation practitioner</th>
+        
+              <th scope="col" class="govuk-table__header" aria-sort="descending">Release date</th>
+        
+              <th scope="col" class="govuk-table__header" aria-sort="none">Status</th>
+        
+            </tr>
+          </thead>
+        
+          <tbody class="govuk-table__body"> 
+
+              <tr class="govuk-table__row">
+        
+                <td class="govuk-table__cell hint-condition-custom">
+                  Aditya Anand
+                </td>
+          
+                <td class="govuk-table__cell">D904452</td>
+          
+                <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
+          
+                <td class="govuk-table__cell" data-sort-value="20250522">22 May 2025</td>
+          
+                <td class="govuk-table__cell">
+                  <strong class="govuk-tag govuk-tag--blue status-badge">
+                    Variation in progress
+                  </strong>
+                 </tr>
+        
+        
+               <tr class="govuk-table__row">
+        
+                <td class="govuk-table__cell">
+                  <a href="print-licence" class="govuk-link--no-visited-state pp-caselist-name">
+                  Cyphoonifer Bransabert</a>
+                </td>
+          
+                <td class="govuk-table__cell">A693826</td>
+          
+                <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
+          
+                <td class="govuk-table__cell" data-sort-value="20250527">27 May 2025</td>
+          
+                <td class="govuk-table__cell">
+                  <strong class="govuk-tag govuk-tag--green status-badge">
+                    Active
+                  </strong>
+                 </tr>
+
+                <tr class="govuk-table__row">
+        
+                <td class="govuk-table__cell hint-condition-custom">
+                  Ben Townend
+                </td>
+          
+                <td class="govuk-table__cell">H452278</td>
+          
+                <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Sabrina Rodrigo</a></td>
+          
+                <td class="govuk-table__cell" data-sort-value="20250601">01 Jun 2025</td>
+          
+                <td class="govuk-table__cell">
+                  <strong class="govuk-tag govuk-tag--blue status-badge">
+                    Variation in progress
+                  </strong>
+                 </tr>
+
+             <tr class="govuk-table__row">
+
+               <td class="govuk-table__cell hint-condition-custom">
+                  Jakub Kowalski
+                </td>
+          
+                <td class="govuk-table__cell">D904452</td>
+          
+                <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
+          
+                <td class="govuk-table__cell" data-sort-value="20250517">17 May 2025</td>
+          
+                <td class="govuk-table__cell">
+                  <strong class="govuk-tag govuk-tag--yellow status-badge">
+                    Variation approved
+                  </strong>
+                 </tr>
+
+
+              <tr class="govuk-table__row">
+
+               <td class="govuk-table__cell hint-condition-custom">
+                  Ashley Ringham
+                </td>
+          
+                <td class="govuk-table__cell">F083321</td>
+          
+                <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Margaret Bennett</a></td>
+          
+                <td class="govuk-table__cell" data-sort-value="20250512">12 May 2025</td>
+          
+                <td class="govuk-table__cell">
+                  <strong class="govuk-tag govuk-tag--pink status-badge">
+                    Variation submitted
+                  </strong>
+                 </tr>
+
+
+               <tr class="govuk-table__row">
+        
+                <td class="govuk-table__cell">
+                  <a href="#" class="govuk-link--no-visited-state pp-caselist-name">
+                  Daron Tankian</a>
+                </td>
+          
+                <td class="govuk-table__cell">S418790</td>
+          
+                <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
+          
+                <td class="govuk-table__cell" data-sort-value="20250509">09 May 2025</td>
+          
+                <td class="govuk-table__cell">
+                  <strong class="govuk-tag govuk-tag--green status-badge">
+                    Active
+                  </strong>
+                 </tr>
+
+               <tr class="govuk-table__row">
+        
+                <td class="govuk-table__cell">
+                  <a href="#" class="govuk-link--no-visited-state pp-caselist-name">
+                  Chandler Cunningworth</a>
+                </td>
+          
+                <td class="govuk-table__cell">A318911</td>
+          
+                <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Sabrina Rodrigo</a></td>
+          
+                <td class="govuk-table__cell" data-sort-value="20250427">04 Apr 2025</td>
+          
+                <td class="govuk-table__cell">
+                  <strong class="govuk-tag govuk-tag--green status-badge">
+                    Active
+                  </strong>
+                 </tr>
+
+              <tr class="govuk-table__row">
+        
+                <td class="govuk-table__cell">
+                  <a href="#" class="govuk-link--no-visited-state pp-caselist-name">
+                  Seamus Murphy</a>
+                </td>
+          
+                <td class="govuk-table__cell">H219943</td>
+          
+                <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Sabrina Rodrigo</a></td>
+          
+                <td class="govuk-table__cell" data-sort-value="20250425">25 Apr 2025</td>
+          
+                <td class="govuk-table__cell">
+                  <strong class="govuk-tag govuk-tag--green status-badge">
+                    Active
+                  </strong>
+                 </tr>
+
+
+              <tr class="govuk-table__row">
+        
+                <td class="govuk-table__cell hint-condition-custom">
+                  Thomas Munnery
+                </td>
+          
+                <td class="govuk-table__cell">J931122</td>
+          
+                <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Margaret Bennett</a></td>
+          
+                <td class="govuk-table__cell" data-sort-value="20250417">17 Apr 2025</td>
+          
+                <td class="govuk-table__cell">
+                  <strong class="govuk-tag govuk-tag--blue status-badge">
+                    Variation in progress
+                  </strong>
+                 </tr>
+        
+             </tbody>
+            </table>
+
+
+
+
+</div>
+</div>
+
+
+{% endblock %}
+
+{% block footer %}
+
+{% include "components/cvl-dm-ca-footer/include.html" %}
+
+{% endblock %}

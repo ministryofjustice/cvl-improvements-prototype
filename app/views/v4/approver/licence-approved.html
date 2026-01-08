@@ -1,0 +1,94 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Licence approved" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-dm-header/include.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+    
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            Licence approved
+          </h1>
+          <div class="govuk-panel__body">
+            Check a case administrator has contacted</br>
+            the probation team
+          </div>
+        </div>
+
+        <h2 class="govuk-heading-m" style="margin-top: 30px;">What happens next</h2>
+
+        <p>A case administrator can now print the licence for
+          {% if data['prisoner'] == 'dwayne' %}
+          Dwayne Briggs.
+          {% elif data['prisoner'] == 'charlie' %}
+          Charlie Martin.
+          {% elif data['prisoner'] == 'maxwell' %}
+          Maxwell Kirby.
+          {% else %}
+          Cyphoonifer Bransabert.
+          {% endif %}
+        </p>
+          
+        <p>Check a case administrator has notified the probation team that this licence has been generated.</br>
+          We do not have their contact details to do this automatically.</p>
+        
+
+        <h2 class="govuk-heading-m">If changes are made</h2>
+
+        <p>Only the initial appointment can be changed. You will not need to approve the licence again.</p>
+        
+      
+        
+        <form action="./case-list-app-needed" method="post">
+
+          {% if data['prisoner'] == 'charlie' %} 
+            <input type="hidden" name="timeservedapproved" value="charlie">
+          {% elif data['prisoner'] == 'dwayne' %}  
+            <input type="hidden" name="timeservedapproved" value="dwayne">
+          {% else %}
+          {% endif %}    
+
+          <button type="submit" class="govuk-button" data-module="govuk-button" style="margin-top: 10px">
+            Approve another licence
+          </button>
+
+        </form>
+
+        
+
+      {% if data['prisoner'] == 'maxwell' %}  
+        <p class="govuk-!-margin-top-6"><a href="/v4/case-admin/case-list-pip-approved?maxwell=approved" class="govuk-link--no-visited-state">Jump to case admin flow</a></p>
+
+        <p class="govuk-!-margin-top-6"><a href="/v4/probation-practitioner/pre-release/create/case-list-start?maxwell=approved" class="govuk-link--no-visited-state">Jump to probation practitioner flow</a></p>
+
+      {% else %}  
+        <p class="govuk-!-margin-top-6"><a href="/v4/probation-practitioner/pre-release/edit/case-list" class="govuk-link--no-visited-state">Jump to probation practitioner edit flow</a></p>
+        
+        <p class=""><a href="/v4/probation-practitioner/post-release/case-list-view?varyFlow=True" class="govuk-link--no-visited-state">Jump to probation practitioner vary flow</a></p>
+      {% endif %}  
+
+
+  </div>
+</div>
+
+
+
+
+
+
+{% endblock %}
+
+{% block footer %}
+
+{% include "components/cvl-dm-ca-footer/include.html" %}
+
+{% endblock %}

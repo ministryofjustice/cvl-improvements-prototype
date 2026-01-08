@@ -1,0 +1,53 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Variation for Cyphoonifer Bransabert approved" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-pp-header/include.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">
+        Variation for {% if data['prisoner'] == 'maxwell' %}Maxwell Kirby{% else %}Cyphoonifer Bransabert{% endif %} approved
+      </h1>
+    </div>
+
+    <h2 class="govuk-heading-m">
+      What happens next
+     </h2>
+
+        <p>The variation for {% if data['prisoner'] == 'maxwell' %}Maxwell Kirby{% else %}Cyphoonifer Bransabert{% endif %} has been approved with your digital signature.</p>
+
+        <p>We have sent an email notification to the probation practitioner.</p>
+
+        <p>They will be able to print and issue the licence or post sentence supervision order.</p>
+
+        <a href="#">
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+           Return to caselist
+          </button>
+        </a>
+
+        <p class="govuk-!-margin-top-6"><a href="/v4/probation-practitioner/post-release/after-pdu-approve/case-list" class="govuk-link--no-visited-state">Jump to probation practitioner flow</a></p>
+
+  </div>
+</div>
+
+{% endblock %}
+
+
+{% block footer %}
+
+{% include "components/cvl-pp-footer/include.html" %}
+
+{% endblock %}

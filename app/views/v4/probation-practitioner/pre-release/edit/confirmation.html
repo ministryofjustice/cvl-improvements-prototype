@@ -1,0 +1,78 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Licence conditions for Cyphoonifer Bransabert sent" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-pp-header/include.html" %}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">
+        Licence conditions for Cyphoonifer Bransabert sent
+      </h1>
+    </div>
+
+    <h2 class="govuk-heading-m">
+      What happens next
+     </h2>
+
+        <p>We have sent the licence to Pentonville (HMP) for approval.</p>
+
+        <p>They will contact you if they need more information.</p>
+
+        <h2 class="govuk-heading-m">
+          If you need to make any changes
+       </h2>
+
+       <p>You can do so up to 2 days before a standard release. From this point, you can only ask the prison to change the initial appointment details. Other changes must be made after release.</p>
+      
+       <p class="govuk-!-margin-bottom-5">You can continue to work on licences for people being released early after the 2-day point.</p>
+
+        <a href="#">
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+           Return to caselist
+          </button>
+        </a>
+
+       {% if data['recallCase'] == 'true' %}
+
+       <hr class="curfew-hr">
+
+       <h2 class="govuk-heading-m govuk-!-margin-top-6">
+          Help improve this service
+       </h2>
+
+       <p>Fixed-term recalls are new to this service. Your feedback will help make it better. To give feedback you can:</p>
+
+       <ul class="govuk-list govuk-list--bullet"> 
+        <li><a href="#" class="govuk-link--no-visited-state">complete a short survey</a></li>
+        <li><a href="#" class="govuk-link--no-visited-state">report a specific problem</a></li>
+       </ul>
+
+       {% endif %}
+
+        <p class="govuk-!-margin-top-8"><a href="/v4/approver/cvl-home" class="govuk-link--no-visited-state">Jump to approver flow</a></p>
+
+        <p class=""><a href="/v4/probation-practitioner/post-release/case-list-view?varyFlow=True" class="govuk-link--no-visited-state">Jump to probation practitioner vary flow</a></p>
+
+
+  </div>
+</div>
+
+{% endblock %}
+
+
+{% block footer %}
+
+{% include "components/cvl-pp-footer/include.html" %}
+
+{% endblock %}
