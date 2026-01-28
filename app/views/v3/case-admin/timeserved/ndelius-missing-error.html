@@ -1,0 +1,66 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Are you sure you want to generate a standard licence for this person?" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-dm-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+{% endblock %}
+
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <h1 class="govuk-heading-l">NDelius missing
+    </br><span class="govuk-caption-l">Prison number: UV6401P</span>
+    </h1>
+  
+
+    <p class="govuk-body">Access to this person’s details has been restricted on NDelius.</br>
+      This could be because the information is sensitive.</p>
+
+    <p class="govuk-body"><a href="#">Find out more on EQuiP</a>, including how to request access.</p>
+
+    
+    <span class="govuk-heading-m govuk-!-margin-top-6">Additional information from NDelius</span>
+
+    <p class="govuk-hint">Recorded by the person who restricted access.</p>
+
+    <div class="govuk-inset-text" style="margin-top: 20px;">
+      Please contact the National Security Division for Kent, Surrey and Sussex to request further info
+    </div>
+
+    <p class="govuk-body"></p>
+      
+    <br>
+
+    <form action="../pre-release/create/case-list-start" method="post">
+
+      <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Return to cases
+      </button>
+
+    </form>
+    
+      
+  </div>
+</div>
+{% endblock %}
+
+
+{% block footer %}
+
+{% include "components/cvl-dm-ca-footer/include.html" %}
+
+{% endblock %}
