@@ -1,6 +1,6 @@
 {% extends "layouts/cvl.html" %}
 
-{% set pageName="Are you sure you want to generate a standard licence for this person?" %}
+{% set pageName="Create and vary a licence – There is a problem – NDelius link missing" %}
 
 {% set htmlClasses = 'app-width-wide' %}
 
@@ -22,28 +22,25 @@
   <div class="govuk-grid-column-two-thirds">
 
 
-    <h1 class="govuk-heading-l">NDelius missing
+    <h1 class="govuk-heading-l">There is a problem with this licence
     </br><span class="govuk-caption-l">Prison number: UV6401P</span>
     </h1>
   
 
-    <p class="govuk-body">Access to this person’s details has been restricted on NDelius.</br>
-      This could be because the information is sensitive.</p>
+    <p class="govuk-body">You cannot start this person’s licence because their NOMIS and NDelius records have not been linked.</p>
 
-    <p class="govuk-body"><a href="#">Find out more on EQuiP</a>, including how to request access.</p>
+    <h2 class="govuk-heading-m govuk-!-margin-top-6">How to fix this issue</h2>
 
-    
-    <span class="govuk-heading-m govuk-!-margin-top-6">Additional information from NDelius</span>
+    <p class="govuk-body">Before you can continue, ask someone with NDelius access to complete the following steps:</p>
 
-    <p class="govuk-hint">Recorded by the person who restricted access.</p>
+    <ol class="govuk-list govuk-list--number">
+      <li>Make the sentence active on NDelius</li>
+      <li>Link their NOMIS record to their NDelius record by using Search DSS on the Event Details screen</li>
+    </ol>
 
-    <div class="govuk-inset-text" style="margin-top: 20px;">
-      Please contact the National Security Division for Kent, Surrey and Sussex to request further info
-    </div>
+    <h2 class="govuk-heading-m govuk-!-margin-top-6">For support</h2>
 
-    <p class="govuk-body"></p>
-      
-    <br>
+    <p class="govuk-body">If they need help to add the information to NDelius, tell them to <a href="https://mojprod.service-now.com/moj_sp?id=sc_cat_item&table=sc_cat_item&sys_id=e389e8931b8bc65025dc6351f54bcb82&recordUrl=com.glideapp.servicecatalog_cat_item_view.do%3Fv%3D1&sysparm_id=e389e8931b8bc65025dc6351f54bcb82%20">request support using this form on Technology Portal</a>.</p>
 
     <form action="../pre-release/create/case-list-start" method="post">
 
