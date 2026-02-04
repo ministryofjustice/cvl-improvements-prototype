@@ -2,7 +2,14 @@
     <div class="govuk-grid-column-full border-bottom">
         <div class="govuk-caption-m">
 
-{% if data['prisoner'] == 'charlie' %}  
+{% if data['prisoner'] == 'ndelius' %}  
+            <span class="pipe-separated__item">Prison number: UV6401P</span>
+            <span class="pipe-separated__item">Release date: {{ "today" | duration(5) | govukDate(truncate=true) }}</span>
+            <span class="pipe-separated__item">Date of birth: 4 Sep 1973</span>
+        </div>
+        <span class="govuk-heading-m">NDelius Missing</span>
+
+{% elif data['prisoner'] == 'charlie' %}  
             <span class="pipe-separated__item">CRN: C389095</span>
             <span class="pipe-separated__item">Release date: {{ "today" | duration(0) | govukDate(truncate=true) }}</span>
             <span class="pipe-separated__item">Date of birth: 20 May 1984</span>
