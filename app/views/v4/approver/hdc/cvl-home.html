@@ -1,0 +1,66 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Create and vary a licence" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-dm-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<div class="govuk-phase-banner" style="border-bottom: none;">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      BETA
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service - your <a class="govuk-link govuk-link--no-visited-state" href="../../../_common/not-testing.html">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+{% endblock %}
+
+{% block content %}
+
+
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+    
+  
+    <h1 class="govuk-heading-l">
+      Create and vary a licence
+        </h1>
+   
+
+
+      
+          <div class="govuk-grid-row card-group">
+                
+            <div class="govuk-grid-column-one-third card-group__item">
+                
+<div id="approveLicenceCard" class="card card--clickable">
+<h2 class="govuk-heading-m card__heading">
+    <a class="govuk-link card__link govuk-link--no-visited-state" href="case-list-app-needed">Approve a licence</a>
+</h2>
+<p class="govuk-body card__description">Approve standard determinate licences and post sentence supervision orders.</p>
+</div>
+
+            </div>
+        
+    </div>
+
+
+
+  </div>
+</div>
+
+{% endblock %}
+
+
+{% block footer %}
+
+{% include "components/cvl-dm-ca-footer/include.html" %}
+
+{% endblock %}
