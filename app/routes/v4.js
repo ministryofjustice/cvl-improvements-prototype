@@ -28,6 +28,72 @@ router.post(version + '/are-you-sure-answer2', function(request, response) {
 
 
 
+// HDC Curfew hours
+
+router.post(version + '/standard-curfew-answer', function(request, response) {
+
+    var standard = request.session.data['standardCurfew']
+    if (standard == "yes"){
+        response.redirect(version + "/probation-practitioner/pre-release/create/additional-conditions")
+    } else {
+        response.redirect(version + "/probation-practitioner/pre-release/create/hdc/same-each-day")
+    }
+})
+
+router.post(version + '/same-each-day-answer', function(request, response) {
+
+    var sameDay = request.session.data['sameEachDay']
+    if (sameDay == "yes"){
+        response.redirect(version + "/probation-practitioner/pre-release/create/hdc/enter-curfew-same")
+    } else {
+        response.redirect(version + "/probation-practitioner/pre-release/create/hdc/enter-curfew-diff")
+    }
+})
+
+
+router.post(version + '/standard-curfew-edit-answer', function(request, response) {
+
+    var standard = request.session.data['standardCurfew']
+    if (standard == "yes"){
+        response.redirect(version + "/probation-practitioner/pre-release/create/check-licence")
+    } else {
+        response.redirect(version + "/probation-practitioner/pre-release/create/hdc/same-each-day-edit")
+    }
+})
+
+router.post(version + '/same-each-day-edit-answer', function(request, response) {
+
+    var sameDay = request.session.data['sameEachDay']
+    if (sameDay == "yes"){
+        response.redirect(version + "/probation-practitioner/pre-release/create/hdc/enter-curfew-same-edit")
+    } else {
+        response.redirect(version + "/probation-practitioner/pre-release/create/hdc/enter-curfew-diff-edit")
+    }
+})
+
+router.post(version + '/standard-curfew-edit-2-answer', function(request, response) {
+
+    var standard = request.session.data['standardCurfew']
+    if (standard == "yes"){
+        response.redirect(version + "/probation-practitioner/pre-release/create/check-licence-edit")
+    } else {
+        response.redirect(version + "/probation-practitioner/pre-release/create/hdc/same-each-day-edit-2")
+    }
+})
+
+router.post(version + '/same-each-day-edit-2-answer', function(request, response) {
+
+    var sameDay = request.session.data['sameEachDay']
+    if (sameDay == "yes"){
+        response.redirect(version + "/probation-practitioner/pre-release/create/hdc/enter-curfew-same-edit-2")
+    } else {
+        response.redirect(version + "/probation-practitioner/pre-release/create/hdc/enter-curfew-diff-edit-2")
+    }
+})
+
+
+
+
 // Licence conditions
 
 router.post(version + '/additional-conditions-answer2', function(request, response) {
