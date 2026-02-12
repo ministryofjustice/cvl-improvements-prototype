@@ -1,0 +1,488 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Who is the initial appointment with?" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-dm-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% include "components/prisoner-subheader/include.html" %}
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full-from-desktop">
+
+
+      {% if data['scenario'] == 'hdcadadded' %}  
+      {% else %}
+      <div role="region" class="moj-alert moj-alert--warning" aria-label="warning: Some information could not be imported" data-module="moj-alert">
+        <div>
+          <svg class="moj-alert__icon" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" height="30" width="30">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M15 2.44922L28.75 26.1992H1.25L15 2.44922ZM13.5107 9.49579H16.4697L16.2431 17.7678H13.7461L13.5107 9.49579ZM13.1299 21.82C13.1299 21.5661 13.1787 21.3285 13.2764 21.1071C13.374 20.8793 13.5075 20.6807 13.6768 20.5114C13.8525 20.3421 14.0544 20.2087 14.2822 20.111C14.5101 20.0134 14.7542 19.9645 15.0146 19.9645C15.2686 19.9645 15.5062 20.0134 15.7275 20.111C15.9554 20.2087 16.154 20.3421 16.3232 20.5114C16.4925 20.6807 16.626 20.8793 16.7236 21.1071C16.8213 21.3285 16.8701 21.5661 16.8701 21.82C16.8701 22.0804 16.8213 22.3246 16.7236 22.5524C16.626 22.7803 16.4925 22.9789 16.3232 23.1481C16.154 23.3174 15.9554 23.4509 15.7275 23.5485C15.5062 23.6462 15.2686 23.695 15.0146 23.695C14.7542 23.695 14.5101 23.6462 14.2822 23.5485C14.0544 23.4509 13.8525 23.3174 13.6768 23.1481C13.5075 22.9789 13.374 22.7803 13.2764 22.5524C13.1787 22.3246 13.1299 22.0804 13.1299 21.82Z" fill="currentColor" />
+          </svg>
+        </div>
+        <div class="moj-alert__content">HDCAD missing in Calculate Release Date / NOMIS, </br>after first night curfew, initial appoitment, printing</div>
+        <div class="moj-alert__action">
+        </div>
+      </div>
+      {% endif %}
+      
+      
+      
+
+
+
+
+      <h1 class="govuk-heading-l">Check licence details</h1><br>
+
+
+        <h2 class="govuk-heading-m">Initial appointment details</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data.apptwho=="who2" %}
+              Philamina Rogers
+              {% elseif (data.who4) %}{{data.who4}}
+              {% else %}
+              Duty Officer
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              {% if data['scenario'] == 'hdcadadded' %} 
+              <a class="govuk-link" href="./appt-who">Change</a>
+              {% else %} 
+              {% endif %} 
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+             Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+
+              Probation Office, 62-72 Victoria Street, St Albans, Hertfordshire, AL1 3SD
+
+              {% if data.postcodeaddress-1=="AL1 3SD" %}{{data.postcodeaddress-1}}
+
+              {% elseif data.postcodeaddress-2=="AL13 9SF" %}{{data.postcodeaddress-2}}
+              
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              {% if data['scenario'] == 'hdcadadded' %} 
+              <a class="govuk-link" href="#">Change</a>
+              {% else %}
+              {% endif %}  
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Contact phone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {%if (data.contactnumber1) %}{{data.contactnumber1}}
+              {% elseif (data.contactnumber2) %}{{data.contactnumber2}}
+              {% elseif (data.contactnumber3) %}{{data.contactnumber3}}
+              {% else %}01273 800 900
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              {% if data['scenario'] == 'hdcadadded' %}
+              <a class="govuk-link" href="#">Change</a>
+              {% else %} 
+              {% endif %} 
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+             Alternative contact phone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {%if (data.contactnumber1) %}{{data.contactnumber1}}
+              {% elseif (data.contactnumber2) %}{{data.contactnumber2}}
+              {% elseif (data.contactnumber3) %}{{data.contactnumber3}}
+              {% else %}01273 800 900
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              {% if data['scenario'] == 'hdcadadded' %} 
+              <a class="govuk-link" href="#">Change</a>
+              {% else %} 
+              {% endif %} 
+            </dd>
+          </div>
+
+
+          {% if data.appointment-time == "nextWorkingDay" %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date/time
+            </dt>
+            <dd class="govuk-summary-list__value">
+              By 2pm on the next working day after their release
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="./appt-when">Change</a>
+            </dd>
+          </div>
+          {% elseif data.appointment-time == "immediately" %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date/time
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Immediately after release
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              {% if data['scenario'] == 'hdcadadded' %} 
+              <a class="govuk-link" href="./appt-when">Change</a>
+              {% else %} 
+              {% endif %} 
+            </dd>
+          </div>
+          {% else %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data.passportissuedday}} {{data.passportissuedmonth }} {{data.passportissuedyear}}
+              {%if (data.passportissuedday2) %}{{data.passportissuedday2}}.{{data.passportissuedmonth2}}{{data.whenam}}
+              {% elseif data.contact2=="As soon as possible by 2pm on the next working day after release" %}
+             
+              {{ "today" | duration(1) | govukDate("truncate") }}
+              {% else %}
+              {%if (data.contact2) %}{{data.contact2}}
+              {% else %}
+              {{ "today" | govukDate("truncate") }}
+              {% endif %} {% endif %}
+              
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              {% if data['scenario'] == 'hdcadadded' %} 
+              <a class="govuk-link" href="./appt-when">Change</a>
+              {% else %} 
+              {% endif %} 
+            </dd>
+          </div>
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Time
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data.passportissuedday}} {{data.passportissuedmonth }} {{data.passportissuedyear}}
+              {%if (data.passportissuedday2) %}{{data.passportissuedday2}}.{{data.passportissuedmonth2}}{{data.whenam}}
+              {% elseif data.contact2=="As soon as possible by 2pm on the next working day after release" %}
+             
+              {{ "today" | duration(1) | govukDate("truncate") }}
+              {% else %}
+              {%if (data.contact2) %}{{data.contact2}}
+              {% else %}
+              {{ "today" | govukDate("truncate") }}
+              {% endif %} {% endif %}
+              
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              {% if data['scenario'] == 'hdcadadded' %} 
+              <a class="govuk-link" href="./appt-when">Change</a>
+              {% else %} 
+              {% endif %} 
+            </dd>
+          </div>
+          {% endif %}
+
+
+
+
+        </dl>
+
+
+
+
+        <h2 class="govuk-heading-m">
+          HDC curfew details
+            </h2>
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              HDCAD
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['scenario'] == 'hdcadadded' %} 
+              {{ "today" | duration(6) | govukDate(truncate=true) }}
+              {% else %} 
+              Empty state 
+              {% endif %} 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <span class="moj-badge moj-badge--black" style="margin-bottom: 2px;">CRDS</span>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              60 Marsh Road, Newcastle, NC5R 2TT 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+
+            <span class="moj-badge moj-badge--black" style="margin-bottom: 2px;">HDC</span>
+          </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              First night curfew hours
+            </dt>
+            <dd class="govuk-summary-list__value">
+              3pm to 7am
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              {% if data['scenario'] == 'hdcadadded' %} 
+              <a class="govuk-link govuk-link--no-visited-state" href="./hdc/first-night-curfew">Change<span class="govuk-visually-hidden"> first night curfew hours</span></a>
+              {% else %} 
+              {% endif %} 
+            </dd>
+          </div>
+
+        {% if data['sameEachDay'] == 'yes' %}  
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Curfew hours
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Monday to Sunday<br>
+            {{ data['start-time-hour'] | int or '7' }}{% if data['start-time-minute'] not in ['0', '00', ''] and data['start-time-minute'] is not undefined %}{{ ':' ~ data['start-time-minute'] }}{% endif %}{{ data['start-time-ampm'] or 'pm' }} to {{ data['end-time-hour'] | int or '7' }}{% if data['end-time-minute'] not in ['0', '00', ''] and data['end-time-minute'] is not undefined %}{{ ':' ~ data['end-time-minute'] }}{% endif %}{{ data['end-time-ampm'] or 'pm' }}
+              </dd>
+        </div>
+      </dl>
+
+      {% elif data['sameEachDay'] == 'no' %}  
+    </dl>
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--s govuk-!-margin-bottom-2">Curfew hours</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Start time</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">End time</th>
+          <th scope="col" class="govuk-table__header remove-bold govuk-!-width-one-half">
+            <a class="govuk-link govuk-link--no-visited-state" style="float:right;" href="../../../../../_common/not-testing.html">Change<span class="govuk-visually-hidden"> curfew hours</span></a>
+          </th>
+
+
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+
+          <td class="govuk-table__cell">{{ data['monday-start-time-hour'] | int or '7' }}{% if data['monday-start-time-minute'] not in ['0', '00', ''] and data['monday-start-time-minute'] is not undefined %}{{ ':' ~ data['monday-start-time-minute'] }}{% endif %}{{ data['monday-start-time-ampm'] or 'pm' }} on Monday</td>
+          <td class="govuk-table__cell">{{ data['monday-end-time-hour'] | int or '7' }}{% if data['monday-end-time-minute'] not in ['0', '00', ''] and data['monday-end-time-minute'] is not undefined %}{{ ':' ~ data['monday-end-time-minute'] }}{% endif %}{{ data['monday-end-time-ampm'] or 'pm' }} on {{ data['monday-end-time-day'] or 'Tuesday' }}</td>
+          <td class="govuk-table__cell"></td>
+
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">{{ data['tuesday-start-time-hour'] | int or '7' }}{% if data['tuesday-start-time-minute'] not in ['0', '00', ''] and data['tuesday-start-time-minute'] is not undefined %}{{ ':' ~ data['tuesday-start-time-minute'] }}{% endif %}{{ data['tuesday-start-time-ampm'] or 'pm' }} on Tuesday</td>
+          <td class="govuk-table__cell">{{ data['tuesday-end-time-hour'] | int or '7' }}{% if data['tuesday-end-time-minute'] not in ['0', '00', ''] and data['tuesday-end-time-minute'] is not undefined %}{{ ':' ~ data['tuesday-end-time-minute'] }}{% endif %}{{ data['tuesday-end-time-ampm'] or 'pm' }} on {{ data['tuesday-end-time-day'] or 'Wednesday' }}</td>
+          <td class="govuk-table__cell"></td>
+
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">{{ data['wednesday-start-time-hour'] | int or '7' }}{% if data['wednesday-start-time-minute'] not in ['0', '00', ''] and data['wednesday-start-time-minute'] is not undefined %}{{ ':' ~ data['wednesday-start-time-minute'] }}{% endif %}{{ data['wednesday-start-time-ampm'] or 'pm' }} on Wednesday</td>
+          <td class="govuk-table__cell">{{ data['wednesday-end-time-hour'] | int or '7' }}{% if data['wednesday-end-time-minute'] not in ['0', '00', ''] and data['wednesday-end-time-minute'] is not undefined %}{{ ':' ~ data['wednesday-end-time-minute'] }}{% endif %}{{ data['wednesday-end-time-ampm'] or 'pm' }} on {{ data['wednesday-end-time-day'] or 'Thursday' }}</td>
+          <td class="govuk-table__cell"></td>
+
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">{{ data['thursday-start-time-hour'] | int or '7' }}{% if data['thursday-start-time-minute'] not in ['0', '00', ''] and data['thursday-start-time-minute'] is not undefined %}{{ ':' ~ data['thursday-start-time-minute'] }}{% endif %}{{ data['thursday-start-time-ampm'] or 'pm' }} on Thursday</td>
+          <td class="govuk-table__cell">{{ data['thursday-end-time-hour'] | int or '7' }}{% if data['thursday-end-time-minute'] not in ['0', '00', ''] and data['thursday-end-time-minute'] is not undefined %}{{ ':' ~ data['thursday-end-time-minute'] }}{% endif %}{{ data['thursday-end-time-ampm'] or 'pm' }} on {{ data['thursday-end-time-day'] or 'Friday' }}</td>
+          <td class="govuk-table__cell"></td>
+
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">{{ data['friday-start-time-hour'] | int or '7' }}{% if data['friday-start-time-minute'] not in ['0', '00', ''] and data['friday-start-time-minute'] is not undefined %}{{ ':' ~ data['friday-start-time-minute'] }}{% endif %}{{ data['friday-start-time-ampm'] or 'pm' }} on Friday</td>
+          <td class="govuk-table__cell">{{ data['friday-end-time-hour'] | int or '7' }}{% if data['friday-end-time-minute'] not in ['0', '00', ''] and data['friday-end-time-minute'] is not undefined %}{{ ':' ~ data['friday-end-time-minute'] }}{% endif %}{{ data['friday-end-time-ampm'] or 'pm' }} on {{ data['friday-end-time-day'] or 'Saturday' }}</td>
+          <td class="govuk-table__cell"></td>
+
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">{{ data['saturday-start-time-hour'] | int or '7' }}{% if data['saturday-start-time-minute'] not in ['0', '00', ''] and data['saturday-start-time-minute'] is not undefined %}{{ ':' ~ data['saturday-start-time-minute'] }}{% endif %}{{ data['saturday-start-time-ampm'] or 'pm' }} on Saturday</td>
+          <td class="govuk-table__cell">{{ data['saturday-end-time-hour'] | int or '7' }}{% if data['saturday-end-time-minute'] not in ['0', '00', ''] and data['saturday-end-time-minute'] is not undefined %}{{ ':' ~ data['saturday-end-time-minute'] }}{% endif %}{{ data['saturday-end-time-ampm'] or 'pm' }} on {{ data['saturday-end-time-day'] or 'Sunday' }}</td>
+          <td class="govuk-table__cell"></td>
+
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">{{ data['sunday-start-time-hour'] | int or '7' }}{% if data['sunday-start-time-minute'] not in ['0', '00', ''] and data['sunday-start-time-minute'] is not undefined %}{{ ':' ~ data['sunday-start-time-minute'] }}{% endif %}{{ data['sunday-start-time-ampm'] or 'pm' }} on Sunday</td>
+          <td class="govuk-table__cell">{{ data['sunday-end-time-hour'] | int or '7' }}{% if data['sunday-end-time-minute'] not in ['0', '00', ''] and data['sunday-end-time-minute'] is not undefined %}{{ ':' ~ data['sunday-end-time-minute'] }}{% endif %}{{ data['sunday-end-time-ampm'] or 'pm' }} on {{ data['sunday-end-time-day'] or 'Monday' }}</td>
+          <td class="govuk-table__cell"></td>
+
+        </tr>
+
+      </tbody>
+    </table>
+
+
+        {% else %}  
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Curfew hours
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Monday to Sunday<br>7pm to 7am
+          </dd>
+        </div>
+      </dl>
+        {% endif %}  
+
+        
+
+
+        <div class="govuk-!-padding-top-8">
+          <h2 class="govuk-heading-m" style="display: inline;">
+            Additional licence conditions (5)
+              </h2>
+
+
+              <dl class="govuk-summary-list" style="margin-top: 60px;">
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Contact with a person	
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    Attend all appointments arranged for you with a psychologist and medical practitioner unless otherwise approved by your supervising officer.
+                    <div class="govuk-!-font-weight-bold govuk-!-margin-top-3">
+                      <span class="govuk-!-display-block govuk-!-margin-top-2">Psychologist, Medical practitioner</span>
+                  </div>
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <ul class="govuk-summary-list__actions-list">
+                      <li class="govuk-summary-list__actions-list-item">
+                      </li>
+                    </ul>
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Programmes or activities	
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    To comply with any requirements specified by your supervising officer for the purpose of ensuring that you address your prolific offending.
+                    <div class="govuk-!-font-weight-bold govuk-!-margin-top-3">
+                      <span class="govuk-!-display-block govuk-!-margin-top-2">prolific offending
+                      </span>
+                  </div>
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Programmes or activities	
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    To engage with the Integrated Offender Management Team, and follow their instructions.
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Restriction of conduct or acts	
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    Not to partake in gambling, or making payments for other games of chance without the prior permission of your supervising officer.
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Restriction of conduct or acts	
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    Not to access any site or app related to gambling websites or apps on any devices without the permission of your supervising officer.
+                    <div class="govuk-!-font-weight-bold govuk-!-margin-top-3">
+                      <span class="govuk-!-display-block govuk-!-margin-top-2">gambling websites or apps
+                      </span>
+                  </div>
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                  </dd>
+                </div>
+              </dl>
+        </div>
+
+
+
+        <div class="govuk-!-padding-bottom-8 govuk-!-padding-top-8">
+
+          <h2 class="govuk-heading-m" style="display: inline;">
+            Bespoke licence conditions (0)
+              </h2>
+
+                <p class="govuk-body" style="margin-top: 20px; margin-bottom: 60px;">No bespoke licence conditions added</p>
+
+                <hr class="govuk-section-break govuk-section-break--visible">
+
+        </div>
+
+  
+        {% if data['scenario'] == 'hdcadadded' %} 
+
+        
+        <form action="" method="post">
+
+          <div class="govuk-button-group" style="margin-top: 50px;">
+            <button type="submit" class="govuk-button" data-module="govuk-button" name="sendlicenceforapproval" value="no">
+              View and print licence PDF
+            </button>
+            <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="sendlicenceforapproval" value="no">
+              Return to case list
+            </button>
+          </div>
+
+        </form>
+        {% else %} 
+        <form action="./case-list-pip-approved.html" method="post">
+
+          <div class="govuk-button-group" style="margin-top: 50px;">
+            <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="sendlicenceforapproval" value="no">
+              Return to case list
+            </button>
+          </div>
+
+        </form>
+        {% endif %}
+
+
+        {% if data['scenario'] == 'hdcadadded' %} 
+        {% else %} 
+        <a class="govuk-link" href="./check-licence?scenario=hdcadadded">For testing: HDCAD added</a>
+        {% endif %} 
+
+
+
+  
+  </div>
+</div>
+{% endblock %}

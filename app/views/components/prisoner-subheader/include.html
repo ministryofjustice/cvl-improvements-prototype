@@ -4,7 +4,13 @@
 
 {% if data['prisoner'] == 'hale' %}  
             <span class="pipe-separated__item">CRN: H87D13C</span>
-            <span class="pipe-separated__item">HDCED: {{ "today" | duration(4) | govukDate(truncate=true) }}</span>
+            <span class="pipe-separated__item">
+                {% if data['scenario'] == 'hdcadadded' %}
+                HDCAD: {{ "today" | duration(6) | govukDate(truncate=true) }}
+                {% else %}
+                HDCED: {{ "today" | duration(4) | govukDate(truncate=true) }}
+                {% endif %}
+            </span>
             <span class="pipe-separated__item">Date of birth: 12 Dec 1999</span>
         </div>
         <span class="govuk-heading-m">Hale Draven Corvath</span>
