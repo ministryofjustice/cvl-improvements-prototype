@@ -2,7 +2,16 @@
     <div class="govuk-grid-column-full border-bottom">
         <div class="govuk-caption-m">
 
-{% if data['prisoner'] == 'hale' %}  
+{% if data['prisoner'] == 'lorin' %}  
+            <span class="pipe-separated__item">CRN: L22M6C1</span>
+            <span class="pipe-separated__item">
+                HDCAD: {{ "today" | duration(2) | govukDate(truncate=true) }}
+            </span>
+            <span class="pipe-separated__item">Date of birth: 12 Dec 1999</span>
+        </div>
+        <span class="govuk-heading-m">Lorin Mave Change</span>
+
+{% elif data['prisoner'] == 'hale' %}  
             <span class="pipe-separated__item">CRN: H87D13C</span>
             <span class="pipe-separated__item">
                 {% if data['scenario'] == 'hdcadadded' %}

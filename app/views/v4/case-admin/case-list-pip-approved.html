@@ -214,6 +214,10 @@
                   </td>
 
                 </tr>
+
+
+
+
             
             
                 <tr class="govuk-table__row">
@@ -233,7 +237,7 @@
                     <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Stephen McVeigh</a></td>
               
                       
-                    <td class="govuk-table__cell" data-sort-value="3">
+                    <td class="govuk-table__cell" data-sort-value="4">
                       {% if data['recallCase'] == 'true' %}Post-recall release date (PRRD):<br> 25 Feb 2025{% else %}{{ "today" | duration(2) | govukDate(truncate=true) }}{% endif %}
                     </td>
                      
@@ -264,15 +268,7 @@
                 </tr>
 
 
-
                 
-
-
-
-
-
-
-
 
 
 
@@ -313,6 +309,31 @@
               </thead>
             
               <tbody class="govuk-table__body"> 
+
+                <tr class="govuk-table__row">
+                      
+                  <td class="govuk-table__cell">
+                    <a href="./hdc/print-licence-changes?prisoner=lorin" class="govuk-link--no-visited-state pp-caselist-name">Lorin Mave Change</a>
+                  </td>
+            
+                  <td class="govuk-table__cell">L22M6C1</td>
+            
+                  <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">	Taru Malli</a></td>
+            
+                  <td class="govuk-table__cell" data-sort-value="1">
+                    <!--<span class="urgent-highlight">{{ "today" | duration(3) | govukDate(truncate=true) }}</span>
+                    <span class="urgent-highlight urgent-highlight-message">HDC release</span>-->
+                    HDCAD:</br>{{ "today" | duration(2) | govukDate(truncate=true) }}
+                  </td>
+                   
+                  <td class="govuk-table__cell">
+                    <strong class="govuk-tag govuk-tag--green status-badge">Approved</strong>
+                    <div class="govuk-!-margin-top-2"> 
+                      <img class="moj-banner__icon" src="/public/images/statusBadge.svg"><a href="./hdc/print-licence-changes" class="govuk-link govuk-link--no-visited-state">Copy</a>
+                    </div>
+                  </td>
+
+                </tr>
             
             
                    <tr class="govuk-table__row">
@@ -333,7 +354,32 @@
                       Approved
                     </strong>
                      </tr>
-            
+
+
+                    <tr class="govuk-table__row">
+                      
+                      <td class="govuk-table__cell">
+                        <a href="./print-licence?prisoner=hale" class="govuk-link--no-visited-state pp-caselist-name">Hale Draven Corvath</a>
+                      </td>
+                
+                      <td class="govuk-table__cell">H87D13C</td>
+                
+                      <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
+                
+                      <td class="govuk-table__cell" data-sort-value="3">
+                        <!--<span class="urgent-highlight">{{ "today" | duration(3) | govukDate(truncate=true) }}</span>
+                        <span class="urgent-highlight urgent-highlight-message">HDC release</span>-->
+                        HDCED:</br>{{ "today" | duration(3) | govukDate(truncate=true) }}
+                      </td>
+                       
+                      <td class="govuk-table__cell">
+                        <strong class="govuk-tag govuk-tag--green status-badge">Approved</strong>
+                        <!--<div class="govuk-!-margin-top-2"> 
+                          <img class="moj-banner__icon" src="/public/images/statusBadge.svg"><a href="./print-licence?prisoner=hale" class="govuk-link govuk-link--no-visited-state">Copy</a>
+                        </div>-->
+                      </td>
+    
+                    </tr>
 
                                  
                    <tr class="govuk-table__row">
