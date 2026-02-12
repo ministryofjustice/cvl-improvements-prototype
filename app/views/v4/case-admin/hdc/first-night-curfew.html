@@ -1,6 +1,6 @@
 {% extends "layouts/cvl.html" %}
 
-{% set pageName="Tell us what curfew hours need to change" %}
+{% set pageName="Enter curfew hours for day of release" %}
 
 {% set htmlClasses = 'app-width-wide' %}
 
@@ -32,7 +32,7 @@
 
 
 
-    <form action="../check-licence" method="post">
+    <form action="./standard-hours" method="post">
 
 
         <fieldset class="govuk-fieldset">
@@ -40,36 +40,37 @@
     
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                 <h1 class="govuk-fieldset__heading">
-                    First night curfew
+                    Enter first night curfew hours
                 </h1>
               </legend>
 
-               <div class="govuk-hint govuk-!-margin-bottom-7">
-                Hint text
-              </div>     
+               <div class="govuk-hint">
+                 
+              </div>       
+
+            <div class="govuk-body govuk-!-margin-bottom-7">
+              If release date or time changes, you or the prison can update these curfew hours.
+            </div>
 
 
-            <!--Initial appointement-->
             <h2 class="govuk-heading-m">Initial appointment</h2>
 
-            <div class="govuk-inset-text">
-            Some copy around when it takes place [date][time]
+            <div class="govuk-inset-text govuk-!-margin-bottom-7">
+            You set this for 2pm on Thursday, 12 February 2026.
             </div>
 
 
             <!-- Monday -->
             <h2 class="govuk-heading-m">
-                Hours starting [Release day]
+                Hours starting on day of release
               </h2>
-              <div class="govuk-hint govuk-!-margin-bottom-7">
-                Hint text
+              <div class="govuk-body govuk-!-margin-bottom-7">
+                Standard hours for the first night on HDC are 3pm on day of release to 7am the following day. 
               </div> 
                 <div class="govuk-form-group">
                   <label class="govuk-label bold" for="monday-start-time">
                     Start time
-                  </label>
-              
-          
+                  </label> 
               <div class="govuk-date-input" id="monday-start-time">
                 <div class="govuk-date-input__item">
                     <div class="govuk-form-group">
@@ -100,7 +101,7 @@
                     </div>
                 </div>
                 <div class="govuk-date-input__item">
-                    <p>on [Release day]</p>
+                    <p>on Thursday, 12 February 2026</p>
                 </div>
         
             </div>
@@ -112,7 +113,6 @@
               <label class="govuk-label bold" for="monday-end-time">
                 End time
               </label>
-          
           
           <div class="govuk-date-input" id="monday-end-time">
             <div class="govuk-date-input__item">
@@ -144,7 +144,7 @@
                 </div>
             </div>
             <div class="govuk-date-input__item">
-                <p>on [Next day]</p>
+                <p>on Friday, 13 February 2026</p>
             </div>
           </div>
           </div>
