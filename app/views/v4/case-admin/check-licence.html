@@ -225,7 +225,7 @@
             </dt>
             <dd class="govuk-summary-list__value">
               {% if data['scenario'] == 'hdcadadded' %} 
-              14 February 2026
+              {{ "today" | duration(6) | govukDate(truncate=true) }}
               {% else %} 
               Empty state 
               {% endif %} 
