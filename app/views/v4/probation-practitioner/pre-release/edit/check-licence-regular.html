@@ -25,8 +25,15 @@
         </h1>
 
         <div class="govuk-button-group">
-          <a href="are-you-sure-edit" type="submit" class="govuk-button" data-module="govuk-button">
+          <a href="are-you-sure">
+          <button type="submit" class="govuk-button" data-module="govuk-button">
             Edit licence conditions
+          </button>
+        </a>
+        <a href="#">
+          <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            View and print licence PDF
+          </button>
         </a>
         </div>
 
@@ -79,7 +86,6 @@
                 </dt>
                 <dd class="govuk-summary-list__value">
                   {{ data['AlternativePhoneNumber'] or "Not entered" }}       
-                  
                 </dd>
                 <dd class="govuk-summary-list__actions">
                   <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> contact phone number</span></a>
@@ -245,10 +251,12 @@
         </dl>
   {% endif %}
 
-
         <div class="govuk-button-group">
-          <a href="are-you-sure-edit" type="submit" class="govuk-button" data-module="govuk-button">
+          <a href="are-you-sure" type="submit" class="govuk-button" data-module="govuk-button">
             Edit licence conditions
+        </a>
+        <a href="#" type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            View and print licence PDF
         </a>
         <a class="govuk-link govuk-!-font-size-19 govuk-link--no-visited-state" href="case-list">
             Return to caselist
