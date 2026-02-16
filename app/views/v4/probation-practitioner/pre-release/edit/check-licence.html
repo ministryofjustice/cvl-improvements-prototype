@@ -60,7 +60,7 @@
                   Name
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  {{ data['whoApptWith'] or "Seb Stevens" }}
+                  {{ data['whoApptWith'] or "Philamina Rogers" }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
                   <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> name</span></a>
@@ -86,7 +86,18 @@
                   Contact phone number
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  {{ data['contactNumber'] or "01234567890" }}
+                  {{ data['contactNumber'] or "01273 800 900" }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> contact phone number</span></a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Alternative contact phone number
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['contactNumber'] or "01273 800 901" }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
                   <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> contact phone number</span></a>
@@ -97,11 +108,7 @@
                   Date
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  {% if data['date'] %} 
-                  {{ data['date'] | formatDateString("D/M/YYYY","D MMMM YYYY")}}
-                  {% else %} 
-                  11 March 2025
-                  {% endif %} 
+                  {{ "today" | duration(2) | govukDate(truncate=false) }}
                  </dd>
                 <dd class="govuk-summary-list__actions">
                   <ul class="govuk-summary-list__actions-list">
@@ -116,7 +123,7 @@
                   Time
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  {{ data | formatTime('1', '', 'pm') }}
+                  {{ data | formatTime('3:30', '', 'pm') }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
                   <ul class="govuk-summary-list__actions-list">
@@ -128,7 +135,7 @@
               </div>
             </dl>
 
-        <h2 class="govuk-heading-m">
+        <h2 class="govuk-heading-m" style="margin-top: 60px;">
           HDC curfew details
             </h2>
         <dl class="govuk-summary-list">
@@ -149,7 +156,7 @@
               First night curfew hours
             </dt>
             <dd class="govuk-summary-list__value">
-              <span class="urgent-highlight">4pm to 7am</span>
+              <span class="urgent-highlight">6pm to 9am</span>
               <span class="urgent-highlight urgent-highlight-message">Updated</span>
             </dd>
           </div>
@@ -281,11 +288,35 @@
               </dl>
         </div>
         {% else %}  
-        <div class="govuk-!-margin-bottom-9 govuk-!-margin-top-8">
+        
+        <div class="govuk-!-padding-top-8">
           <h2 class="govuk-heading-m" style="display: inline;">
-            Additional licence conditions (0)
+            Additional licence conditions (2)
               </h2>
 
+
+              <dl class="govuk-summary-list" style="margin-top: 60px;">
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Programmes or activities	
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    To engage with the Integrated Offender Management Team, and follow their instructions.
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Restriction of conduct or acts	
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    Not to partake in gambling, or making payments for other games of chance without the prior permission of your supervising officer.
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                  </dd>
+                </div>
+              </dl>
         </div>
         {% endif %}  
 
@@ -313,12 +344,17 @@
         </div>
         {% else %}  
 
-        <div class="govuk-!-margin-bottom-9">
+        <div class="govuk-!-padding-bottom-8 govuk-!-padding-top-8">
+
           <h2 class="govuk-heading-m" style="display: inline;">
             Bespoke licence conditions (0)
               </h2>
 
-            </div>
+                <p class="govuk-body" style="margin-top: 20px; margin-bottom: 60px;">No bespoke licence conditions added</p>
+
+                <hr class="govuk-section-break govuk-section-break--visible">
+
+        </div>
 
         {% endif %}  
 
