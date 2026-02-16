@@ -169,6 +169,18 @@ router.post(version + '/are-you-sure-edit-answer', function(request, response) {
 
 
 
+// Editing HDC curfew hours
+
+router.post(version + '/viewandprintlicence', function(request, response) {
+
+    var viewandprintlicencepdf = request.session.data['viewandprintLicence']
+    if (viewandprintlicencepdf == "yes"){
+        response.redirect(version + "/case-admin/print-licence-pdf")
+    } else {
+        response.redirect(version + "/case-admin/case-list-pip-approved")
+    }
+})
+
 
 // Vary routing - PLANING TO REMOVING THIS PAGE - IF SO AFTER UR SEPT 2025 THEN DELETE THIS CODE
 

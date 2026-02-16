@@ -10,7 +10,7 @@
 
 {%- block beforeContent -%}
 <a href="javascript:history.back()" class="govuk-back-link">Back</a>
-{% include "components/prisoner-subheader/include.html" %}
+{% include "components/prisoner-subheader/prisonnumber.html" %}
 {% endblock %}
 
 
@@ -18,6 +18,13 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full-from-desktop">
 
+
+
+
+      
+
+      {% if data['viewandprintlicencepdf'] == 'yes' %} 
+      {% else %}      
         <div role="region" class="moj-alert moj-alert--warning" aria-label="warning: Some information could not be imported" data-module="moj-alert">
           <div>
             <svg class="moj-alert__icon" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" height="30" width="30">
@@ -28,6 +35,7 @@
           <div class="moj-alert__action">
           </div>
         </div>
+        {% endif %} 
 
 
       <h1 class="govuk-heading-l">Print licence for Lorin Mave Change</h1><br>
@@ -151,8 +159,12 @@
               Time
             </dt>
             <dd class="govuk-summary-list__value">
-              <span class="urgent-highlight">03:30 pm</span>
+              {% if data['viewandprintlicencepdf'] == 'yes' %} 
+              3:30pm
+              {% else %}
+              <span class="urgent-highlight">3:30pm</span>
               <span class="urgent-highlight urgent-highlight-message">Updated</span>
+              {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="./appt-when">Change</a>
@@ -200,8 +212,12 @@
               First night curfew hours
             </dt>
             <dd class="govuk-summary-list__value">
-              <span class="urgent-highlight">5pm to 9am</span>
+              {% if data['viewandprintlicencepdf'] == 'yes' %} 
+              5pm to 9am
+              {% else %} 
+              <span class="urgent-highlight">5:00pm to 9:00am</span>
               <span class="urgent-highlight urgent-highlight-message">Updated</span>
+              {% endif %} 
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link govuk-link--no-visited-state" href="./hdc/first-night-curfew">Change<span class="govuk-visually-hidden"> first night curfew hours</span></a>
@@ -353,18 +369,21 @@
 
 
        
-        <form action="" method="post">
+        <form action="/v4/viewandprintlicence" method="post">
 
           <div class="govuk-button-group" style="margin-top: 50px;">
-            <button type="submit" class="govuk-button" data-module="govuk-button" name="sendlicenceforapproval" value="no">
+
+            <button type="submit" class="govuk-button" data-module="govuk-button" name="viewandprintlicencepdf" value="yes">
               View and print licence PDF
             </button>
-            <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="sendlicenceforapproval" value="no">
+
+            <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" style="padding-left: 10px;" name="viewandprintlicencepdf" value="no">
               Return to case list
             </button>
+
           </div>
 
-        </form>
+      </form>
         
 
 

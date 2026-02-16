@@ -5,7 +5,7 @@
 {% if data['prisoner'] == 'lorin' %}  
             <span class="pipe-separated__item">CRN: L22M6C1</span>
             <span class="pipe-separated__item">
-                HDCAD: {{ "today" | duration(2) | govukDate(truncate=true) }}
+                HDCAD: Thursday, {{ "today" | duration(2) | govukDate(truncate=false) }}
             </span>
             <span class="pipe-separated__item">Date of birth: 12 Dec 1999</span>
         </div>
@@ -15,9 +15,9 @@
             <span class="pipe-separated__item">CRN: H87D13C</span>
             <span class="pipe-separated__item">
                 {% if data['scenario'] == 'hdcadadded' %}
-                HDCAD: {{ "today" | duration(6) | govukDate(truncate=true) }}
+                HDCAD: Monday, {{ "today" | duration(6) | govukDate(truncate=false) }}
                 {% else %}
-                HDCED: {{ "today" | duration(4) | govukDate(truncate=true) }}
+                HDCED: Friday, {{ "today" | duration(3) | govukDate(truncate=false) }}
                 {% endif %}
             </span>
             <span class="pipe-separated__item">Date of birth: 12 Dec 1999</span>
@@ -26,28 +26,28 @@
 
 {% elif data['prisoner'] == 'ndelius' %}  
             <span class="pipe-separated__item">Prison number: UV6401P</span>
-            <span class="pipe-separated__item">Release date: {{ "today" | duration(5) | govukDate(truncate=true) }}</span>
+            <span class="pipe-separated__item">Release date: {{ "today" | duration(5) | govukDate(truncate=false) }}</span>
             <span class="pipe-separated__item">Date of birth: 4 Sep 1973</span>
         </div>
         <span class="govuk-heading-m">NDelius Missing</span>
 
 {% elif data['prisoner'] == 'charlie' %}  
             <span class="pipe-separated__item">CRN: C389095</span>
-            <span class="pipe-separated__item">Release date: {{ "today" | duration(0) | govukDate(truncate=true) }}</span>
+            <span class="pipe-separated__item">Release date: {{ "today" | duration(0) | govukDate(truncate=false) }}</span>
             <span class="pipe-separated__item">Date of birth: 20 May 1984</span>
         </div>
         <span class="govuk-heading-m">Charlie Martin</span>
 
 {% elif data['prisoner'] == 'dwayne' %}  
             <span class="pipe-separated__item">CRN: G5613GT</span>
-            <span class="pipe-separated__item">Release date: {{ "today" | duration(0) | govukDate(truncate=true) }}</span>
+            <span class="pipe-separated__item">Release date: {{ "today" | duration(0) | govukDate(truncate=false) }}</span>
             <span class="pipe-separated__item">Date of birth: 13 Apr 1977</span>
         </div>
         <span class="govuk-heading-m">Dwayne Briggs</span>
 
 {% elif data['prisoner'] == 'reuben' %}  
             <span class="pipe-separated__item">CRN: C762241</span>
-            <span class="pipe-separated__item">Release date: {{ "today" | duration(0) | govukDate(truncate=true) }}</span>
+            <span class="pipe-separated__item">Release date: {{ "today" | duration(0) | govukDate(truncate=false) }}</span>
             <span class="pipe-separated__item">Date of birth: 26 Sept 1960</span>
         </div>
         <span class="govuk-heading-m">Reuben Lee</span>
@@ -55,7 +55,7 @@
     
   {% elif data['prisoner'] == 'kairo' %}  
           <span class="pipe-separated__item">CRN: R885645</span>
-          <span class="pipe-separated__item">Release date: {{ "today" | duration(13) | govukDate(truncate=true) }}</span>
+          <span class="pipe-separated__item">Release date: {{ "today" | duration(13) | govukDate(truncate=false) }}</span>
           <span class="pipe-separated__item">Date of birth: 5 Dec 1966</span>
       </div>
       <span class="govuk-heading-m">Kairo Watson</span>
@@ -63,7 +63,7 @@
 
   {% elif data['prisoner'] == 'marcel' %}  
           <span class="pipe-separated__item">CRN: F246831</span>
-          <span class="pipe-separated__item">Release date: {{ "today" | duration(12) | govukDate(truncate=true) }}</span>
+          <span class="pipe-separated__item">Release date: {{ "today" | duration(12) | govukDate(truncate=false) }}</span>
           <span class="pipe-separated__item">Date of birth: 11 Nov 1984</span>
       </div>
       <span class="govuk-heading-m">Marcel Evans</span>
@@ -71,7 +71,7 @@
 
   {% elif data['prisoner'] == 'gabriel' %}  
               <span class="pipe-separated__item">CRN: V279953</span>
-              <span class="pipe-separated__item">Release date: {{ "today" | duration(11) | govukDate(truncate=true) }}</span>
+              <span class="pipe-separated__item">Release date: {{ "today" | duration(11) | govukDate(truncate=false) }}</span>
               <span class="pipe-separated__item">Date of birth: 20 Feb 2000</span>
           </div>
           <span class="govuk-heading-m">Gabriel Collins</span>
