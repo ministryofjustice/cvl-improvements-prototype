@@ -5,7 +5,7 @@
 {% if data['prisoner'] == 'lorin' %}  
             <span class="pipe-separated__item">Prison number: L22M6C1</span>
             <span class="pipe-separated__item">
-                HDCAD: Thursday, {{ "today" | duration(2) | govukDate(truncate=false) }}
+                HDCAD: Thursday {{ "today" | duration(2) | govukDate(truncate=false) }}
             </span>
             <span class="pipe-separated__item">Date of birth: 12 Dec 1999</span>
         </div>
@@ -15,9 +15,9 @@
             <span class="pipe-separated__item">Prison number: H87D13C</span>
             <span class="pipe-separated__item">
                 {% if data['scenario'] == 'hdcadadded' %}
-                HDCAD: Monday, {{ "today" | duration(6) | govukDate(truncate=false) }}
+                HDCAD: Monday {{ "today" | duration(6) | govukDate(truncate=false) }}
                 {% else %}
-                HDCED: Friday, {{ "today" | duration(3) | govukDate(truncate=false) }}
+                HDCED: Friday {{ "today" | duration(3) | govukDate(truncate=false) }}
                 {% endif %}
             </span>
             <span class="pipe-separated__item">Date of birth: 12 Dec 1999</span>

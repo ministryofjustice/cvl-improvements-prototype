@@ -11,8 +11,8 @@
 {%- block beforeContent -%}
 <a href="javascript:history.back()" class="govuk-back-link">Back</a>
 {% include "components/prisoner-subheader/include.html" %}
-{% endblock %}
 
+{% endblock %}
 
 {% block content %}
 
@@ -20,20 +20,32 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
 
+
+    {% if data['prisoner'] == 'lorin' %}  
+    <div role="region" class="moj-alert moj-alert--information" aria-label="information: A section has moved" data-module="moj-alert" style="margin-bottom: 60px;">
+      <div>
+        <svg class="moj-alert__icon" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" height="30" width="30">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M10.2165 3.45151C11.733 2.82332 13.3585 2.5 15 2.5C16.6415 2.5 18.267 2.82332 19.7835 3.45151C21.3001 4.07969 22.6781 5.00043 23.8388 6.16117C24.9996 7.3219 25.9203 8.69989 26.5485 10.2165C27.1767 11.733 27.5 13.3585 27.5 15C27.5 18.3152 26.183 21.4946 23.8388 23.8388C21.4946 26.183 18.3152 27.5 15 27.5C13.3585 27.5 11.733 27.1767 10.2165 26.5485C8.69989 25.9203 7.3219 24.9996 6.16117 23.8388C3.81696 21.4946 2.5 18.3152 2.5 15C2.5 11.6848 3.81696 8.50537 6.16117 6.16117C7.3219 5.00043 8.69989 4.07969 10.2165 3.45151ZM16.3574 22.4121H13.6621V12.95H16.3574V22.4121ZM13.3789 9.20898C13.3789 8.98763 13.4212 8.7793 13.5059 8.58398C13.5905 8.38216 13.7044 8.20964 13.8477 8.06641C13.9974 7.91667 14.1699 7.79948 14.3652 7.71484C14.5605 7.63021 14.7721 7.58789 15 7.58789C15.2214 7.58789 15.4297 7.63021 15.625 7.71484C15.8268 7.79948 15.9993 7.91667 16.1426 8.06641C16.2923 8.20964 16.4095 8.38216 16.4941 8.58398C16.5788 8.7793 16.6211 8.98763 16.6211 9.20898C16.6211 9.43685 16.5788 9.64844 16.4941 9.84375C16.4095 10.0391 16.2923 10.2116 16.1426 10.3613C15.9993 10.5046 15.8268 10.6185 15.625 10.7031C15.4297 10.7878 15.2214 10.8301 15 10.8301C14.7721 10.8301 14.5605 10.7878 14.3652 10.7031C14.1699 10.6185 13.9974 10.5046 13.8477 10.3613C13.7044 10.2116 13.5905 10.0391 13.5059 9.84375C13.4212 9.64844 13.3789 9.43685 13.3789 9.20898Z" fill="currentColor" />
+        </svg>
+      </div>
+      <div class="moj-alert__content">Some information on this licence has been updated by Joanne Cooper at HMP Wandsworth.</div>
+      <div class="moj-alert__action">
+        <button class="moj-alert__dismiss" hidden>Dismiss</button>
+      </div>
+    </div>
+    {% else %}
+    {% endif %}    
+
     <h1 class="govuk-heading-l">
       Check licence details
         </h1>
 
         <div class="govuk-button-group">
-          <a href="are-you-sure">
-          <button type="submit" class="govuk-button" data-module="govuk-button">
-            Edit licence conditions
-          </button>
+          <a href="are-you-sure-edit" type="submit" class="govuk-button" data-module="govuk-button">
+            Edit licence
         </a>
-        <a href="#">
-          <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+       <a href="#" type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
             View and print licence PDF
-          </button>
         </a>
         </div>
 
@@ -74,7 +86,7 @@
                   Contact phone number
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  {{ data['phoneNumber'] or "01632 960901" }}             
+                  {{ data['contactNumber'] or "01234567890" }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
                   <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> contact phone number</span></a>
@@ -82,180 +94,239 @@
               </div>
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                  Alternative contact phone number
+                  Date
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  {{ data['AlternativePhoneNumber'] or "Not entered" }}       
+                  {% if data['date'] %} 
+                  {{ data['date'] | formatDateString("D/M/YYYY","D MMMM YYYY")}}
+                  {% else %} 
+                  11 March 2025
+                  {% endif %} 
+                 </dd>
+                <dd class="govuk-summary-list__actions">
+                  <ul class="govuk-summary-list__actions-list">
+                    <li class="govuk-summary-list__actions-list-item">
+                      <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> date</span></a>
+                    </li>
+                  </ul>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Time
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data | formatTime('1', '', 'pm') }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> contact phone number</span></a>
+                  <ul class="govuk-summary-list__actions-list">
+                    <li class="govuk-summary-list__actions-list-item">
+                      <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> time</span></a>
+                    </li>
+                  </ul>
                 </dd>
               </div>
-             {% if data['appointment-time'] == 'specific' %}  
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Date
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {% if data['date'] %} 
-              {{ data['date'] | formatDateString("D/M/YYYY","D MMMM YYYY")}}
-              {% else %} 
-              11 March 2025
-              {% endif %} 
-             </dd>
-            <dd class="govuk-summary-list__actions">
-              <ul class="govuk-summary-list__actions-list">
-                <li class="govuk-summary-list__actions-list-item">
-                  <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> date</span></a>
-                </li>
-              </ul>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Time
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data | formatTime('1', '', 'pm') }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <ul class="govuk-summary-list__actions-list">
-                <li class="govuk-summary-list__actions-list-item">
-                  <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> time</span></a>
-                </li>
-              </ul>
-            </dd>
-          </div>
-         {% else %} 
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Date/time
-            </dt>
-            <dd class="govuk-summary-list__value">
-            {% if data['appointment-time'] == 'immediately' %}  
-              Immediately after release
-             {% else %} 
-              By 2pm on the next working day after their release
-            {% endif %} 
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <ul class="govuk-summary-list__actions-list">
-                <li class="govuk-summary-list__actions-list-item">
-                  <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> time</span></a>
-                </li>
-              </ul>
-            </dd>
-          </div>
-         {% endif %} 
             </dl>
 
-
-
-          {% if data['additionalConditionsPresent'] == 'yes' %}  
-
-          <div class="govuk-!-margin-bottom-9 govuk-!-margin-top-8">
-            <h2 class="govuk-heading-m">
-              Additional licence conditions (2)
-                </h2>
-  
-              
-  
-                <dl class="govuk-summary-list">
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Electronic monitoring	
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      <p>You will be subject to trail monitoring. Your whereabouts will be electronically monitored by GPS Satellite Tagging, ending on Thursday 18th December 2025, and you must cooperate with the monitoring as directed by your supervising officer unless otherwise authorised by your supervising officer.</p>
-                      <p class="hint-condition-custom">Thursday 18th December 2025</p>
-                    </dd>
-
-                  </div>
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Electronic monitoring	
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      <p>You must stay at {{ data['approvedAddressLine1'] or "102 Petty France" }}, {% if data['approvedAddressLine2'] %}{{ data['approvedAddressLine2'] | default('Westminster') }},{% endif %} {{ data['approvedAddressTown'] or "London" }}, {% if data['approvedAddressCounty'] %}{{ data['approvedAddressCounty'] | default('Greater London') }},{% endif %} {{ data['approvedAddressPostcode'] or "SW1H 9AJ" }} between 5pm and midnight every day until your electronic tag is installed unless otherwise authorised by your supervising officer.</p>
-                      <p class="hint-condition-custom">{{ data['approvedAddressLine1'] or "102 Petty France" }}, {% if data['approvedAddressLine2'] %}{{ data['approvedAddressLine2'] | default('Westminster') }},{% endif %} {{ data['approvedAddressTown'] or "London" }}, {% if data['approvedAddressCounty'] %}{{ data['approvedAddressCounty'] | default('Greater London') }},{% endif %} {{ data['approvedAddressPostcode'] or "SW1H 9AJ" }}</p>
-                    </dd>
-                  </div>
-                </dl>
-          </div>
-          {% else %}  
-          <div class="govuk-!-margin-bottom-9 govuk-!-margin-top-8">
-            <h2 class="govuk-heading-m">
-              Additional licence conditions (0)
-                </h2>
-          </div>
-          {% endif %}  
-  
-  
-          {% if data['bespokeConditionsPresent'] == 'yes' %}  
-  
-          <div class="govuk-!-margin-bottom-9">
-            <h2 class="govuk-heading-m">
-              Bespoke licence conditions (1)
-                </h2>
-  
- 
-  
-                <dl class="govuk-summary-list">
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Bespoke condition	
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      {{ data['bespokeDetail'] or "Do not enter your local park" }}
-                    </dd>
-                  </div>
-                </dl>
-          </div>
-          {% else %}  
-  
-          <div class="govuk-!-margin-bottom-9">
-            <h2 class="govuk-heading-m">
-              Bespoke licence conditions (0)
-                </h2>
-  
-
-              </div>
-  
-          {% endif %}  
-
-
-          {% if data['additionalConditionsPresent'] == 'yes' %}  
-
-
-            <h2 class="govuk-heading-m">
-               Additional information
+        <h2 class="govuk-heading-m">
+          HDC curfew details
             </h2>
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['curfew-addressLine1'] or "12 Fairmount Drive" }},
+              {% if data['curfew-addressLine2'] %}{{ data['curfew-addressLine2'] | default('Fake on Fake') }},{% endif %} 
+              {{ data['curfew-addressTown'] or "Chichester" }}, 
+              {% if data['curfew-addressCounty'] %}{{ data['curfew-addressCounty'] | default('Fakeshire') }},{% endif %} 
+              {{ data['curfew-addressPostcode'] or "PO18 8YE" }}
+              </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              First night curfew hours
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <span class="urgent-highlight">4pm to 7am</span>
+              <span class="urgent-highlight urgent-highlight-message">Updated</span>
+            </dd>
+          </div>
 
-            <p>This information will not appear on the licence.</p>
-
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-         <div class="govuk-summary-list__row">
-           <dt class="govuk-summary-list__key">
-              Are they being tagged as part of a pathfinder or programme?
-           </dt>
+        {% if data['sameEachDay'] == 'yes' %}  
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Curfew hours
+          </dt>
           <dd class="govuk-summary-list__value">
-            {% if data['pathfinder-choice'] == 'yes' %}  
-             <p>Yes</p>
-            <p>{{ data['pathfinderDetail'] or "DAPOL" }}</p>
-            {% else %}  
-            No
-           {% endif %}  
-
+            Monday to Sunday<br>
+            {{ data['start-time-hour'] | int or '7' }}{% if data['start-time-minute'] not in ['0', '00', ''] and data['start-time-minute'] is not undefined %}{{ ':' ~ data['start-time-minute'] }}{% endif %}{{ data['start-time-ampm'] or 'pm' }} to {{ data['end-time-hour'] | int or '7' }}{% if data['end-time-minute'] not in ['0', '00', ''] and data['end-time-minute'] is not undefined %}{{ ':' ~ data['end-time-minute'] }}{% endif %}{{ data['end-time-ampm'] or 'pm' }}
           </dd>
-         </div>
-        </dl>
-  {% endif %}
+        </div>
+      </dl>
+
+
+
+      {% elif data['sameEachDay'] == 'no' %}  
+    </dl>
+
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--s govuk-!-margin-bottom-2">Curfew hours</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Start time</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">End time</th>
+          <th scope="col" class="govuk-table__header remove-bold govuk-!-width-one-half">
+          </th>
+
+
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+
+          <td class="govuk-table__cell">{{ data['monday-start-time-hour'] | int or '7' }}{% if data['monday-start-time-minute'] not in ['0', '00', ''] and data['monday-start-time-minute'] is not undefined %}{{ ':' ~ data['monday-start-time-minute'] }}{% endif %}{{ data['monday-start-time-ampm'] or 'pm' }} on Monday</td>
+          <td class="govuk-table__cell">{{ data['monday-end-time-hour'] | int or '7' }}{% if data['monday-end-time-minute'] not in ['0', '00', ''] and data['monday-end-time-minute'] is not undefined %}{{ ':' ~ data['monday-end-time-minute'] }}{% endif %}{{ data['monday-end-time-ampm'] or 'pm' }} on {{ data['monday-end-time-day'] or 'Tuesday' }}</td>
+          <td class="govuk-table__cell"></td>
+
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">{{ data['tuesday-start-time-hour'] | int or '7' }}{% if data['tuesday-start-time-minute'] not in ['0', '00', ''] and data['tuesday-start-time-minute'] is not undefined %}{{ ':' ~ data['tuesday-start-time-minute'] }}{% endif %}{{ data['tuesday-start-time-ampm'] or 'pm' }} on Tuesday</td>
+          <td class="govuk-table__cell">{{ data['tuesday-end-time-hour'] | int or '7' }}{% if data['tuesday-end-time-minute'] not in ['0', '00', ''] and data['tuesday-end-time-minute'] is not undefined %}{{ ':' ~ data['tuesday-end-time-minute'] }}{% endif %}{{ data['tuesday-end-time-ampm'] or 'pm' }} on {{ data['tuesday-end-time-day'] or 'Wednesday' }}</td>
+          <td class="govuk-table__cell"></td>
+
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">{{ data['wednesday-start-time-hour'] | int or '7' }}{% if data['wednesday-start-time-minute'] not in ['0', '00', ''] and data['wednesday-start-time-minute'] is not undefined %}{{ ':' ~ data['wednesday-start-time-minute'] }}{% endif %}{{ data['wednesday-start-time-ampm'] or 'pm' }} on Wednesday</td>
+          <td class="govuk-table__cell">{{ data['wednesday-end-time-hour'] | int or '7' }}{% if data['wednesday-end-time-minute'] not in ['0', '00', ''] and data['wednesday-end-time-minute'] is not undefined %}{{ ':' ~ data['wednesday-end-time-minute'] }}{% endif %}{{ data['wednesday-end-time-ampm'] or 'pm' }} on {{ data['wednesday-end-time-day'] or 'Thursday' }}</td>
+          <td class="govuk-table__cell"></td>
+
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">{{ data['thursday-start-time-hour'] | int or '7' }}{% if data['thursday-start-time-minute'] not in ['0', '00', ''] and data['thursday-start-time-minute'] is not undefined %}{{ ':' ~ data['thursday-start-time-minute'] }}{% endif %}{{ data['thursday-start-time-ampm'] or 'pm' }} on Thursday</td>
+          <td class="govuk-table__cell">{{ data['thursday-end-time-hour'] | int or '7' }}{% if data['thursday-end-time-minute'] not in ['0', '00', ''] and data['thursday-end-time-minute'] is not undefined %}{{ ':' ~ data['thursday-end-time-minute'] }}{% endif %}{{ data['thursday-end-time-ampm'] or 'pm' }} on {{ data['thursday-end-time-day'] or 'Friday' }}</td>
+          <td class="govuk-table__cell"></td>
+
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">{{ data['friday-start-time-hour'] | int or '7' }}{% if data['friday-start-time-minute'] not in ['0', '00', ''] and data['friday-start-time-minute'] is not undefined %}{{ ':' ~ data['friday-start-time-minute'] }}{% endif %}{{ data['friday-start-time-ampm'] or 'pm' }} on Friday</td>
+          <td class="govuk-table__cell">{{ data['friday-end-time-hour'] | int or '7' }}{% if data['friday-end-time-minute'] not in ['0', '00', ''] and data['friday-end-time-minute'] is not undefined %}{{ ':' ~ data['friday-end-time-minute'] }}{% endif %}{{ data['friday-end-time-ampm'] or 'pm' }} on {{ data['friday-end-time-day'] or 'Saturday' }}</td>
+          <td class="govuk-table__cell"></td>
+
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">{{ data['saturday-start-time-hour'] | int or '7' }}{% if data['saturday-start-time-minute'] not in ['0', '00', ''] and data['saturday-start-time-minute'] is not undefined %}{{ ':' ~ data['saturday-start-time-minute'] }}{% endif %}{{ data['saturday-start-time-ampm'] or 'pm' }} on Saturday</td>
+          <td class="govuk-table__cell">{{ data['saturday-end-time-hour'] | int or '7' }}{% if data['saturday-end-time-minute'] not in ['0', '00', ''] and data['saturday-end-time-minute'] is not undefined %}{{ ':' ~ data['saturday-end-time-minute'] }}{% endif %}{{ data['saturday-end-time-ampm'] or 'pm' }} on {{ data['saturday-end-time-day'] or 'Sunday' }}</td>
+          <td class="govuk-table__cell"></td>
+
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">{{ data['sunday-start-time-hour'] | int or '7' }}{% if data['sunday-start-time-minute'] not in ['0', '00', ''] and data['sunday-start-time-minute'] is not undefined %}{{ ':' ~ data['sunday-start-time-minute'] }}{% endif %}{{ data['sunday-start-time-ampm'] or 'pm' }} on Sunday</td>
+          <td class="govuk-table__cell">{{ data['sunday-end-time-hour'] | int or '7' }}{% if data['sunday-end-time-minute'] not in ['0', '00', ''] and data['sunday-end-time-minute'] is not undefined %}{{ ':' ~ data['sunday-end-time-minute'] }}{% endif %}{{ data['sunday-end-time-ampm'] or 'pm' }} on {{ data['sunday-end-time-day'] or 'Monday' }}</td>
+          <td class="govuk-table__cell"></td>
+
+        </tr>
+
+      </tbody>
+    </table>
+        
+        {% else %}  
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Curfew hours
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Monday to Sunday<br>7pm to 7am
+          </dd>
+        </div>
+      </dl>
+
+
+        {% endif %}  
+
+
+        {% if data['additionalConditionsPresent'] == 'yes' %}  
+
+        <div class="govuk-!-margin-bottom-9 govuk-!-margin-top-8">
+          <h2 class="govuk-heading-m" style="display: inline;">
+            Additional licence conditions (2)
+              </h2>
+
+
+
+              <dl class="govuk-summary-list">
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Condition 1 key
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    Condition 1 value
+                  </dd>
+
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Condition 2 key
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    Condition 2 value
+                  </dd>
+                </div>
+              </dl>
+        </div>
+        {% else %}  
+        <div class="govuk-!-margin-bottom-9 govuk-!-margin-top-8">
+          <h2 class="govuk-heading-m" style="display: inline;">
+            Additional licence conditions (0)
+              </h2>
+
+        </div>
+        {% endif %}  
+
+
+        {% if data['bespokeConditionsPresent'] == 'yes' %}  
+
+        <div class="govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m" style="display: inline;">
+            Bespoke licence conditions (1)
+              </h2>
+
+
+
+              <dl class="govuk-summary-list">
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Condition 1 key
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ data['bespokeDetail'] or "Bespoke condition value" }}
+                  </dd>
+
+                </div>
+              </dl>
+        </div>
+        {% else %}  
+
+        <div class="govuk-!-margin-bottom-9">
+          <h2 class="govuk-heading-m" style="display: inline;">
+            Bespoke licence conditions (0)
+              </h2>
+
+            </div>
+
+        {% endif %}  
 
         <div class="govuk-button-group">
-          <a href="are-you-sure" type="submit" class="govuk-button" data-module="govuk-button">
-            Edit licence conditions
+          <a href="are-you-sure-edit" type="submit" class="govuk-button" data-module="govuk-button">
+            Edit licence
         </a>
-        <a href="#" type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+       <a href="#" type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
             View and print licence PDF
         </a>
         <a class="govuk-link govuk-!-font-size-19 govuk-link--no-visited-state" href="case-list">
