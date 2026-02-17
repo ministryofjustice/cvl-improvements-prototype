@@ -20,7 +20,7 @@
   </p>
 </div>
 <a href="javascript:history.back()" class="govuk-back-link">Back</a>
-{% include "components/prisoner-subheader/prisonnumber.html" %}
+{% include "components/prisoner-subheader/include.html" %}
 
 {% endblock %}
 
@@ -101,7 +101,7 @@
                     </div>
                 </div>
                 <div class="govuk-date-input__item">
-                    <p>on Thursday, 12 February 2026</p>
+                    <p>on Monday, {{ "today" | duration(6) | govukDate(truncate=false) }}</p>
                 </div>
         
             </div>
@@ -144,7 +144,7 @@
                 </div>
             </div>
             <div class="govuk-date-input__item">
-                <p>on Friday, 13 February 2026</p>
+                <p>on Tuesday, {{ "today" | duration(7) | govukDate(truncate=false) }}</p>
             </div>
           </div>
           </div>
@@ -153,10 +153,15 @@
 
 
 
-
+<div class="govuk-button-group">
 <button type="submit" class="govuk-button govuk-!-margin-top-4" data-module="govuk-button">
   Continue
  </button>
+ <!--<button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+  Skip this for now
+</button>-->
+</div>
+
     </fieldset>
           </form>
   </div>
