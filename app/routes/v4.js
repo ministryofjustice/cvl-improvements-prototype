@@ -34,7 +34,7 @@ router.post(version + '/standard-curfew-answer', function(request, response) {
 
     var standard = request.session.data['standardCurfew']
     if (standard == "yes"){
-        response.redirect(version + "/probation-practitioner/pre-release/create/additional-conditions")
+        response.redirect(version + "/probation-practitioner/pre-release/create/additional-conditions/additional-conditions")
     } else {
         response.redirect(version + "/probation-practitioner/pre-release/create/hdc/same-each-day")
     }

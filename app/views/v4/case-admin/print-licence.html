@@ -156,7 +156,7 @@
               Date
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ "today" | duration(4) | govukDate(truncate=false) }}
+              {{ "today" | duration(2) | govukDate(truncate=false) }}
             </dd>
             <dd class="govuk-summary-list__actions">
               {% if data['scenario'] == 'hdcadadded' %} 
@@ -172,7 +172,7 @@
               Time
             </dt>
             <dd class="govuk-summary-list__value">
-              02:15 pm
+              1pm
             </dd>
             <dd class="govuk-summary-list__actions">
               {% if data['scenario'] == 'hdcadadded' %} 
@@ -201,14 +201,14 @@
             </dt>
             <dd class="govuk-summary-list__value">
               {% if data['scenario'] == 'hdcadadded' %} 
-              {{ "today" | duration(6) | govukDate(truncate=true) }}
+              {{ "today" | duration(6) | govukDate(truncate=false) }}
               {% else %} 
               Not entered yet
               {% endif %} 
             </dd>
-            <!-- <dd class="govuk-summary-list__actions">
-              <span class="moj-badge moj-badge--black" style="margin-bottom: 2px;">CRDS</span>
-            </dd> -->
+            <dd class="govuk-summary-list__actions">
+              <span class="moj-badge moj-badge--black" style="margin-bottom: 2px;">Calculate release dates</span>
+            </dd>
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -642,7 +642,7 @@
 
         {% if data['scenario'] == 'hdcadadded' %} 
         {% else %} 
-        <a class="govuk-link" href="./print-licence?scenario=hdcadadded">For testing: HDCAD added</a>
+        <a class="govuk-link" href="./print-licence?scenario=hdcadadded">For testing: User goes to Calculate Release Date and adds HDCAD</a>
         {% endif %} 
 
 

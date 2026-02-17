@@ -141,6 +141,17 @@
         <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
+              HDCAD
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ "today" | duration(6) | govukDate(truncate=false) }} 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <span class="moj-badge moj-badge--black" style="margin-bottom: 2px;">Calculate release dates</span>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
               Address
             </dt>
             <dd class="govuk-summary-list__value">
@@ -149,7 +160,10 @@
               {{ data['curfew-addressTown'] or "Chichester" }}, 
               {% if data['curfew-addressCounty'] %}{{ data['curfew-addressCounty'] | default('Fakeshire') }},{% endif %} 
               {{ data['curfew-addressPostcode'] or "PO18 8YE" }}
-              </dd>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <span class="moj-badge moj-badge--black" style="margin-bottom: 2px;">HDC</span>
+            </dd>
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -158,6 +172,13 @@
             <dd class="govuk-summary-list__value">
               <span class="urgent-highlight">6pm to 9am</span>
               <span class="urgent-highlight urgent-highlight-message">Updated</span>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <ul class="govuk-summary-list__actions-list">
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> first night curfew hours</span></a>
+                </li>
+              </ul>
             </dd>
           </div>
 
