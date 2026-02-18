@@ -19,7 +19,7 @@
     <div class="govuk-grid-column-full-from-desktop">
 
       {% if data['prisoner'] == 'hale' %}  
-        {% if data['scenario'] == 'hdcadadded' %}  
+        {% if data['scenario'] == 'hdcadadded' %}
         {% else %}
         <div role="region" class="moj-alert moj-alert--warning" aria-label="warning: Some information could not be imported" data-module="moj-alert" style="margin-bottom: 60px;">
           <div>
@@ -34,6 +34,25 @@
         {% endif %}
       {% else %}
       {% endif %}
+
+
+      {% if data['curfewdetails'] == 'updated' %} 
+      <div role="region" class="moj-alert moj-alert--success" aria-label="success: Upload successful" data-module="moj-alert">
+        <div>
+          <svg class="moj-alert__icon" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" height="30" width="30">
+            <path d="M11.2869 24.6726L2.00415 15.3899L4.62189 12.7722L11.2869 19.4186L25.3781 5.32739L27.9958 7.96369L11.2869 24.6726Z" fill="currentColor" />
+          </svg>
+        </div>
+        <div class="moj-alert__content">HDC curfew details updated. You must now tell the community probation team. <a href="#">View and print new licence PDF</a></div>
+        <div class="moj-alert__action">
+          <button class="moj-alert__dismiss" hidden>Dismiss</button>
+        </div>
+      </div>
+      {% else %} 
+      {% endif %} 
+
+
+
 
       <h1 class="govuk-heading-l">Print licence for
         {% if data['prisoner'] == 'hale' %}  
@@ -207,7 +226,10 @@
               {% endif %} 
             </dd>
             <dd class="govuk-summary-list__actions">
+              {% if data['scenario'] == 'hdcadadded' %} 
               <span class="moj-badge moj-badge--black" style="margin-bottom: 2px;">Calculate release dates</span>
+              {% else %}
+              {% endif %}
             </dd>
           </div>
           <div class="govuk-summary-list__row">
@@ -227,7 +249,11 @@
               First night curfew hours
             </dt>
             <dd class="govuk-summary-list__value">
+              {% if data['curfewdetails'] == 'updated' %}
+              4pm to 8am
+              {% else %} 
               3pm to 7am
+              {% endif %} 
             </dd>
             <dd class="govuk-summary-list__actions">
               {% if data['scenario'] == 'hdcadadded' %} 

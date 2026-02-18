@@ -144,7 +144,8 @@
               HDCAD
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ "today" | duration(6) | govukDate(truncate=false) }} 
+                <span class="urgent-highlight">{{ "today" | duration(6) | govukDate(truncate=false) }} </span>
+                <span class="urgent-highlight urgent-highlight-message">Updated</span>
             </dd>
             <dd class="govuk-summary-list__actions">
               <span class="moj-badge moj-badge--black" style="margin-bottom: 2px;">Calculate release dates</span>

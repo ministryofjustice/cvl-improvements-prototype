@@ -173,7 +173,7 @@ router.post(version + '/are-you-sure-edit-answer', function(request, response) {
 
 router.post(version + '/viewandprintlicence', function(request, response) {
 
-    var viewandprintlicencepdf = request.session.data['viewandprintLicence']
+    var viewandprintlicencepdf = request.session.data['viewandprintlicencepdf']
     if (viewandprintlicencepdf == "yes"){
         response.redirect(version + "/case-admin/print-licence-pdf")
     } else {

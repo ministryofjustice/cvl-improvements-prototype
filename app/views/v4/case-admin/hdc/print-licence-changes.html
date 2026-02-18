@@ -21,9 +21,7 @@
 
 
 
-      
-
-      {% if data['viewandprintlicencepdf'] == 'yes' %} 
+      {% if data['lastminutechanges'] == 'yes' or data['viewandprintlicencepdf'] == 'yes' %}  
       {% else %}      
         <div role="region" class="moj-alert moj-alert--warning" aria-label="warning: Some information could not be imported" data-module="moj-alert" >
           <div>
@@ -36,6 +34,22 @@
           </div>
         </div>
         {% endif %} 
+
+
+        {% if data['lastminutechanges'] == 'yes' %}
+      <div role="region" class="moj-alert moj-alert--success" aria-label="success: Upload successful" data-module="moj-alert">
+        <div>
+          <svg class="moj-alert__icon" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" height="30" width="30">
+            <path d="M11.2869 24.6726L2.00415 15.3899L4.62189 12.7722L11.2869 19.4186L25.3781 5.32739L27.9958 7.96369L11.2869 24.6726Z" fill="currentColor" />
+          </svg>
+        </div>
+        <div class="moj-alert__content">HDC curfew details updated. You must now tell the community probation team. <a href="../print-licence-pdf" target="_blank">View and print new licence PDF</a></div>
+        <div class="moj-alert__action">
+          <button class="moj-alert__dismiss" hidden>Dismiss</button>
+        </div>
+      </div>
+      {% else %}   
+      {% endif %}   
 
 
       <h1 class="govuk-heading-l">Print licence for Lorin Mave Change</h1><br>
@@ -159,7 +173,7 @@
               Time
             </dt>
             <dd class="govuk-summary-list__value">
-              {% if data['viewandprintlicencepdf'] == 'yes' %} 
+              {% if data['lastminutechanges'] == 'yes' or data['viewandprintlicencepdf'] == 'yes' %} 
               3:30pm
               {% else %}
               <span class="urgent-highlight">3:30pm</span>
@@ -212,7 +226,9 @@
               First night curfew hours
             </dt>
             <dd class="govuk-summary-list__value">
-              {% if data['viewandprintlicencepdf'] == 'yes' %} 
+              {% if data['lastminutechanges'] == 'yes' %}
+              4pm to 8am
+              {% elif data['viewandprintlicencepdf'] == 'yes' %}
               5pm to 9am
               {% else %} 
               <span class="urgent-highlight">5pm to 9am</span>
@@ -220,7 +236,7 @@
               {% endif %} 
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="./first-night-curfew">Change<span class="govuk-visually-hidden"> first night curfew hours</span></a>
+              <a class="govuk-link govuk-link--no-visited-state" href="./first-night-curfew?lastminutechanges=yes">Change<span class="govuk-visually-hidden"> first night curfew hours</span></a>
             </dd>
           </div>
 
