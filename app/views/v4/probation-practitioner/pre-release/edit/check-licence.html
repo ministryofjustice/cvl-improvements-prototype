@@ -156,12 +156,15 @@
 
 
 
-        {% if data['prisoner'] == 'lorin' %}
+        {% if data['prisoner'] == 'lorin' or data['prisoner'] == 'noa' %}
         <h2 class="govuk-heading-m" style="margin-top: 60px;">
           HDC curfew details
             </h2>
              
+            {% if data['prisoner'] == 'lorin' %}
             <p>TBD @TOM: To request a change to this person’s appointment, contact HMP Wandsworth at omu.wandsworth@justice.gov.uk.</p>
+            {% else %}
+            {% endif %}
             
         <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
@@ -169,11 +172,18 @@
               HDCAD
             </dt>
             <dd class="govuk-summary-list__value">
-                <span class="urgent-highlight">{{ "today" | duration(6) | govukDate(truncate=false) }} </span>
-                <span class="urgent-highlight urgent-highlight-message">Updated</span>
+              {% if data['prisoner'] == 'lorin' %}
+              <span class="urgent-highlight">{{ "today" | duration(6) | govukDate(truncate=false) }} </span>
+              <span class="urgent-highlight urgent-highlight-message">Updated</span>
+              {% else %}
+              Not entered yet
+              {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
+              {% if data['prisoner'] == 'lorin' %}
               <span class="moj-badge moj-badge--black" style="margin-bottom: 2px;">Calculate release dates</span>
+              {% else %}
+              {% endif %}
             </dd>
           </div>
           <div class="govuk-summary-list__row">
@@ -196,8 +206,12 @@
               First night curfew hours
             </dt>
             <dd class="govuk-summary-list__value">
+              {% if data['prisoner'] == 'lorin' %}
               <span class="urgent-highlight">6pm to 9am</span>
               <span class="urgent-highlight urgent-highlight-message">Updated</span>
+              {% else %}
+              6pm to 9am
+              {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
               <ul class="govuk-summary-list__actions-list">
