@@ -15,32 +15,85 @@
 
 
 {% block content %}
-
-
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-
-
-
-    <form action="appt-where/saved-addresses" method="get">
-
-    <div class="govuk-form-group">
-      <h1 class="govuk-label-wrapper">
-        <label class="govuk-label govuk-label--l" for="event-name">
-          Who is the initial appointment with?
-        </label>
-      </h1>
-      <input class="govuk-input govuk-!-width-one-third" id="who-with" name="whoApptWith" type="text">
-    </div>
-
-
-          <button type="submit" class="govuk-button" data-module="govuk-button">
-           Continue
-          </button>
-        </form>
-
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l" style="margin-bottom: 20px;">
+        <h1 class="govuk-fieldset__heading">Who is the initial appointment with?</h1>
+      </legend>
   </div>
 </div>
+
+
+<!--START set dynamic radio hide/show text-->
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% set textHtmlOther %}
+{{ govukInput({
+  name: "who4",
+  classes: "govuk-fieldset__legend--s govuk-input govuk-input--width-30",
+  label: {
+    text: "Enter name"
+  }
+}) }}
+{% endset -%}
+
+
+{{ govukRadios({
+  
+  fieldset: {
+    legend: {
+      name: "apptwho",
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+
+  items: [
+  {
+    name: "who1",
+    text: "	Philamina Rogers, this person's community probation practitioner"
+  },
+
+  {
+    name: "who1",
+    text: "Duty officer"
+  },
+
+
+  {
+    name: "who3",
+    text: "Someone else",
+    hint: {
+      text: "For example, someone at an approved premises or a different probation practitioner."
+    },
+    conditional: {
+      html: textHtmlOther
+    }
+
+  }
+
+
+  ]
+}) }}
+
+
+
+
+
+<form method="" action="./appt-where/saved-addresses">
+
+<button type="submit" class="govuk-button" data-module="govuk-button">Continue</button>
+
+
+</form>
+
+
+<!--OLD-->
+
+
 
 {% endblock %}
 
