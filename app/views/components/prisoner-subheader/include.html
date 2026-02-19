@@ -2,7 +2,16 @@
     <div class="govuk-grid-column-full border-bottom">
         <div class="govuk-caption-m">
 
-{% if data['prisoner'] == 'noa' %}  
+{% if data['prisoner'] == 'omar' %}  
+            <span class="pipe-separated__item">CRN: O45P61T</span>
+            <span class="pipe-separated__item">
+                HDCED: Thursday {{ "today" | duration(4) | govukDate(truncate=false) }}
+            </span>
+            <span class="pipe-separated__item">Date of birth: 31 May 2003</span>
+        </div>
+        <span class="govuk-heading-m">Omar Opton</span>
+
+{% elif data['prisoner'] == 'noa' %}  
             <span class="pipe-separated__item">CRN: N96A98D</span>
             <span class="pipe-separated__item">
                 HDCED: Thursday {{ "today" | duration(2) | govukDate(truncate=false) }}
