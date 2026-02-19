@@ -20,7 +20,7 @@
 
 
 
-
+      <!--
       {% if data['lastminutechanges'] == 'yes' or data['viewandprintlicencepdf'] == 'yes' %}  
       {% else %}      
         <div role="region" class="moj-alert moj-alert--warning" aria-label="warning: Some information could not be imported" data-module="moj-alert" >
@@ -34,9 +34,10 @@
           </div>
         </div>
         {% endif %} 
+      -->
 
 
-        {% if data['lastminutechanges'] == 'yes' %}
+      {% if data['lastminutechanges'] == 'yes' %}
       <div role="region" class="moj-alert moj-alert--success" aria-label="success: Upload successful" data-module="moj-alert">
         <div>
           <svg class="moj-alert__icon" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" height="30" width="30">
@@ -173,12 +174,7 @@
               Time
             </dt>
             <dd class="govuk-summary-list__value">
-              {% if data['lastminutechanges'] == 'yes' or data['viewandprintlicencepdf'] == 'yes' %} 
               3:30pm
-              {% else %}
-              <span class="urgent-highlight">3:30pm</span>
-              <span class="urgent-highlight urgent-highlight-message">Updated</span>
-              {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="./appt-when">Change</a>
@@ -228,11 +224,8 @@
             <dd class="govuk-summary-list__value">
               {% if data['lastminutechanges'] == 'yes' %}
               4pm to 8am
-              {% elif data['viewandprintlicencepdf'] == 'yes' %}
-              5pm to 9am
               {% else %} 
-              <span class="urgent-highlight">5pm to 9am</span>
-              <span class="urgent-highlight urgent-highlight-message">Updated</span>
+              5pm to 9am
               {% endif %} 
             </dd>
             <dd class="govuk-summary-list__actions">

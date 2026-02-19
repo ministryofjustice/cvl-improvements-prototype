@@ -82,7 +82,10 @@
                   {{ data['whoApptWith'] or "Philamina Rogers" }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
+                  {% if data['prisoner'] == 'lorin' %}
+                  {% else %}
                   <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> name</span></a>
+                  {% endif %}
                 </dd>
               </div>
               <div class="govuk-summary-list__row">
@@ -97,7 +100,10 @@
                   {{ data['addressPostcode'] or "FA1 1KE" }}
                </dd>
                 <dd class="govuk-summary-list__actions">
+                  {% if data['prisoner'] == 'lorin' %}
+                  {% else %}
                   <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
+                  {% endif %}
                 </dd>
               </div>
               <div class="govuk-summary-list__row">
@@ -108,7 +114,10 @@
                   {{ data['contactNumber'] or "01273 800 900" }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
+                  {% if data['prisoner'] == 'lorin' %}
+                  {% else %}
                   <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> contact phone number</span></a>
+                  {% endif %}
                 </dd>
               </div>
               <div class="govuk-summary-list__row">
@@ -119,7 +128,10 @@
                   {{ data['contactNumber'] or "01273 800 901" }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
+                  {% if data['prisoner'] == 'lorin' %}
+                  {% else %}
                   <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> contact phone number</span></a>
+                  {% endif %}
                 </dd>
               </div>
               <div class="govuk-summary-list__row">
@@ -130,11 +142,14 @@
                   {{ "today" | duration(2) | govukDate(truncate=false) }}
                  </dd>
                 <dd class="govuk-summary-list__actions">
+                  {% if data['prisoner'] == 'lorin' %}
+                  {% else %}
                   <ul class="govuk-summary-list__actions-list">
                     <li class="govuk-summary-list__actions-list-item">
                       <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> date</span></a>
                     </li>
                   </ul>
+                  {% endif %}
                 </dd>
               </div>
               <div class="govuk-summary-list__row">
@@ -145,11 +160,14 @@
                   {{ data | formatTime('3:30', '', 'pm') }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
+                  {% if data['prisoner'] == 'lorin' %}
+                  {% else %}
                   <ul class="govuk-summary-list__actions-list">
                     <li class="govuk-summary-list__actions-list-item">
                       <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> time</span></a>
                     </li>
                   </ul>
+                  {% endif %}
                 </dd>
               </div>
             </dl>
@@ -215,9 +233,12 @@
             </dd>
             <dd class="govuk-summary-list__actions">
               <ul class="govuk-summary-list__actions-list">
+                {% if data['prisoner'] == 'lorin' %}
+                {% else %}
                 <li class="govuk-summary-list__actions-list-item">
                   <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> first night curfew hours</span></a>
                 </li>
+                {% endif %}
               </ul>
             </dd>
           </div>
