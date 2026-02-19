@@ -143,21 +143,6 @@
               HDC curfew details
                 </h2>
             <dl class="govuk-summary-list">
-              <!--<div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  HDCAD
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  {% if data['scenario'] == 'hdcadadded' %} 
-                  {{ "today" | duration(6) | govukDate(truncate=true) }}
-                  {% else %} 
-                  Not entered yet
-                  {% endif %} 
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                  <span class="moj-badge moj-badge--black" style="margin-bottom: 2px;">CRDS</span>
-                </dd>
-              </div>-->
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
                   HDCAD
@@ -188,10 +173,7 @@
                   3pm to 7am
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                  {% if data['scenario'] == 'hdcadadded' %} 
-                  <a class="govuk-link govuk-link--no-visited-state" href="./hdc/first-night-curfew">Change<span class="govuk-visually-hidden"> first night curfew hours</span></a>
-                  {% else %} 
-                  {% endif %} 
+                  <a class="govuk-link govuk-link--no-visited-state" href="./hdc/curfews/first-night-curfew-edit">Change<span class="govuk-visually-hidden"> first night curfew hours</span></a>
                 </dd>
               </div>
     
