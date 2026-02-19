@@ -40,19 +40,38 @@
       Check licence details
         </h1>
 
+        {% if data['prisoner'] == 'lorin' %} 
+        <p><strong>TBD @TOM:</strong> You cannot work on a licence from 2 days before someone's release date.</br>
+          This is so the prison can complete their final release checks.</p>
+          
+          <p>You can only ask the prison to change the initial appointment.</br>
+          Any other changes must be made after release.</p>
+
+        <div class="govuk-button-group">
+      <a href="#" type="submit" class="govuk-button govuk-button" data-module="govuk-button">
+            View and print licence PDF
+        </a>
+        </div>
+        {% else %}  
         <div class="govuk-button-group">
           <a href="are-you-sure-edit" type="submit" class="govuk-button" data-module="govuk-button">
             Edit licence
         </a>
+
        <a href="#" type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
             View and print licence PDF
         </a>
         </div>
+        {% endif %}  
 
 
-        <h2 class="govuk-heading-m">
+        <h2 class="govuk-heading-m" style="margin-top: 40px;">
           Initial appointment details
             </h2>
+
+            {% if data['prisoner'] == 'lorin' %} 
+            <p>TBD @TOM: To request a change to this person’s appointment, contact HMP Wandsworth at omu.wandsworth@justice.gov.uk.</p>
+            {% endif %} 
     
             <dl class="govuk-summary-list">
               <div class="govuk-summary-list__row">
@@ -135,9 +154,15 @@
               </div>
             </dl>
 
+
+
+        {% if data['prisoner'] == 'lorin' %}
         <h2 class="govuk-heading-m" style="margin-top: 60px;">
           HDC curfew details
             </h2>
+             
+            <p>TBD @TOM: To request a change to this person’s appointment, contact HMP Wandsworth at omu.wandsworth@justice.gov.uk.</p>
+            
         <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -279,6 +304,8 @@
 
         {% endif %}  
 
+        {% endif %} 
+
 
         {% if data['additionalConditionsPresent'] == 'yes' %}  
 
@@ -380,6 +407,16 @@
 
         {% endif %}  
 
+        {% if data['prisoner'] == 'lorin' %}  
+        <div class="govuk-button-group">
+       <a href="#" type="submit" class="govuk-button govuk-button" data-module="govuk-button">
+            View and print licence PDF
+        </a>
+        <a href="#" type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Return to caselist
+      </a>
+        </div>
+        {% else %}  
         <div class="govuk-button-group">
           <a href="are-you-sure-edit" type="submit" class="govuk-button" data-module="govuk-button">
             Edit licence
@@ -391,6 +428,7 @@
             Return to caselist
         </a>
         </div>
+        {% endif %}  
 
 
 
