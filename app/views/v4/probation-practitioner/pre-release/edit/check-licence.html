@@ -41,11 +41,10 @@
         </h1>
 
         {% if data['prisoner'] == 'lorin' %} 
-        <p><strong>TBD @TOM:</strong> You cannot work on a licence from 2 days before someone's release date.</br>
-          This is so the prison can complete their final release checks.</p>
-          
-          <p>You can only ask the prison to change the initial appointment.</br>
-          Any other changes must be made after release.</p>
+         <p>You can no longer make any changes to this licence because it has been approved <br>and there are less than 24 hours to release.</p>
+
+          <p>You can still ask the prison to change initial appointment details or first night curfew hours,<br> for example by contacting omu.wandsworth@justice.gov.uk.</p>
+          <p>Any other changes must be made after release.</p>
 
         <div class="govuk-button-group">
       <a href="#" type="submit" class="govuk-button govuk-button" data-module="govuk-button">
@@ -67,11 +66,7 @@
 
         <h2 class="govuk-heading-m" style="margin-top: 40px;">
           Initial appointment details
-            </h2>
-
-            {% if data['prisoner'] == 'lorin' %} 
-            <p>TBD @TOM: To request a change to this person’s appointment, contact HMP Wandsworth at omu.wandsworth@justice.gov.uk.</p>
-            {% endif %} 
+        </h2>
     
             <dl class="govuk-summary-list">
               <div class="govuk-summary-list__row">
@@ -179,11 +174,6 @@
           HDC curfew details
             </h2>
              
-            {% if data['prisoner'] == 'lorin' %}
-            <p>TBD @TOM: To request a change to this person’s appointment, contact HMP Wandsworth at omu.wandsworth@justice.gov.uk.</p>
-            {% else %}
-            {% endif %}
-            
         <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
