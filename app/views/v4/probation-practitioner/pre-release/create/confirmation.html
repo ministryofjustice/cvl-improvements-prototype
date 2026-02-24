@@ -15,6 +15,33 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
+    {% if data['prisoner'] == 'hale' %}
+    <!--HDC licences-->
+
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">
+        Licence conditions for</br>
+        Hale Draven Corvath sent
+      </h1>
+    </div>
+    <h2 class="govuk-heading-m" style="margin-top: 40px;">
+      What happens next
+     </h2>
+
+        <p>Pentonville (HMP) can only approve the licence once the release has been confirmed and a HDCAD has been entered. </p>
+
+        <h2 class="govuk-heading-m">
+          If you need to make changes
+       </h2>
+
+       <p>You cannot make changes once the licence has been approved and there are less than 24 hours to release.</p>
+      
+       <p class="govuk-!-margin-bottom-5">After this, you can only ask the prison to change initial appointment details and first night curfew hours. Other changes must be made after release. </p>
+
+       
+
+    {% else %}
+    <!--CRD licences-->
 
     <div class="govuk-panel govuk-panel--confirmation">
       <h1 class="govuk-panel__title">
@@ -35,46 +62,54 @@
       What happens next
      </h2>
 
-        <p>Pentonville (HMP) can only approve the licence once the release has been confirmed and a HDCAD has been entered. </p>
+        <p>We have sent the licence to Pentonville (HMP) for approval.</p>
+
+        <p>They will contact you if they need more information.</p>
 
         <h2 class="govuk-heading-m">
-          If you need to make changes
+          If you need to make any changes
        </h2>
 
-       <p>You cannot make changes once the licence has been approved and there are less than 24 hours to release.</p>
+       <p>You can do so up to 2 days before a standard release. From this point, you can only ask the prison to change the initial appointment details. Other changes must be made after release.</p>
       
-       <p class="govuk-!-margin-bottom-5">After this, you can only ask the prison to change initial appointment details and first night curfew hours. Other changes must be made after release. </p>
+       <p class="govuk-!-margin-bottom-5">You can continue to work on licences for people being released early after the 2-day point.</p>
 
-        <a href="case-list-submitted">
-          <button type="submit" class="govuk-button" data-module="govuk-button">
-           Return to case list
-          </button>
-        </a>
 
-       {% if data['recallCase'] == 'true' %}
+  {% endif %}   
+  
+  
+  <a href="case-list-submitted">
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+     Return to caselist
+    </button>
+  </a>
 
-       <hr class="curfew-hr">
+ {% if data['recallCase'] == 'true' %}
 
-       <h2 class="govuk-heading-m govuk-!-margin-top-6">
-          Help improve this service
-       </h2>
+ <hr class="curfew-hr">
 
-       <p>Fixed-term recalls are new to this service. Your feedback will help make it better. To give feedback you can:</p>
+ <h2 class="govuk-heading-m govuk-!-margin-top-6">
+    Help improve this service
+ </h2>
 
-       <ul class="govuk-list govuk-list--bullet"> 
-        <li><a href="#" class="govuk-link--no-visited-state">complete a short survey</a></li>
-        <li><a href="#" class="govuk-link--no-visited-state">report a specific problem</a></li>
-       </ul>
+ <p>Fixed-term recalls are new to this service. Your feedback will help make it better. To give feedback you can:</p>
 
-       {% endif %}
- 
+ <ul class="govuk-list govuk-list--bullet"> 
+  <li><a href="#" class="govuk-link--no-visited-state">complete a short survey</a></li>
+  <li><a href="#" class="govuk-link--no-visited-state">report a specific problem</a></li>
+ </ul>
 
-        <p class="govuk-!-margin-top-8"><a href="/v4/approver/cvl-home" class="govuk-link--no-visited-state">Jump to approver flow</a></p>
+ {% endif %}
+
+
+  <p class="govuk-!-margin-top-8"><a href="/v3/approver/cvl-home" class="govuk-link--no-visited-state">Jump to approver flow</a></p>
+
+
+
 
 
   </div>
 </div>
-
 {% endblock %}
 
 

@@ -248,13 +248,15 @@
           
           </tr>
 
-          {% if data['HDCevent'] == 'optout' %}
-          {% else %}    
+             
           <tr class="govuk-table__row">
 
             <td class="govuk-table__cell">
-              <a href="../create/hdc/events/optout?prisoner=omar" class="govuk-link--no-visited-state pp-caselist-name">
-                Omar Opton</a>
+              {% if data['HDCevent'] == 'optout' %}
+              <a href="../create/hdc/check-licence-saved-conditions" class="govuk-link--no-visited-state pp-caselist-name">Omar Opton</a>
+              {% else %}
+              <a href="../create/hdc/events/optout?prisoner=omar" class="govuk-link--no-visited-state pp-caselist-name">Omar Opton</a>
+              {% endif %}
               <span class="govuk-!-font-size-16 pp-caselist-crn">CRN: O45P61T</span>
             </td>
       
@@ -267,13 +269,17 @@
             </td>
       
             <td class="govuk-table__cell">
-              <strong class="govuk-tag govuk-tag--blue status-badge">
-              In progress
-            </strong>
+              {% if data['HDCevent'] == 'optout' %}
+              <strong class="govuk-tag govuk-tag--blue status-badge">In progress</strong>
+              {% else %}
+              <strong class="govuk-tag govuk-tag--pink status-badge">Submitted</strong>
+              {% endif %}
+
+
             </td>
           
           </tr>
-          {% endif %}    
+          
 
 
 
