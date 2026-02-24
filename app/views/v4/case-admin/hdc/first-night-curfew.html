@@ -38,7 +38,7 @@
     {% endif %} 
 
 
-        <fieldset class="govuk-fieldset">
+         <fieldset class="govuk-fieldset">
 
     
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
@@ -51,8 +51,8 @@
                  
               </div>       
 
-            <div class="govuk-body govuk-!-margin-bottom-7">
-              If release date or time changes, you or the prison can update these curfew hours.
+            <div class="govuk-hint govuk-!-margin-bottom-7">
+              Standard first night curfew hours are 3pm on day of release to 7am the following day. 
             </div>
 
 
@@ -67,9 +67,7 @@
             <h2 class="govuk-heading-m">
                 Hours starting on day of release
               </h2>
-              <div class="govuk-body govuk-!-margin-bottom-7">
-                Standard first night curfew hours are 3pm on day of release to 7am the following day. 
-              </div> 
+
                 <div class="govuk-form-group">
                   <label class="govuk-label bold" for="monday-start-time">
                     Start time
@@ -104,7 +102,7 @@
                     </div>
                 </div>
                 <div class="govuk-date-input__item">
-                    <p>on Monday, {{ "today" | duration(6) | govukDate(truncate=false) }}</p>
+                    <p>on Thursday, {{ "today" | duration(2) | govukDate(truncate=false) }}</p>
                 </div>
         
             </div>
@@ -147,7 +145,7 @@
                 </div>
             </div>
             <div class="govuk-date-input__item">
-                <p>on Tuesday, {{ "today" | duration(7) | govukDate(truncate=false) }}</p>
+                <p>on Friday, {{ "today" | duration(3) | govukDate(truncate=false) }}</p>
             </div>
           </div>
           </div>
@@ -156,14 +154,13 @@
 
 
 
-
 <div class="govuk-button-group">
-<button type="submit" class="govuk-button govuk-!-margin-top-4" data-module="govuk-button" name="curfewdetails" value="updated">
+<button type="submit" class="govuk-button govuk-!-margin-top-4" data-module="govuk-button">
   Continue
  </button>
- <!--<button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+ <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
   Skip this for now
-</button>-->
+</button>
 </div>
 
     </fieldset>
