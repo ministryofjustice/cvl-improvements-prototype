@@ -87,17 +87,13 @@
                   <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> contact phone number</span></a>
                 </dd>
               </div>
-           {% if data['appointment-time'] == 'specific' %}  
+           
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Date
             </dt>
             <dd class="govuk-summary-list__value">
-              {% if data['date'] or "Not entered yet" %} 
-              {{ data['date'] | formatDateString("D/M/YYYY","D MMMM YYYY")}}
-              {% else %} 
-              {{ "today" | duration(2) | govukDate(truncate=false) }}
-              {% endif %} 
+              Not entered yet
              </dd>
             <dd class="govuk-summary-list__actions">
               <ul class="govuk-summary-list__actions-list">
@@ -112,27 +108,7 @@
               Time
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data | formatTime('1', '', 'pm') }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <ul class="govuk-summary-list__actions-list">
-                <li class="govuk-summary-list__actions-list-item">
-                  <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> time</span></a>
-                </li>
-              </ul>
-            </dd>
-          </div>
-         {% else %} 
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Date/time
-            </dt>
-            <dd class="govuk-summary-list__value">
-            {% if data['appointment-time'] == 'immediately' %}  
-              Immediately after release
-             {% else %} 
               Not entered yet
-            {% endif %} 
             </dd>
             <dd class="govuk-summary-list__actions">
               <ul class="govuk-summary-list__actions-list">
@@ -142,14 +118,12 @@
               </ul>
             </dd>
           </div>
-         {% endif %} 
-            </dl>
+        </dl>
 
 
             
     
-    
-    
+
 
 
           
@@ -169,29 +143,28 @@
                 <dl class="govuk-summary-list">
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                      Electronic monitoring	
+                      Disclosure of information
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      <p>You will be subject to trail monitoring. Your whereabouts will be electronically monitored by GPS Satellite Tagging, ending on Thursday 18th December 2025, and you must cooperate with the monitoring as directed by your supervising officer unless otherwise authorised by your supervising officer.</p>
-                      <p class="hint-condition-custom">Thursday 18th December 2025</p>
+                      <p>Notify your supervising officer of any developing relationships, including status changes such as engagement, marriage, pregnancies or the ending of any relationships, and disclose the details of the person you are in a relationship with.</p>
                                     
 
                     </dd>
                     <dd class="govuk-summary-list__actions">
                       <ul class="govuk-summary-list__actions-list">
                         <li class="govuk-summary-list__actions-list-item">
-                          <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> ?</span></a>
+                          <a class="govuk-link govuk-link--no-visited-state" href="#">Delete<span class="govuk-visually-hidden"> ?</span></a>
                         </li>
                       </ul>
                     </dd>
                   </div>
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                      Electronic monitoring	
+                      Freedom of movement
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      <p>You must stay at {{ data['approvedAddressLine1'] or "102 Petty France" }}, {% if data['approvedAddressLine2'] %}{{ data['approvedAddressLine2'] | default('Westminster') }},{% endif %} {{ data['approvedAddressTown'] or "London" }}, {% if data['approvedAddressCounty'] %}{{ data['approvedAddressCounty'] | default('Greater London') }},{% endif %} {{ data['approvedAddressPostcode'] or "SW1H 9AJ" }} between 5pm and midnight every day until your electronic tag is installed unless otherwise authorised by your supervising officer.</p>
-                      <p class="hint-condition-custom">{{ data['approvedAddressLine1'] or "102 Petty France" }}, {% if data['approvedAddressLine2'] %}{{ data['approvedAddressLine2'] | default('Westminster') }},{% endif %} {{ data['approvedAddressTown'] or "London" }}, {% if data['approvedAddressCounty'] %}{{ data['approvedAddressCounty'] | default('Greater London') }},{% endif %} {{ data['approvedAddressPostcode'] or "SW1H 9AJ" }}</p>
+                      <p>Not to enter the area as defined by the attached map, during the period that [NAME OF EVENT] takes place, including all occasions that the event takes place, without the prior permission of your supervising officer.</p>
+                      <p class="hint-condition-custom">City Marathon</p>
                     </dd>
                     <dd class="govuk-summary-list__actions">
                       <ul class="govuk-summary-list__actions-list">
@@ -243,7 +216,7 @@
 
           
 
-            <h2 class="govuk-heading-m" style="margin-top: 100px;">
+            <!--<h2 class="govuk-heading-m" style="margin-top: 100px;">
                Additional information
             </h2>
 
@@ -262,11 +235,11 @@
            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> if they are being tagged as part of a pathfinder or programme</span></a>
           </dd>
          </div>
-        </dl>
+        </dl>-->
 
 
 
-        <div class="govuk-button-group" style="margin-top: 40px;">
+        <div class="govuk-button-group" style="margin-top: 80px;">
           <a href="../confirmation" type="submit" class="govuk-button" data-module="govuk-button">
            Send to prison for approval
         </a>
