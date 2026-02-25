@@ -33,7 +33,7 @@
             <span class="pipe-separated__item">CRN: H87D13C</span>
             <span class="pipe-separated__item">
                 {% if data['scenario'] == 'hdcadadded' %}
-                HDCAD: Monday {{ "today" | duration(6) | govukDate(truncate=false) }}
+                HDC actual date: Monday {{ "today" | duration(6) | govukDate(truncate=false) }}
                 {% else %}
                 HDC eligibility date: Thursday {{ "today" | duration(2) | govukDate(truncate=false) }}
                 {% endif %}
