@@ -5,7 +5,7 @@
 {% if data['prisoner'] == 'omar' %}  
             <span class="pipe-separated__item">CRN: O45P61T</span>
             <span class="pipe-separated__item">
-                HDCED: Thursday {{ "today" | duration(4) | govukDate(truncate=false) }}
+                HDC eligibility date: Thursday {{ "today" | duration(4) | govukDate(truncate=false) }}
             </span>
             <span class="pipe-separated__item">Date of birth: 31 May 2003</span>
         </div>
@@ -14,7 +14,7 @@
 {% elif data['prisoner'] == 'noa' %}  
             <span class="pipe-separated__item">CRN: N96A98D</span>
             <span class="pipe-separated__item">
-                HDCED: Thursday {{ "today" | duration(2) | govukDate(truncate=false) }}
+                HDC eligibility date: Thursday {{ "today" | duration(2) | govukDate(truncate=false) }}
             </span>
             <span class="pipe-separated__item">Date of birth: 31 Jan 2001</span>
         </div>
@@ -23,7 +23,7 @@
 {% elif data['prisoner'] == 'lorin' %}  
             <span class="pipe-separated__item">CRN: L22M6C1</span>
             <span class="pipe-separated__item">
-                HDCAD: Thursday {{ "today" | duration(2) | govukDate(truncate=false) }}
+                HDC actual date: Thursday {{ "today" | duration(2) | govukDate(truncate=false) }}
             </span>
             <span class="pipe-separated__item">Date of birth: 12 Dec 1999</span>
         </div>
@@ -35,7 +35,7 @@
                 {% if data['scenario'] == 'hdcadadded' %}
                 HDCAD: Monday {{ "today" | duration(6) | govukDate(truncate=false) }}
                 {% else %}
-                HDCED: Thursday {{ "today" | duration(2) | govukDate(truncate=false) }}
+                HDC eligibility date: Thursday {{ "today" | duration(2) | govukDate(truncate=false) }}
                 {% endif %}
             </span>
             <span class="pipe-separated__item">Date of birth: 12 Dec 1999</span>
