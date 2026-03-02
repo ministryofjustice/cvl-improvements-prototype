@@ -66,32 +66,32 @@
               </h2>
 
                 <div class="govuk-form-group">
-                  <label class="govuk-label bold" for="monday-start-time">
+                  <label class="govuk-label bold" for="firstnight-start-time">
                     Start time
                   </label> 
-              <div class="govuk-date-input" id="monday-start-time">
+              <div class="govuk-date-input" id="firstnight-start-time">
                 <div class="govuk-date-input__item">
                     <div class="govuk-form-group">
-                        <label class="govuk-label govuk-date-input__label" for="monday-start-time-hour">
+                        <label class="govuk-label govuk-date-input__label" for="firstnight-start-time-hour">
                             Hour
                         </label>
-                        <input class="govuk-input govuk-date-input__input govuk-input--width-2 " maxlength="2" id="monday-start-time-hour" name="monday-start-time-hour" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['monday-start-time-hour'] | int or '3' }}">
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2 " maxlength="2" id="firstnight-start-time-hour" name="firstnight-start-time-hour" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['firstnight-start-time-hour'] | int or '3' }}">
                     </div>
                 </div>
                 <div class="govuk-date-input__item">
                     <div class="govuk-form-group">
-                        <label class="govuk-label govuk-date-input__label" for="monday-start-time-minute">
+                        <label class="govuk-label govuk-date-input__label" for="firstnight-start-time-minute">
                             Minute
                         </label>
-                        <input class="govuk-input govuk-date-input__input govuk-input--width-2 " maxlength="2" id="monday-start-time-minute" name="monday-start-time-minute" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['monday-start-time-minute'] | int or '00' }}">
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2 " maxlength="2" id="firstnight-start-time-minute" name="firstnight-start-time-minute" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['firstnight-start-time-minute'] | int or '00' }}">
                     </div>
                 </div>
                 <div class="govuk-date-input__item">
                     <div class="govuk-form-group">
-                        <label class="govuk-label govuk-date-input__label" for="monday-start-time-ampm">
+                        <label class="govuk-label govuk-date-input__label" for="firstnight-start-time-ampm">
                             am or pm
                         </label>
-                        <select class="govuk-select select-custom-width-am-pm" id="monday-start-time-ampm" name="monday-start-time-ampm">
+                        <select class="govuk-select select-custom-width-am-pm" id="firstnight-start-time-ampm" name="firstnight-start-time-ampm">
                             <option value="choose">Choose am or pm</option>
                             <option value="am">am</option>
                             <option value="pm" selected>pm</option>
@@ -107,18 +107,18 @@
             </div>
           
           
-            <div class="govuk-form-group">
-              <label class="govuk-label bold" for="monday-end-time">
+            <div class="govuk-form-group" style="margin-top: 40px;">
+              <label class="govuk-label bold" for="firstnight-end-time">
                 End time
               </label>
           
-          <div class="govuk-date-input" id="monday-end-time">
+          <div class="govuk-date-input" id="firstnight-end-time">
             <div class="govuk-date-input__item">
                 <div class="govuk-form-group">
-                    <label class="govuk-label govuk-date-input__label" for="monday-end-time-hour">
+                    <label class="govuk-label govuk-date-input__label" for="firstnight-end-time-hour">
                         Hour
                     </label>
-                    <input class="govuk-input govuk-date-input__input govuk-input--width-2 " maxlength="2" id="monday-end-time-hour" name="monday-end-time-hour" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['monday-end-time-hour'] | int or '7' }}">
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-2 " maxlength="2" id="firstnight-end-time-hour" name="firstnight-end-time-hour" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['firstnight-end-time-hour'] | int or '7' }}">
                 </div>
             </div>
             <div class="govuk-date-input__item">
@@ -126,15 +126,15 @@
                     <label class="govuk-label govuk-date-input__label" for="time-minute">
                         Minute
                     </label>
-                    <input class="govuk-input govuk-date-input__input govuk-input--width-2 " maxlength="2" id="monday-end-time-minute" name="monday-end-time-minute" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['monday-end-time-minute'] | int or '00' }}">
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-2 " maxlength="2" id="firstnight-end-time-minute" name="firstnight-end-time-minute" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['firstnight-end-time-minute'] | int or '00' }}">
                 </div>
             </div>
             <div class="govuk-date-input__item">
                 <div class="govuk-form-group">
-                    <label class="govuk-label govuk-date-input__label" for="monday-end-time-ampm">
+                    <label class="govuk-label govuk-date-input__label" for="firstnight-end-time-ampm">
                         am or pm
                     </label>
-                    <select class="govuk-select select-custom-width-am-pm" id="monday-end-time-ampm" name="monday-end-time-ampm">
+                    <select class="govuk-select select-custom-width-am-pm" id="firstnight-end-time-ampm" name="firstnight-end-time-ampm">
                         <option value="choose">Choose am or pm</option>
                         <option value="am" selected>am</option>
                         <option value="pm">pm</option>
