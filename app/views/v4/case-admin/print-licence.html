@@ -81,7 +81,7 @@
 
       
         <!--HDC licence start-->
-        {% if data['prisoner'] == 'hale' %}
+        {% if data['prisoner'] == 'hale' or data['prisoner'] == 'hdc' %}
 
         <h2 class="govuk-heading-m">Initial appointment details</h2>
 
@@ -236,7 +236,7 @@
               HDC actual date
             </dt>
             <dd class="govuk-summary-list__value">
-              {% if data['scenario'] == 'hdcadadded' %} 
+              {% if data['scenario'] == 'hdcadadded' or data['prisoner'] == 'hdc' %} 
               {{ "today" | duration(6) | govukDate(truncate=false) }}
               {% else %} 
               Enter this in <a href="">Calculate release dates</a>
