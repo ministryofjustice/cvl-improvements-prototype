@@ -15,6 +15,7 @@
 {% block content %}
 
 
+{% if data['prisoner'] == 'sam' %} 
 <div role="region" class="moj-alert moj-alert--warning" aria-label="warning: Some information could not be imported" data-module="moj-alert">
   <div>
     <svg class="moj-alert__icon" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" height="30" width="30">
@@ -28,6 +29,7 @@
     <button class="moj-alert__dismiss" hidden>Dismiss</button>
   </div>
 </div>
+{% endif %} 
 
 
 
@@ -402,7 +404,7 @@
                      Name
                   </dt>
                   <dd class="govuk-summary-list__value">
-                    Sally Rooney
+                    Taru Malli
                   </dd>
                 </div>
                 <div class="govuk-summary-list__row">
@@ -418,7 +420,7 @@
                     Email
                   </dt>
                   <dd class="govuk-summary-list__value">
-                    sally.rooney@fake-email.com
+                    taru.malli@fake-email.com
                   </dd>
                 </div>
               </dl> 
@@ -431,6 +433,7 @@
         <p>Contact the probation practitioner if you need to make changes to the licence before approving.</p>
 
 
+        {% if data['prisoner'] == 'sam' %} 
         <div class="govuk-button-group" style="margin-top: 25px;">
           <button type="submit" disabled aria-disabled="true" class="govuk-button" data-module="govuk-button">
             Approve
@@ -439,8 +442,21 @@
           <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
            Return to case list
           </button>
-
         </div> 
+        {% else %} 
+        <div class="govuk-button-group">
+            <a href="licence-approved?approved=True">
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Approve
+          </button>
+          </a>
+            <a href="case-list-app-needed.html">
+          <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+           Return to case list
+          </button>
+          </a>
+        </div> 
+        {% endif %} 
 
 
 

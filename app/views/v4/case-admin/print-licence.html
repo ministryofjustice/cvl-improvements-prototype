@@ -18,7 +18,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full-from-desktop">
 
-      {% if data['prisoner'] == 'hdc' %} 
+      {% if data['prisoner'] == 'evan' %} 
       <div role="region" class="moj-alert moj-alert--warning" aria-label="warning: Some information could not be imported" data-module="moj-alert" style="margin-bottom: 60px;">
         <div>
           <svg class="moj-alert__icon" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" height="30" width="30">
@@ -81,7 +81,7 @@
 
       
         <!--HDC licence start-->
-        {% if data['prisoner'] == 'hale' or data['prisoner'] == 'hdc' %}
+        {% if data['prisoner'] == 'hale' or data['prisoner'] == 'evan' %}
 
         <h2 class="govuk-heading-m">Initial appointment details</h2>
 
@@ -236,7 +236,7 @@
               HDC actual date
             </dt>
             <dd class="govuk-summary-list__value">
-              {% if data['scenario'] == 'hdcadadded' or data['prisoner'] == 'hdc' %} 
+              {% if data['scenario'] == 'hdcadadded' or data['prisoner'] == 'evan' %} 
               {{ "today" | duration(6) | govukDate(truncate=false) }}
               {% else %} 
               Enter this in <a href="">Calculate release dates</a>
@@ -683,7 +683,7 @@
         {% endif %} 
 
 
-        {% if data['prisoner'] == 'hdc' %} 
+        {% if data['prisoner'] == 'evan' %} 
         <div class="govuk-button-group" style="margin-top: 50px;">
 
           <button type="submit" disabled aria-disabled="true" class="govuk-button" data-module="govuk-button">

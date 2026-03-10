@@ -42,9 +42,18 @@
 
         <div class="govuk-button-group moj-interruption-card__actions" style="margin-top: 40px;">
 
-        <a href="#" role="button" draggable="false" class="govuk-button govuk-button--inverse" data-module="govuk-button">
-          Continue
-        </a>
+        {% if data['prisoner'] == 'noto' %} 
+        <a href="../../are-you-sure?prisoner=noto" role="button" draggable="false" class="govuk-button govuk-button--inverse" data-module="govuk-button">Continue</a>
+        {% elif data['prisoner'] == 'ian' %}
+        <a href="../../check-licence?prisoner=ian" role="button" draggable="false" class="govuk-button govuk-button--inverse" data-module="govuk-button">Continue</a>
+        {% elif data['prisoner'] == 'sam' %} 
+        <a href="../../check-licence-edit?prisoner=sam" role="button" draggable="false" class="govuk-button govuk-button--inverse" data-module="govuk-button">Continue</a>
+        {% elif data['prisoner'] == 'evan' %} 
+        <a href="../../check-licence-view?prisoner=evan" role="button" draggable="false" class="govuk-button govuk-button--inverse" data-module="govuk-button">Continue</a>
+        {% endif %} 
+
+
+
         <a class="govuk-link govuk-link--inverse" href="../../case-list-start?HDCevent=postpone">Return to case list</a>
 
         </div>
