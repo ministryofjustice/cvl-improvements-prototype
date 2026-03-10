@@ -1,8 +1,43 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full border-bottom">
         <div class="govuk-caption-m">
+{% if data['prisoner'] == 'evan' %}
+<span class="pipe-separated__item">CRN: E54V5AN</span>
+            <span class="pipe-separated__item">
+                HDC eligibility date: Wednesday {{ "today" | duration(0) | govukDate(truncate=false) }}
+            </span>
+            <span class="pipe-separated__item">Date of birth: 18 Feb 2000</span>
+        </div>
+        <span class="govuk-heading-m">Evan Postwell</span>
 
-{% if data['prisoner'] == 'omar' %}  
+{% elif data['prisoner'] == 'sam' %}
+<span class="pipe-separated__item">CRN: S23A6M7</span>
+            <span class="pipe-separated__item">
+                HDC eligibility date: Wednesday {{ "today" | duration(0) | govukDate(truncate=false) }}
+            </span>
+            <span class="pipe-separated__item">Date of birth: 19 Dec 2005</span>
+        </div>
+        <span class="govuk-heading-m">Sam Submiton</span>
+
+{% elif data['prisoner'] == 'ian' %}
+<span class="pipe-separated__item">CRN: I87A65N</span>
+            <span class="pipe-separated__item">
+                HDC eligibility date: Wednesday {{ "today" | duration(0) | govukDate(truncate=false) }}
+            </span>
+            <span class="pipe-separated__item">Date of birth: 3 Nov 1960</span>
+        </div>
+        <span class="govuk-heading-m">Ian Progreski</span>
+
+{% elif data['prisoner'] == 'noto' %} 
+<span class="pipe-separated__item">CRN: N12O28T</span>
+            <span class="pipe-separated__item">
+                HDC eligibility date: Wednesday {{ "today" | duration(0) | govukDate(truncate=false) }}
+            </span>
+            <span class="pipe-separated__item">Date of birth: 30 Apr 1985</span>
+        </div>
+        <span class="govuk-heading-m">Noto Startwick</span>
+
+{% elif data['prisoner'] == 'omar' %}  
             <span class="pipe-separated__item">CRN: O45P61T</span>
             <span class="pipe-separated__item">
                 HDC eligibility date: Thursday {{ "today" | duration(4) | govukDate(truncate=false) }}
