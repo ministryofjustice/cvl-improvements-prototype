@@ -151,7 +151,7 @@
             
                     
                   <td class="govuk-table__cell" data-sort-value="1">
-                    <span class="urgent-highlight">{{ "today" | duration(0) | govukDate(truncate=true) }}</span>
+                    <span class="urgent-highlight">CRD: {{ "today" | duration(0) | govukDate(truncate=true) }}</span>
                     <span class="urgent-highlight urgent-highlight-message">Time-served release</span>
                   </td>
                    
@@ -192,7 +192,7 @@
                   <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
             
                   <td class="govuk-table__cell" data-sort-value="2">
-                    <span class="urgent-highlight">{{ "today" | duration(0) | govukDate(truncate=true) }}</span>
+                    <span class="urgent-highlight">CRD: {{ "today" | duration(0) | govukDate(truncate=true) }}</span>
                     <span class="urgent-highlight urgent-highlight-message">Time-served release</span>
                   </td>
                    
@@ -227,7 +227,7 @@
                   <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
             
                   <td class="govuk-table__cell" data-sort-value="2">
-                    <span class="urgent-highlight">{{ "today" | duration(0) | govukDate(truncate=true) }}</span>
+                    <span class="urgent-highlight">HDCED: {{ "today" | duration(0) | govukDate(truncate=true) }}</span>
                     <span class="urgent-highlight urgent-highlight-message">HDC application postponed</span>
                   </td>
                    
@@ -251,7 +251,7 @@
                   <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Taru Malli</a></td>
             
                   <td class="govuk-table__cell" data-sort-value="2">
-                    <span class="urgent-highlight">{{ "today" | duration(0) | govukDate(truncate=true) }}</span>
+                    <span class="urgent-highlight">HDCAD: {{ "today" | duration(0) | govukDate(truncate=true) }}</span>
                     <span class="urgent-highlight urgent-highlight-message">HDC application postponed</span>
                   </td>
                    
@@ -273,7 +273,7 @@
                   <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
             
                   <td class="govuk-table__cell" data-sort-value="2">
-                    <span class="urgent-highlight">{{ "today" | duration(0) | govukDate(truncate=true) }}</span>
+                    <span class="urgent-highlight">HDCED: {{ "today" | duration(0) | govukDate(truncate=true) }}</span>
                     <span class="urgent-highlight urgent-highlight-message">HDC application postponed</span>
                   </td>
                    
@@ -295,7 +295,7 @@
                   <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Taru Malli</a></td>
             
                   <td class="govuk-table__cell" data-sort-value="2">
-                    <span class="urgent-highlight">{{ "today" | duration(0) | govukDate(truncate=true) }}</span>
+                    <span class="urgent-highlight">HDCED: {{ "today" | duration(0) | govukDate(truncate=true) }}</span>
                     <span class="urgent-highlight urgent-highlight-message">HDC application postponed</span>
                   </td>
                    
@@ -331,7 +331,7 @@
               
                       
                     <td class="govuk-table__cell" data-sort-value="4">
-                      {% if data['recallCase'] == 'true' %}Post-recall release date (PRRD):<br> 25 Feb 2025{% else %}{{ "today" | duration(2) | govukDate(truncate=true) }}{% endif %}
+                      {% if data['recallCase'] == 'true' %}Post-recall release date (PRRD):<br> 25 Feb 2025{% else %}CRD: {{ "today" | duration(2) | govukDate(truncate=true) }}{% endif %}
                     </td>
                      
                     <td class="govuk-table__cell">
@@ -411,12 +411,12 @@
             
                   <td class="govuk-table__cell">L22M6C1</td>
             
-                  <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">	Taru Malli</a></td>
+                  <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
             
                   <td class="govuk-table__cell" data-sort-value="1">
                     <!--<span class="urgent-highlight">{{ "today" | duration(3) | govukDate(truncate=true) }}</span>
                     <span class="urgent-highlight urgent-highlight-message">HDC release</span>-->
-                    HDC actual date:</br>{{ "today" | duration(2) | govukDate(truncate=true) }}
+                    HDCAD:</br>{{ "today" | duration(3) | govukDate(truncate=true) }}
                   </td>
                    
                   <td class="govuk-table__cell">
@@ -459,7 +459,7 @@
                       <td class="govuk-table__cell" data-sort-value="3">
                         <!--<span class="urgent-highlight">{{ "today" | duration(3) | govukDate(truncate=true) }}</span>
                         <span class="urgent-highlight urgent-highlight-message">HDC release</span>-->
-                        HDC eligibility date:</br>{{ "today" | duration(2) | govukDate(truncate=true) }}
+                        HDCED:</br>{{ "today" | duration(3) | govukDate(truncate=true) }}
                       </td>
                        
                       <td class="govuk-table__cell">
@@ -467,6 +467,48 @@
                         <!--<div class="govuk-!-margin-top-2"> 
                           <img class="moj-banner__icon" src="/public/images/statusBadge.svg"><a href="./print-licence?prisoner=hale" class="govuk-link govuk-link--no-visited-state">Copy</a>
                         </div>-->
+                      </td>
+    
+                    </tr>
+
+                    <tr class="govuk-table__row">
+                      
+                      <td class="govuk-table__cell">
+                        <strong>Omar Opton</strong>
+                      </td>
+                
+                      <td class="govuk-table__cell">O45P61T</td>
+                
+                      <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
+                
+                      <td class="govuk-table__cell" data-sort-value="3">
+                        <span class="urgent-highlight">CRD: {{ "today" | duration(3) | govukDate(truncate=true) }}</span>
+                        <span class="urgent-highlight urgent-highlight-message">Opted out of HDC</span>
+                      </td>
+                       
+                      <td class="govuk-table__cell">
+                        <strong class="govuk-tag govuk-tag--blue status-badge">In progress</strong>
+                      </td>
+    
+                    </tr>
+
+                    <tr class="govuk-table__row">
+                      
+                      <td class="govuk-table__cell">
+                         <strong>Nikolai Oxton</strong>
+                      </td>
+                
+                      <td class="govuk-table__cell">O78P87T</td>
+                
+                      <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
+                
+                      <td class="govuk-table__cell" data-sort-value="3">
+                        <span class="urgent-highlight">CRD: {{ "today" | duration(3) | govukDate(truncate=true) }}</span>
+                        <span class="urgent-highlight urgent-highlight-message">Opted out of HDC - should we remove this bc we are not doing anything on PP side?</span>
+                      </td>
+                       
+                      <td class="govuk-table__cell">
+                        <strong class="govuk-tag govuk-tag--yellow status-badge">Not started</strong>
                       </td>
     
                     </tr>

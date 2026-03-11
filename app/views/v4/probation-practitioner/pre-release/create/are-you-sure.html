@@ -28,7 +28,9 @@
           Name
         </dt>
         <dd class="govuk-summary-list__value">
-          {% if data['prisoner'] == 'noto' %}  
+          {% if data['prisoner'] == 'nikolai' %} 
+          Nikolai Oxton
+          {% elif data['prisoner'] == 'noto' %}  
           Noto Startwick
           {% elif data['prisoner'] == 'hale' %}  
           Hale Draven Corvath
@@ -44,7 +46,9 @@
           CRN
         </dt>
         <dd class="govuk-summary-list__value">
-          {% if data['prisoner'] == 'noto' %} 
+          {% if data['prisoner'] == 'nikolai' %} 
+          O78P87T
+          {% elif data['prisoner'] == 'noto' %} 
           N12O28T
           {% elif data['prisoner'] == 'hale' %}  
           H87D13C
@@ -54,8 +58,7 @@
         </dd>
         <dd class="govuk-summary-list__actions">
         </dd>
-      </div>
-      {% if data['prisoner'] == 'noto' %} 
+      </div> 
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
           {% if data['prisoner'] == 'hale' or data['prisoner'] == 'noto' %}
@@ -65,7 +68,9 @@
           {% endif %}
         </dt>
         <dd class="govuk-summary-list__value">
-          {% if data['prisoner'] == 'noto' %} 
+          {% if data['prisoner'] == 'nikolai' %}
+          Thursday {{ "today" | duration(4) | govukDate(truncate=true) }}
+          {% elif data['prisoner'] == 'noto' %} 
           Wednesday {{ "today" | duration(0) | govukDate(truncate=false) }}
           {% elif data['prisoner'] == 'hale' %}  
           Thursday {{ "today" | duration(2) | govukDate(truncate=false) }}
@@ -77,12 +82,13 @@
           <span class="moj-badge moj-badge--black">Nomis</span>
         </dd>
       </div>
+      {% if data['prisoner'] == 'noto' or data['prisoner'] == 'hale' %}
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
           HDC actual date
         </dt>
         <dd class="govuk-summary-list__value">
-          
+          Empty state???
         </dd>
         <dd class="govuk-summary-list__actions">
           <span class="moj-badge moj-badge--black">Nomis</span>
