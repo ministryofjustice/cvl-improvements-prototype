@@ -1,0 +1,287 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Print a licence" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-dm-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% include "components/prisoner-subheader/prisonnumber.html" %}
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full-from-desktop">
+
+      {% if data['prisoner'] == 'evan' or data['prisoner'] == 'sam' %} 
+      <div role="region" class="moj-alert moj-alert--warning" aria-label="warning: Some information could not be imported" data-module="moj-alert" style="margin-bottom: 60px;">
+        <div>
+          <svg class="moj-alert__icon" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" height="30" width="30">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M15 2.44922L28.75 26.1992H1.25L15 2.44922ZM13.5107 9.49579H16.4697L16.2431 17.7678H13.7461L13.5107 9.49579ZM13.1299 21.82C13.1299 21.5661 13.1787 21.3285 13.2764 21.1071C13.374 20.8793 13.5075 20.6807 13.6768 20.5114C13.8525 20.3421 14.0544 20.2087 14.2822 20.111C14.5101 20.0134 14.7542 19.9645 15.0146 19.9645C15.2686 19.9645 15.5062 20.0134 15.7275 20.111C15.9554 20.2087 16.154 20.3421 16.3232 20.5114C16.4925 20.6807 16.626 20.8793 16.7236 21.1071C16.8213 21.3285 16.8701 21.5661 16.8701 21.82C16.8701 22.0804 16.8213 22.3246 16.7236 22.5524C16.626 22.7803 16.4925 22.9789 16.3232 23.1481C16.154 23.3174 15.9554 23.4509 15.7275 23.5485C15.5062 23.6462 15.2686 23.695 15.0146 23.695C14.7542 23.695 14.5101 23.6462 14.2822 23.5485C14.0544 23.4509 13.8525 23.3174 13.6768 23.1481C13.5075 22.9789 13.374 22.7803 13.2764 22.5524C13.1787 22.3246 13.1299 22.0804 13.1299 21.82Z" fill="currentColor" />
+          </svg>
+        </div>
+        <div class="moj-alert__content">
+          <h2 class="moj-alert__heading">HDC application postponed</h2>
+          Message???
+        </div>
+        <div class="moj-alert__action">
+        </div>
+      </div> 
+      {% endif %}  
+
+
+
+      <h1 class="govuk-heading-l">
+        View licence for
+        {% if data['prisoner'] == 'evan' %}  
+        Evan Postwell
+        {% elif data['prisoner'] == 'sam' %}  
+        Sam Submiton
+        {% endif %}
+      </h1></br>
+
+      
+        
+        
+      <h2 class="govuk-heading-m">Initial appointment details</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Philamina Rogers
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+             Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Newcastle Probation Office, Victoria House, Newcastle, NE4 7YJ
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Contact phone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              01273 800 900
+            </dd>
+            <dd class="govuk-summary-list__actions"> 
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+             Alternative contact phone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Not entered
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date/time
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Immediately after release
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Time
+            </dt>
+            <dd class="govuk-summary-list__value">
+              1pm
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+        </dl>
+
+
+
+
+        <h2 class="govuk-heading-m">HDC curfew details</h2>
+
+
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              HDC actual date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['scenario'] == 'hdcadadded' or data['prisoner'] == 'evan' %} 
+              {{ "today" | duration(6) | govukDate(truncate=false) }}
+              {% else %} 
+              Enter this in <a href="">Calculate release dates</a>
+              {% endif %} 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              {% if data['scenario'] == 'hdcadadded' %} 
+              <span class="moj-badge moj-badge--black" style="margin-bottom: 2px;">Calculate release dates</span>
+              {% else %}
+              {% endif %}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              60 Marsh Road, Newcastle, NC5R 2TT 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+
+            <span class="moj-badge moj-badge--black" style="margin-bottom: 2px;">HDC</span>
+          </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              First night curfew hours
+            </dt>
+            <dd class="govuk-summary-list__value">
+              3pm to 7am
+            </dd>
+            <dd class="govuk-summary-list__actions"> 
+            </dd>
+          </div>
+
+        
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Curfew hours
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Monday to Sunday<br>
+            {{ data['start-time-hour'] | int or '7' }}{% if data['start-time-minute'] not in ['0', '00', ''] and data['start-time-minute'] is not undefined %}{{ ':' ~ data['start-time-minute'] }}{% endif %}{{ data['start-time-ampm'] or 'pm' }} to {{ data['end-time-hour'] | int or '7' }}{% if data['end-time-minute'] not in ['0', '00', ''] and data['end-time-minute'] is not undefined %}{{ ':' ~ data['end-time-minute'] }}{% endif %}{{ data['end-time-ampm'] or 'pm' }}
+              </dd>
+        </div>
+      </dl>
+
+     
+
+
+
+
+        <div class="govuk-!-padding-top-8">
+          <h2 class="govuk-heading-m" style="display: inline;">
+            Additional licence conditions (5)
+              </h2>
+
+
+              <dl class="govuk-summary-list" style="margin-top: 60px;">
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Contact with a person	
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    Attend all appointments arranged for you with a psychologist and medical practitioner unless otherwise approved by your supervising officer.
+                    <div class="govuk-!-font-weight-bold govuk-!-margin-top-3">
+                      <span class="govuk-!-display-block govuk-!-margin-top-2">Psychologist, Medical practitioner</span>
+                  </div>
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                    <ul class="govuk-summary-list__actions-list">
+                      <li class="govuk-summary-list__actions-list-item">
+                      </li>
+                    </ul>
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Programmes or activities	
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    To comply with any requirements specified by your supervising officer for the purpose of ensuring that you address your prolific offending.
+                    <div class="govuk-!-font-weight-bold govuk-!-margin-top-3">
+                      <span class="govuk-!-display-block govuk-!-margin-top-2">prolific offending
+                      </span>
+                  </div>
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Programmes or activities	
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    To engage with the Integrated Offender Management Team, and follow their instructions.
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Restriction of conduct or acts	
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    Not to partake in gambling, or making payments for other games of chance without the prior permission of your supervising officer.
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Restriction of conduct or acts	
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    Not to access any site or app related to gambling websites or apps on any devices without the permission of your supervising officer.
+                    <div class="govuk-!-font-weight-bold govuk-!-margin-top-3">
+                      <span class="govuk-!-display-block govuk-!-margin-top-2">gambling websites or apps
+                      </span>
+                  </div>
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                  </dd>
+                </div>
+              </dl>
+        </div>
+
+
+
+        <div class="govuk-!-padding-bottom-8 govuk-!-padding-top-8">
+
+          <h2 class="govuk-heading-m" style="display: inline;">
+            Bespoke licence conditions (0)
+              </h2>
+
+                <p class="govuk-body" style="margin-top: 20px; margin-bottom: 60px;">No bespoke licence conditions added</p>
+
+                <hr class="govuk-section-break govuk-section-break--visible">
+
+        </div>
+
+        
+        <form action="./case-list-pip-approved" method="post">
+        
+        <div class="govuk-button-group" style="margin-top: 50px;">
+
+          <button type="submit" class="govuk-button govuk-button" data-module="govuk-button">
+            Return to case list
+          </button>
+
+        </div>
+
+        </form>
+  
+      
+  
+  </div>
+</div>
+{% endblock %}
