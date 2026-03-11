@@ -1,0 +1,65 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="You must contact the probation team" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-dm-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% include "components/prisoner-subheader/include.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <div class="moj-interruption-card">
+      <div class="moj-interruption-card__content">
+        <h1 class="moj-interruption-card__heading"></h1>
+        <div class="moj-interruption-card__body">
+
+          <h1 class="govuk-heading-l" style="font-size: 36px;">OPT IN</h1>
+
+          <p class="govuk-body">COPY</p>
+      
+            
+        </div>
+
+
+        
+
+        <div class="govuk-button-group moj-interruption-card__actions" style="margin-top: 40px;">
+
+        <a href="../../check-licence-saved-conditions" role="button" draggable="false" class="govuk-button govuk-button--inverse" data-module="govuk-button">
+          Continue to licence details
+        </a>
+        <a class="govuk-link govuk-link--inverse" href="../../case-list-start">Return to case list</a>
+
+        </div>
+
+
+
+
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
+{% endblock %}
+
+
+{% block footer %}
+
+{% include "components/cvl-pp-footer/include.html" %}
+
+{% endblock %}

@@ -28,7 +28,9 @@
           Name
         </dt>
         <dd class="govuk-summary-list__value">
-          {% if data['prisoner'] == 'nikolai' %} 
+          {% if data['prisoner'] == 'sonny' %} 
+          Sonny Ottar
+          {% elif data['prisoner'] == 'nikolai' %} 
           Nikolai Oxton
           {% elif data['prisoner'] == 'noto' %}  
           Noto Startwick
@@ -46,7 +48,9 @@
           CRN
         </dt>
         <dd class="govuk-summary-list__value">
-          {% if data['prisoner'] == 'nikolai' %} 
+          {% if data['prisoner'] == 'sonny' %} 
+          O34P43T
+          {% elif data['prisoner'] == 'nikolai' %} 
           O78P87T
           {% elif data['prisoner'] == 'noto' %} 
           N12O28T
@@ -61,14 +65,16 @@
       </div> 
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-          {% if data['prisoner'] == 'hale' or data['prisoner'] == 'noto' %}
+          {% if data['prisoner'] == 'hale' or data['prisoner'] == 'noto' or data['prisoner'] == 'sonny' %}
           HDC eligibility date
           {% else %}
           Release date
           {% endif %}
         </dt>
         <dd class="govuk-summary-list__value">
-          {% if data['prisoner'] == 'nikolai' %}
+          {% if data['prisoner'] == 'sonny' %}
+          Thursday {{ "today" | duration(14) | govukDate(truncate=false) }}
+          {% elif data['prisoner'] == 'nikolai' %}
           Thursday {{ "today" | duration(4) | govukDate(truncate=true) }}
           {% elif data['prisoner'] == 'noto' %} 
           Wednesday {{ "today" | duration(0) | govukDate(truncate=false) }}
@@ -82,7 +88,7 @@
           <span class="moj-badge moj-badge--black">Nomis</span>
         </dd>
       </div>
-      {% if data['prisoner'] == 'noto' or data['prisoner'] == 'hale' %}
+      {% if data['prisoner'] == 'noto' or data['prisoner'] == 'hale' or data['prisoner'] == 'sonny' %}
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
           HDC actual date
