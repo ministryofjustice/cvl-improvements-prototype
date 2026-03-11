@@ -46,7 +46,11 @@
     <div class="govuk-panel govuk-panel--confirmation">
       <h1 class="govuk-panel__title">
         Licence conditions for</br>
-        {% if data['prisoner'] == 'kairo' %} 
+        {% if data['prisoner'] == 'omar' %}
+        Omar Opton
+        {% elif data['prisoner'] == 'nikolai' %}
+        Nikolai Oxton
+        {% elif data['prisoner'] == 'kairo' %} 
         Kairo Watson
         {% elseif data['prisoner'] == 'marcel' %}  
         Marcel Evans

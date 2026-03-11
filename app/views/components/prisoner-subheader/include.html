@@ -1,6 +1,8 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full border-bottom">
         <div class="govuk-caption-m">
+
+
 {% if data['prisoner'] == 'evan' %}
 <span class="pipe-separated__item">CRN: E54V5AN</span>
             <span class="pipe-separated__item">
@@ -40,11 +42,21 @@
 {% elif data['prisoner'] == 'omar' %}  
             <span class="pipe-separated__item">CRN: O45P61T</span>
             <span class="pipe-separated__item">
-                HDC eligibility date: Thursday {{ "today" | duration(4) | govukDate(truncate=false) }}
+                Release date: Thursday {{ "today" | duration(4) | govukDate(truncate=false) }}
             </span>
             <span class="pipe-separated__item">Date of birth: 31 May 2003</span>
         </div>
         <span class="govuk-heading-m">Omar Opton</span>
+
+{% elif data['prisoner'] == 'nikolai' %}
+<span class="pipe-separated__item">CRN: O78P87T</span>
+            <span class="pipe-separated__item">
+                Release date: Thursday {{ "today" | duration(4) | govukDate(truncate=false) }}
+            </span>
+            <span class="pipe-separated__item">Date of birth: 29 May 1995</span>
+        </div>
+        <span class="govuk-heading-m">Nikolai Oxton</span>
+
 
 {% elif data['prisoner'] == 'noa' %}  
             <span class="pipe-separated__item">CRN: N96A98D</span>
