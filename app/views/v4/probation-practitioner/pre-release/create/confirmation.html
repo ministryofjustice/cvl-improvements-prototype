@@ -15,13 +15,20 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    {% if data['prisoner'] == 'hale' %}
+    {% if data['prisoner'] == 'hale' or data['prisoner'] == 'sonny' %}
+
+    
     <!--HDC licences-->
 
     <div class="govuk-panel govuk-panel--confirmation">
       <h1 class="govuk-panel__title">
         Licence conditions for</br>
-        Hale Draven Corvath sent
+        {% if data['prisoner'] == 'sonny' %} 
+        Sonny Ottar
+        {% elif data['prisoner'] == 'hale' %} 
+        Hale Draven Corvath
+        {% endif %} 
+        sent
       </h1>
     </div>
     <h2 class="govuk-heading-m" style="margin-top: 40px;">
