@@ -2,7 +2,25 @@
     <div class="govuk-grid-column-full border-bottom">
         <div class="govuk-caption-m">
 
-{% if data['prisoner'] == 'proximo' %}
+{% if data['prisoner'] == 'patrick' %}
+<span class="pipe-separated__item">CRN: R38E95J</span>
+            <span class="pipe-separated__item">
+                Release date: Tuesday {{ "today" | duration(14) | govukDate(truncate=false) }}
+            </span>
+            <span class="pipe-separated__item">Date of birth: xxx</span>
+        </div>
+        <span class="govuk-heading-m">Patrick Refuson</span>
+
+{% elif data['prisoner'] == 'sean' %}
+<span class="pipe-separated__item">CRN: R21E99J</span>
+            <span class="pipe-separated__item">
+                Release date: Tuesday {{ "today" | duration(14) | govukDate(truncate=false) }}
+            </span>
+            <span class="pipe-separated__item">Date of birth: xxx </span>
+        </div>
+        <span class="govuk-heading-m">Sean Rejard</span>
+
+{% elif data['prisoner'] == 'proximo' %}
 <span class="pipe-separated__item">CRN: O91P19T</span>
             <span class="pipe-separated__item">
                 HDC eligibility date: Thursday {{ "today" | duration(14) | govukDate(truncate=false) }}
