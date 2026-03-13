@@ -22,7 +22,13 @@
   <div class="govuk-grid-column-two-thirds">
 
 
-    {% if data['prisoner'] == 'hale' %}  
+    {% if data['prisoner'] == 'hale' or
+     data['prisoner'] == 'noto' or
+     data['prisoner'] == 'ian' or
+     data['prisoner'] == 'sam' or
+     data['prisoner'] == 'evan' or
+     data['prisoner'] == 'sonny' or
+     data['prisoner'] == 'proximo' %}  
     <form action="./hdc/curfews/first-night-curfew" method="get">
     {% else %}  
     <form action="additional-conditions/additional-conditions" method="get">
