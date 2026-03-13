@@ -26,7 +26,6 @@
         <h1 class="moj-interruption-card__heading"></h1>
         <div class="moj-interruption-card__body">
 
-        {% if data['prisoner'] == 'noto' %} 
           <h1 class="govuk-heading-l" style="font-size: 36px;">HDC application postponed</h1>
 
           <p class="govuk-body">You can continue working on this licence but it can only be approved if the application resumes.</p>
@@ -34,36 +33,8 @@
           <p class="govuk-body">Contact omu.wandsworth@justice.gov.uk to ask for the application to be refused if this person needs a licence for a standard release.</p>
 
           <p class="govuk-body"><a href="#" style="color: white;">Check the HDC service</a> for more information about the HDC application.</p>
-        {% elif data['prisoner'] == 'ian' %}
-          <h1 class="govuk-heading-l" style="font-size: 36px;">HDC application postponed</h1>
 
-          <p class="govuk-body">You can continue working on this licence but it can only be approved if the application resumes.</p>
-
-          <p class="govuk-body">Contact omu.wandsworth@justice.gov.uk to ask for the application to be refused if this person needs a licence for a standard release.</p>
-
-          <p class="govuk-body"><a href="#" style="color: white;">Check the HDC service</a> for more information about the HDC application.</p>
-        {% elif data['prisoner'] == 'sam' %} 
-          <h1 class="govuk-heading-l" style="font-size: 36px;">HDC application postponed</h1>
-
-          <p class="govuk-body">You can continue working on this licence but it can only be approved if the application resumes.</p>
-
-          <p class="govuk-body">Contact omu.wandsworth@justice.gov.uk to ask for the application to be refused if this person needs a licence for a standard release.</p>
-
-          <p class="govuk-body"><a href="#" style="color: white;">Check the HDC service</a> for more information about the HDC application.</p>
-        {% elif data['prisoner'] == 'evan' %} 
-        <h1 class="govuk-heading-l" style="font-size: 36px;">HDC application postponed</h1>
-
-          <p class="govuk-body">Licence status changed from approved to submitted.</p>
-
-          <p class="govuk-body">You can make changes to this licence but they will not be approved until the HDC application resumes.</p>
-
-          <p class="govuk-body">Contact omu.wandsworth@justice.gov.uk to ask for the application to be refused if this person needs a licence for a standard release.</p>
-
-          <p class="govuk-body"><a href="#" style="color: white;">Check the HDC service</a> for more information about the HDC application.</p>
-  
-        {% endif %} 
-
-                  </div>
+        </div>
 
 
         
@@ -71,13 +42,13 @@
         <div class="govuk-button-group moj-interruption-card__actions" style="margin-top: 40px;">
 
         {% if data['prisoner'] == 'noto' %} 
-        <a href="../../are-you-sure?prisoner=noto" role="button" draggable="false" class="govuk-button govuk-button--inverse" data-module="govuk-button">Continue to licence details</a>
+        <a href="../../are-you-sure?prisoner=noto" role="button" draggable="false" class="govuk-button govuk-button--inverse" data-module="govuk-button">Continue</a>
         {% elif data['prisoner'] == 'ian' %}
-        <a href="../../check-licence?prisoner=ian" role="button" draggable="false" class="govuk-button govuk-button--inverse" data-module="govuk-button">Continue to licence details</a>
+        <a href="../../check-licence?prisoner=ian" role="button" draggable="false" class="govuk-button govuk-button--inverse" data-module="govuk-button">Continue</a>
         {% elif data['prisoner'] == 'sam' %} 
-        <a href="../../check-licence-edit?prisoner=sam" role="button" draggable="false" class="govuk-button govuk-button--inverse" data-module="govuk-button">Continue to licence details</a>
+        <a href="../../check-licence-edit?prisoner=sam" role="button" draggable="false" class="govuk-button govuk-button--inverse" data-module="govuk-button">Continue</a>
         {% elif data['prisoner'] == 'evan' %} 
-        <a href="../../check-licence-edit?prisoner=evan" role="button" draggable="false" class="govuk-button govuk-button--inverse" data-module="govuk-button">Continue to licence details</a>
+        <a href="../../check-licence-edit?prisoner=evan" role="button" draggable="false" class="govuk-button govuk-button--inverse" data-module="govuk-button">Continue</a>
         {% endif %} 
 
 
