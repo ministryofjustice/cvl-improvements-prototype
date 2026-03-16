@@ -29,6 +29,16 @@
         </div>
         <span class="govuk-heading-m">Ari Winters</span>
 
+{% elif data['prisoner'] == 'piers' %}
+<span class="pipe-separated__item">CRN: R44E88J</span>
+            <span class="pipe-separated__item">
+                CRD: [Weekday] {{ "today" | duration(14) | govukDate(truncate=false) }}
+            </span>
+            <span class="pipe-separated__item">Date of birth: 17 Nov 1972</span>
+        </div>
+        <span class="govuk-heading-m">Piers Refallen</span>
+
+
 {% elif data['prisoner'] == 'patrick' %}
 <span class="pipe-separated__item">CRN: R38E95J</span>
             <span class="pipe-separated__item">
