@@ -28,7 +28,9 @@
 
 
 
+
         <p>Any additional or bespoke conditions you entered previously will be saved. You must enter any <br>initial appointment details again and then submit the licence.</p>
+
 
 
 
@@ -129,9 +131,15 @@
           
           <div style="margin-top: 100px;">
 
+            {% if data['prisoner'] == 'piers' %}
+            <h2 class="govuk-heading-m" style="display: inline;">
+              Additional licence conditions (0)
+            </h2>
+            {% else %}
             <h2 class="govuk-heading-m" style="display: inline;">
               Additional licence conditions (2)
-                </h2>
+            </h2>
+            {% endif %}
   
                 
                 <a href="../../../../_common/not-testing.html">
@@ -140,6 +148,10 @@
                   </button>
                 </a>
   
+                {% if data['prisoner'] == 'piers' %}
+                <p class="govuk-body" style="margin-top: 20px; margin-bottom: 60px;">No additional licence conditions added</p>
+                <hr class="govuk-section-break govuk-section-break--visible">
+                {% else %}
                 <dl class="govuk-summary-list">
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
@@ -175,16 +187,25 @@
                     </dd>
                   </div>
                 </dl>
+                {% endif %}
+
           </div>
           
   
   
           
-  
+          
           <div style="margin-top: 100px;">
+
+            {% if data['prisoner'] == 'piers' %}
+            <h2 class="govuk-heading-m" style="display: inline;">
+              Bespoke licence conditions (0)
+            </h2>
+            {% else %}
             <h2 class="govuk-heading-m" style="display: inline;">
               Bespoke licence conditions (1)
-                </h2>
+            </h2>
+            {% endif %}
   
                 
                 <a href="../../../../_common/not-testing.html">
@@ -192,7 +213,12 @@
                     Add or remove conditions
                   </button>
                 </a>
-  
+
+
+              {% if data['prisoner'] == 'piers' %}
+              <p class="govuk-body" style="margin-top: 20px; margin-bottom: 60px;">No additional licence conditions added</p>
+              <hr class="govuk-section-break govuk-section-break--visible">
+              {% else %}
                 <dl class="govuk-summary-list">
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
@@ -210,6 +236,7 @@
                     </dd>
                   </div>
                 </dl>
+              {% endif %}
           </div>
           
 
@@ -243,7 +270,7 @@
           <a href="../confirmation" type="submit" class="govuk-button" data-module="govuk-button">
            Send to prison for approval
         </a>
-        <a class="govuk-link govuk-!-font-size-19 govuk-link--no-visited-state" href="#">
+        <a class="govuk-link govuk-!-font-size-19 govuk-link--no-visited-state" href="../case-list-start">
             Return to caselist
         </a>
         </div>
