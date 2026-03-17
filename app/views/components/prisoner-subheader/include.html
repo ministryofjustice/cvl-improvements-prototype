@@ -32,7 +32,7 @@
 {% elif data['prisoner'] == 'piers' %}
 <span class="pipe-separated__item">CRN: R44E88J</span>
             <span class="pipe-separated__item">
-                CRD: [Weekday] {{ "today" | duration(14) | govukDate(truncate=false) }}
+                Conditional release date: [Weekday] {{ "today" | duration(14) | govukDate(truncate=false) }}
             </span>
             <span class="pipe-separated__item">Date of birth: 17 Nov 1972</span>
         </div>
@@ -42,7 +42,7 @@
 {% elif data['prisoner'] == 'patrick' %}
 <span class="pipe-separated__item">CRN: R38E95J</span>
             <span class="pipe-separated__item">
-                CRD: [Weekday] {{ "today" | duration(14) | govukDate(truncate=false) }}
+                Conditional release date: [Weekday] {{ "today" | duration(14) | govukDate(truncate=false) }}
             </span>
             <span class="pipe-separated__item">Date of birth: 10 Aug 1990</span>
         </div>
@@ -51,7 +51,7 @@
 {% elif data['prisoner'] == 'sean' %}
 <span class="pipe-separated__item">CRN: R21E99J</span>
             <span class="pipe-separated__item">
-                CRD: [Weekday] {{ "today" | duration(14) | govukDate(truncate=false) }}
+                Confirmed release date: [Weekday] {{ "today" | duration(14) | govukDate(truncate=false) }}
             </span>
             <span class="pipe-separated__item">Date of birth: 30 Apr 1986</span>
         </div>
@@ -114,7 +114,7 @@
 {% elif data['prisoner'] == 'omar' %}  
             <span class="pipe-separated__item">CRN: O45P61T</span>
             <span class="pipe-separated__item">
-                Release date: [Weekday] {{ "today" | duration(4) | govukDate(truncate=false) }}
+                Conditional release date: [Weekday] {{ "today" | duration(4) | govukDate(truncate=false) }}
             </span>
             <span class="pipe-separated__item">Date of birth: 31 May 2003</span>
         </div>
@@ -123,7 +123,7 @@
 {% elif data['prisoner'] == 'nikolai' %}
 <span class="pipe-separated__item">CRN: O78P87T</span>
             <span class="pipe-separated__item">
-                Release date: [Weekday] {{ "today" | duration(4) | govukDate(truncate=false) }}
+                Confirmed release date: [Weekday] {{ "today" | duration(4) | govukDate(truncate=false) }}
             </span>
             <span class="pipe-separated__item">Date of birth: 29 May 1995</span>
         </div>
@@ -163,7 +163,7 @@
 
 {% elif data['prisoner'] == 'ndelius' %}  
             <span class="pipe-separated__item">Prison number: UV6401P</span>
-            <span class="pipe-separated__item">CRD: [Weekday] {{ "today" | duration(5) | govukDate(truncate=false) }}</span>
+            <span class="pipe-separated__item">Conditional release date: [Weekday] {{ "today" | duration(5) | govukDate(truncate=false) }}</span>
             <span class="pipe-separated__item">Date of birth: 4 Sep 1973</span>
         </div>
         <span class="govuk-heading-m">NDelius Missing</span>
@@ -177,14 +177,14 @@
 
 {% elif data['prisoner'] == 'dwayne' %}  
             <span class="pipe-separated__item">CRN: G5613GT</span>
-            <span class="pipe-separated__item">CRD: [Weekday] {{ "today" | duration(0) | govukDate(truncate=false) }}</span>
+            <span class="pipe-separated__item">Conditional release date: [Weekday] {{ "today" | duration(0) | govukDate(truncate=false) }}</span>
             <span class="pipe-separated__item">Date of birth: 13 Apr 1977</span>
         </div>
         <span class="govuk-heading-m">Dwayne Briggs</span>
 
 {% elif data['prisoner'] == 'reuben' %}  
             <span class="pipe-separated__item">CRN: C762241</span>
-            <span class="pipe-separated__item">CRD: [Weekday] {{ "today" | duration(0) | govukDate(truncate=false) }}</span>
+            <span class="pipe-separated__item">Conditional release date: [Weekday] {{ "today" | duration(0) | govukDate(truncate=false) }}</span>
             <span class="pipe-separated__item">Date of birth: 26 Sept 1960</span>
         </div>
         <span class="govuk-heading-m">Reuben Lee</span>
@@ -200,7 +200,7 @@
 
   {% elif data['prisoner'] == 'marcel' %}  
           <span class="pipe-separated__item">CRN: F246831</span>
-          <span class="pipe-separated__item">CRD: [Weekday] {{ "today" | duration(12) | govukDate(truncate=false) }}</span>
+          <span class="pipe-separated__item">Conditional release date: [Weekday] {{ "today" | duration(12) | govukDate(truncate=false) }}</span>
           <span class="pipe-separated__item">Date of birth: 11 Nov 1984</span>
       </div>
       <span class="govuk-heading-m">Marcel Evans</span>
@@ -219,7 +219,7 @@
             {% if data['varyFlow'] == 'True' %}  
             <span class="pipe-separated__item">Licence end date: [Weekday] 15 Oct 2025</span>
             {% else %}  
-            <span class="pipe-separated__item">CRD: [Weekday] 16 Apr 2025</span>
+            <span class="pipe-separated__item">Conditional release date: [Weekday] 16 Apr 2025</span>
             {% endif %}  
             <span class="pipe-separated__item">Date of birth: 17 June 1999</span>
         </div>
@@ -231,7 +231,7 @@
 {% if data['varyFlow'] == 'True' %}  
   <span class="pipe-separated__item">Licence end date: [Weekday] 10 Jan 2026</span>
   {% else %}  
- <span class="pipe-separated__item">CRD: [Weekday] 27 May 2025</span>
+ <span class="pipe-separated__item">Conditional release date: [Weekday] 27 May 2025</span>
  {% endif %}  
  <span class="pipe-separated__item">Date of birth: 10 Nov 1970</span>
     </div>
@@ -243,7 +243,7 @@
         {% if data['varyFlow'] == 'True' %}  
         <span class="pipe-separated__item">Licence end date: [Weekday] 24 Nov 2025</span>
         {% else %}  
-        <span class="pipe-separated__item">CRD: [Weekday] 5 Feb 2025</span>
+        <span class="pipe-separated__item">Conditional release date: [Weekday] 5 Feb 2025</span>
         {% endif %}  
         <span class="pipe-separated__item">Date of birth: 17 June 1966</span>
     </div>
@@ -255,7 +255,7 @@
     {% if data['varyFlow'] == 'True' %}  
     <span class="pipe-separated__item">Licence end date: [Weekday] 20 Sep 2025</span>
     {% else %}  
-    <span class="pipe-separated__item">CRD: [Weekday] 11 Mar 2025</span>
+    <span class="pipe-separated__item">Conditional release date: [Weekday] 11 Mar 2025</span>
     {% endif %}  
     <span class="pipe-separated__item">Date of birth: 5 Jan 1978</span>
 </div>
@@ -267,7 +267,7 @@
         {% if data['varyFlow'] == 'True' %}  
           <span class="pipe-separated__item">Licence end date: [Weekday] 10 Oct 2025</span>
           {% else %}  
-         <span class="pipe-separated__item">CRD: [Weekday] 25 Feb 2025</span>
+         <span class="pipe-separated__item">Conditional release date: [Weekday] 25 Feb 2025</span>
          {% endif %}  
          <span class="pipe-separated__item">Date of birth: 22 Apr 1993</span>
             </div>
@@ -277,7 +277,7 @@
         {% if data['varyFlow'] == 'True' %}  
           <span class="pipe-separated__item">Licence end date: [Weekday] 10 Jan 2026</span>
           {% else %}  
-         <span class="pipe-separated__item">CRD: [Weekday] 27 May 2025</span>
+         <span class="pipe-separated__item">Conditional release date: [Weekday] 27 May 2025</span>
          {% endif %}  
          <span class="pipe-separated__item">Date of birth: 10 Nov 1970</span>
             </div>
