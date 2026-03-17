@@ -304,7 +304,6 @@
 
 
 
-          {% if data['additionalConditionsPresent'] == 'yes' %}  
 
           <div class="govuk-!-margin-bottom-9 govuk-!-margin-top-8">
             <h2 class="govuk-heading-m">
@@ -316,36 +315,28 @@
                 <dl class="govuk-summary-list">
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                      Electronic monitoring	
+                      Disclosure of information
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      <p>You will be subject to trail monitoring. Your whereabouts will be electronically monitored by GPS Satellite Tagging, ending on Thursday 18th December 2025, and you must cooperate with the monitoring as directed by your supervising officer unless otherwise authorised by your supervising officer.</p>
-                      <p class="hint-condition-custom">Thursday 18th December 2025</p>
+                      <p>Provide your supervising officer with details (such as make, model, colour, registration) of any vehicle you own, hire for more than a short journey or have regular use of, prior to any journey taking place.</p>
                     </dd>
 
                   </div>
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                      Electronic monitoring	
+                      Freedom of movement
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      <p>You must stay at {{ data['approvedAddressLine1'] or "102 Petty France" }}, {% if data['approvedAddressLine2'] %}{{ data['approvedAddressLine2'] | default('Westminster') }},{% endif %} {{ data['approvedAddressTown'] or "London" }}, {% if data['approvedAddressCounty'] %}{{ data['approvedAddressCounty'] | default('Greater London') }},{% endif %} {{ data['approvedAddressPostcode'] or "SW1H 9AJ" }} between 5pm and midnight every day until your electronic tag is installed unless otherwise authorised by your supervising officer.</p>
-                      <p class="hint-condition-custom">{{ data['approvedAddressLine1'] or "102 Petty France" }}, {% if data['approvedAddressLine2'] %}{{ data['approvedAddressLine2'] | default('Westminster') }},{% endif %} {{ data['approvedAddressTown'] or "London" }}, {% if data['approvedAddressCounty'] %}{{ data['approvedAddressCounty'] | default('Greater London') }},{% endif %} {{ data['approvedAddressPostcode'] or "SW1H 9AJ" }}</p>
+                      <p>Not to enter the area as defined by the attached map, during the period that [NAME OF EVENT] takes place, including all occasions that the event takes place, without the prior permission of your supervising officer.</p>
+                      <p class="hint-condition-custom">Name of event</p>
                     </dd>
                   </div>
                 </dl>
           </div>
-          {% else %}  
-          <div class="govuk-!-margin-bottom-9 govuk-!-margin-top-8">
-            <h2 class="govuk-heading-m">
-              Additional licence conditions (0)
-                </h2>
-          </div>
-          {% endif %}  
+          
   
   
-          {% if data['bespokeConditionsPresent'] == 'yes' %}  
-  
+          
           <div class="govuk-!-margin-bottom-9">
             <h2 class="govuk-heading-m">
               Bespoke licence conditions (1)
@@ -364,17 +355,7 @@
                   </div>
                 </dl>
           </div>
-          {% else %}  
-  
-          <div class="govuk-!-margin-bottom-9">
-            <h2 class="govuk-heading-m">
-              Bespoke licence conditions (0)
-                </h2>
-  
-
-              </div>
-  
-          {% endif %}  
+          
 
 
           {% if data['additionalConditionsPresent'] == 'yes' %}  

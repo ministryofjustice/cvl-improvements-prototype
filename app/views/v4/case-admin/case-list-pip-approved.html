@@ -151,7 +151,7 @@
             
                     
                   <td class="govuk-table__cell" data-sort-value="1">
-                    <span class="urgent-highlight">CRD: {{ "today" | duration(0) | govukDate(truncate=true) }}</span>
+                    <span class="urgent-highlight">Conditional release date: {{ "today" | duration(0) | govukDate(truncate=true) }}</span>
                     <span class="urgent-highlight urgent-highlight-message">Time-served release</span>
                   </td>
                    
@@ -192,7 +192,7 @@
                   <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
             
                   <td class="govuk-table__cell" data-sort-value="2">
-                    <span class="urgent-highlight">CRD: {{ "today" | duration(0) | govukDate(truncate=true) }}</span>
+                    <span class="urgent-highlight">Conditional release date: {{ "today" | duration(0) | govukDate(truncate=true) }}</span>
                     <span class="urgent-highlight urgent-highlight-message">Time-served release</span>
                   </td>
                    
@@ -227,7 +227,7 @@
                   <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
             
                   <td class="govuk-table__cell" data-sort-value="2">
-                    <span class="hdc-highlight">HDCED: {{ "today" | duration(0) | govukDate(truncate=true) }}</span>
+                    <span class="hdc-highlight">HDC eligibility date:</br>{{ "today" | duration(0) | govukDate(truncate=true) }}</span>
                     <span class="hdc-highlight hdc-highlight-message">HDC application postponed</span>
                   </td>
                    
@@ -251,7 +251,7 @@
                   <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Taru Malli</a></td>
             
                   <td class="govuk-table__cell" data-sort-value="2">
-                    <span class="hdc-highlight">HDCAD: {{ "today" | duration(0) | govukDate(truncate=true) }}</span>
+                    <span class="hdc-highlight">HDC actual date:</br>{{ "today" | duration(0) | govukDate(truncate=true) }}</span>
                     <span class="hdc-highlight hdc-highlight-message">HDC application postponed</span>
                   </td>
                    
@@ -273,7 +273,7 @@
                   <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
             
                   <td class="govuk-table__cell" data-sort-value="2">
-                    <span class="hdc-highlight">HDCED: {{ "today" | duration(0) | govukDate(truncate=true) }}</span>
+                    <span class="hdc-highlight">HDC eligibility date:</br>{{ "today" | duration(0) | govukDate(truncate=true) }}</span>
                     <span class="hdc-highlight hdc-highlight-message">HDC application postponed</span>
                   </td>
                    
@@ -295,7 +295,7 @@
                   <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Taru Malli</a></td>
             
                   <td class="govuk-table__cell" data-sort-value="2">
-                    <span class="hdc-highlight">HDCED: {{ "today" | duration(0) | govukDate(truncate=true) }}</span>
+                    <span class="hdc-highlight">HDC eligibility date:</br>{{ "today" | duration(0) | govukDate(truncate=true) }}</span>
                     <span class="hdc-highlight hdc-highlight-message">HDC application postponed</span>
                   </td>
                    
@@ -331,7 +331,7 @@
               
                       
                     <td class="govuk-table__cell" data-sort-value="4">
-                      {% if data['recallCase'] == 'true' %}Post-recall release date (PRRD):<br> 25 Feb 2025{% else %}CRD: {{ "today" | duration(2) | govukDate(truncate=true) }}{% endif %}
+                      {% if data['recallCase'] == 'true' %}Post-recall release date (PRRD):<br> 25 Feb 2025{% else %}Conditional release date:</br>{{ "today" | duration(2) | govukDate(truncate=true) }}{% endif %}
                     </td>
                      
                     <td class="govuk-table__cell">
@@ -416,7 +416,7 @@
                   <td class="govuk-table__cell" data-sort-value="1">
                     <!--<span class="urgent-highlight">{{ "today" | duration(3) | govukDate(truncate=true) }}</span>
                     <span class="urgent-highlight urgent-highlight-message">HDC release</span>-->
-                    HDCAD:</br>{{ "today" | duration(3) | govukDate(truncate=true) }}
+                    HDC actual date:</br>{{ "today" | duration(3) | govukDate(truncate=true) }}
                   </td>
                    
                   <td class="govuk-table__cell">
@@ -437,7 +437,7 @@
               
                     <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
               
-                    <td class="govuk-table__cell" data-sort-value="20250527">CRD:</br>{{ "today" | duration(4) | govukDate(truncate=true) }}</td>
+                    <td class="govuk-table__cell" data-sort-value="20250527">Conditional release date:</br>{{ "today" | duration(4) | govukDate(truncate=true) }}</td>
               
                     <td class="govuk-table__cell">
                       <strong class="govuk-tag govuk-tag--green status-badge">
@@ -459,7 +459,7 @@
                       <td class="govuk-table__cell" data-sort-value="3">
                         <!--<span class="urgent-highlight">{{ "today" | duration(3) | govukDate(truncate=true) }}</span>
                         <span class="urgent-highlight urgent-highlight-message">HDC release</span>-->
-                        HDCED:</br>{{ "today" | duration(3) | govukDate(truncate=true) }}
+                        HDC eligibility date:</br>{{ "today" | duration(3) | govukDate(truncate=true) }}
                       </td>
                        
                       <td class="govuk-table__cell">
@@ -482,8 +482,8 @@
                       <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
                 
                       <td class="govuk-table__cell" data-sort-value="3">
-                        CRD: {{ "today" | duration(14) | govukDate(truncate=true) }}
-                        <!--<span class="urgent-highlight">CRD: {{ "today" | duration(14) | govukDate(truncate=true) }}</span>
+                        Conditional release date:</br>{{ "today" | duration(14) | govukDate(truncate=true) }}
+                        <!--<span class="urgent-highlight">Conditional release date: {{ "today" | duration(14) | govukDate(truncate=true) }}</span>
                         <span class="urgent-highlight urgent-highlight-message">Refused???</span>-->
                       </td>
                        
@@ -504,8 +504,8 @@
                       <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
                 
                       <td class="govuk-table__cell" data-sort-value="3">
-                        CRD: {{ "today" | duration(14) | govukDate(truncate=true) }}
-                        <!--<span class="urgent-highlight">CRD: {{ "today" | duration(14) | govukDate(truncate=true) }}</span>
+                        Conditional release date:</br>{{ "today" | duration(14) | govukDate(truncate=true) }}
+                        <!--<span class="urgent-highlight">Conditional release date: {{ "today" | duration(14) | govukDate(truncate=true) }}</span>
                         <span class="urgent-highlight urgent-highlight-message">Refused???</span>-->
                       </td>
                        
@@ -527,7 +527,7 @@
                       <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
                 
                       <td class="govuk-table__cell" data-sort-value="3">
-                        CRD: {{ "today" | duration(14) | govukDate(truncate=true) }}
+                        Conditional release date:</br>{{ "today" | duration(14) | govukDate(truncate=true) }}
                       </td>
                        
                       <td class="govuk-table__cell">
@@ -547,8 +547,8 @@
                       <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
                 
                       <td class="govuk-table__cell" data-sort-value="3">
-                        CRD: {{ "today" | duration(3) | govukDate(truncate=true) }}
-                        <!--<span class="urgent-highlight">CRD: {{ "today" | duration(3) | govukDate(truncate=true) }}</span>
+                        Conditional release date:</br>{{ "today" | duration(3) | govukDate(truncate=true) }}
+                        <!--<span class="urgent-highlight">Conditional release date: {{ "today" | duration(3) | govukDate(truncate=true) }}</span>
                         <span class="urgent-highlight urgent-highlight-message">Opted out of HDC</span>-->
                       </td>
                        
@@ -569,7 +569,7 @@
                       <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
                 
                       <td class="govuk-table__cell" data-sort-value="3">
-                        CRD: {{ "today" | duration(3) | govukDate(truncate=true) }}
+                        Conditional release date:</br>{{ "today" | duration(3) | govukDate(truncate=true) }}
                       </td>
                        
                       <td class="govuk-table__cell">
@@ -590,8 +590,8 @@
                       <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
                 
                       <td class="govuk-table__cell" data-sort-value="3">
-                        HDCED: {{ "today" | duration(14) | govukDate(truncate=true) }}
-                        <!--<span class="urgent-highlight">HDCED: {{ "today" | duration(14) | govukDate(truncate=true) }}</span>
+                        HDC eligibility date:</br>{{ "today" | duration(14) | govukDate(truncate=true) }}
+                        <!--<span class="urgent-highlight">HDC eligibility date: {{ "today" | duration(14) | govukDate(truncate=true) }}</span>
                         <span class="urgent-highlight urgent-highlight-message">Opted in??</span>-->
                       </td>
                        
@@ -614,7 +614,7 @@
                       <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
                 
                       <td class="govuk-table__cell" data-sort-value="3">
-                        HDCED: {{ "today" | duration(14) | govukDate(truncate=true) }}
+                        HDC eligibility date:</br>{{ "today" | duration(14) | govukDate(truncate=true) }}
                       </td>
                        
                       <td class="govuk-table__cell">
@@ -635,7 +635,7 @@
                       <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
                 
                       <td class="govuk-table__cell" data-sort-value="3">
-                        <span class="hdc-highlight">HDCED: {{ "today" | duration(0) | govukDate(truncate=true) }}</span>
+                        <span class="hdc-highlight">HDC eligibility date:</br>{{ "today" | duration(0) | govukDate(truncate=true) }}</span>
                         <span class="hdc-highlight hdc-highlight-message">No HDC curfew address</span>
                       </td>
                        
@@ -656,7 +656,7 @@
                       <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
                 
                       <td class="govuk-table__cell" data-sort-value="3">
-                        <span class="hdc-highlight">HDCED: {{ "today" | duration(0) | govukDate(truncate=true) }}</span>
+                        <span class="hdc-highlight">HDC eligibility date:</br>{{ "today" | duration(0) | govukDate(truncate=true) }}</span>
                         <span class="hdc-highlight hdc-highlight-message">No HDC curfew address</span>
                       </td>
                        
@@ -677,7 +677,7 @@
                       <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
                 
                       <td class="govuk-table__cell" data-sort-value="3">
-                        <span class="hdc-highlight">HDCED: {{ "today" | duration(0) | govukDate(truncate=true) }}</span>
+                        <span class="hdc-highlight">HDC eligibility date:</br>{{ "today" | duration(0) | govukDate(truncate=true) }}</span>
                         <span class="hdc-highlight hdc-highlight-message">No HDC curfew address</span>
                       </td>
                        
@@ -828,7 +828,7 @@
               
                     <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Sabrina Rodrigo</a></td>
               
-                     <td class="govuk-table__cell" data-sort-value="20250617">CRD:</br>{{ "today" | duration(40) | govukDate(truncate=true) }}</td>
+                     <td class="govuk-table__cell" data-sort-value="20250617">Conditional release date:</br>{{ "today" | duration(40) | govukDate(truncate=true) }}</td>
 
 
               
@@ -852,7 +852,7 @@
               
                     <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
               
-                     <td class="govuk-table__cell" data-sort-value="20250617">CRD:</br>{{ "today" | duration(42) | govukDate(truncate=true) }}</td>
+                     <td class="govuk-table__cell" data-sort-value="20250617">Conditional release date:</br>{{ "today" | duration(42) | govukDate(truncate=true) }}</td>
 
 
               
