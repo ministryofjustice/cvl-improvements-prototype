@@ -100,11 +100,18 @@
           HDC actual date 
         </dt>
         <dd class="govuk-summary-list__value">
-          Empty state???
+          {% if data['prisoner'] == 'noto' %}
+          Tuesday {{ "today" | duration(0) | govukDate(truncate=false) }}
+          {% else %}
+          This will be entered by the prison
+          {% endif %}
         </dd>
-        <dd class="govuk-summary-list__actions">
-          <span class="moj-badge moj-badge--black">Nomis</span>
-        </dd>
+          {% if data['prisoner'] == 'noto' %}
+          <dd class="govuk-summary-list__actions">
+            <span class="moj-badge moj-badge--black">DPS</span>
+          </dd>
+          {% else %}
+          {% endif %}
       </div>
       {% endif %} 
     </dl>
