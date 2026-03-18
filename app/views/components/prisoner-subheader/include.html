@@ -78,7 +78,7 @@
 {% elif data['prisoner'] == 'evan' %}
 <span class="pipe-separated__item">CRN: E54V5AN</span>
             <span class="pipe-separated__item">
-                HDC eligibility date: [Weekday] {{ "today" | duration(0) | govukDate(truncate=false) }}
+                HDC eligibility date: [Weekday] {{ "today" | duration(4) | govukDate(truncate=false) }}
             </span>
             <span class="pipe-separated__item">Date of birth: 18 Feb 2000</span>
         </div>
@@ -87,7 +87,7 @@
 {% elif data['prisoner'] == 'sam' %}
 <span class="pipe-separated__item">CRN: S23A6M7</span>
             <span class="pipe-separated__item">
-                HDC eligibility date: [Weekday] {{ "today" | duration(0) | govukDate(truncate=false) }}
+                HDC eligibility date: [Weekday] {{ "today" | duration(4) | govukDate(truncate=false) }}
             </span>
             <span class="pipe-separated__item">Date of birth: 19 Dec 2005</span>
         </div>
@@ -96,7 +96,7 @@
 {% elif data['prisoner'] == 'ian' %}
 <span class="pipe-separated__item">CRN: I87A65N</span>
             <span class="pipe-separated__item">
-                HDC eligibility date: [Weekday] {{ "today" | duration(0) | govukDate(truncate=false) }}
+                HDC actual date: [Weekday] {{ "today" | duration(4) | govukDate(truncate=false) }}
             </span>
             <span class="pipe-separated__item">Date of birth: 3 Nov 1960</span>
         </div>
@@ -105,7 +105,7 @@
 {% elif data['prisoner'] == 'noto' %} 
 <span class="pipe-separated__item">CRN: N12O28T</span>
             <span class="pipe-separated__item">
-                HDC eligibility date: [Weekday] {{ "today" | duration(0) | govukDate(truncate=false) }}
+                HDC actual date: [Weekday] {{ "today" | duration(4) | govukDate(truncate=false) }}
             </span>
             <span class="pipe-separated__item">Date of birth: 30 Apr 1985</span>
         </div>

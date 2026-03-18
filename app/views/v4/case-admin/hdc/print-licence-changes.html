@@ -196,13 +196,24 @@
         <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
+              HDC eligibility date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ "today" | duration(-1) | govukDate(truncate=false) }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <span class="moj-badge moj-badge--black" style="margin-bottom: 2px;">NOMIS</span>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
               HDC actual date
             </dt>
             <dd class="govuk-summary-list__value">
               {{ "today" | duration(2) | govukDate(truncate=false) }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <span class="moj-badge moj-badge--black" style="margin-bottom: 2px;">Calculate release dates</span>
+              <span class="moj-badge moj-badge--black" style="margin-bottom: 2px;">DPS</span>
             </dd>
           </div>
           <div class="govuk-summary-list__row">

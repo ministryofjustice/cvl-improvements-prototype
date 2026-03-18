@@ -163,13 +163,32 @@
             <dl class="govuk-summary-list">
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
+                  HDC eligibility date
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Thursday {{ "today" | duration(0) | govukDate(truncate=false) }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <span class="moj-badge moj-badge--black">Nomis</span>
+              </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
                   HDC actual date
                 </dt>
                 <dd class="govuk-summary-list__value">
+                  {% if data['prisoner'] == 'ian' or data['prisoner'] == 'noto' %}
+                  Tuesday {{ "today" | duration(4) | govukDate(truncate=false) }}
+                  {% else %}
                   This will be entered by the prison
+                  {% endif %}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-              </dd>
+                  {% if data['prisoner'] == 'ian' or data['prisoner'] == 'noto' %}
+                  <span class="moj-badge moj-badge--black">DPS</span>
+                  {% else %}
+                  {% endif %}
+                </dd>
               </div>
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
@@ -203,7 +222,10 @@
               <dd class="govuk-summary-list__value">
                 Monday to Sunday<br>
                 {{ data['start-time-hour'] | int or '7' }}{% if data['start-time-minute'] not in ['0', '00', ''] and data['start-time-minute'] is not undefined %}{{ ':' ~ data['start-time-minute'] }}{% endif %}{{ data['start-time-ampm'] or 'pm' }} to {{ data['end-time-hour'] | int or '7' }}{% if data['end-time-minute'] not in ['0', '00', ''] and data['end-time-minute'] is not undefined %}{{ ':' ~ data['end-time-minute'] }}{% endif %}{{ data['end-time-ampm'] or 'pm' }}
-                  </dd>
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link govuk-link--no-visited-state" href="./hdc/curfews/same-each-day-edit">Change<span class="govuk-visually-hidden"> curfew hours</span></a>
+              </dd>
             </div>
           </dl>
     
@@ -283,6 +305,9 @@
               </dt>
               <dd class="govuk-summary-list__value">
                 Monday to Sunday<br>7pm to 7am
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> curfew hours</span></a>
               </dd>
             </div>
           </dl>
