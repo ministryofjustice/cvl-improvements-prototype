@@ -15,7 +15,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    {% if data['prisoner'] == 'hale' or data['prisoner'] == 'sonny' %}
+    {% if data['prisoner'] == 'hale' or data['prisoner'] == 'sonny' or data['scenario'] == 'licenceunlocked' %}
 
     
     <!--HDC licences-->
@@ -23,7 +23,9 @@
     <div class="govuk-panel govuk-panel--confirmation">
       <h1 class="govuk-panel__title">
         Licence conditions for</br>
-        {% if data['prisoner'] == 'sonny' %} 
+        {% if data['scenario'] == 'licenceunlocked' %}
+        Lorin Mave Change
+        {% elif data['prisoner'] == 'sonny' %} 
         Sonny Ottar
         {% elif data['prisoner'] == 'hale' %} 
         Hale Draven Corvath
