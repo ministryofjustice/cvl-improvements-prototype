@@ -72,7 +72,9 @@
 
 
       <h1 class="govuk-heading-l">Print licence for
-        {% if data['prisoner'] == 'hale' %}  
+        {% if data['prisoner'] == 'lorin' %} 
+        Lorin Mave Change
+        {% elif data['prisoner'] == 'hale' %}  
         Hale Draven Corvath
         {% else %}  
         Cyphoonifer Bransabert
@@ -81,7 +83,7 @@
 
       
         <!--HDC licence start-->
-        {% if data['prisoner'] == 'hale' or data['prisoner'] == 'evan' %}
+        {% if data['prisoner'] == 'hale' or data['prisoner'] == 'evan' or data['prisoner'] == 'lorin' %}
 
         <h2 class="govuk-heading-m">Initial appointment details</h2>
 
@@ -94,7 +96,7 @@
               Philamina Rogers
             </dd>
             <dd class="govuk-summary-list__actions">
-              {% if data['scenario'] == 'hdcadadded' %} 
+              {% if data['scenario'] == 'hdcadadded' or data['prisoner'] == 'lorin' %} 
               <a class="govuk-link" href="./appt-who">Change</a>
               {% else %} 
               {% endif %} 
@@ -117,7 +119,7 @@
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-              {% if data['scenario'] == 'hdcadadded' %} 
+              {% if data['scenario'] == 'hdcadadded' or data['prisoner'] == 'lorin' %} 
               <a class="govuk-link" href="#">Change</a>
               {% else %}
               {% endif %}  
@@ -136,7 +138,7 @@
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-              {% if data['scenario'] == 'hdcadadded' %}
+              {% if data['scenario'] == 'hdcadadded' or data['prisoner'] == 'lorin' %}
               <a class="govuk-link" href="#">Change</a>
               {% else %} 
               {% endif %} 
@@ -151,7 +153,7 @@
               Not entered
             </dd>
             <dd class="govuk-summary-list__actions">
-              {% if data['scenario'] == 'hdcadadded' %} 
+              {% if data['scenario'] == 'hdcadadded' or data['prisoner'] == 'lorin' %} 
               <a class="govuk-link" href="#">Change</a>
               {% else %} 
               {% endif %} 
@@ -168,7 +170,10 @@
               By 2pm on the next working day after their release
             </dd>
             <dd class="govuk-summary-list__actions">
+              {% if data['scenario'] == 'hdcadadded' or data['prisoner'] == 'lorin' %} 
               <a class="govuk-link" href="./appt-when">Change</a>
+              {% else %} 
+              {% endif %} 
             </dd>
           </div>
           {% elseif data.appointment-time == "immediately" %}
@@ -180,7 +185,7 @@
               Immediately after release
             </dd>
             <dd class="govuk-summary-list__actions">
-              {% if data['scenario'] == 'hdcadadded' %} 
+              {% if data['scenario'] == 'hdcadadded' or data['prisoner'] == 'lorin' %} 
               <a class="govuk-link" href="./appt-when">Change</a>
               {% else %} 
               {% endif %} 
@@ -195,7 +200,7 @@
               {{ "today" | duration(2) | govukDate(truncate=false) }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              {% if data['scenario'] == 'hdcadadded' %} 
+              {% if data['scenario'] == 'hdcadadded' or data['prisoner'] == 'lorin' %} 
               <a class="govuk-link" href="./appt-when">Change</a>
               {% else %} 
               {% endif %} 
@@ -211,7 +216,7 @@
               1pm
             </dd>
             <dd class="govuk-summary-list__actions">
-              {% if data['scenario'] == 'hdcadadded' %} 
+              {% if data['scenario'] == 'hdcadadded' or data['prisoner'] == 'lorin' %} 
               <a class="govuk-link" href="./appt-when">Change</a>
               {% else %} 
               {% endif %} 
@@ -236,10 +241,14 @@
               HDC eligibility date
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ "today" | duration(-1) | govukDate(truncate=false) }}
+              {% if data['prisoner'] == 'lorin' %} 
+              [Weekday] {{ "today" | duration(1) | govukDate(truncate=false) }}
+              {% else %} 
+              [Weekday] {{ "today" | duration(-1) | govukDate(truncate=false) }}
+              {% endif %} 
             </dd>
             <dd class="govuk-summary-list__actions">
-              <span class="moj-badge moj-badge--black" style="margin-bottom: 2px;">NOMIS</span>
+              <span class="moj-badge moj-badge--black" style="margin-bottom: 2px;">DPS</span>
             </dd>
           </div>
           <div class="govuk-summary-list__row">
@@ -247,14 +256,16 @@
               HDC actual date
             </dt>
             <dd class="govuk-summary-list__value">
-              {% if data['scenario'] == 'hdcadadded' or data['prisoner'] == 'evan' %} 
-              {{ "today" | duration(6) | govukDate(truncate=false) }}
+              {% if data['prisoner'] == 'lorin' %} 
+              [Weekday] {{ "today" | duration(2) | govukDate(truncate=false) }}
+              {% elif data['scenario'] == 'hdcadadded' or data['prisoner'] == 'evan' %} 
+              [Weekday] {{ "today" | duration(6) | govukDate(truncate=false) }}
               {% else %} 
               Enter this in <a href="" class="govuk-link govuk-link--no-visited-state">Calculate release dates</a>
               {% endif %} 
             </dd>
             <dd class="govuk-summary-list__actions">
-              {% if data['scenario'] == 'hdcadadded' %} 
+              {% if data['scenario'] == 'hdcadadded' or data['prisoner'] == 'lorin' %} 
               <span class="moj-badge moj-badge--black" style="margin-bottom: 2px;">DPS</span>
               {% else %}
               {% endif %}
@@ -284,7 +295,7 @@
               {% endif %} 
             </dd>
             <dd class="govuk-summary-list__actions">
-              {% if data['scenario'] == 'hdcadadded' %} 
+              {% if data['scenario'] == 'hdcadadded' or data['prisoner'] == 'lorin' %} 
               <a class="govuk-link govuk-link--no-visited-state" href="./hdc/first-night-curfew">Change<span class="govuk-visually-hidden"> first night curfew hours</span></a>
               {% else %} 
               {% endif %} 
@@ -694,7 +705,19 @@
         {% endif %} 
 
 
-        {% if data['prisoner'] == 'evan' %} 
+      
+        
+        {% if data['prisoner'] == 'lorin' %} 
+        <div class="govuk-button-group" style="margin-top: 50px;">
+
+          <a href="./print-licence-pdf" type="submit" class="govuk-button" data-module="govuk-button">View and print licence PDF</a>
+
+          <a href="./case-list-pip-approved?scenario=licenceunlocked" type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">Unlock licence</a>
+
+          <a class="govuk-link govuk-link--no-visited-state" href="./case-list-pip-approved">Return to case list</a>
+
+        </div>
+        {% elif data['prisoner'] == 'evan' %} 
         <div class="govuk-button-group" style="margin-top: 50px;">
 
           <button type="submit" disabled aria-disabled="true" class="govuk-button" data-module="govuk-button">
@@ -708,8 +731,9 @@
         </div>
         {% endif %} 
 
-
-        {% if data['scenario'] == 'hdcadadded' %} 
+         
+ 
+        {% if data['scenario'] == 'hdcadadded' or data['prisoner'] == 'lorin' %} 
         {% else %} 
         <a class="govuk-link" href="./print-licence?scenario=hdcadadded">For testing only: User goes to Calculate Release Date and adds HDCAD</a>
         {% endif %} 

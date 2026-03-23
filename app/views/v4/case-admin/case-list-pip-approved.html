@@ -36,6 +36,22 @@
         </div>
         {% else %}
         {% endif %}
+
+
+        {% if data['scenario'] == 'licenceunlocked' %} 
+        <div role="region" class="moj-alert moj-alert--success" aria-label="success: Upload successful" data-module="moj-alert">
+      <div>
+        <svg class="moj-alert__icon" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" height="30" width="30">
+          <path d="M11.2869 24.6726L2.00415 15.3899L4.62189 12.7722L11.2869 19.4186L25.3781 5.32739L27.9958 7.96369L11.2869 24.6726Z" fill="currentColor" />
+        </svg>
+      </div>
+      <div class="moj-alert__content">CONTENT: Lorin Mave Change unlocked</div>
+      <div class="moj-alert__action">
+        <button class="moj-alert__dismiss" hidden>Dismiss</button>
+      </div>
+    </div>
+        {% else %}
+        {% endif%}  
     
   
     <h1 class="govuk-heading-xl">
@@ -264,6 +280,38 @@
                 </tr>
 
 
+                <tr class="govuk-table__row">
+                      
+                  <td class="govuk-table__cell">
+                    {% if data['scenario'] == 'licenceunlocked' %} 
+                    <strong>Lorin Mave Change</strong>
+                    {% else %} 
+                    <a href="./print-licence?prisoner=lorin" class="govuk-link--no-visited-state pp-caselist-name">Lorin Mave Change</a>
+                    {% endif %} 
+                  </td>
+            
+                  <td class="govuk-table__cell">L22M6C1</td>
+            
+                  <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
+            
+                  <td class="govuk-table__cell" data-sort-value="4">
+                    <!--<span class="urgent-highlight">{{ "today" | duration(3) | govukDate(truncate=true) }}</span>
+                    <span class="urgent-highlight urgent-highlight-message">HDC release</span>-->
+                    HDC actual date:</br>{{ "today" | duration(2) | govukDate(truncate=true) }}
+                  </td>
+
+                  <td class="govuk-table__cell">
+                  </td>
+                   
+                  <td class="govuk-table__cell">
+                     {% if data['scenario'] == 'licenceunlocked' %} 
+                      <strong class="govuk-tag govuk-tag--blue status-badge">In progress</strong>
+                    {% else %} 
+                    <strong class="govuk-tag govuk-tag--green status-badge">Approved</strong>
+                     {% endif %} 
+                  </td>
+
+                </tr>
 
                 <tr class="govuk-table__row">
             
@@ -275,7 +323,7 @@
             
                   <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
             
-                  <td class="govuk-table__cell" data-sort-value="4">
+                  <td class="govuk-table__cell" data-sort-value="5">
                     <span class="hdc-highlight">HDC actual date:</br>{{ "today" | duration(2) | govukDate(truncate=true) }}</span>
                     <span class="hdc-highlight hdc-highlight-message">HDC application postponed</span>
                   </td>
@@ -299,7 +347,7 @@
             
                   <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
             
-                  <td class="govuk-table__cell" data-sort-value="5">
+                  <td class="govuk-table__cell" data-sort-value="6">
                     <span class="hdc-highlight">HDC actual date:</br>{{ "today" | duration(2) | govukDate(truncate=true) }}</span>
                     <span class="hdc-highlight hdc-highlight-message">HDC application postponed</span>
                   </td>
@@ -321,7 +369,7 @@
             
                   <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
             
-                  <td class="govuk-table__cell" data-sort-value="6">
+                  <td class="govuk-table__cell" data-sort-value="7">
                     <span class="hdc-highlight">HDC actual date:</br>{{ "today" | duration(2) | govukDate(truncate=true) }}</span>
                     <span class="hdc-highlight hdc-highlight-message">HDC application postponed</span>
                   </td>
@@ -343,7 +391,7 @@
             
                   <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
             
-                  <td class="govuk-table__cell" data-sort-value="7">
+                  <td class="govuk-table__cell" data-sort-value="8">
                     <span class="hdc-highlight">HDC actual date:</br>{{ "today" | duration(2) | govukDate(truncate=true) }}</span>
                     <span class="hdc-highlight hdc-highlight-message">HDC application postponed</span>
                   </td>
@@ -397,27 +445,7 @@
             
               <tbody class="govuk-table__body"> 
 
-                <tr class="govuk-table__row">
-                      
-                  <td class="govuk-table__cell">
-                    <a href="./hdc/print-licence-changes?prisoner=lorin" class="govuk-link--no-visited-state pp-caselist-name">Lorin Mave Change</a>
-                  </td>
-            
-                  <td class="govuk-table__cell">L22M6C1</td>
-            
-                  <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
-            
-                  <td class="govuk-table__cell" data-sort-value="1">
-                    <!--<span class="urgent-highlight">{{ "today" | duration(3) | govukDate(truncate=true) }}</span>
-                    <span class="urgent-highlight urgent-highlight-message">HDC release</span>-->
-                    HDC actual date:</br>{{ "today" | duration(3) | govukDate(truncate=true) }}
-                  </td>
-                   
-                  <td class="govuk-table__cell">
-                    <strong class="govuk-tag govuk-tag--green status-badge">Approved</strong>
-                  </td>
-
-                </tr>
+                
             
             
                    <tr class="govuk-table__row">

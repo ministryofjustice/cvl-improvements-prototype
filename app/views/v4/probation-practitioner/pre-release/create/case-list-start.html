@@ -130,7 +130,11 @@
           </td>
     
           <td class="govuk-table__cell">
+            {% if data['scenario'] == 'licenceunlocked' %}
+            <strong class="govuk-tag govuk-tag--blue status-badge">In progress</strong>
+            {% else %}
             <strong class="govuk-tag govuk-tag--green status-badge">Approved</strong>
+            {% endif %}
             <!--<div class="govuk-!-margin-top-2"> 
               <img class="moj-banner__icon" src="/public/images/statusBadge.svg"><a href="../edit/check-licence?prisoner=lorin" class="govuk-link govuk-link--no-visited-state">Licence updated –</br> check latest version</a>
             </div>-->
