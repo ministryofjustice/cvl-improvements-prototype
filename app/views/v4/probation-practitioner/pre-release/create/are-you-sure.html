@@ -83,7 +83,7 @@
           {% elif data['prisoner'] == 'nikolai' %}
           Thursday {{ "today" | duration(4) | govukDate(truncate=true) }}
           {% elif data['prisoner'] == 'noto' %} 
-          Wednesday {{ "today" | duration(0) | govukDate(truncate=false) }}
+          Tuesday {{ "today" | duration(1) | govukDate(truncate=false) }}
           {% elif data['prisoner'] == 'hale' %}  
           Thursday {{ "today" | duration(4) | govukDate(truncate=false) }}
           {% else %}
@@ -101,7 +101,7 @@
         </dt>
         <dd class="govuk-summary-list__value">
           {% if data['prisoner'] == 'noto' %}
-          Tuesday {{ "today" | duration(0) | govukDate(truncate=false) }}
+          Friday {{ "today" | duration(4) | govukDate(truncate=false) }}
           {% else %}
           This will be entered by the prison
           {% endif %}
