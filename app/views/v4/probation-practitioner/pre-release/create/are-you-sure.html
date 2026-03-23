@@ -85,7 +85,7 @@
           {% elif data['prisoner'] == 'noto' %} 
           Wednesday {{ "today" | duration(0) | govukDate(truncate=false) }}
           {% elif data['prisoner'] == 'hale' %}  
-          Thursday {{ "today" | duration(2) | govukDate(truncate=false) }}
+          Thursday {{ "today" | duration(4) | govukDate(truncate=false) }}
           {% else %}
           Wednesday 10 December 2025
           {% endif %}
