@@ -30,7 +30,7 @@
         <p class="govuk-body">CONTENT: They have to ask prison to change initial appointment and first night for them </p>
         {% endif %}  
 
-        <div class="govuk-button-group">
+        <div class="govuk-button-group" style="margin-top: 50px;">
           {% if data['prisoner'] == 'lorin' %}  
           {% else %}  
           <button type="submit" class="govuk-button" data-module="govuk-button">
@@ -54,7 +54,7 @@
                   Name
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  {{ data['whoApptWith'] or "Seb Stevens" }}
+                  {{ data['whoApptWith'] or "Philamina Rogers" }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
                   {% if data['prisoner'] == 'lorin' %}
@@ -86,7 +86,7 @@
                   Contact phone number
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  {{ data['phoneNumber'] or "01632 960901" }}             
+                  {{ data['phoneNumber'] or "01273 800 900" }}             
                 </dd>
                 <dd class="govuk-summary-list__actions">
                   {% if data['prisoner'] == 'lorin' %}
@@ -155,12 +155,8 @@
             <dt class="govuk-summary-list__key">
               Date/time
             </dt>
-            <dd class="govuk-summary-list__value">
-            {% if data['appointment-time'] == 'immediately' %}  
+            <dd class="govuk-summary-list__value">  
               Immediately after release
-             {% else %} 
-              By 2pm on the next working day after their release
-            {% endif %} 
             </dd>
             <dd class="govuk-summary-list__actions">
               <ul class="govuk-summary-list__actions-list">
@@ -185,12 +181,24 @@
             <dl class="govuk-summary-list">
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
+                  HDC eligibility date
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  [Weekday] {{ "today" | duration(1) | govukDate(truncate=false) }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <span class="moj-badge moj-badge--black" style="margin-bottom: 2px;">NOMIS</span>
+              </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
                   HDC actual date
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  This will be entered by the prison
+                  [Weekday] {{ "today" | duration(2) | govukDate(truncate=false) }}
                 </dd>
                 <dd class="govuk-summary-list__actions">
+                 <span class="moj-badge moj-badge--black" style="margin-bottom: 2px;">NOMIS</span>
               </dd>
               </div>
               <div class="govuk-summary-list__row">
@@ -366,10 +374,7 @@
 
 
         <div class="govuk-button-group">
-
-          {% if data['scenario'] == 'licenceunlocked' %}
-          Button?
-          {% elif data['prisoner'] == 'lorin' %}
+          {% if data['prisoner'] == 'lorin' %}
           {% else %}  
           <button type="submit" class="govuk-button" data-module="govuk-button">
             Edit licence conditions
@@ -392,9 +397,12 @@
 
 
 
-{% if data['scenario'] == 'licenceunlocked' %} 
-{% elif data['prisoner'] == 'lorin' %}
-<a class="govuk-link govuk-link--no-visited-state" href="./check-licence-view?scenario=licenceunlocked">For testing only: Prison case admin was contacted and pressed the button to give probation practitioner access to licence</a>
+
+
+{% if data['prisoner'] == 'lorin' %}
+<p class="govuk-body" style="margin-top: 100px;">
+  <a class="govuk-link govuk-link--no-visited-state" href="./check-licence?scenario=licenceunlocked">For testing only: Prison case admin was contacted and pressed the button to give probation practitioner access to licence</a>
+</p>
 {% else %} 
 {% endif %} 
 
