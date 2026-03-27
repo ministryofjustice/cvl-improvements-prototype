@@ -704,8 +704,22 @@
 
         {% endif %} 
 
+        {% if data['prisoner'] == 'lorin' %} 
+        <h2 class="govuk-heading-m">
+        Licence locked
+        </h2>
 
-      
+        <p class="govuk-body">This licence has been approved and is now locked. The community probation team cannot edit it directly.</p>
+
+        <p class="govuk-body">If they ask to change something, use the unlock button to let them make amendments.  </p>
+
+      <h3 class="govuk-heading-s">
+      Reapproval
+      </h2>
+
+      <p class="govuk-body">Any changes the community probation team make require reapproval. You can update initial appointment details<br> and first night curfew without reapproval. </p>
+
+        {% endif %}
         
         {% if data['prisoner'] == 'lorin' %} 
         <div class="govuk-button-group" style="margin-top: 50px;">
