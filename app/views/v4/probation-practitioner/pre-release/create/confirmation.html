@@ -98,11 +98,19 @@
   {% endif %}   
   
   
+  {% if data['scenario'] == 'licenceunlocked' %}
+  <a href="case-list-start?scenario=licencelocked">
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+     Return to case list
+    </button>
+  </a>
+  {% else %}
   <a href="case-list-start">
     <button type="submit" class="govuk-button" data-module="govuk-button">
      Return to case list
     </button>
   </a>
+  {% endif %}
 
  {% if data['recallCase'] == 'true' %}
 
