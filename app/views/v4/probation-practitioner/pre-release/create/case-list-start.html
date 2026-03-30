@@ -130,7 +130,9 @@
           </td>
     
           <td class="govuk-table__cell">
-            {% if data['scenario'] == 'licenceunlocked' %}
+            {% if data['prisoner'] == 'licencelocked' %}
+            <strong class="govuk-tag govuk-tag--green status-badge">Approved</strong>
+            {% elif data['scenario'] == 'licenceunlocked' %}
             <strong class="govuk-tag govuk-tag--blue status-badge">In progress</strong>
             {% else %}
             <strong class="govuk-tag govuk-tag--green status-badge">Approved</strong>
