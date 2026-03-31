@@ -29,19 +29,9 @@
               <path fill-rule="evenodd" clip-rule="evenodd" d="M15 2.44922L28.75 26.1992H1.25L15 2.44922ZM13.5107 9.49579H16.4697L16.2431 17.7678H13.7461L13.5107 9.49579ZM13.1299 21.82C13.1299 21.5661 13.1787 21.3285 13.2764 21.1071C13.374 20.8793 13.5075 20.6807 13.6768 20.5114C13.8525 20.3421 14.0544 20.2087 14.2822 20.111C14.5101 20.0134 14.7542 19.9645 15.0146 19.9645C15.2686 19.9645 15.5062 20.0134 15.7275 20.111C15.9554 20.2087 16.154 20.3421 16.3232 20.5114C16.4925 20.6807 16.626 20.8793 16.7236 21.1071C16.8213 21.3285 16.8701 21.5661 16.8701 21.82C16.8701 22.0804 16.8213 22.3246 16.7236 22.5524C16.626 22.7803 16.4925 22.9789 16.3232 23.1481C16.154 23.3174 15.9554 23.4509 15.7275 23.5485C15.5062 23.6462 15.2686 23.695 15.0146 23.695C14.7542 23.695 14.5101 23.6462 14.2822 23.5485C14.0544 23.4509 13.8525 23.3174 13.6768 23.1481C13.5075 22.9789 13.374 22.7803 13.2764 22.5524C13.1787 22.3246 13.1299 22.0804 13.1299 21.82Z" fill="currentColor" />
             </svg>
           </div>
-          <div class="moj-alert__content">HDC actual date and curfew address must be entered before this licence can be printed.<br></div>
+          <div class="moj-alert__content">HDC actual date and curfew address must be entered before this licence can be printed.</div>
           <div class="moj-alert__action">
-          </div>
-        </div>
-        {% elif data['prisoner'] == 'noa'  %}
-        <div role="region" class="moj-alert moj-alert--warning" aria-label="warning: Some information could not be imported" data-module="moj-alert" style="margin-bottom: 60px;">
-          <div>
-            <svg class="moj-alert__icon" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" height="30" width="30">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M15 2.44922L28.75 26.1992H1.25L15 2.44922ZM13.5107 9.49579H16.4697L16.2431 17.7678H13.7461L13.5107 9.49579ZM13.1299 21.82C13.1299 21.5661 13.1787 21.3285 13.2764 21.1071C13.374 20.8793 13.5075 20.6807 13.6768 20.5114C13.8525 20.3421 14.0544 20.2087 14.2822 20.111C14.5101 20.0134 14.7542 19.9645 15.0146 19.9645C15.2686 19.9645 15.5062 20.0134 15.7275 20.111C15.9554 20.2087 16.154 20.3421 16.3232 20.5114C16.4925 20.6807 16.626 20.8793 16.7236 21.1071C16.8213 21.3285 16.8701 21.5661 16.8701 21.82C16.8701 22.0804 16.8213 22.3246 16.7236 22.5524C16.626 22.7803 16.4925 22.9789 16.3232 23.1481C16.154 23.3174 15.9554 23.4509 15.7275 23.5485C15.5062 23.6462 15.2686 23.695 15.0146 23.695C14.7542 23.695 14.5101 23.6462 14.2822 23.5485C14.0544 23.4509 13.8525 23.3174 13.6768 23.1481C13.5075 22.9789 13.374 22.7803 13.2764 22.5524C13.1787 22.3246 13.1299 22.0804 13.1299 21.82Z" fill="currentColor" />
-            </svg>
-          </div>
-          <div class="moj-alert__content">HDC actual date must be entered before this licence can be printed.</div>
-          <div class="moj-alert__action">
+            <button class="moj-alert__dismiss" hidden>Dismiss</button>
           </div>
         </div>
         {% else %}
@@ -228,7 +218,7 @@
               HDC actual date
             </dt>
             <dd class="govuk-summary-list__value">
-              {% if data['scenario'] == 'hdcadCASadded' or data['scenario'] == 'hdcadadded' %} 
+              {% if data['scenario'] == 'hdcadCASadded' or data['prisoner'] == 'hale' %} 
               [Weekday] {{ "today" | duration(6) | govukDate(truncate=false) }}
               {% else %} 
               Not yet entered. Enter this in <a href="" class="govuk-link govuk-link--no-visited-state">Calculate release dates</a>.
@@ -243,7 +233,7 @@
             </dt>
             <dd class="govuk-summary-list__value">
               {% if data['scenario'] == 'hdcadCASadded' %} 
-              60 Marsh Road, Newcastle, NC5R 2TT 
+              Hampshire Court, Newcastle, NE4 7YJ
               {% elif data['prisoner'] == 'lorin' %}
               Not yet entered. Check the <a href="#">HDC service</a>. 
               {% else %} 
@@ -655,24 +645,19 @@
 
         {% if data['prisoner'] == 'hale' %}
   
-        {% if data['scenario'] == 'hdcadadded' %} 
-        <form action="/viewandprintlicence" method="post">
-
+        
             <div class="govuk-button-group" style="margin-top: 50px;">
 
-              <button type="submit" class="govuk-button" data-module="govuk-button" name="viewandprintlicencepdf" value="yes">
-                View and print licence PDF
-              </button>
+              <a href="./print-licence-pdf" type="submit" class="govuk-button" data-module="govuk-button">View and print licence PDF</a>
 
-              <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="viewandprintlicencepdf" value="no" style="padding-left: 10px;">
-                Return to case list
-              </button>
+              <a href="./case-list-pip-approved?scenario=licenceHALEunlocked" type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">Unlock licence</a>
+
+              <a class="govuk-link govuk-link--no-visited-state" href="./case-list-pip-approved">Return to case list</a>
 
             </div>
 
-        </form>
-        {% else %} 
-        {% endif %} 
+
+
 
         {% elif data['prisoner'] == 'lorin' %} 
         <div class="govuk-button-group" style="margin-top: 50px; margin-bottom: 80px;">
@@ -683,7 +668,7 @@
           <a href="./print-licence-pdf" type="submit"disabled aria-disabled="true" class="govuk-button" data-module="govuk-button">View and print licence PDF</a>
           {% endif %}
 
-          <a href="./case-list-pip-approved?scenario=licenceunlocked" type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">Unlock licence</a>
+          <a href="./case-list-pip-approved?scenario=licenceLORINunlocked" type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">Unlock licence</a>
 
           <a class="govuk-link govuk-link--no-visited-state" href="./case-list-pip-approved">Return to case list</a>
 
@@ -711,16 +696,11 @@
 
         
 
-
          
         <!--HDC simulation start-->
-        {% if data['scenario'] == 'hdcadCASadded' or data['scenario'] == 'hdcadadded' %} 
+        {% if data['scenario'] == 'hdcadCASadded' or data['prisoner'] == 'hale' %} 
         {% else %} 
-        {% if data['prisoner'] == 'lorin' %}
         <a class="govuk-link" href="./print-licence?scenario=hdcadCASadded">For testing only: Simulation of user adding address and HDCAD</a>
-        {% elif data['prisoner'] == 'noa' %}
-        <a class="govuk-link" href="./print-licence?scenario=hdcadadded">For testing only: Simulation of user adding HDCAD</a>
-        {% endif %}
         {% endif %} 
         <!--HDC simulation end-->
 
