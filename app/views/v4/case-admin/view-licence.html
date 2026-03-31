@@ -129,7 +129,6 @@
                {{ "today" | duration(-2) | govukDate(truncate=false) }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <span class="moj-badge moj-badge--black" style="margin-bottom: 2px;">NOMIS</span>
             </dd>
           </div>
           <div class="govuk-summary-list__row">
@@ -144,10 +143,6 @@
               {% endif %} 
             </dd>
             <dd class="govuk-summary-list__actions">
-              {% if data['scenario'] == 'hdcadadded' or data['prisoner'] == 'evan' or data['prisoner'] == 'sam' %} 
-              <span class="moj-badge moj-badge--black" style="margin-bottom: 2px;">DPS</span>
-              {% else %}
-              {% endif %}
             </dd>
           </div>
           <div class="govuk-summary-list__row">
@@ -158,9 +153,7 @@
               60 Marsh Road, Newcastle, NC5R 2TT 
             </dd>
             <dd class="govuk-summary-list__actions">
-
-            <span class="moj-badge moj-badge--black" style="margin-bottom: 2px;">HDC</span>
-          </dd>
+            </dd>
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
