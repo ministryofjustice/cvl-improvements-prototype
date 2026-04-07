@@ -31,11 +31,7 @@
   <div class="govuk-grid-column-two-thirds">
 
 
-    {% if data['lastminutechanges'] == 'yes' %} 
-    <form action="../hdc/print-licence-changes" method="post">
-    {% else %} 
-    <form action="../print-licence" method="post">
-    {% endif %} 
+    <form action="../print-licence?scenario=lorinchangecurfew" method="post">
 
 
          <fieldset class="govuk-fieldset">
