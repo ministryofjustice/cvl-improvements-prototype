@@ -1,0 +1,102 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Who is the initial appointment with?" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-pp-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% include "components/prisoner-subheader/include.html" %}
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l" style="margin-bottom: 20px;">
+        <h1 class="govuk-fieldset__heading">Who is the initial appointment with?</h1>
+      </legend>
+  </div>
+</div>
+
+<form action="../print-licence?scenario=lorinchange" method="post">
+
+<!--START set dynamic radio hide/show text-->
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% set textHtmlOther %}
+{{ govukInput({
+  name: "who4",
+  classes: "govuk-fieldset__legend--s govuk-input govuk-input--width-30",
+  label: {
+    text: "Enter name"
+  }
+}) }}
+{% endset -%}
+
+
+{{ govukRadios({
+  
+  fieldset: {
+    legend: {
+      name: "apptwho",
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+
+  items: [
+  {
+    name: "who1",
+    text: "	Philamina Rogers, this person's community probation practitioner"
+  },
+
+  {
+    name: "who2",
+    text: "Duty officer"
+  },
+
+
+  {
+    name: "who3",
+    text: "Someone else",
+    hint: {
+      text: "For example, someone at an approved premises or a different probation practitioner."
+    },
+    conditional: {
+      html: textHtmlOther
+    }
+
+  }
+
+
+  ]
+
+}) }}
+
+
+<div class="govuk-button-group">
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+  Continue
+  </button>
+</div>
+
+
+</form>
+
+
+{% endblock %}
+
+
+{% block footer %}
+
+{% include "components/cvl-pp-footer/include.html" %}
+
+{% endblock %}
