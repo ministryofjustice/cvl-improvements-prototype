@@ -20,7 +20,7 @@
 
 
         {% if data['scenario'] == 'FNcurfewChanged' %}
-        <div role="region" class="moj-alert moj-alert--success" aria-label="success: Upload successful" data-module="moj-alert">
+        <div role="region" class="moj-alert moj-alert--success" aria-label="success: Upload successful" data-module="moj-alert" style="margin-bottom: 40px;">
           <div>
             <svg class="moj-alert__icon" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" height="30" width="30">
               <path d="M11.2869 24.6726L2.00415 15.3899L4.62189 12.7722L11.2869 19.4186L25.3781 5.32739L27.9958 7.96369L11.2869 24.6726Z" fill="currentColor" />
@@ -32,7 +32,7 @@
           </div>
         </div>
         {% elif data['scenario'] == 'initialappChanged' %}
-        <div role="region" class="moj-alert moj-alert--success" aria-label="success: Upload successful" data-module="moj-alert">
+        <div role="region" class="moj-alert moj-alert--success" aria-label="success: Upload successful" data-module="moj-alert" style="margin-bottom: 40px;">
           <div>
             <svg class="moj-alert__icon" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" height="30" width="30">
               <path d="M11.2869 24.6726L2.00415 15.3899L4.62189 12.7722L11.2869 19.4186L25.3781 5.32739L27.9958 7.96369L11.2869 24.6726Z" fill="currentColor" />
@@ -49,7 +49,7 @@
 
 
       
-        {% if data['scenario'] == 'hdcadCASadded' or data['scenario'] == 'hdcadadded' or data['prisoner'] == 'hale' %}
+        {% if data['scenario'] == 'hdcadCASadded' or data['scenario'] == 'hdcadadded' or data['prisoner'] == 'hale' or data['scenario'] == 'FNcurfewChanged' or data['scenario'] == 'initialappChanged' %}
         {% elif data['prisoner'] == 'lorin'  %}
         <div role="region" class="moj-alert moj-alert--warning" aria-label="warning: Some information could not be imported" data-module="moj-alert" style="margin-bottom: 60px;">
           <div>
@@ -236,7 +236,7 @@
               HDC actual date
             </dt>
             <dd class="govuk-summary-list__value">
-              {% if data['scenario'] == 'hdcadCASadded' or data['prisoner'] == 'hale' %} 
+              {% if data['scenario'] == 'hdcadCASadded' or data['prisoner'] == 'hale' or data['scenario'] == 'FNcurfewChanged' or data['scenario'] == 'initialappChanged' %} 
               [Weekday] {{ "today" | duration(6) | govukDate(truncate=false) }}
               {% else %} 
               Not yet entered. Enter this in <a href="" class="govuk-link govuk-link--no-visited-state">Calculate release dates</a>.
@@ -250,7 +250,7 @@
               Address
             </dt>
             <dd class="govuk-summary-list__value">
-              {% if data['scenario'] == 'hdcadCASadded' %} 
+              {% if data['scenario'] == 'hdcadCASadded' or data['scenario'] == 'FNcurfewChanged' or data['scenario'] == 'initialappChanged' %} 
               Hampshire Court, Newcastle, NE4 7YJ
               {% elif data['prisoner'] == 'lorin' %}
               Not yet entered. Check the <a href="#">HDC service</a>. 
@@ -680,7 +680,7 @@
         {% elif data['prisoner'] == 'lorin' %} 
         <div class="govuk-button-group" style="margin-top: 50px; margin-bottom: 80px;">
 
-          {% if data['scenario'] == 'hdcadCASadded' %}
+          {% if data['scenario'] == 'hdcadCASadded' or data['scenario'] == 'FNcurfewChanged' or data['scenario'] == 'initialappChanged' %}
           <a href="./print-licence-pdf" type="submit" class="govuk-button" data-module="govuk-button">View and print licence PDF</a>
           {% else %}
           <a href="./print-licence-pdf" type="submit"disabled aria-disabled="true" class="govuk-button" data-module="govuk-button">View and print licence PDF</a>
@@ -716,7 +716,7 @@
 
          
         <!--HDC simulation start-->
-        {% if data['scenario'] == 'hdcadCASadded' or data['prisoner'] == 'hale' %} 
+        {% if data['scenario'] == 'hdcadCASadded' or data['prisoner'] == 'hale' or data['scenario'] == 'FNcurfewChanged' or data['scenario'] == 'initialappChanged' %} 
         {% else %} 
         <a class="govuk-link" href="./print-licence?scenario=hdcadCASadded">For testing only: Simulation of user adding address and HDCAD</a>
         {% endif %} 
