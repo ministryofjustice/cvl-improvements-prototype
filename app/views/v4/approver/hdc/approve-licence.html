@@ -94,10 +94,14 @@
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                Release date/HDC start date
+                HDC start date
               </dt>
               <dd class="govuk-summary-list__value">
+                {% if data['prisoner'] == 'lorin' %} 
                 This will be entered by the prison
+                {% else %} 
+                {{ "today" | duration(2) | govukDate(truncate=true) }}
+                {% endif %} 
               </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -154,11 +158,15 @@
                 Address
               </dt>
               <dd class="govuk-summary-list__value">
-                {{ data['curfew-addressLine1'] or "12 Fairmount Drive" }},
-                {% if data['curfew-addressLine2'] %}{{ data['curfew-addressLine2'] | default('Fake on Fake') }},{% endif %} 
-                {{ data['curfew-addressTown'] or "Chichester" }}, 
-                {% if data['curfew-addressCounty'] %}{{ data['curfew-addressCounty'] | default('Fakeshire') }},{% endif %} 
-                {{ data['curfew-addressPostcode'] or "PO18 8YE" }}
+                {% if data['prisoner'] == 'lorin' %} 
+                  EMPTY STATE
+                {% else %} 
+                  {{ data['curfew-addressLine1'] or "12 Fairmount Drive" }},
+                  {% if data['curfew-addressLine2'] %}{{ data['curfew-addressLine2'] | default('Fake on Fake') }},{% endif %} 
+                  {{ data['curfew-addressTown'] or "Chichester" }}, 
+                  {% if data['curfew-addressCounty'] %}{{ data['curfew-addressCounty'] | default('Fakeshire') }},{% endif %} 
+                  {{ data['curfew-addressPostcode'] or "PO18 8YE" }}
+                {% endif %} 
               </dd>
             </div>
             <div class="govuk-summary-list__row">
