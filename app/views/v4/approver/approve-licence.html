@@ -52,11 +52,11 @@
               </dt>
               <dd class="govuk-summary-list__value">
                 {% if data['prisoner'] == 'dwayne' %} 
-                {{ "today" | duration(0) | govukDate(truncate=true) }}
+                {{ "today" | duration(0) | govukDate(truncate=false) }}
                 {% elif data['prisoner'] == 'charlie' %} 
-                {{ "today" | duration(0) | govukDate(truncate=true) }}
+                {{ "today" | duration(0) | govukDate(truncate=false) }}
                 {% elif data['prisoner'] == 'maxwell' %}  
-                25 Feb 2025
+                25 February 2025
                 {% else %}  
                 27 May 2025
                 {% endif %}  
@@ -68,11 +68,11 @@
               </dt>
               <dd class="govuk-summary-list__value">
                 {% if data['prisoner'] == 'dwayne' %} 
-                {{ "today" | duration(0) | govukDate(truncate=true) }}
+                {{ "today" | duration(0) | govukDate(truncate=false) }}
                 {% elif data['prisoner'] == 'charlie' %} 
-                {{ "today" | duration(0) | govukDate(truncate=true) }}
+                {{ "today" | duration(0) | govukDate(truncate=false) }}
                 {% elif data['prisoner'] == 'maxwell' %}  
-                25 Feb 2025
+                25 February 2025
                 {% else %}  
                 27 May 2025
                 {% endif %}  
@@ -84,13 +84,13 @@
               </dt>
               <dd class="govuk-summary-list__value">
                 {% if data['prisoner'] == 'dwayne' %} 
-                {{ "today" | duration(120) | govukDate(truncate=true) }}
+                {{ "today" | duration(120) | govukDate(truncate=false) }}
                 {% elif data['prisoner'] == 'charlie' %} 
-                {{ "today" | duration(120) | govukDate(truncate=true) }}
+                {{ "today" | duration(120) | govukDate(truncate=false) }}
                 {% elif data['prisoner'] == 'maxwell' %}  
-                10 Oct 2025
+                10 October 2025
                 {% else %}  
-                10 Jan 2026
+                10 January 2026
                 {% endif %}
               </dd>
             </div>

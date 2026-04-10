@@ -52,9 +52,7 @@
       <div class="govuk-grid-column-two-thirds">
     
   
-    <h1 class="govuk-heading-xl govuk-!-margin-top-6">
-      Approve licence
-        </h1>
+    <h1 class="govuk-heading-xl govuk-!-margin-top-6">Approve licence</h1>
    
         
         
@@ -78,7 +76,7 @@
         <div class="govuk-accordion__section-header">
           <h3 class="govuk-accordion__section-heading">
             <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-              HDC and licence dates
+              Key dates
             </span>
           </h3>
         </div>
@@ -89,35 +87,27 @@
                 HDC eligibility date
               </dt>
               <dd class="govuk-summary-list__value">
-                27 May 2025
+                {{ "today" | duration(2) | govukDate(truncate=false) }}
               </dd>
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                HDC start date
+                HDC actual date
               </dt>
               <dd class="govuk-summary-list__value">
                 {% if data['prisoner'] == 'lorin' %} 
-                This will be entered by the prison
+                 Not entered yet
                 {% else %} 
-                {{ "today" | duration(2) | govukDate(truncate=true) }}
+                {{ "today" | duration(2) | govukDate(truncate=flase) }}
                 {% endif %} 
               </dd>
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                 HDC end date
+                Conditional release date
               </dt>
               <dd class="govuk-summary-list__value">
-                27 Nov 2025
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Conditional release date (CRD)
-              </dt>
-              <dd class="govuk-summary-list__value">
-                28 Nov 2025
+                {{ "today" | duration(2) | govukDate(truncate=false) }}
               </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -125,7 +115,7 @@
                  Licence start date
               </dt>
               <dd class="govuk-summary-list__value">
-                27 May 2025
+                {{ "today" | duration(2) | govukDate(truncate=false) }}
               </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -133,7 +123,7 @@
                 Licence expiry date
               </dt>
               <dd class="govuk-summary-list__value">
-                10 Jan 2026
+                {{ "today" | duration(2) | govukDate(truncate=false) }}
               </dd>
             </div>
           </dl>
@@ -149,9 +139,7 @@
         </div>
         <div id="accordion-default-content-2" class="govuk-accordion__section-content">
           
-          <h2 class="govuk-heading-m">
-            HDC curfew details
-              </h2>
+         
           <dl class="govuk-summary-list">
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
@@ -159,7 +147,7 @@
               </dt>
               <dd class="govuk-summary-list__value">
                 {% if data['prisoner'] == 'lorin' %} 
-                  EMPTY STATE
+                  Not entered yet
                 {% else %} 
                   {{ data['curfew-addressLine1'] or "12 Fairmount Drive" }},
                   {% if data['curfew-addressLine2'] %}{{ data['curfew-addressLine2'] | default('Fake on Fake') }},{% endif %} 
@@ -401,7 +389,7 @@
                     {{ data['addressPostcode'] or "FA1 1KE" }}
                   </dd>
                 </div>
-                <div class="govuk-summary-list__row">
+                <!--<div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
                     Contact phone number
                   </dt>
@@ -411,10 +399,26 @@
                 </div>
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
-                    Date/time
+                    Alternative contact phone number
                   </dt>
                   <dd class="govuk-summary-list__value">
-                   Friday 11 March 2025 at 01:00 pm
+                    Not entered
+                  </dd>
+                </div>-->
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Date
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                   11 March 2025
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Time
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    01:00 pm
                   </dd>
                 </div>
               </dl>   
