@@ -8,7 +8,9 @@
               Name
             </dt>
             <dd class="govuk-summary-list__value">
-            {% if data['prisoner'] == 'lorin' %} 
+            {% if data['prisoner'] == 'hale' %} 
+              Hale Draven Corvath
+            {% elif data['prisoner'] == 'lorin' %} 
               Lorin Mave Change
             {% elif data['prisoner'] == 'sam' %}
               Sam Submiton
@@ -28,7 +30,9 @@
               Date of birth
             </dt>
             <dd class="govuk-summary-list__value">
-            {% if data['prisoner'] == 'lorin' %} 
+            {% if data['prisoner'] == 'hale' %} 
+              12 December 1999
+            {% elif data['prisoner'] == 'lorin' %} 
               12 December 1999
             {% elif data['prisoner'] == 'dwayne' %} 
               13 April 1977
@@ -46,7 +50,9 @@
               Prison number
             </dt>
             <dd class="govuk-summary-list__value">
-            {% if data['prisoner'] == 'lorin' %} 
+            {% if data['prisoner'] == 'hale' %} 
+              H87D13C
+            {% elif data['prisoner'] == 'lorin' %} 
               L22M6C1
             {% elif data['prisoner'] == 'sam' %}
               S23A6M7

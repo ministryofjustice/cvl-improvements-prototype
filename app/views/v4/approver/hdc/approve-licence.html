@@ -87,7 +87,13 @@
                 HDC eligibility date
               </dt>
               <dd class="govuk-summary-list__value">
+                {% if data['prisoner'] == 'lorin' %} 
+                {{ "today" | duration(3) | govukDate(truncate=false) }}
+                {% elif data['prisoner'] == 'hale' %} 
                 {{ "today" | duration(2) | govukDate(truncate=false) }}
+                {% else %} 
+                {{ "today" | duration(10) | govukDate(truncate=false) }}
+                {% endif %} 
               </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -97,8 +103,10 @@
               <dd class="govuk-summary-list__value">
                 {% if data['prisoner'] == 'lorin' %} 
                  Not entered yet
+                {% elif data['prisoner'] == 'hale' %}
+                {{ "today" | duration(3) | govukDate(truncate=false) }}
                 {% else %} 
-                {{ "today" | duration(2) | govukDate(truncate=flase) }}
+                {{ "today" | duration(12) | govukDate(truncate=flase) }}
                 {% endif %} 
               </dd>
             </div>
@@ -107,7 +115,7 @@
                 Conditional release date
               </dt>
               <dd class="govuk-summary-list__value">
-                {{ "today" | duration(2) | govukDate(truncate=false) }}
+                {{ "today" | duration(60) | govukDate(truncate=false) }}
               </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -115,7 +123,13 @@
                  Licence start date
               </dt>
               <dd class="govuk-summary-list__value">
-                {{ "today" | duration(2) | govukDate(truncate=false) }}
+                {% if data['prisoner'] == 'lorin' %} 
+                {{ "today" | duration(3) | govukDate(truncate=false) }}
+                {% elif data['prisoner'] == 'hale' %}
+                {{ "today" | duration(3) | govukDate(truncate=false) }}
+                {% else %} 
+                {{ "today" | duration(10) | govukDate(truncate=false) }}
+                {% endif %} 
               </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -123,7 +137,7 @@
                 Licence expiry date
               </dt>
               <dd class="govuk-summary-list__value">
-                {{ "today" | duration(2) | govukDate(truncate=false) }}
+                {{ "today" | duration(200) | govukDate(truncate=false) }}
               </dd>
             </div>
           </dl>
@@ -374,7 +388,13 @@
                      Appointment with
                   </dt>
                   <dd class="govuk-summary-list__value">
-                    {{ data['whoApptWith'] or "Seb Stevens" }}
+                    {% if data['prisoner'] == 'lorin' or data['prisoner'] == 'lorin'  %} 
+                      Philamina Rogers
+                    {% elif data['prisoner'] == 'hale' %} 
+                      Duty Officer
+                    {% else %} 
+                     {{ data['whoApptWith'] or "Seb Stevens" }}
+                    {% endif %}
                   </dd>
                 </div>
                 <div class="govuk-summary-list__row">
@@ -410,7 +430,11 @@
                     Date
                   </dt>
                   <dd class="govuk-summary-list__value">
-                   11 March 2025
+                    {% if data['prisoner'] == 'lorin' or data['prisoner'] == 'hale' %} 
+                      {{ "today" | duration(3) | govukDate(truncate=flase) }}
+                    {% else %} 
+                     {{ "today" | duration(12) | govukDate(truncate=flase) }}
+                    {% endif %}
                   </dd>
                 </div>
                 <div class="govuk-summary-list__row">
@@ -439,7 +463,11 @@
                      Name
                   </dt>
                   <dd class="govuk-summary-list__value">
-                    Taru Malli
+                    {% if data['prisoner'] == 'lorin' or data['prisoner'] == 'hale' %} 
+                      Philamina Rogers
+                    {% else %} 
+                     Taru Malli
+                    {% endif %}
                   </dd>
                 </div>
                 <div class="govuk-summary-list__row">

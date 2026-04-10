@@ -168,7 +168,7 @@
                 <dd class="govuk-summary-list__value">
                   {% if data['scenario'] == 'licenceunlocked' %}
                   [Weekday] {{ "today" | duration(2) | govukDate(truncate=false) }}
-                  {% elif data['prisoner'] == 'ian' or data['prisoner'] == 'noto' %}
+                  {% elif data['prisoner'] == 'ian' or data['prisoner'] == 'noto' or data['prisoner'] == 'hale' %}
                   [Weekday] {{ "today" | duration(4) | govukDate(truncate=false) }}
                   {% else %}
                   This will be entered by the prison

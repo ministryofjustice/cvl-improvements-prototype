@@ -295,9 +295,11 @@
                   <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
             
                   <td class="govuk-table__cell" data-sort-value="4">
-                    <!--<span class="urgent-highlight">{{ "today" | duration(3) | govukDate(truncate=true) }}</span>
-                    <span class="urgent-highlight urgent-highlight-message">HDC release</span>-->
+                    {% if data['scenario'] == 'hdcadCASadded' %}
                     HDC actual date:</br>{{ "today" | duration(2) | govukDate(truncate=true) }}
+                    {% else %}
+                    HDC eligibility date:</br>{{ "today" | duration(1) | govukDate(truncate=true) }}
+                    {% endif %}
                   </td>
 
                   <td class="govuk-table__cell">
@@ -505,7 +507,7 @@
                       <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
                 
                       <td class="govuk-table__cell" data-sort-value="3">
-                        HDC eligibility date:</br>{{ "today" | duration(3) | govukDate(truncate=true) }}
+                        HDC actual date:</br>{{ "today" | duration(3) | govukDate(truncate=true) }}
                       </td>
                        
                       <td class="govuk-table__cell">
