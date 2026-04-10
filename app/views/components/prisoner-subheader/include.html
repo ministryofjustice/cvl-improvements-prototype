@@ -152,7 +152,7 @@
 {% elif data['prisoner'] == 'lorin' %}  
             <span class="pipe-separated__item">CRN: L22M6C1</span>
             <span class="pipe-separated__item">
-                HDC actual date : [Weekday] {{ "today" | duration(2) | govukDate(truncate=false) }}
+                HDC eligibility date : [Weekday] {{ "today" | duration(2) | govukDate(truncate=false) }}
             </span>
             <span class="pipe-separated__item">Date of birth: 12 Dec 1999</span>
         </div>
@@ -161,11 +161,7 @@
 {% elif data['prisoner'] == 'hale' %}  
             <span class="pipe-separated__item">CRN: H87D13C</span>
             <span class="pipe-separated__item">
-                {% if data['scenario'] == 'HDC actual date added' %}
-                HDC actual date : [Weekday] {{ "today" | duration(6) | govukDate(truncate=false) }}
-                {% else %}
-                HDC eligibility date: [Weekday] {{ "today" | duration(2) | govukDate(truncate=false) }}
-                {% endif %}
+                HDC actual date : [Weekday] {{ "today" | duration(4) | govukDate(truncate=false) }}
             </span>
             <span class="pipe-separated__item">Date of birth: 12 Dec 1999</span>
         </div>
