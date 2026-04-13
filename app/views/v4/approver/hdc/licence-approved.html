@@ -27,12 +27,10 @@
         <h2 class="govuk-heading-m" style="margin-top: 30px;">What happens next</h2>
 
         <p>A case administrator can now print the licence for
-          {% if data['prisoner'] == 'dwayne' %}
-          Dwayne Briggs.
-          {% elif data['prisoner'] == 'charlie' %}
-          Charlie Martin.
-          {% elif data['prisoner'] == 'maxwell' %}
-          Maxwell Kirby.
+          {% if data['prisoner'] == 'lorin' %}
+          Lorin Mave Change.
+          {% elif data['prisoner'] == 'hale' %}
+          Hale Draven Corvath.
           {% else %}
           Cyphoonifer Bransabert.
           {% endif %}
@@ -48,14 +46,7 @@
         
       
         
-        <form action="./case-list-app-needed" method="post">
-
-          {% if data['prisoner'] == 'charlie' %} 
-            <input type="hidden" name="timeservedapproved" value="charlie">
-          {% elif data['prisoner'] == 'dwayne' %}  
-            <input type="hidden" name="timeservedapproved" value="dwayne">
-          {% else %}
-          {% endif %}    
+        <form action="../case-list-app-needed" method="post">
 
           <button type="submit" class="govuk-button" data-module="govuk-button" style="margin-top: 10px">
             Approve another licence
@@ -63,18 +54,7 @@
 
         </form>
 
-        
-
-      {% if data['prisoner'] == 'maxwell' %}  
-        <p class="govuk-!-margin-top-6"><a href="/v4/case-admin/case-list-pip-approved?maxwell=approved" class="govuk-link--no-visited-state">Jump to case admin flow</a></p>
-
-        <p class="govuk-!-margin-top-6"><a href="/v4/probation-practitioner/pre-release/create/case-list-start?maxwell=approved" class="govuk-link--no-visited-state">Jump to probation practitioner flow</a></p>
-
-      {% else %}  
-        <p class="govuk-!-margin-top-6"><a href="/v4/probation-practitioner/pre-release/edit/case-list" class="govuk-link--no-visited-state">Jump to probation practitioner edit flow</a></p>
-        
-        <p class=""><a href="/v4/probation-practitioner/post-release/case-list-view?varyFlow=True" class="govuk-link--no-visited-state">Jump to probation practitioner vary flow</a></p>
-      {% endif %}  
+      
 
 
   </div>
