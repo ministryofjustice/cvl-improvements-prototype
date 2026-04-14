@@ -678,9 +678,15 @@
         <form action="./case-list-pip-approved" method="post">
 
           <div class="govuk-button-group" style="margin-top: 50px;">
-            <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="sendlicenceforapproval" value="no">
+
+            <button type="submit" class="govuk-button" data-module="govuk-button">
+              View and print licence PDF
+            </button>
+
+            <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
               Return to case list
             </button>
+
           </div>
 
         </form>
@@ -688,14 +694,14 @@
 
         
         
-
         
 
          
         <!--HDC simulation start-->
-        {% if data['scenario'] == 'hdcadCASadded' or data['prisoner'] == 'hale' or data['scenario'] == 'FNcurfewChanged' or data['scenario'] == 'initialappChanged' %} 
-        {% else %} 
+        {% if data['scenario'] == 'hdcadCASadded' or data['prisoner'] == 'hale' or data['scenario'] == 'FNcurfewChanged' or data['scenario'] == 'initialappChanged' %}
+        {% elif data['prisoner'] == 'lorin' %} 
         <a class="govuk-link" href="./print-licence?scenario=hdcadCASadded">For testing only: Simulation of user adding address and HDCAD</a>
+        {% else %} 
         {% endif %} 
         <!--HDC simulation end-->
 
