@@ -1,4 +1,5 @@
-FROM node:18.16-bullseye-slim
+# Stage: base image
+FROM node:24-alpine AS base
 
 ENV NODE_ENV=production
 
@@ -7,9 +8,9 @@ RUN addgroup --gid 1017 --system appgroup \
 
 WORKDIR /app
 
-RUN apt-get update && \
-    apt-get upgrade -y && \
-    apt-get install -y make python3
+RUN apk update && \
+    apk upgrade && \
+    apk add --no-cache make python3
 
 COPY . .
 

@@ -4,17 +4,21 @@
     "serve": "govuk-prototype-kit serve",
     "start": "govuk-prototype-kit start"
   },
+    "engines": {
+    "node": "^24",
+    "npm": "^11"
+  },
   "dependencies": {
     "@govuk-prototype-kit/common-templates": "2.0.1",
     "@govuk-prototype-kit/step-by-step": "2.2.3",
     "@govuk-prototype-kit/task-list": "2.0.0",
     "@ministryofjustice/frontend": "5.1.4",
-    "@x-govuk/govuk-prototype-filters": "^2.0.0",
-    "govuk-frontend": "^5.10.0",
-    "govuk-prototype-kit": "13.17.0",
+    "@x-govuk/govuk-prototype-filters": "^2.1.0",
+    "govuk-frontend": "^5.14.0",
+    "govuk-prototype-kit": "13.20.0",
     "hmrc-frontend": "6.74.0",
     "jquery": "3.7.1",
-    "luxon": "^3.5.0",
-    "notifications-node-client": "8.2.1"
+    "luxon": "^3.7.2",
+    "notifications-node-client": "8.3.2"
   }
 }
