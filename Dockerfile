@@ -1,5 +1,4 @@
-# Stage: base image
-FROM node:24-alpine AS base
+FROM node:24-alpine
 
 ENV NODE_ENV=production
 
