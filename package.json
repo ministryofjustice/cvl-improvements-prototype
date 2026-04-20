@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@govuk-prototype-kit/common-templates": "3.0.0",
-    "@govuk-prototype-kit/step-by-step": "2.2.3",
+    "@govuk-prototype-kit/step-by-step": "3.0.0",
     "@govuk-prototype-kit/task-list": "2.0.0",
     "@ministryofjustice/frontend": "9.0.0",
     "@x-govuk/govuk-prototype-filters": "^2.1.0",

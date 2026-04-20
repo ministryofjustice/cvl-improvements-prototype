@@ -1,23 +1,23 @@
-FROM node:22-alpine
+FROM node:22-bullseye-slim
 
 ENV NODE_ENV=production
 
-RUN addgroup -g 1017 -S appgroup \
-  && adduser -u 1017 -S -G appgroup appuser
+RUN addgroup --gid 1017 --system appgroup \
+  && adduser --uid 1017 --system appuser --gid 1017
 
 WORKDIR /app
 
-RUN apk update && \
-    apk upgrade && \
-    apk add --no-cache make python3
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends make python3 \
+  && rm -rf /var/lib/apt/lists/*
 
 COPY . .
 
-RUN npm install
+RUN npm install --omit=dev
 
 RUN chown -R appuser:appgroup /app
 
-USER 1017
+USER appuser
 
 RUN chmod +x start.sh
 
