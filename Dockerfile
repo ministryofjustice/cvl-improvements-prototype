@@ -1,4 +1,4 @@
-FROM node:22-bullseye-slim
+FROM node:24-bullseye-slim
 
 ENV NODE_ENV=production
 
@@ -7,17 +7,17 @@ RUN addgroup --gid 1017 --system appgroup \
 
 WORKDIR /app
 
-RUN apt-get update \
-  && apt-get install -y --no-install-recommends make python3 \
-  && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y make python3
 
 COPY . .
 
-RUN npm install --omit=dev
+RUN npm install
 
 RUN chown -R appuser:appgroup /app
 
-USER appuser
+USER 1017
 
 RUN chmod +x start.sh
 
