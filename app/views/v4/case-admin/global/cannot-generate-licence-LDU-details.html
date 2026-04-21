@@ -1,0 +1,52 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Create and vary a licence – Access restricted on NDelius" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-pp-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <h1 class="govuk-heading-l">You cannot generate this licence yet</br>
+      <span class="govuk-caption-l">Prison number: K4A85NE</span>
+    </h1>
+  
+
+    <p class="govuk-body">Before you can generate a licence for this person, a community probation practitioner must be allocated to them. </p>
+    
+    <span class="govuk-heading-m govuk-!-margin-top-6">What you need to do </span>
+
+    <p class="govuk-body">Contact the community probation team at [lduEmail] to request an allocation. </p>
+
+    <form action="../case-list-pip-approved" method="post">
+
+      <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" style="margin-top: 10px;">
+        Return to cases
+      </button>
+
+    </form>
+    
+      
+  </div>
+</div>
+{% endblock %}
+
+
+{% block footer %}
+
+{% include "components/cvl-pp-footer/include.html" %}
+
+{% endblock %}
