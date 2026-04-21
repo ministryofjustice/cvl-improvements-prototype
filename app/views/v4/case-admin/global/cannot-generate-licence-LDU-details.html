@@ -10,6 +10,7 @@
 
 {%- block beforeContent -%}
 <a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% include "components/prisoner-subheader/prisonnumber.html" %}
 {% endblock %}
 
 
@@ -20,9 +21,7 @@
   <div class="govuk-grid-column-two-thirds">
 
 
-    <h1 class="govuk-heading-l">You cannot generate this licence yet</br>
-      <span class="govuk-caption-l">Prison number: K4A85NE</span>
-    </h1>
+    <h1 class="govuk-heading-l">You cannot generate this licence yet</h1>
   
 
     <p class="govuk-body">Before you can generate a licence for this person, a community probation practitioner must be allocated to them. </p>
