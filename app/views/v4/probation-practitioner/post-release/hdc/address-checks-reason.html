@@ -1,0 +1,61 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Have you completed the residential address checks?" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-pp-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% include "components/prisoner-subheader/include.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+    <form action="./enter-new-address" method="post">
+
+
+
+  <div class="govuk-form-group">
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--l" for="more-detail">
+      Enter a reason why address checks have not been completed
+    </label>
+  </h1>
+  <div id="more-detail-hint" class="govuk-hint">
+    Your PDU head will be able to review this before approving the variation.
+  </div>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+</div>
+
+       
+
+
+
+
+
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+           Continue
+          </button>
+        </form>
+  </div>
+</div>
+
+{% endblock %}
+
+
+{% block footer %}
+
+{% include "components/cvl-pp-footer/include.html" %}
+
+{% endblock %}
