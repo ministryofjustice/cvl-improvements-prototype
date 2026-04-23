@@ -152,16 +152,25 @@
 {% elif data['prisoner'] == 'lorin' %}  
             <span class="pipe-separated__item">CRN: L22M6C1</span>
             <span class="pipe-separated__item">
-                HDC eligibility date : [Weekday] {{ "today" | duration(2) | govukDate(truncate=false) }}
+                HDC eligibility date: [Weekday] {{ "today" | duration(2) | govukDate(truncate=false) }}
             </span>
             <span class="pipe-separated__item">Date of birth: 12 Dec 1999</span>
         </div>
         <span class="govuk-heading-m">Lorin Mave Change</span>
 
+{% elif data['prisoner'] == 'halevary' %}  
+            <span class="pipe-separated__item">CRN: H87D13C</span>
+            <span class="pipe-separated__item">
+                Licence end date: {{ "today" | duration(99) | govukDate(truncate=false) }}
+            </span>
+            <span class="pipe-separated__item">Date of birth: 12 Dec 1999</span>
+        </div>
+        <span class="govuk-heading-m">Hale Draven Corvath</span>
+
 {% elif data['prisoner'] == 'hale' %}  
             <span class="pipe-separated__item">CRN: H87D13C</span>
             <span class="pipe-separated__item">
-                HDC actual date : [Weekday] {{ "today" | duration(4) | govukDate(truncate=false) }}
+                HDC actual date: [Weekday] {{ "today" | duration(4) | govukDate(truncate=false) }}
             </span>
             <span class="pipe-separated__item">Date of birth: 12 Dec 1999</span>
         </div>
@@ -223,7 +232,7 @@
  {% elif data['prisoner'] == 'diego' %}  
             <span class="pipe-separated__item">CRN: S674889</span>
             {% if data['varyFlow'] == 'True' %}  
-            <span class="pipe-separated__item">Licence end date: [Weekday] 15 Oct 2025</span>
+            <span class="pipe-separated__item">Licence end date: {{ "today" | duration(99) | govukDate(truncate=false) }}</span>
             {% else %}  
             <span class="pipe-separated__item">Conditional release date: [Weekday] 16 Apr 2025</span>
             {% endif %}  
@@ -235,7 +244,7 @@
  {% elif data['prisoner'] == 'cyphoonifer' %}  
     <span class="pipe-separated__item">CRN: A693826</span>
 {% if data['varyFlow'] == 'True' %}  
-  <span class="pipe-separated__item">Licence end date: [Weekday] 10 Jan 2026</span>
+  <span class="pipe-separated__item">Licence end date: {{ "today" | duration(99) | govukDate(truncate=false) }}</span>
   {% else %}  
  <span class="pipe-separated__item">Conditional release date: [Weekday] 27 May 2025</span>
  {% endif %}  
@@ -247,7 +256,7 @@
   {% elif data['prisoner'] == 'montgomery' %}  
         <span class="pipe-separated__item">CRN: F906211</span>
         {% if data['varyFlow'] == 'True' %}  
-        <span class="pipe-separated__item">Licence end date: [Weekday] 24 Nov 2025</span>
+        <span class="pipe-separated__item">Licence end date: {{ "today" | duration(99) | govukDate(truncate=false) }}</span>
         {% else %}  
         <span class="pipe-separated__item">Conditional release date: [Weekday] 5 Feb 2025</span>
         {% endif %}  
@@ -259,7 +268,7 @@
  {% elif data['prisoner'] == 'guy' %}  
     <span class="pipe-separated__item">CRN: Z503727</span>
     {% if data['varyFlow'] == 'True' %}  
-    <span class="pipe-separated__item">Licence end date: [Weekday] 20 Sep 2025</span>
+    <span class="pipe-separated__item">Licence end date: {{ "today" | duration(99) | govukDate(truncate=false) }}</span>
     {% else %}  
     <span class="pipe-separated__item">Conditional release date: [Weekday] 11 Mar 2025</span>
     {% endif %}  
@@ -271,7 +280,7 @@
 {% elif data['prisoner'] == 'maxwell' %}  
         <span class="pipe-separated__item">CRN: A5677DD</span>
         {% if data['varyFlow'] == 'True' %}  
-          <span class="pipe-separated__item">Licence end date: [Weekday] 10 Oct 2025</span>
+          <span class="pipe-separated__item">Licence end date: {{ "today" | duration(99) | govukDate(truncate=false) }}</span>
           {% else %}  
          <span class="pipe-separated__item">Conditional release date: [Weekday] 25 Feb 2025</span>
          {% endif %}  
@@ -281,7 +290,7 @@
         {% else %}  
         <span class="pipe-separated__item">CRN: A693826</span>
         {% if data['varyFlow'] == 'True' %}  
-          <span class="pipe-separated__item">Licence end date: [Weekday] 10 Jan 2026</span>
+          <span class="pipe-separated__item">Licence end date: {{ "today" | duration(99) | govukDate(truncate=false) }}</span>
           {% else %}  
          <span class="pipe-separated__item">Conditional release date: [Weekday] 27 May 2025</span>
          {% endif %}  

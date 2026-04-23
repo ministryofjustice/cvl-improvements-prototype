@@ -17,11 +17,18 @@
 
     <div class="govuk-panel govuk-panel--confirmation">
       <h1 class="govuk-panel__title">
-        Licence variation for {% if data['prisoner'] == 'maxwell' %}Maxwell Kirby{% else %}Cyphoonifer Bransabert{% endif %} sent
+        Licence variation for
+        {% if data['prisoner'] == 'halevary' %}
+        Hale Draven Corvath
+        {% elif data['prisoner'] == 'maxwell' %}
+        Maxwell Kirby
+        {% else %}
+        Cyphoonifer Bransabert
+        {% endif %} sent
       </h1>
     </div>
 
-    <h2 class="govuk-heading-m">
+    <h2 class="govuk-heading-m" style="margin-top: 40px;">
       What happens next
      </h2>
 
@@ -34,7 +41,12 @@
           After the licence is approved
         </h3>
     
-        <p>You will get an email when the variation is approved and you will be able to print and issue the licence or post sentence supervision order.</p>
+        <p>You will get an email when the variation is approved and you will be able to print and issue the licence.</p>
+
+
+        {% if data['prisoner'] == 'halevary' %}
+          <p class="govuk-!-margin-bottom-5">You'll need to contact the Electronic Monitoring Service (EMS) to let them know about the changes to Hale Draven Corvath's licence.</p>
+        {% endif %}
 
 
         <a href="case-list-variation-submitted">
