@@ -341,7 +341,17 @@
                 </div>
               </div>
 
+        {% if data['prisoner'] == 'halevary' %}
+                <div class="govuk-button-group govuk-!-margin-top-8">
+          <a href="./hdc/third-parties-interrupt-card.html" type="submit" class="govuk-button" data-module="govuk-button">
+            Send for approval
+        </a>
+        <a href="#" type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            Discard changes
+        </a>
+        </div>
 
+        {% else %} 
 
         <div class="govuk-button-group govuk-!-margin-top-8">
           <a href="confirmation" type="submit" class="govuk-button" data-module="govuk-button">
@@ -351,6 +361,8 @@
             Discard changes
         </a>
         </div>
+
+        {% endif %}
 
   </div>
 </div>
