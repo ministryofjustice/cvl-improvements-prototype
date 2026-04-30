@@ -106,7 +106,11 @@
        {% if data['maxwell'] == 'active' %}  
         <td class="govuk-table__cell" data-sort-value="1">{{ "today" | duration(0) | govukDate(truncate=true) }}</td>
        {% else %}  
-       <td class="govuk-table__cell" data-sort-value="1"><span class="urgent-highlight">{{ "today" | duration(0) | govukDate(truncate=true) }}</span><span class="urgent-highlight urgent-highlight-message">Timed out</span></td>
+       <td class="govuk-table__cell" data-sort-value="1"><span class="urgent-highlight">
+        Confirmed release date:</br>
+        {{ "today" | duration(0) | govukDate(truncate=true) }}</span>
+        <span class="urgent-highlight urgent-highlight-message">Timed out</span>
+      </td>
        {% endif %}  
 
       <td class="govuk-table__cell">
@@ -139,7 +143,13 @@
        {% if data['reuben'] == 'active' %}  
         <td class="govuk-table__cell" data-sort-value="2">{{ "today" | duration(0) | govukDate(truncate=true) }}</td>
        {% else %}  
-       <td class="govuk-table__cell" data-sort-value="2"><span class="urgent-highlight">{{ "today" | duration(0) | govukDate(truncate=true) }}</span><span class="urgent-highlight urgent-highlight-message">Timed out</span></td>
+       <td class="govuk-table__cell" data-sort-value="2">
+        <span class="urgent-highlight">
+          Confirmed release date:</br> 
+          {{ "today" | duration(0) | govukDate(truncate=true) }}
+        </span>
+        <span class="urgent-highlight urgent-highlight-message">Timed out</span>
+      </td>
        {% endif %}  
 
       <td class="govuk-table__cell">
@@ -170,7 +180,11 @@
        {% if data['charlie'] == 'active' %}  
         <td class="govuk-table__cell" data-sort-value="3">{{ "today" | duration(0) | govukDate(truncate=true) }}</td>
        {% else %}  
-       <td class="govuk-table__cell" data-sort-value="3"><span class="urgent-highlight">{{ "today" | duration(0) | govukDate(truncate=true) }}</span><span class="urgent-highlight urgent-highlight-message">Time-served release</span></td>
+       <td class="govuk-table__cell" data-sort-value="3"><span class="urgent-highlight">
+        Confirmed release date:</br>
+        {{ "today" | duration(0) | govukDate(truncate=true) }}</span>
+        <span class="urgent-highlight urgent-highlight-message">Time-served release</span>
+      </td>
        {% endif %}  
 
       <td class="govuk-table__cell">
@@ -193,7 +207,10 @@
 
       <!--<td class="govuk-table__cell">Standard determinate</td>-->
 
-      <td class="govuk-table__cell" data-sort-value="3">{{ "today" | duration(0) | govukDate(truncate=true) }}</td>
+      <td class="govuk-table__cell" data-sort-value="3">
+        HDC actual date:</br>
+        {{ "today" | duration(0) | govukDate(truncate=true) }}
+      </td>
        
       <td class="govuk-table__cell">
         <strong class="govuk-tag govuk-tag--turquoise status-badge">Active</strong> 
@@ -214,7 +231,10 @@
       
             <!--<td class="govuk-table__cell">Standard determinate</br>Post sentence supervision</td>-->
       
-            <td class="govuk-table__cell" data-sort-value="3">{{ "today" | duration(-38) | govukDate(truncate=true) }}</td>
+            <td class="govuk-table__cell" data-sort-value="3">
+              Confirmed release date:</br>
+              {{ "today" | duration(-38) | govukDate(truncate=true) }}
+            </td>
       
             <td class="govuk-table__cell">
               <strong class="govuk-tag govuk-tag--turquoise status-badge">
@@ -235,7 +255,10 @@
               <!--<td class="govuk-table__cell">Standard determinate</br>Post sentence supervision</td>-->
         
               
-              <td class="govuk-table__cell" data-sort-value="4">{{ "today" | duration(-58) | govukDate(truncate=true) }}</td>
+              <td class="govuk-table__cell" data-sort-value="4">
+                Confirmed release date:</br>
+                {{ "today" | duration(-58) | govukDate(truncate=true) }}
+              </td>
         
               <td class="govuk-table__cell">
                 <strong class="govuk-tag govuk-tag--blue status-badge">
@@ -257,7 +280,10 @@
               <!--<td class="govuk-table__cell">Standard determinate</td>-->
         
         
-              <td class="govuk-table__cell" data-sort-value="5">{{ "today" | duration(-166) | govukDate(truncate=true) }}</td>
+              <td class="govuk-table__cell" data-sort-value="5">
+                Confirmed release date:</br>
+                {{ "today" | duration(-166) | govukDate(truncate=true) }}
+              </td>
         
               <td class="govuk-table__cell">
                 <strong class="govuk-tag govuk-tag--turquoise status-badge">
@@ -282,7 +308,10 @@
             
                   
             
-                  <td class="govuk-table__cell" data-sort-value="6">{{ "today" | duration(-189) | govukDate(truncate=true) }}</td>
+                  <td class="govuk-table__cell" data-sort-value="6">
+                    Confirmed release date:</br>
+                    {{ "today" | duration(-189) | govukDate(truncate=true) }}
+                  </td>
             
                   <td class="govuk-table__cell">
                     <strong class="govuk-tag govuk-tag--pink status-badge">
@@ -303,7 +332,10 @@
               
                     
               
-                    <td class="govuk-table__cell" data-sort-value="7">{{ "today" | duration(-239) | govukDate(truncate=true) }}</td>
+                    <td class="govuk-table__cell" data-sort-value="7">
+                      Confirmed release date:</br>
+                      {{ "today" | duration(-239) | govukDate(truncate=true) }}
+                    </td>
               
                     <td class="govuk-table__cell">
                       <strong class="govuk-tag govuk-tag--turquoise status-badge">
@@ -324,7 +356,10 @@
                 
                       
                 
-                      <td class="govuk-table__cell" data-sort-value="8">{{ "today" | duration(-282) | govukDate(truncate=true) }}</td>
+                      <td class="govuk-table__cell" data-sort-value="8">
+                        Confirmed release date:</br>
+                        {{ "today" | duration(-282) | govukDate(truncate=true) }}
+                      </td>
                 
                       <td class="govuk-table__cell">
                         <strong class="govuk-tag govuk-tag--turquoise status-badge">
@@ -346,7 +381,10 @@
                   
                         
                   
-                        <td class="govuk-table__cell" data-sort-value="9">{{ "today" | duration(-350) | govukDate(truncate=true) }}</td>
+                        <td class="govuk-table__cell" data-sort-value="9">
+                          Confirmed release date:</br>
+                          {{ "today" | duration(-350) | govukDate(truncate=true) }}
+                        </td>
                   
                         <td class="govuk-table__cell">
                           <strong class="govuk-tag govuk-tag--turquoise status-badge">
@@ -366,7 +404,10 @@
                   
                         <!--<td class="govuk-table__cell">Standard determinate</td>-->
                   
-                        <td class="govuk-table__cell" data-sort-value="10">{{ "today" | duration(-389) | govukDate(truncate=true) }}</td>
+                        <td class="govuk-table__cell" data-sort-value="10">
+                          Confirmed release date:</br>
+                          {{ "today" | duration(-389) | govukDate(truncate=true) }}
+                        </td>
                   
                         <td class="govuk-table__cell">
                           <strong class="govuk-tag govuk-tag--turquoise status-badge">Active</strong>
