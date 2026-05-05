@@ -92,6 +92,42 @@ router.post(version + '/same-each-day-edit-2-answer', function(request, response
 })
 
 
+// HDC Vary journey - Address type and address checks
+
+router.post(version + '/whataddresstype', function(request, response) {
+
+    var addressType = request.session.data['addressType']
+    if (addressType == "res"){
+        response.redirect(version + "/probation-practitioner/post-release/hdc/address-checks")
+    } else {
+        response.redirect(version + "/probation-practitioner/post-release/hdc/enter-new-address/postcode-search")
+    }
+})
+
+
+router.post(version + '/varyaddresschecks', function(request, response) {
+
+    var addressChecks = request.session.data['addressChecks']
+    if (addressChecks == "yes"){
+        response.redirect(version + "/probation-practitioner/post-release/hdc/enter-new-address/postcode-search")
+    } else {
+        response.redirect(version + "/probation-practitioner/post-release/hdc/address-checks-reason")
+    }
+})
+
+
+router.post(version + '/varyaddresschecks-edit', function(request, response) {
+
+    var addressChecks = request.session.data['addressChecks']
+    if (addressChecks == "yes"){
+        response.redirect(version + "/probation-practitioner/post-release/hdc/vary-licence-details")
+    } else {
+        response.redirect(version + "/probation-practitioner/post-release/hdc/address-checks-reason-edit")
+    }
+})
+
+
+
 
 
 // Licence conditions

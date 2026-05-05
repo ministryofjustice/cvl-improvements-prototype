@@ -1,6 +1,6 @@
 {% extends "layouts/cvl.html" %}
 
-{% set pageName="What type of accommodation is the new curfew address?" %}
+{% set pageName="Have you completed the residential address checks?" %}
 
 {% set htmlClasses = 'app-width-wide' %}
 
@@ -17,31 +17,32 @@
 {% block content %}
 
 
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
 
 
-    <form action="/v4/whataddresstype" method="post">
+    <form action="/v4/varyaddresschecks-edit" method="post">
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-fieldset__heading">
-                What type of accommodation is the new curfew address?
-              </h1>
+                Have you completed the residential address checks?
+             </h1>
             </legend>
             <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="addressType" name="addressType" type="radio" value="res">
-                <label class="govuk-label govuk-radios__label" for="addressType">
-                  Residential
+                <input class="govuk-radios__input" id="addressChecks" name="addressChecks" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="addressChecks">
+                  Yes
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="addressType-2" name="addressType" type="radio" value="cas">
-                <label class="govuk-label govuk-radios__label" for="addressType-2">
-                  CAS
+                <input class="govuk-radios__input" id="addressChecks-2" name="addressChecks" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="addressChecks-2">
+                  No
                 </label>
               </div>
             </div>
