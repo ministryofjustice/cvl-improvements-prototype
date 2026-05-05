@@ -83,11 +83,7 @@
                     Add reasons for the variation
                   </dt>
                   <dd class="govuk-summary-list__value">
-                    {{ data['variationReason'] or "Reason here" }}</br></br>
-
-                    By {% if data['prisoner'] == 'maxwell' %}
-                    Steven McVeigh, {{ "today" | duration(0) | govukDate(truncate=false) }}
-                    {% else %}Philamina Rogers, {{ "today" | duration(0) | govukDate(truncate=false) }}{% endif %}
+                    {{ data['variationReason'] or "Reason here" }}
                   </dd>
                 </div>
 
