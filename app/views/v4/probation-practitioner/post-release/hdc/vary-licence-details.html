@@ -54,7 +54,7 @@
               <dd class="govuk-summary-list__actions">
                 <ul class="govuk-summary-list__actions-list">
                   <li class="govuk-summary-list__actions-list-item">
-                    <a class="govuk-link govuk-link--no-visited-state" href="discuss-spo-edit">Change<span class="govuk-visually-hidden"> if you have discussed this variation request with your SPO</span></a>
+                    <a class="govuk-link govuk-link--no-visited-state" href="../discuss-spo-edit">Change<span class="govuk-visually-hidden"> if you have discussed this variation request with your SPO</span></a>
                   </li>
                 </ul>
               </dd>
@@ -73,7 +73,7 @@
               <dd class="govuk-summary-list__actions">
                 <ul class="govuk-summary-list__actions-list">
                   <li class="govuk-summary-list__actions-list-item">
-                    <a class="govuk-link govuk-link--no-visited-state" href="consult-vlo-edit">Change<span class="govuk-visually-hidden"> if you have consulted with the victim liaison officer (VLO) for this case</span></a>
+                    <a class="govuk-link govuk-link--no-visited-state" href="../consult-vlo-edit">Change<span class="govuk-visually-hidden"> if you have consulted with the victim liaison officer (VLO) for this case</span></a>
                   </li>
                 </ul>
               </dd>
@@ -104,12 +104,12 @@
                 Enter a reason why address checks have not been completed
               </dt>
               <dd class="govuk-summary-list__value">
-                
+                {{ data['addressCheckReason'] or "Reason here" }}
               </dd>
               <dd class="govuk-summary-list__actions">
                 <ul class="govuk-summary-list__actions-list">
                   <li class="govuk-summary-list__actions-list-item">
-                    <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> if you have completed the residential address checks</span></a>
+                    <a class="govuk-link govuk-link--no-visited-state" href="./address-checks-reason-edit">Change<span class="govuk-visually-hidden"> if you have completed the residential address checks</span></a>
                   </li>
                 </ul>
               </dd>
