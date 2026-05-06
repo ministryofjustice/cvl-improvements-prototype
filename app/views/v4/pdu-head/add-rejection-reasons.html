@@ -26,7 +26,7 @@
 
       <p>Add a short explanation for why it's necessary for amendments to be made to the licence variation.</p>
 
-            {% if data['prisoner'] == 'halevary' %}
+            
             <details class="govuk-details">
               <summary class="govuk-details__summary">
                 <span class="govuk-details__summary-text">
@@ -35,6 +35,81 @@
               </summary>
               <div class="govuk-details__text">
 
+
+                <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+              <h2 class="govuk-summary-card__title">
+                Variation details
+              </h2>
+            </div>
+            <div class="govuk-summary-card__content">
+              <dl class="govuk-summary-list">
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Have you discussed this variation request with your SPO?
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {% if data['discussSPO'] == 'no' %}  
+                    No
+                    {% else %}  
+                    Yes
+                    {% endif %} 
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Have you consulted with the victim liaison officer (VLO) for this case?
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {% if data['consultVLO'] == 'no' %}  
+                    Not applicable
+                    {% else %}  
+                    Yes
+                    {% endif %}  
+                  </dd>
+                </div>
+                {% if data['prisoner'] == 'halevary' %}
+                  <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Have you completed the residential address checks?
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {% if data['addressChecks'] == 'no' %}  
+                    No
+                    {% else %}  
+                    Yes
+                    {% endif %} 
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Enter a reason why address checks have not been completed
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                     {{ data['addressCheckReason'] or "Reason here" }}
+                  </dd>
+                </div>
+                {% endif %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Add reasons for the variation
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ data['variationReason'] or "Reason here" }}</br>
+                  </dd>
+                  <dd class="govuk-summary-list__action" style="text-align: right;">
+                    By Philamina Rogers, {{ "today" | duration(0) | govukDate(truncate=false) }}
+                  </dd>
+                </div>
+
+
+
+
+              </dl>
+            </div>
+          </div>
+
+          {% if data['prisoner'] == 'halevary' %}
                 <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
                     <h2 class="govuk-summary-card__title">
@@ -172,20 +247,10 @@
 
                 </div>
               </div>
+          {% endif %}
 
-              </div>
-            </details>
 
-            {% else %}
-            <details class="govuk-details">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">
-                  View variation details
-                </span>
-              </summary>
-              <div class="govuk-details__text">
-
-                <div class="govuk-summary-card">
+           <div class="govuk-summary-card">
                   <div class="govuk-summary-card__title-wrapper">
                     <h2 class="govuk-summary-card__title">
                       Licence conditions added
@@ -228,10 +293,16 @@
                 </div>
               </div>
 
+
+
+
               </div>
             </details>
 
-          {% endif %}
+           
+           
+
+          
 
       
       <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
