@@ -1,0 +1,147 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Are you sure you want to create this licence?" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-pp-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% include "components/prisoner-subheader/include.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+
+<h1 class="govuk-heading-l">Are you sure you want to create this person's licence?</h1>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['prisoner'] == 'sean' %} 
+          Sean Rejard
+          {% elif data['prisoner'] == 'sonny' %} 
+          Sonny Ottar
+          {% elif data['prisoner'] == 'nikolai' %} 
+          Nikolai Oxton
+          {% elif data['prisoner'] == 'noto' %}  
+          Noto Startwick
+          {% elif data['prisoner'] == 'hale' %}  
+          Hale Draven Corvath
+          {% else %}  
+          Cyphoonifer Bransabert
+          {% endif %}  
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          CRN
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['prisoner'] == 'sean' %} 
+          R21E99J
+          {% elif data['prisoner'] == 'sonny' %} 
+          O34P43T
+          {% elif data['prisoner'] == 'nikolai' %} 
+          O78P87T
+          {% elif data['prisoner'] == 'noto' %} 
+          N12O28T
+          {% elif data['prisoner'] == 'hale' %}  
+          H87D13C
+          {% else %}  
+          A693826
+          {% endif %}  
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div> 
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          {% if data['prisoner'] == 'hale' or data['prisoner'] == 'noto' or data['prisoner'] == 'sonny' %}
+          HDC eligibility date
+          {% else %}
+          Confirmed release date
+          {% endif %}
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['prisoner'] == 'sean' %}
+          Tuesday {{ "today" | duration(14) | govukDate(truncate=false) }}
+          {% elif data['prisoner'] == 'sonny' %}
+          Thursday {{ "today" | duration(14) | govukDate(truncate=false) }}
+          {% elif data['prisoner'] == 'nikolai' %}
+          Thursday {{ "today" | duration(4) | govukDate(truncate=true) }}
+          {% elif data['prisoner'] == 'noto' %} 
+          Tuesday {{ "today" | duration(1) | govukDate(truncate=false) }}
+          {% elif data['prisoner'] == 'hale' %}  
+          [Weekday] {{ "today" | duration(2) | govukDate(truncate=false) }}
+          {% else %}
+          Wednesday 10 December 2025
+          {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+      {% if data['prisoner'] == 'noto' or data['prisoner'] == 'hale' or data['prisoner'] == 'sonny' %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          HDC actual date 
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['prisoner'] == 'noto' %}
+          Friday {{ "today" | duration(4) | govukDate(truncate=false) }}
+          {% elif data['prisoner'] == 'hale' %}  
+          [Weekday] {{ "today" | duration(4) | govukDate(truncate=false) }}
+          {% else %}
+          This will be entered by the prison
+          {% endif %}
+        </dd>
+          {% if data['prisoner'] == 'noto' %}
+          <dd class="govuk-summary-list__actions">
+          </dd>
+          {% else %}
+          {% endif %}
+      </div>
+      {% endif %} 
+    </dl>
+
+
+
+
+    
+
+  <form action="/v5/are-you-sure-answer2" method="post">
+
+    <div class="govuk-button-group govuk-!-margin-top-8">
+      <button type="submit" class="govuk-button" data-module="govuk-button" id="createLicence" name="createLicence" value="yes">
+        Continue and create licence
+      </button>
+      <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="createLicence-2" name="createLicence" value="no">
+        Return to case list
+      </button>
+    </div>
+
+  </form>
+
+
+  </div>
+</div>
+{% endblock %}
+
+
+{% block footer %}
+
+{% include "components/cvl-pp-footer/include.html" %}
+
+{% endblock %}

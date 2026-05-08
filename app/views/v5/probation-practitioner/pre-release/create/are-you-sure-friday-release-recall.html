@@ -1,0 +1,99 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Are you sure you want to create this licence?" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-pp-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% include "components/prisoner-subheader/include.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+
+<h1 class="govuk-heading-l">Are you sure you want to create this person's licence?</h1>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Kairo Watson
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          CRN
+        </dt>
+        <dd class="govuk-summary-list__value">
+          R885645
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Status
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <span class="urgent-highlight"> Fixed-term recall</span>
+          <span class="urgent-highlight urgent-highlight-message">Review their previous licence conditions.</br>You should do this using <a class="govuk-link--no-visited-state" href="#">EPF 2</a>.</span>
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Post-recall release date (PRRD)
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <span class="urgent-highlight">Friday, {{ "today" | duration(13) | govukDate(truncate=false) }}</span>
+          <span class="urgent-highlight urgent-highlight-message">Check this date with the prison. It may change because it is on or just before a weekend or bank holiday. This may affect the initial appointment.</span>
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+    </dl>
+
+
+
+
+    
+
+  <form action="/v5/are-you-sure-answer-ur" method="post">
+
+    <div class="govuk-button-group govuk-!-margin-top-8">
+      <button type="submit" class="govuk-button" data-module="govuk-button" id="createLicence" name="createLicence" value="yes">
+        Continue and create licence
+      </button>
+      <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="createLicence-2" name="createLicence" value="no">
+        Return to case list
+      </button>
+    </div>
+
+  </form>
+
+
+  </div>
+</div>
+{% endblock %}
+
+
+{% block footer %}
+
+{% include "components/cvl-pp-footer/include.html" %}
+
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Probation practitioner details" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-dm-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+    
+  
+    <h1 class="govuk-heading-l">
+      Probation practitioner details
+        </h1>
+   
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+               Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Philamina Rogers
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+               Telephone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              0123456789	
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Email
+            </dt>
+            <dd class="govuk-summary-list__value">
+              sally.rooney@fake-email.com
+            </dd>
+          </div>
+        </dl> 
+        
+
+            <a href="case-list-app-needed">
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Return to case list
+          </button>
+          </a>
+
+</div>
+</div>
+
+
+
+
+{% endblock %}
+
+{% block footer %}
+
+{% include "components/cvl-dm-ca-footer/include.html" %}
+
+{% endblock %}
