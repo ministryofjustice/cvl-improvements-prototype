@@ -1,0 +1,88 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Who is the initial appointment with?" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-dm-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% include "components/prisoner-subheader/include.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+    <form action="where-appt" method="get">
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        Who is the initial appointment with?
+      </h1>
+    </legend>
+    <div id="contact-hint" class="govuk-hint">
+      Choose duty officer if you have not spoken to this person's allocated probation practitioner.
+    </div>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="hard-stop-who" name="hard-stop-who" type="radio" value="dutyOfficer">
+        <label class="govuk-label govuk-radios__label" for="hard-stop-who">
+          Duty Officer
+        </label>
+      </div>
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="hard-stop-who-2" name="hard-stop-who" type="radio" value="steven">
+        <label class="govuk-label govuk-radios__label" for="hard-stop-who-2">
+          Stephen McVeigh, this person's probation practitioner
+        </label>
+      </div>
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="hard-stop-who-3" name="hard-stop-who" type="radio" value="someoneElse" data-aria-controls="conditional-hard-stop-who-3">
+        <label class="govuk-label govuk-radios__label" for="hard-stop-who-3">
+          Someone else
+        </label>
+        <div id="someone-else-hint" class="govuk-hint govuk-radios__hint">
+          For example, someone at an approved premises or a different probation practitioner.
+        </div>
+      </div>
+      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-hard-stop-who-3">
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="hard-stop-enter-name">
+           Enter name
+          </label>
+          <input class="govuk-input govuk-!-width-three-quarters" id="hard-stop-enter-name" name="hardStopEnterName">
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+           Continue
+          </button>
+        </form>
+
+  </div>
+</div>
+
+{% endblock %}
+
+
+{% block footer %}
+
+{% include "components/cvl-dm-ca-footer/include.html" %}
+
+{% endblock %}

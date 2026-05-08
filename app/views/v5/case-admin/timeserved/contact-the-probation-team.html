@@ -1,0 +1,184 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="You must contact the probation team" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-dm-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% include "components/prisoner-subheader/include.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <div class="moj-interruption-card">
+      <div class="moj-interruption-card__content">
+        <h1 class="moj-interruption-card__heading"></h1>
+        <div class="moj-interruption-card__body">
+
+          <h1 class="govuk-heading-l" style="font-size: 36px;">You must contact the probation team</h1>
+
+          <p class="govuk-body">We cannot notify the probation team about this licence automatically.</br></br>
+            You must contact them to tell them:</p>
+      
+            <ul class="govuk-list govuk-list--bullet" style="margin-top: -10px; margin-bottom: 40px;">
+              <li>that you have created a standard licence for this person</li>
+              <li>they must review this licence after release</li>
+              <li>the date and time of the initial appointment</li>
+            </ul>
+        </div>
+        
+
+      </div>
+    </div>
+
+
+
+    <div class="govuk-form-group" style="margin-top: 50px; margin-bottom: 40px;">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <h2 class="govuk-fieldset__heading">
+            Confirm if you have contacted the probation team 
+          </h2>
+        </legend>
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="probationContact" name="probationContact" type="radio" value="alreadycontacted">
+            <label class="govuk-label govuk-radios__label" for="probationContact">
+              I have already contacted the probation team
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="probationContact-2" name="probationContact" type="radio" value="willcontact">
+            <label class="govuk-label govuk-radios__label" for="probationContact-2">
+              I will contact the probation team soon
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="probationContact-3" name="probationContact" type="radio" value="trycontact">
+            <label class="govuk-label govuk-radios__label" for="probationContact-3">
+              I cannot contact the probation team but will try again
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
+
+    <!--START set dynamic radio hide/show text-->
+    {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+    {% from "govuk/components/input/macro.njk" import govukInput %}
+
+    {% set textHtmlOther %}
+    {{ govukInput({
+      idPrefix: "methodotherdefined",
+      name: "contactnumber3",
+      classes: "govuk-fieldset__legend--s govuk-input govuk-input--width-30",
+      label: {
+        text: "Enter form of communication"
+      }
+    }) }}
+    {% endset -%}
+    <!--END set dynamic radio hide/show text-->
+
+
+    {{ govukCheckboxes({
+      idPrefix: "communicationmethod",
+      name: "communicationmethod",
+      fieldset: {
+        legend: {
+          text: "Choose a form of communication ",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      hint: {
+        text: "Telling us this helps us understand how the Prison Service and the Probation Service work together on licences for people released with time served."
+      },
+
+      items: [
+
+
+      {
+        idPrefix: "methodmail",
+        name: "methodmail",
+        text: "Email",
+        conditional: {
+          html: emailHtml
+        }
+      },
+
+      {
+        idPrefix: "methodteams",
+        name: "methodteams",
+        text: "Microsoft Teams",
+        conditional: {
+          html: emailHtml
+        }
+      },
+
+      {
+        idPrefix: "methodphone",
+        name: "methodphone",
+        text: "Phone",
+        conditional: {
+          html: emailHtml
+        }
+      },
+
+      {
+        idPrefix: "methodother",
+        name: "contactnumber4",
+        text: "Other ",
+        conditional: {
+          html: textHtmlOther
+        }
+      }
+
+
+
+      ]
+    }) }}
+
+
+
+
+    <form action="./confirmation" method="post">
+  
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+  
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</div>
+{% endblock %}
+
+
+{% block footer %}
+
+{% include "components/cvl-pp-footer/include.html" %}
+
+{% endblock %}

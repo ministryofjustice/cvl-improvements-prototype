@@ -1,0 +1,166 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Enter first night curfew hours" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-pp-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% include "components/prisoner-subheader/include.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+    <form action="./standard-hours" method="post">
+
+
+        <fieldset class="govuk-fieldset">
+
+    
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                    Enter first night curfew hours
+                </h1>
+              </legend>
+
+               <div class="govuk-hint">
+                 
+              </div>       
+
+            <div class="govuk-hint govuk-!-margin-bottom-7">
+              Standard first night curfew hours are 3pm on day of release to 7am the following day. 
+            </div>
+
+
+            <!--<h2 class="govuk-heading-m">Initial appointment</h2>
+
+            <div class="govuk-inset-text govuk-!-margin-bottom-7">
+            You set this for 2pm on Thursday, 12 February 2026.
+            </div>-->
+
+
+
+            <h2 class="govuk-heading-m">
+                Hours starting on day of release
+              </h2>
+
+                <div class="govuk-form-group">
+                  <label class="govuk-label bold" for="firstnight-start-time">
+                    Start time
+                  </label> 
+              <div class="govuk-date-input" id="firstnight-start-time">
+                <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="firstnight-start-time-hour">
+                            Hour
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2 " maxlength="2" id="firstnight-start-time-hour" name="firstnight-start-time-hour" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['firstnight-start-time-hour'] | int or '3' }}">
+                    </div>
+                </div>
+                <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="firstnight-start-time-minute">
+                            Minute
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2 " maxlength="2" id="firstnight-start-time-minute" name="firstnight-start-time-minute" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['firstnight-start-time-minute'] | int or '00' }}">
+                    </div>
+                </div>
+                <div class="govuk-date-input__item">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="firstnight-start-time-ampm">
+                            am or pm
+                        </label>
+                        <select class="govuk-select select-custom-width-am-pm" id="firstnight-start-time-ampm" name="firstnight-start-time-ampm">
+                            <option value="choose">Choose am or pm</option>
+                            <option value="am">am</option>
+                            <option value="pm" selected>pm</option>
+                          </select>
+                    </div>
+                </div>
+                <div class="govuk-date-input__item">
+                    <!-- <p>on Thursday, {{ "today" | duration(2) | govukDate(truncate=false) }}</p>
+                </div> -->
+        
+            </div>
+          
+            </div>
+          
+          
+            <div class="govuk-form-group" style="margin-top: 40px;">
+              <label class="govuk-label bold" for="firstnight-end-time">
+                End time
+              </label>
+          
+          <div class="govuk-date-input" id="firstnight-end-time">
+            <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="firstnight-end-time-hour">
+                        Hour
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-2 " maxlength="2" id="firstnight-end-time-hour" name="firstnight-end-time-hour" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['firstnight-end-time-hour'] | int or '7' }}">
+                </div>
+            </div>
+            <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="time-minute">
+                        Minute
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-2 " maxlength="2" id="firstnight-end-time-minute" name="firstnight-end-time-minute" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['firstnight-end-time-minute'] | int or '00' }}">
+                </div>
+            </div>
+            <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="firstnight-end-time-ampm">
+                        am or pm
+                    </label>
+                    <select class="govuk-select select-custom-width-am-pm" id="firstnight-end-time-ampm" name="firstnight-end-time-ampm">
+                        <option value="choose">Choose am or pm</option>
+                        <option value="am" selected>am</option>
+                        <option value="pm">pm</option>
+                      </select>
+                </div>
+            </div>
+            <!-- <div class="govuk-date-input__item">
+                <p>on Friday, {{ "today" | duration(3) | govukDate(truncate=false) }}</p>
+            </div> -->
+          </div>
+          </div>
+    
+    
+
+
+
+<div class="govuk-button-group">
+<button type="submit" class="govuk-button govuk-!-margin-top-4" data-module="govuk-button">
+  Continue
+ </button>
+ <!-- <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+  Skip this for now
+</button> -->
+</div>
+
+    </fieldset>
+          </form>
+  </div>
+</div>
+
+{% endblock %}
+
+
+{% block footer %}
+
+{% include "components/cvl-pp-footer/include.html" %}
+
+{% endblock %}

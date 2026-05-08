@@ -1,0 +1,349 @@
+{% extends "layouts/main.html" %}
+
+{% block beforeContent %}
+
+
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      Beta
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:0">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+                <h1 class="govuk-heading-xl">Search results for J50075</h1>
+
+      </div>
+</div>
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+
+
+    <div class="moj-search govuk-!-margin-bottom-8">
+
+      <form action="#" method="post">
+    
+        <div class="govuk-form-group">
+          <label class="govuk-label moj-search__label govuk-!-font-weight-bold" for="search">
+            Find a case
+          </label>
+    
+          <div id="search-hint" class="govuk-hint moj-search__hint" style="width: 400px;">
+            Search by name, CRN or probation practitioner
+          </div>
+          
+          <input class="govuk-input moj-search__input" id="search" name="search" type="search" aria-describedby="search-hint" value="J50075">
+        </div>
+    
+        <button class="govuk-button moj-search__button " data-module="govuk-button">
+          Search
+        </button>
+    
+      </form>
+    </div>
+
+
+</div>
+</div>
+
+
+
+
+
+
+<!--tabs-->
+
+
+<div class="govuk-tabs" data-module="govuk-tabs">
+  <h2 class="govuk-tabs__title">
+    Contents
+  </h2>
+  <ul class="govuk-tabs__list">
+    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+      <a class="govuk-tabs__tab" href="#people-prison">
+         People in prison (1 result)
+      </a>
+    </li>
+    <li class="govuk-tabs__list-item">
+      <a class="govuk-tabs__tab" href="#people-probation">
+        People on probation (0 results)
+      </a>
+    </li>
+  </ul>
+
+
+  <div class="govuk-tabs__panel" id="people-prison">
+    <h2 class="govuk-heading-l">People in prison (1 result)</h2>
+
+
+<table class="govuk-table govuk-!-margin-top-6">
+<thead class="govuk-table__head">
+  
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      
+      <th scope="col" class="govuk-table__header" aria-sort="none" style="width: 200px;">Name</th>
+      
+      <th scope="col" class="govuk-table__header app-custom-class" style="width:150px">Licence type</th>
+
+      <th scope="col" class="govuk-table__header app-custom-class"  aria-sort="none" style="width: 150px;">Probation practitioner</th>
+
+      <th scope="col" class="govuk-table__header app-custom-class" aria-sort="none">Team name</th>
+ 
+      <th scope="col" class="govuk-table__header app-custom-class"  aria-sort="ascending" style="width: 230px;">Release date</th>
+
+      <th scope="col" class="govuk-table__header app-custom-class"  aria-sort="none" style="width: 130px;">Status</th>
+
+    </tr>
+  </thead>
+
+  
+
+
+<tbody class="govuk-table__body">
+
+
+  
+  <tr class="govuk-table__row">
+
+    <td class="govuk-table__cell"><a href="./limited-access-offender" class="govuk-link govuk-link--no-visited-state">Access restricted on NDelius</a></br>
+      <span class="govuk-hint" style="font-size:.85em; margin-top:-10px;">CRN: J50075</span>
+    </td>
+
+    <td class="govuk-table__cell">Restricted</td>
+
+    <td class="govuk-table__cell">Restricted</td>
+
+    <td class="govuk-table__cell">Restricted</td>
+
+    <td class="govuk-table__cell">Restricted</td>
+
+    <td class="govuk-table__cell">Restricted</td>
+
+  </tr>
+ 
+
+
+
+  
+</tbody>
+</table>
+
+
+  </div>
+
+
+  <!--tab 2-->
+
+
+  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="people-probation">
+    <h2 class="govuk-heading-l">People on probation (0 results)</h2>
+   
+   
+<table class="govuk-table govuk-!-margin-top-6">
+<thead class="govuk-table__head">
+  
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      
+      <th scope="col" class="govuk-table__header" aria-sort="none" style="width: 210px;">Name</th>
+      
+      {% if data.user=="probation" %}<th scope="col" class="govuk-table__header app-custom-class" style="width: 200px;">Licence type</th>{% endif %}
+
+      {% if data.user=="admin" %}<th scope="col" class="govuk-table__header app-custom-class" >Prison number</th>{% endif %}
+     
+      <th scope="col" class="govuk-table__header app-custom-class"  aria-sort="none">Probation practitioner</th>
+
+      {% if data.user=="probation" %}<th scope="col" class="govuk-table__header app-custom-class"  aria-sort="none" style="width: 350px;">Team name</th>{% endif %}
+
+      {% if data.user=="admin" %}<th scope="col" class="govuk-table__header app-custom-class" aria-sort="none" style="width: 180px;">Location</th>{% endif %}
+ 
+      <th scope="col" class="govuk-table__header app-custom-class"  aria-sort="ascending" style="width: 230px;">Release date</th>
+
+      <th scope="col" class="govuk-table__header app-custom-class"  aria-sort="none">Status</th>
+
+    </tr>
+  </thead>
+
+  
+
+
+<tbody class="govuk-table__body">
+
+
+  
+  <tr class="govuk-table__row">
+
+    <td class="govuk-table__cell" style="width: 180px"><a href="#" class="govuk-link govuk-link--no-visited-state">James Jennings</a></br>
+      {% if data.user=="probation" %}<span class="govuk-hint" style="font-size:.85em; margin-top:-10px;">CRN: G2407U2</span>{% endif %}
+    </td>
+
+    {% if data.user=="probation" %}<td class="govuk-table__cell">Post sentence supervision</td>{% endif %}
+
+    {% if data.user=="admin" %}<td class="govuk-table__cell">G2407U2</td>{% endif %}
+
+    <td class="govuk-table__cell"><a href="#" class="govuk-link govuk-link--no-visited-state">Afsana Khan</a></td>
+
+  
+    {% if data.user=="probation" %}<td class="govuk-table__cell">Sentence Management Team C</td>{% endif %}
+
+    {% if data.user=="admin" %}<td class="govuk-table__cell">Cardiff (HMP)</td>{% endif %}
+
+    {% if (data.user=="probation") or (data.user=="admin") %}<td class="govuk-table__cell">{{ "today" | duration(-50) | govukDate("truncate") }}</td>{% endif %}
+  
+    <td class="govuk-table__cell">
+      <strong class="govuk-tag govuk-tag--turquoise">A<span style="text-transform: lowercase;">ctive</span></strong>
+    </td>
+
+  </tr>
+ 
+
+
+
+  <tr class="govuk-table__row">
+
+    <td class="govuk-table__cell" style="width: 180px"><a href="#" class="govuk-link govuk-link--no-visited-state">Kevin Jennings</a></br>
+      {% if data.user=="probation" %}<span class="govuk-hint" style="font-size:.85em; margin-top:-10px;">CRN: G761536</span>{% endif %}
+    </td>
+
+    {% if data.user=="probation" %}<td class="govuk-table__cell">Standard determinate</td>{% endif %}
+
+    {% if data.user=="admin" %}<td class="govuk-table__cell">G2407U2</td>{% endif %}
+
+    <td class="govuk-table__cell"><a href="#" class="govuk-link govuk-link--no-visited-state">Gemma Smith</a></td>
+
+  
+    {% if data.user=="probation" %}<td class="govuk-table__cell" style="width: 250px;">Sentence Management Team B</td>{% endif %}
+
+    {% if data.user=="admin" %}<td class="govuk-table__cell">Swansea (HMP)</td>{% endif %}
+
+    {% if (data.user=="probation") or (data.user=="admin") %}<td class="govuk-table__cell">{{ "today" | duration(-21) | govukDate("truncate") }}</td>{% endif %}
+  
+    <td class="govuk-table__cell">
+      <strong class="govuk-tag govuk-tag--turquoise">A<span style="text-transform: lowercase;">ctive</span></strong>
+    </td>
+
+  </tr>
+ 
+
+
+
+
+  <tr class="govuk-table__row">
+
+    <td class="govuk-table__cell" style="width: 180px"><a href="#" class="govuk-link govuk-link--no-visited-state">Louis Jennings</a></br>
+      {% if data.user=="probation" %}<span class="govuk-hint" style="font-size:.85em; margin-top:-10px;">CRN: G547951</span>{% endif %}
+    </td>
+
+    {% if data.user=="probation" %}<td class="govuk-table__cell">Standard determinate</br>Post sentence supervision</td>{% endif %}
+
+    {% if data.user=="admin" %}<td class="govuk-table__cell">G2407U2</td>{% endif %}
+
+    <td class="govuk-table__cell"><a href="#" class="govuk-link govuk-link--no-visited-state">Sophie Hill</a></td>
+
+  
+    {% if data.user=="probation" %}<td class="govuk-table__cell" style="width: 250px;">Sentence Management Team A</td>{% endif %}
+
+    {% if data.user=="admin" %}<td class="govuk-table__cell">Swansea (HMP)</td>{% endif %}
+
+    {% if (data.user=="probation") or (data.user=="admin") %}<td class="govuk-table__cell">{{ "today" | duration(-130) | govukDate("truncate") }}</td>{% endif %}
+  
+    <td class="govuk-table__cell">
+      <strong class="govuk-tag govuk-tag--yellow">V<span style="text-transform: lowercase;">ariation approved</span></strong>
+    </td>
+
+  </tr>
+
+
+
+  <tr class="govuk-table__row">
+
+    <td class="govuk-table__cell" style="width: 180px"><a href="#" class="govuk-link govuk-link--no-visited-state">Nicholas Jennings</a></br>
+      {% if data.user=="probation" %}<span class="govuk-hint" style="font-size:.85em; margin-top:-10px;">CRN: G547951</span>{% endif %}
+    </td>
+
+    {% if data.user=="probation" %}<td class="govuk-table__cell">Standard determinate</br>Post sentence supervision</td>{% endif %}
+
+    {% if data.user=="admin" %}<td class="govuk-table__cell">G2407U2</td>{% endif %}
+
+    <td class="govuk-table__cell"><a href="#" class="govuk-link govuk-link--no-visited-state">Ahmed Jorgyon</a></td>
+
+  
+    {% if data.user=="probation" %}<td class="govuk-table__cell" style="width: 250px;">Sentence Management Team A</td>{% endif %}
+
+    {% if data.user=="admin" %}<td class="govuk-table__cell">Cardiff (HMP)</td>{% endif %}
+
+    {% if (data.user=="probation") or (data.user=="admin") %}<td class="govuk-table__cell">{{ "today" | duration(-60) | govukDate("truncate") }}</td>{% endif %}
+  
+    <td class="govuk-table__cell">
+      <strong class="govuk-tag govuk-tag--turquoise">A<span style="text-transform: lowercase;">ctive</span></strong>
+    </td>
+
+  </tr>
+
+
+
+  
+  <tr class="govuk-table__row">
+
+    <td class="govuk-table__cell" style="width: 180px"><a href="#" class="govuk-link govuk-link--no-visited-state">Robert Jennings</a></br>
+      {% if data.user=="probation" %}<span class="govuk-hint" style="font-size:.85em; margin-top:-10px;">CRN: G547951</span>{% endif %}
+    </td>
+
+    {% if data.user=="probation" %}<td class="govuk-table__cell">Standard determinate</td>{% endif %}
+
+    {% if data.user=="admin" %}<td class="govuk-table__cell">G2407U2</td>{% endif %}
+
+    <td class="govuk-table__cell"><a href="#" class="govuk-link govuk-link--no-visited-state">Jessica King</a></td>
+
+  
+    {% if data.user=="probation" %}<td class="govuk-table__cell" style="width: 250px;">Sentence Management Team A</td>{% endif %}
+
+    {% if data.user=="admin" %}<td class="govuk-table__cell">Cardiff (HMP)</td>{% endif %}
+
+    {% if (data.user=="probation") or (data.user=="admin") %}<td class="govuk-table__cell">{{ "today" | duration(-100) | govukDate("truncate") }}</td>{% endif %}
+  
+    <td class="govuk-table__cell">
+      <strong class="govuk-tag govuk-tag--pink" style="width: 180px">V<span style="text-transform: lowercase;">ariation submitted</span></strong>
+    </td>
+
+  </tr>
+
+
+
+
+
+  
+</tbody>
+</table>
+
+
+
+
+  </div>
+
+
+ 
+
+
+  
+
+
+
+
+{% endblock %}
+
