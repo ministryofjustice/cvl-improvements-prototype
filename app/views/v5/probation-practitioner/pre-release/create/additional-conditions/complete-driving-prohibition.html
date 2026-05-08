@@ -34,7 +34,158 @@
 
     <p>Not to use [TYPE(S)/ANY MOTOR VEHICLE] [AT ANY TIME / OUTSIDE OF A SPECIFIED TIME] [AT ANY LOCATION / IN A SPECIFIED LOCATION] without the prior permission of your supervising officer. </p>
 
-     
+
+    <!--MOTOR VEHICLE start-->
+
+    <!--START set dynamic radio hide/show text-->
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+    {% from "govuk/components/input/macro.njk" import govukInput %}
+
+    {% set typemotorvehicleHtmlOther %}
+    {{ govukInput({
+      id: "entermotorvehicle",
+      name: "entermotorvehicle",
+      classes: "govuk-fieldset__legend--s govuk-input govuk-input--width-30",
+      label: {
+        text: "Enter"
+      }
+    }) }}
+    {% endset -%}
+
+    <!--END set dynamic radio hide/show text-->
+
+    {{ govukRadios({
+      idPrefix: "motorvehicle",
+      name: "motorvehicle",
+      fieldset: {
+        legend: {
+          text: "Select",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--s"
+        }
+      },
+
+      items: [
+      {
+        value: "typemotorvehicle",
+        text: "Type(s)",
+        conditional: {
+          html: typemotorvehicleHtmlOther
+        }
+      },
+      {
+        value: "anymotorvehicle",
+        text: "Any motor vehicle",
+        conditional: {
+          html: anymotorvehicleHtml
+        }
+      }
+      ]
+    }) }}
+
+    <!--MOTOR VEHICLE end-->
+
+
+    <!--TIME start-->
+
+    <!--START set dynamic radio hide/show text-->
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+    {% from "govuk/components/input/macro.njk" import govukInput %}
+
+    {% set specifiedtimeHtmlOther %}
+    {{ govukInput({
+      id: "entertime",
+      name: "entertime",
+      classes: "govuk-fieldset__legend--s govuk-input govuk-input--width-30",
+      label: {
+        text: "Enter"
+      }
+    }) }}
+    {% endset -%}
+
+    <!--END set dynamic radio hide/show text-->
+
+    {{ govukRadios({
+      idPrefix: "time",
+      name: "time",
+      fieldset: {
+        legend: {
+          text: "Select",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--s"
+        }
+      },
+
+      items: [
+      {
+        value: "atanytime",
+        text: "At any time",
+        conditional: {
+          html: atanytimeHtml
+        }
+      },
+      {
+        value: "specifiedtime",
+        text: "Outside of a specified time",
+        conditional: {
+          html: specifiedtimeHtmlOther
+        }
+      }
+      ]
+    }) }}
+
+    <!--TIME end-->
+
+
+    <!--LOCATION start-->
+
+    <!--START set dynamic radio hide/show text-->
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+    {% from "govuk/components/input/macro.njk" import govukInput %}
+
+    {% set specifiedlocationHtmlOther %}
+    {{ govukInput({
+      id: "location",
+      name: "location",
+      classes: "govuk-fieldset__legend--s govuk-input govuk-input--width-30",
+      label: {
+        text: "Enter"
+      }
+    }) }}
+    {% endset -%}
+
+    <!--END set dynamic radio hide/show text-->
+
+    {{ govukRadios({
+      idPrefix: "motorvehicle",
+      name: "motorvehicle",
+      fieldset: {
+        legend: {
+          text: "Select",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--s"
+        }
+      },
+
+      items: [
+      {
+        value: "anylocation",
+        text: "At any location",
+        conditional: {
+          html: anylocationHtml
+        }
+      },
+      {
+        value: "specifiedlocation",
+        text: "In a specified location",
+        conditional: {
+          html: specifiedlocationHtmlOther
+        }
+      }
+      ]
+    }) }}
+
+    <!--LOCATION end-->
 
   </fieldset>
 </div>
