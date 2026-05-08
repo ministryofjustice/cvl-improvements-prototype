@@ -14,6 +14,10 @@
 
 {% block content %}
 
+
+  
+
+
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
     
@@ -198,7 +202,7 @@
     </tr>
 
 
-     <tr class="govuk-table__row">
+    <tr class="govuk-table__row">
 
       <td class="govuk-table__cell">
         <a href="./licence-history?prisoner=halevary" class="govuk-link--no-visited-state pp-caselist-name">Hale Draven Corvath</a>
@@ -210,6 +214,27 @@
       <td class="govuk-table__cell" data-sort-value="3">
         HDC actual date:</br>
         {{ "today" | duration(0) | govukDate(truncate=true) }}
+      </td>
+       
+      <td class="govuk-table__cell">
+        <strong class="govuk-tag govuk-tag--turquoise status-badge">Active</strong> 
+      </td>
+
+    </tr>
+
+
+    <tr class="govuk-table__row">
+
+      <td class="govuk-table__cell">
+        <a href="./licence-history?prisoner=henryvary" class="govuk-link--no-visited-state pp-caselist-name">Henry Morgan</a>
+        <span class="govuk-!-font-size-16 pp-caselist-crn">CRN: M24OR67</span>
+      </td>
+
+      <!--<td class="govuk-table__cell">Standard determinate</td>-->
+
+      <td class="govuk-table__cell" data-sort-value="3">
+        HDC actual date:</br>
+        {{ "today" | duration(-22) | govukDate(truncate=true) }}
       </td>
        
       <td class="govuk-table__cell">
