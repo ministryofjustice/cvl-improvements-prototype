@@ -296,7 +296,8 @@
 
 
           {% else %}  
-          <div class="govuk-!-margin-bottom-9 govuk-!-margin-top-8">
+          <div class="govuk-!-padding-bottom-9 govuk-!-padding-top-8">
+
             <h2 class="govuk-heading-m" style="display: inline;">
               Additional licence conditions (0)
                 </h2>
@@ -305,6 +306,11 @@
                     Add conditions
                   </button>
                 </a>
+  
+                  <p class="govuk-body" style="margin-top: 20px; margin-bottom: 60px;">No additional licence conditions added</p>
+  
+                  <hr class="govuk-section-break govuk-section-break--visible">
+  
           </div>
           {% endif %}  
   
@@ -341,7 +347,114 @@
                   </div>
                 </dl>
           </div>
-          {% else %}  
+          {% elif data['prisoner'] == 'henryvary' %}  
+
+          <div class="govuk-!-margin-bottom-9">
+            <h2 class="govuk-heading-m">
+              Bespoke licence conditions (9)
+                </h2>
+  
+                 <a href="../../../../_common/not-testing.html">
+                    <button type="submit" style="float: right; margin-top: -55px" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                      Add or remove conditions
+                    </button>
+                  </a>
+
+
+
+                  <div class="govuk-inset-text" style="margin-bottom: 40px;">
+                  Additional conditions from the HDC service are shown as bespoke conditions in this service.</br>
+                You can delete these bespoke conditions and replace them with alternative additional conditions</br>
+                so the licence uses the most up-to-date wording.
+                  </div>  
+
+
+                <!--<p>Additional conditions from the HDC service are shown as bespoke conditions in this service.</br>
+                You can delete these bespoke conditions and replace them with alternative additional conditions</br>
+                so the licence uses the most up-to-date wording.</p>-->
+
+                
+ 
+  
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Bespoke condition	
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      You must reside within East Midlands while of no fixed abode, unless otherwise approved by your supervising officer.
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Bespoke condition	
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Attend all appointments arranged for you with a medical practitioner and co-operate fully with any care or treatment they recommend.
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Bespoke condition	
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Not to contact or associate with Hale Draven Corvath without the prior approval of your supervising officer.
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Bespoke condition	
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Not to contact or associate with a known sex offender other than when compelled by attendance at a Treatment Programme or when residing at Approved Premises without the prior approval of your supervising officer.
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Bespoke condition	
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Not to contact directly or indirectly any person who is a serving or remand prisoner or detained in State custody, without the prior approval of your supervising officer.
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Bespoke condition	
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Not to associate with any person currently or formerly associated with local protests without the prior approval of your supervising officer.
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Bespoke condition	
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      To comply with any requirements specified by your supervising officer for the purpose of ensuring that you address your gambling, debt and prolificproblems at the support centre.
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Bespoke condition	
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data['bespokeDetail'] or "Do not use any ATMs" }}
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Bespoke condition	
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data['bespokeDetail'] or "Do not enter your local park" }}
+                    </dd>
+                  </div>
+                </dl>
+          </div>
+
+
+
+          {% else %}    
   
           <div class="govuk-!-margin-bottom-9">
             <h2 class="govuk-heading-m" style="display: inline;">
