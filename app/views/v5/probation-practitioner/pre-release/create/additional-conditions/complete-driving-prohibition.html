@@ -92,15 +92,49 @@
     {% from "govuk/components/radios/macro.njk" import govukRadios %}
     {% from "govuk/components/input/macro.njk" import govukInput %}
 
+  
     {% set specifiedtimeHtmlOther %}
-    {{ govukInput({
-      id: "entertime",
-      name: "entertime",
-      classes: "govuk-fieldset__legend--s govuk-input govuk-input--width-30",
-      label: {
-        text: "Enter"
-      }
-    }) }}
+    <div class="govuk-form-group">
+    <div class="time-picker">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+      <h1 class="govuk-fieldset__heading">
+        Enter
+      </h1>
+    </legend>
+    <!--<div id="passport-issued-hint" class="govuk-hint">
+    For example, 9:30am or 2:55pm
+    </div>-->
+    <div class="govuk-date-input" id="passport-issued">
+    <div class="govuk-date-input__item">
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+          Hour
+        </label>
+        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+    </div>
+    <div class="govuk-date-input__item">
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+          Minute
+        </label>
+        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+    </div>
+    <div class="govuk-date-input__item">
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+          am or pm
+        </label>
+        <select class="govuk-select" id="when-am" name="when-am">
+          <option value="am" selected>am</option>
+          <option value="pm">pm</option>
+
+        </select>
+      </div>
+    </div>
+    </div>
+    <br /><br />
+    </div>
+    </div>
     {% endset -%}
 
     <!--END set dynamic radio hide/show text-->
