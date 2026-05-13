@@ -27,6 +27,27 @@ router.post(version + '/are-you-sure-answer2', function(request, response) {
 })
 
 
+//Additional conditions
+//Restriction zone
+//Delete this condition
+
+// Run this code when a form is submitted to 'parole-outcome-letter-answer'
+router.post(version + '/delete-restrictionzone', function (req, res) {
+
+  // Make a variable and give it the value from 'how-many-letters'
+  var deleterestrictionzone = req.session.data['deleterestrictionzone']
+  // Check whether the variable matches a condition
+  if (deleterestrictionzone == "yes"){
+    // Send user to overview with removed map
+    res.redirect(version + '/probation-practitioner/pre-release/create/additional-conditions/complete-restriction-zone/8a-overview')
+  } else {
+    // Send user back to overview page
+    res.redirect(version + '/probation-practitioner/pre-release/create/additional-conditions/complete-restriction-zone/8a-overview')
+  }
+
+})
+
+
 
 // HDC Curfew hours
 
