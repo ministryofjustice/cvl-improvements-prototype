@@ -1,0 +1,82 @@
+{% extends "layouts/main.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block beforeContent %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% include "components/prisoner-subheader/include.html" %}
+{% endblock %}
+
+{% block content %}
+
+
+
+
+<form action="8a-overview" method="post">
+
+
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <h1 class="govuk-fieldset__heading">Complete the licence condition</h1>
+      </legend>
+
+      <p>Not to leave the area as defined by the attached map without the prior approval of your supervising officer.</p>
+
+        <div class="govuk-form-group" style="margin-top: 30px;">
+          <label class="govuk-label" for="file-upload-1">
+            <strong>Select a PDF map of the area this person must not enter</strong>
+          </label>
+            <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
+        </div>  
+
+    </fieldset>
+   </div>
+
+
+
+
+    <h2 class="govuk-heading-m" style="margin-top: 50px;">Help with this licence condition<h2>
+
+    <details class="govuk-details" data-module="govuk-details" style="margin-top: 20px;">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          If you need to add more than one map
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+       Add your first map on this page. You can add more from the next page.
+      </div>
+    </details>
+
+    <details class="govuk-details" data-module="govuk-details" style="margin-top: -20px;">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          If you do not have a map
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        You can create one on <a class="govuk-link govuk-link--no-visited-state" href="">Map Maker</a>.
+      </div>
+    </details>
+
+
+
+    <div class="govuk-button-group" style="margin-top: 60px;">
+    <button class="govuk-button" data-module="govuk-button" name="submit" value="continue">
+      Continue
+    </button>
+
+    <input type="hidden" value="no" name="8a">
+    {%if data.vary!=="yes"%}
+    <button class="govuk-button govuk-button--secondary" data-module="govuk-button" name="submit" value="exit">
+      Delete this condition
+    </button>
+    {% endif %}
+    </div>
+
+  </form>
+
+{% endblock %}
