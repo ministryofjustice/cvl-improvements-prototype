@@ -32,7 +32,7 @@
       </h1>
     </legend>
 
-    <p>Not to use [TYPE(S)/ANY MOTOR VEHICLE] [AT ANY TIME / OUTSIDE OF A SPECIFIED TIME] [AT ANY LOCATION / IN A SPECIFIED LOCATION] without the prior permission of your supervising officer. </p>
+    <p>Not to use [TYPES / ANY MOTOR VEHICLE] [AT ANY TIME / OUTSIDE OF A SPECIFIED TIME] [AT ANY LOCATION / IN A SPECIFIED LOCATION] without the prior permission of your supervising officer. </p>
 
 
     <!--MOTOR VEHICLE start-->
@@ -47,7 +47,7 @@
       name: "entermotorvehicle",
       classes: "govuk-fieldset__legend--s govuk-input govuk-input--width-30",
       label: {
-        text: "Enter"
+        text: "Enter types of motor vehicle"
       }
     }) }}
     {% endset -%}
@@ -59,7 +59,7 @@
       name: "motorvehicle",
       fieldset: {
         legend: {
-          text: "Select",
+          text: "Select one option",
           isPageHeading: true,
           classes: "govuk-fieldset__legend--s"
         }
@@ -68,7 +68,7 @@
       items: [
       {
         value: "typemotorvehicle",
-        text: "Type(s)",
+        text: "Types of motor vehicle",
         conditional: {
           html: typemotorvehicleHtmlOther
         }
@@ -98,7 +98,7 @@
     <div class="time-picker">
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
       <h1 class="govuk-fieldset__heading">
-        Enter
+        Enter time
       </h1>
     </legend>
     <!--<div id="passport-issued-hint" class="govuk-hint">
@@ -144,7 +144,7 @@
       name: "time",
       fieldset: {
         legend: {
-          text: "Select",
+          text: "Select one option",
           isPageHeading: true,
           classes: "govuk-fieldset__legend--s"
         }
@@ -183,7 +183,7 @@
       name: "location",
       classes: "govuk-fieldset__legend--s govuk-input govuk-input--width-30",
       label: {
-        text: "Enter"
+        text: "Enter location"
       }
     }) }}
     {% endset -%}
@@ -195,7 +195,7 @@
       name: "motorvehicle",
       fieldset: {
         legend: {
-          text: "Select",
+          text: "Select one option",
           isPageHeading: true,
           classes: "govuk-fieldset__legend--s"
         }
