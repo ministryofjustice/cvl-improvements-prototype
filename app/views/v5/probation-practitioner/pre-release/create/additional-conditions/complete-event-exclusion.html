@@ -32,7 +32,7 @@
       </h1>
     </legend>
 
-    <p>Not to attend [ANY PUBLIC EVENT / TYPE OF PUBLIC EVENT] at [ANY TIME / SPECIFIED TIMES] without the approval of your supervising officer. </p>
+    <p>Not to attend [ANY PUBLIC EVENT / SPECIFIC TYPE OF PUBLIC EVENT] at [ANY TIME / SPECIFIED TIMES] without the approval of your supervising officer. </p>
 
 
 
@@ -62,7 +62,7 @@
       name: "publicevent",
       fieldset: {
         legend: {
-          text: "Select one option",
+          text: "Event type",
           isPageHeading: true,
           classes: "govuk-fieldset__legend--s"
         }
@@ -78,7 +78,7 @@
       },
       {
         value: "typepublicevent",
-        text: "Type of public event",
+        text: "Specific type of public event",
         conditional: {
           html: typepubliceventHtmlOther
         }
@@ -270,7 +270,7 @@
       name: "time",
       fieldset: {
         legend: {
-          text: "Select one option",
+          text: "Time restriction",
           isPageHeading: true,
           classes: "govuk-fieldset__legend--s"
         }

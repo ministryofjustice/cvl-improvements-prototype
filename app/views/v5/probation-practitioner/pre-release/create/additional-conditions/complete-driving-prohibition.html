@@ -55,11 +55,11 @@
     <!--END set dynamic radio hide/show text-->
 
     {{ govukRadios({
-      idPrefix: "motorvehicle",
-      name: "motorvehicle",
+      idPrefix: "location",
+      name: "location",
       fieldset: {
         legend: {
-          text: "Select one option",
+          text: "Vehicle types",
           isPageHeading: true,
           classes: "govuk-fieldset__legend--s"
         }
@@ -67,17 +67,17 @@
 
       items: [
       {
-        value: "typemotorvehicle",
-        text: "Types of motor vehicle",
-        conditional: {
-          html: typemotorvehicleHtmlOther
-        }
-      },
-      {
         value: "anymotorvehicle",
         text: "Any motor vehicle",
         conditional: {
           html: anymotorvehicleHtml
+        }
+      },
+      {
+        value: "typemotorvehicle",
+        text: "Specific types of motor vehicle",
+        conditional: {
+          html: typemotorvehicleHtmlOther
         }
       }
       ]
@@ -144,7 +144,7 @@
       name: "time",
       fieldset: {
         legend: {
-          text: "Select one option",
+          text: "Time restriction",
           isPageHeading: true,
           classes: "govuk-fieldset__legend--s"
         }
@@ -195,7 +195,7 @@
       name: "motorvehicle",
       fieldset: {
         legend: {
-          text: "Select one option",
+          text: "Location restriction",
           isPageHeading: true,
           classes: "govuk-fieldset__legend--s"
         }
