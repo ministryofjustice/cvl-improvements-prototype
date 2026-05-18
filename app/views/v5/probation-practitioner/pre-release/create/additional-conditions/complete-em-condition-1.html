@@ -31,13 +31,11 @@
         Complete the licence condition
       </h1>
     </legend>
-      <p>Allow person(s) as designated by your supervising officer to install an electronic monitoring tag on you and access to install any associated equipment in your property, and for the purpose of ensuring that equipment is functioning correctly. You must not damage or tamper with these devices and ensure that the tag is charged, and report to your supervising officer and the EM provider immediately if the tag or the associated equipment are not working correctly. This will be for the purpose of monitoring your [INSERT TYPES OF CONDITIONS TO BE ELECTRONICALLY MONITORED HERE] licence condition(s) unless otherwise authorised by your supervising officer.</p>
+      <p>Your electronic monitoring tag will be checking [CONDITIONS TO BE MONITORED].</p>
    
-       <div id="hint" class="govuk-hint hint-condition-custom">
-      Select all that apply
-      </div>
-
-      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+      <div id="hint" class="govuk-hint hint-condition-custom" style="padding-top: 20px;">Select all that apply
+    
+      <div class="govuk-checkboxes" data-module="govuk-checkboxes" style="margin-top: 15px;">
       <div class="govuk-checkboxes__item">
         <input class="govuk-checkboxes__input" id="condition-tag" name="condition-tag" type="checkbox" value="exclusion">
         <label class="govuk-label govuk-checkboxes__label" for="condition-tag">
@@ -75,6 +73,50 @@
         </label>
       </div>
     </div>
+
+
+<div class="govuk-form-group govuk-!-margin-top-8">
+  <fieldset class="govuk-fieldset" role="group" aria-describedby="trail-monitoring-hint">
+    <legend class="govuk-fieldset__legend hint-condition-custom">
+      Enter the end date
+    </legend>
+    <div id="passport-issued-hint" class="govuk-hint">
+      For example, 18 05 2026
+    </div>
+    <div class="govuk-date-input" id="trail-monitoring">
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="trail-monitoring-day">
+            Day
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="trail-monitoring-day" name="trail-monitoring-day" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="trail-monitoring-month">
+            Month
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="trail-monitoring-month" name="trail-monitoring-month" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="trail-monitoring-year">
+            Year
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="trail-monitoring-year" name="trail-monitoring-year" type="text" inputmode="numeric">
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+
+
+
+
+
   </fieldset>
 </div>
 <div class="govuk-button-group">
