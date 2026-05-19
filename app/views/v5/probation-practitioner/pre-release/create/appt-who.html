@@ -40,6 +40,17 @@
 {% endset -%}
 
 
+{% set textHtmlnoapp %}
+{{ govukInput({
+  name: "who4",
+  classes: "govuk-fieldset__legend--s govuk-input govuk-input--width-30",
+  label: {
+    text: "Enter"
+  }
+}) }}
+{% endset -%}
+
+
 {{ govukRadios({
   
   fieldset: {
@@ -71,6 +82,16 @@
     },
     conditional: {
       html: textHtmlOther
+    }
+
+  },
+
+
+  {
+    name: "who4",
+    text: "No app",
+    conditional: {
+      html: textHtmlnoapp
     }
 
   }
