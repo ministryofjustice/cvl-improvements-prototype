@@ -22,7 +22,7 @@
 
 
 
-    <form action="where-appt" method="get">
+    <form action="appt-where/empty-state" method="get">
 
 <div class="govuk-form-group">
   <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
@@ -32,7 +32,7 @@
       </h1>
     </legend>
     <div id="contact-hint" class="govuk-hint">
-      Choose duty officer if you have not spoken to this person's allocated probation practitioner.
+      Choose duty officer if you have not spoken to this person’s community probation practitioner or if a community probation practitioner has not been allocated.
     </div>
     <div class="govuk-radios" data-module="govuk-radios">
       <div class="govuk-radios__item">
@@ -45,7 +45,7 @@
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="hard-stop-who-2" name="hard-stop-who" type="radio" value="steven">
         <label class="govuk-label govuk-radios__label" for="hard-stop-who-2">
-          Stephen McVeigh, this person's probation practitioner
+          Stephen McVeigh, this person’s community probation practitioner
         </label>
       </div>
 
@@ -55,7 +55,7 @@
           Someone else
         </label>
         <div id="someone-else-hint" class="govuk-hint govuk-radios__hint">
-          For example, someone at an approved premises or a different probation practitioner.
+          For example, someone at an approved premises or a different community probation practitioner.
         </div>
       </div>
       <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-hard-stop-who-3">
