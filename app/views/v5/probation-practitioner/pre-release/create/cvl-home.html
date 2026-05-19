@@ -17,8 +17,8 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
 
-<!--standard recall banner-->
-
+    <!--standard recall banner START-->
+    {% if data['banner'] == 'standardrecall' %}
     <div role="region" class="moj-alert moj-alert--information moj-alert--with-heading" aria-label="information: The finance section has moved" data-module="moj-alert" style="margin-bottom: 60px;">
         <div>
         <svg class="moj-alert__icon" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" height="30" width="30">
@@ -33,6 +33,8 @@
         <button class="moj-alert__dismiss" hidden>Dismiss</button>
       </div>
     </div>
+    {% endif %}
+    <!--standard recall banner END-->
 
     
     <h1 class="govuk-heading-l">Create and vary a licence</h1>
