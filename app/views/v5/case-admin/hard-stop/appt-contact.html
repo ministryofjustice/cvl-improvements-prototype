@@ -5,7 +5,7 @@
 {% set htmlClasses = 'app-width-wide' %}
 
 {% block header %}
-{% include "components/cvl-dm-header/include.html" %}
+{% include "components/cvl-pp-header/include.html" %}
 {% endblock %}
 
 {%- block beforeContent -%}
@@ -22,7 +22,7 @@
 
 
 
-    <form action="when-appt" method="get">
+    <form action="./appt-when" method="get">
 
     <div class="govuk-form-group">
       <h1 class="govuk-label-wrapper">
@@ -30,14 +30,21 @@
           What is the contact phone number for the initial appointment?
         </label>
       </h1>
-      <div id="event-name-hint" class="govuk-hint">
+
+      <label class="govuk-label govuk-!-margin-top-6" for="phonenumber">
         UK phone number
-      </div>
-      <input class="govuk-input govuk-!-width-one-half" id="contact-number" name="contactNumber" type="text">
+      </label>
+      <input class="govuk-input govuk-!-width-one-half" id="phone-number" name="phoneNumber" type="text">
+
+      <label class="govuk-label govuk-!-margin-top-6" for="alternativephonenumber">
+        Alternative UK phone number (optional)
+      </label>
+      <input class="govuk-input govuk-!-width-one-half" id="alternative-phone-number" name="AlternativePhoneNumber" type="text">
+      
     </div>
 
 
-          <button type="submit" class="govuk-button" data-module="govuk-button">
+          <button type="submit" class="govuk-button govuk-!-margin-top-2" data-module="govuk-button">
            Continue
           </button>
         </form>
@@ -50,6 +57,6 @@
 
 {% block footer %}
 
-{% include "components/cvl-dm-ca-footer/include.html" %}
+{% include "components/cvl-pp-footer/include.html" %}
 
 {% endblock %}
