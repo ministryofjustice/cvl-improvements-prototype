@@ -32,7 +32,7 @@
       </h1>
     </legend>
 
-    <p>Not to attend [ANY PUBLIC EVENT / TYPES OF PUBLIC EVENT] at [ANY TIME / SPECIFIED TIMES] without the approval of your supervising officer. </p>
+    <p>Not to attend [ANY PUBLIC EVENT / TYPES OF PUBLIC EVENT] [AT ANY TIME / BETWEEN SPECIFIED TIMES] without the prior approval of your supervising officer. </p>
 
 
 
@@ -50,7 +50,7 @@
       name: "location",
       classes: "govuk-fieldset__legend--s govuk-input govuk-input--width-30",
       label: {
-        text: "Enter types of public event"
+        text: "Enter one or more types of public event"
       }
     }) }}
     {% endset -%}
@@ -198,14 +198,14 @@
       items: [
       {
         value: "anytime",
-        text: "Any time",
+        text: "At any time",
         conditional: {
           html: anytimeHtml
         }
       },
       {
         value: "specifiedtime",
-        text: "Specified times",
+        text: "Between specified times",
         conditional: {
           html: specifiedtimeHtmlOther
         }
