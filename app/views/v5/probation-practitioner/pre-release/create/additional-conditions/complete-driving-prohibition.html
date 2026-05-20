@@ -32,7 +32,7 @@
       </h1>
     </legend>
 
-    <p>Not to use [TYPES / ANY MOTOR VEHICLE] [AT ANY TIME / OUTSIDE OF A SPECIFIED TIME] [AT ANY LOCATION / IN A SPECIFIED LOCATION] without the prior permission of your supervising officer. </p>
+    <p>Not to use [ANY MOTOR VEHICLE / TYPES OF MOTOR VEHICLE] [AT ANY TIME / BETWEEN SPECIFIED TIMES] [AT ANY LOCATION / IN SPECIFIED LOCATIONS] without the prior approval of your supervising officer. </p>
 
 
     <!--MOTOR VEHICLE start-->
@@ -47,7 +47,7 @@
       name: "entermotorvehicle",
       classes: "govuk-fieldset__legend--s govuk-input govuk-input--width-30",
       label: {
-        text: "Enter types of motor vehicle"
+        text: "Enter one or more types of motor vehicle"
       }
     }) }}
     {% endset -%}
@@ -282,7 +282,7 @@
       },
       {
         value: "specifiedtime",
-        text: "Outside of a specified time",
+        text: "Between specified times",
         conditional: {
           html: specifiedtimeHtmlOther
         }
@@ -305,7 +305,7 @@
       name: "location",
       classes: "govuk-fieldset__legend--s govuk-input govuk-input--width-30",
       label: {
-        text: "Enter locations"
+        text: "Enter one or more locations"
       }
     }) }}
     {% endset -%}
@@ -333,7 +333,7 @@
       },
       {
         value: "specifiedlocation",
-        text: "In a specified location",
+        text: "In specified locations",
         conditional: {
           html: specifiedlocationHtmlOther
         }
