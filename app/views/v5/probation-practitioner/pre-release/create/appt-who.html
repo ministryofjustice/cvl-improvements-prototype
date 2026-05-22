@@ -25,6 +25,8 @@
 </div>
 
 
+{% if data['prisoner'] == 'marcus' %}
+
 <!--START set dynamic radio hide/show text-->
 {% from "govuk/components/radios/macro.njk" import govukRadios %}
 {% from "govuk/components/input/macro.njk" import govukInput %}
@@ -101,7 +103,64 @@
 }) }}
 
 
+{% else %}
 
+<!--START set dynamic radio hide/show text-->
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% set textHtmlOther %}
+{{ govukInput({
+  name: "who4",
+  classes: "govuk-fieldset__legend--s govuk-input govuk-input--width-30",
+  label: {
+    text: "Enter name"
+  }
+}) }}
+{% endset -%}
+
+
+{{ govukRadios({
+  
+  fieldset: {
+    legend: {
+      name: "apptwho",
+      text: "",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+
+  items: [
+  {
+    name: "who1",
+    text: "	Philamina Rogers, this person's community probation practitioner"
+  },
+
+  {
+    name: "who1",
+    text: "Duty officer"
+  },
+
+
+  {
+    name: "who3",
+    text: "Someone else",
+    hint: {
+      text: "For example, someone at an approved premises or a different probation practitioner."
+    },
+    conditional: {
+      html: textHtmlOther
+    }
+
+  }
+
+
+  ]
+}) }}
+
+
+{% endif %}
 
 
 <form method="" action="./appt-where/saved-addresses">

@@ -28,7 +28,9 @@
           Name
         </dt>
         <dd class="govuk-summary-list__value">
-          {% if data['prisoner'] == 'sean' %} 
+          {% if data['prisoner'] == 'marcus' %}
+          Marcus Lane
+          {% elif data['prisoner'] == 'sean' %} 
           Sean Rejard
           {% elif data['prisoner'] == 'sonny' %} 
           Sonny Ottar
@@ -50,7 +52,9 @@
           CRN
         </dt>
         <dd class="govuk-summary-list__value">
-          {% if data['prisoner'] == 'sean' %} 
+          {% if data['prisoner'] == 'marcus' %}
+          L29A90N
+          {% elif data['prisoner'] == 'sean' %} 
           R21E99J
           {% elif data['prisoner'] == 'sonny' %} 
           O34P43T
@@ -76,7 +80,9 @@
           {% endif %}
         </dt>
         <dd class="govuk-summary-list__value">
-          {% if data['prisoner'] == 'sean' %}
+          {% if data['prisoner'] == 'marcus' %}
+          [Weekday] {{ "today" | duration(3) | govukDate(truncate=false) }}
+          {% elif data['prisoner'] == 'sean' %}
           Tuesday {{ "today" | duration(14) | govukDate(truncate=false) }}
           {% elif data['prisoner'] == 'sonny' %}
           Thursday {{ "today" | duration(14) | govukDate(truncate=false) }}
