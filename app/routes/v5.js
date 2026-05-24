@@ -27,6 +27,21 @@ router.post(version + '/are-you-sure-answer2', function(request, response) {
 })
 
 
+// Inital appointment needed
+
+router.post(version + '/appointmentNeeded', function(request, response) {
+
+    var appointmentNeeded = request.session.data['appointmentNeeded']
+    if (appointmentNeeded == "yes"){
+        response.redirect(version + "/probation-practitioner/pre-release/create/appt-who")
+    } else {
+        response.redirect(version + "/probation-practitioner/pre-release/create/appt-not-needed/appt-who")
+    }
+})
+
+
+
+
 //Additional conditions
 //Restriction zone
 //Delete this condition
