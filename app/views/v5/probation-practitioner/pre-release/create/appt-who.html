@@ -54,18 +54,18 @@
 
   items: [
   {
-    name: "who1",
+    name: "practitioner",
     text: "	Philamina Rogers, this person's community probation practitioner"
   },
 
   {
-    name: "who1",
+    name: "duty",
     text: "Duty officer"
   },
 
 
   {
-    name: "who3",
+    name: "someone-else",
     text: "Someone else",
     hint: {
       text: "For example, someone at an approved premises or a different probation practitioner."
@@ -82,10 +82,10 @@
 
 
   {
-    name: "who4",
+    name: "no-appointment",
     text: "No appointment needed",
     hint: {
-      html: "We will add the community probation practitioner's name to the licence. <br>This is so the person knows who to contact for support."
+      html: "We will add the community probation practitioner's name to the licence and ask for some contact details. <br>This is so the person knows who to contact for support."
     }
   }
 
@@ -154,7 +154,7 @@
 {% endif %}
 
 
-<form method="" action="./appt-where/saved-addresses">
+<form method="post" action="./appt-where/saved-addresses">
 
 <button type="submit" class="govuk-button" data-module="govuk-button">Continue</button>
 

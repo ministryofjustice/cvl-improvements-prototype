@@ -31,14 +31,35 @@ router.post(version + '/are-you-sure-answer2', function(request, response) {
 
 router.post(version + '/appointmentNeeded', function(request, response) {
 
-    var appointmentNeeded = request.session.data['appointmentNeeded']
+    var appointmentNeeded = request.session.data['appointmentNeeded'];
+    
     if (appointmentNeeded == "yes"){
+        // request.session.data['appointmentNeeded'] = 'yes';
         response.redirect(version + "/probation-practitioner/pre-release/create/appt-who")
-    } else {
-        response.redirect(version + "/probation-practitioner/pre-release/create/appt-not-needed/appt-who")
+    } else if (appointmentNeeded == "no") {
+        // request.session.data['prisoner'] = 'adrian';
+        // request.session.data['appointmentNeeded'] = 'no';
+        response.redirect(version + "/probation-practitioner/pre-release/create/appt-where/saved-addresses")
     }
 })
 
+
+router.post(version + '/apptwho', function(request, response) {
+
+    var apptwho = request.session.data['apptwho'];
+    if (apptwho == "practitioner" || apptwho == "duty" || apptwho == "someone-else") {
+
+        response.redirect(
+          version + "/probation-practitioner/pre-release/create/appt-where/saved-addresses"
+        )
+    } else if (apptwho == "no-appointment") {
+
+        response.redirect(
+          version + "/probation-practitioner/pre-release/create/appt-contact/saved-addresses"
+        )
+    }
+
+});
 
 
 
