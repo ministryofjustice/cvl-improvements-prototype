@@ -41,18 +41,6 @@
 }) }}
 {% endset -%}
 
-
-{% set textHtmlnoapp %}
-{{ govukInput({
-  name: "who4",
-  classes: "govuk-fieldset__legend--s govuk-input govuk-input--width-30",
-  label: {
-    text: "Enter"
-  }
-}) }}
-{% endset -%}
-
-
 {{ govukRadios({
   
   fieldset: {
@@ -88,14 +76,17 @@
 
   },
 
+      {
+      divider: "or"
+    },
+
 
   {
     name: "who4",
-    text: "No app",
-    conditional: {
-      html: textHtmlnoapp
+    text: "No appointment needed",
+    hint: {
+      html: "We will add the community probation practitioner's name to the licence. <br>This is so the person knows who to contact for support."
     }
-
   }
 
 
