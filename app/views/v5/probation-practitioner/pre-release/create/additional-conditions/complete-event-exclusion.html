@@ -104,7 +104,7 @@
     <div class="time-picker">
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
       <h1 class="govuk-fieldset__heading">
-         Enter start time
+         Enter first start time
       </h1>
     </legend>
     <!--<div id="passport-issued-hint" class="govuk-hint">
@@ -143,7 +143,7 @@
     <div class="time-picker">
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
       <h1 class="govuk-fieldset__heading">
-        Enter end time
+        Enter first end time
       </h1>
     </legend>
     <!--<div id="passport-issued-hint" class="govuk-hint">
@@ -178,6 +178,87 @@
     </div>
     </div>
     </div>
+
+        <!--2nd time slot START-->
+    <div class="govuk-form-group" style="padding-top: 40px;">
+    <div class="time-picker">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+      <h1 class="govuk-fieldset__heading">
+         Enter second start time (optional)
+      </h1>
+    </legend>
+    <!--<div id="passport-issued-hint" class="govuk-hint">
+    For example, 9:30am or 2:55pm
+    </div>-->
+    <div class="govuk-date-input" id="passport-issued">
+    <div class="govuk-date-input__item">
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+          Hour
+        </label>
+        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+    </div>
+    <div class="govuk-date-input__item">
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+          Minute
+        </label>
+        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+    </div>
+    <div class="govuk-date-input__item">
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+          am or pm
+        </label>
+        <select class="govuk-select" id="when-am" name="when-am">
+          <option value="am" selected>am</option>
+          <option value="pm">pm</option>
+        </select>
+      </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="govuk-form-group" style="padding-top: 20px;">
+    <div class="time-picker">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+      <h1 class="govuk-fieldset__heading">
+        Enter second end time (optional)
+      </h1>
+    </legend>
+    <!--<div id="passport-issued-hint" class="govuk-hint">
+    For example, 9:30am or 2:55pm
+    </div>-->
+    <div class="govuk-date-input" id="passport-issued">
+    <div class="govuk-date-input__item">
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+          Hour
+        </label>
+        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+    </div>
+    <div class="govuk-date-input__item">
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+          Minute
+        </label>
+        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+    </div>
+    <div class="govuk-date-input__item">
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+          am or pm
+        </label>
+        <select class="govuk-select" id="when-am" name="when-am">
+          <option value="am" selected>am</option>
+          <option value="pm">pm</option>
+        </select>
+      </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <!--2nd time slot END-->
 
 
     {% endset -%}
