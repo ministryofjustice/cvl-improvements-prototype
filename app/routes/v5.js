@@ -44,24 +44,6 @@ router.post(version + '/appointmentNeeded', function(request, response) {
 })
 
 
-router.post(version + '/apptwho', function(request, response) {
-
-    var apptwho = request.session.data['apptwho'];
-    if (apptwho == "practitioner" || apptwho == "duty" || apptwho == "someone-else") {
-
-        response.redirect(
-          version + "/probation-practitioner/pre-release/create/appt-where/saved-addresses"
-        )
-    } else if (apptwho == "no-appointment") {
-
-        response.redirect(
-          version + "/probation-practitioner/pre-release/create/appt-contact/saved-addresses"
-        )
-    }
-
-});
-
-
 
 //Additional conditions
 //Restriction zone
