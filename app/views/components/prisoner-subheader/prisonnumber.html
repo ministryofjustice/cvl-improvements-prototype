@@ -2,7 +2,16 @@
     <div class="govuk-grid-column-full border-bottom">
         <div class="govuk-caption-m">
 
-{% if data['prisoner'] == 'kane' %}  
+{% if data['prisoner'] == 'adrian' %}
+<span class="pipe-separated__item">Prison number: C234RO7</span>
+            <span class="pipe-separated__item">
+                Conditional release date: [Weekday] {{ "today" | duration(2) | govukDate(truncate=false) }}
+            </span>
+            <span class="pipe-separated__item">Date of birth: 27 Sep 1990</span>
+        </div>
+        <span class="govuk-heading-m">Adrian Cross</span>
+
+{% elif data['prisoner'] == 'kane' %}  
             <span class="pipe-separated__item">Prison number: K4A85NE</span>
             <span class="pipe-separated__item">
                 Conditional release date: [Weekday] {{ "today" | duration(2) | govukDate(truncate=false) }}
