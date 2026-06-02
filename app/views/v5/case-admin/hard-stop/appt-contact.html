@@ -20,16 +20,35 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-
-
+    {% if data['prisoner'] == 'marcus' %}
+    <form action="./check-licence" method="get">
+    {% elif data['appointmentNeeded'] == 'no' and data['prisoner'] == 'adrian' %}
+    <form action="./check-licence" method="get">
+    {% else %}
     <form action="./appt-when" method="get">
+    {% endif %}
 
     <div class="govuk-form-group">
-      <h1 class="govuk-label-wrapper">
+      
+      {% if data['prisoner'] == 'marcus' %}
+        <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--l" for="event-name">
+            What is the community probation practitioner's contact phone number?
+          </label>
+        </h1>
+        {% elif data['appointmentNeeded'] == 'no' and data['prisoner'] == 'adrian' %}
+        <h1 class="govuk-label-wrapper">
         <label class="govuk-label govuk-label--l" for="event-name">
-          What is the contact phone number for the initial appointment?
+          What is the community probation practitioner's contact phone number?
         </label>
-      </h1>
+        </h1>
+        {% else %}
+        <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--l" for="event-name">
+            What is the contact phone number for the initial appointment?
+          </label>
+        </h1>
+        {% endif %}
 
       <label class="govuk-label govuk-!-margin-top-6" for="phonenumber">
         UK phone number

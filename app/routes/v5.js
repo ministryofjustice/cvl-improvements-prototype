@@ -44,6 +44,22 @@ router.post(version + '/appointmentNeeded', function(request, response) {
 })
 
 
+router.post(version + '/appointmentNeededca', function(request, response) {
+
+    var appointmentNeeded = request.session.data['appointmentNeeded'];
+    
+    if (appointmentNeeded == "yes"){
+        // request.session.data['appointmentNeeded'] = 'yes';
+        response.redirect(version + "/case-admin/hard-stop/appt-who")
+    } else if (appointmentNeeded == "no") {
+        // request.session.data['prisoner'] = 'adrian';
+        // request.session.data['appointmentNeeded'] = 'no';
+        response.redirect(version + "/case-admin/hard-stop/appt-where/saved-addresses")
+    }
+})
+
+
+
 
 //Additional conditions
 //Restriction zone
