@@ -30,14 +30,14 @@
 
 
         <h2 class="govuk-heading-m">
-          Initial appointment details
+          Community probation practitioner details
             </h2>
     
     
             <dl class="govuk-summary-list">
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                 Do this person need an initial appointment?
+                 Does this person need an initial appointment?
                 </dt>
                 <dd class="govuk-summary-list__value">
                    {% if data['whoApptWith'] == 'no-appointment' %}
@@ -47,6 +47,7 @@
                    {% endif %}
                 </dd>
                 <dd class="govuk-summary-list__actions">
+                  
                   <a class="govuk-link govuk-link--no-visited-state" href="./appt-who">Change<span class="govuk-visually-hidden"> name</span></a>
                 </dd>
               </div>
