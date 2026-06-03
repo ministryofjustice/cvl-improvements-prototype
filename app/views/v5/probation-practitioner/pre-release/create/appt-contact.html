@@ -29,17 +29,11 @@
 
     <div class="govuk-form-group">
 
-        {% if data['prisoner'] == 'marcus' %}
+        {% if data['whoApptWith'] == 'no-appointment' %}
         <h1 class="govuk-label-wrapper">
           <label class="govuk-label govuk-label--l" for="event-name">
             What is the community probation practitioner's contact phone number?
           </label>
-        </h1>
-        {% elif data['appointmentNeeded'] == 'no' and data['prisoner'] == 'adrian' %}
-        <h1 class="govuk-label-wrapper">
-        <label class="govuk-label govuk-label--l" for="event-name">
-          What is the community probation practitioner's contact phone number?
-        </label>
         </h1>
         {% else %}
         <h1 class="govuk-label-wrapper">
