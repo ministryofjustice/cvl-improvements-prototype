@@ -21,9 +21,7 @@
   <div class="govuk-grid-column-two-thirds">
 
 
-    {% if data['prisoner'] == 'marcus' %}
-    <form action="./additional-conditions/additional-conditions" method="get">
-    {% elif data['appointmentNeeded'] == 'no' and data['prisoner'] == 'adrian' %}
+    {% if data['whoApptWith'] == 'no-appointment' %} 
     <form action="./additional-conditions/additional-conditions" method="get">
     {% else %}
     <form action="./appt-when" method="get">

@@ -1,176 +1,106 @@
 {% extends "layouts/cvl.html" %}
 
-{% set pageName="Who is the initial appointment with?" %}
-
-{% set htmlClasses = 'app-width-wide' %}
+{% set pageName = "Who is the initial appointment with?" %}
+{% set htmlClasses = "app-width-wide" %}
 
 {% block header %}
-{% include "components/cvl-pp-header/include.html" %}
+  {% include "components/cvl-pp-header/include.html" %}
 {% endblock %}
 
-{%- block beforeContent -%}
-<a href="javascript:history.back()" class="govuk-back-link">Back</a>
-{% include "components/prisoner-subheader/include.html" %}
+{% block beforeContent %}
+  <a href="javascript:history.back()" class="govuk-back-link">Back</a>
+  {% include "components/prisoner-subheader/include.html" %}
 {% endblock %}
-
 
 {% block content %}
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <fieldset class="govuk-fieldset">
-      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l" style="margin-bottom: 20px;">
-        <h1 class="govuk-fieldset__heading">Who is the initial appointment with?</h1>
-      </legend>
+
+    <form method="post" action="./appt-where/saved-addresses">
+
+      {% set textHtmlOther %}
+        {{ govukInput({
+          name: "who4",
+          classes: "govuk-input--width-30",
+          label: {
+            text: "Enter name"
+          }
+        }) }}
+      {% endset %}
+
+      {{ govukRadios({
+        name: "whoApptWith",
+        fieldset: {
+          legend: {
+            text: "Who is the initial appointment with?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "practitioner",
+            text: "Philamina Rogers, this person's community probation practitioner"
+          },
+          {
+            value: "duty",
+            text: "Duty officer"
+          },
+          {
+            value: "someone-else",
+            text: "Someone else",
+            hint: {
+              text: "For example, someone at an approved premises or a different probation practitioner."
+            },
+            conditional: {
+              html: textHtmlOther
+            }
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "no-appointment",
+            text: "No appointment needed",
+            hint: {
+              html: "We will add the community probation practitioner's name to the licence and ask for some contact details.<br>This is so the person knows who to contact for support."
+            }
+          }
+        ]
+      }) }}
+
+      <div class="govuk-!-margin-top-8 govuk-!-margin-bottom-8">
+
+        <h2 class="govuk-heading-m">Help with</h2>
+
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Copy to give more context around final third
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            Copy
+          </div>
+        </details>
+
+      </div>
+
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
   </div>
 </div>
 
-
-{% if data['prisoner'] == 'marcus' %}
-
-<!--START set dynamic radio hide/show text-->
-{% from "govuk/components/radios/macro.njk" import govukRadios %}
-{% from "govuk/components/input/macro.njk" import govukInput %}
-
-{% set textHtmlOther %}
-{{ govukInput({
-  name: "who4",
-  classes: "govuk-fieldset__legend--s govuk-input govuk-input--width-30",
-  label: {
-    text: "Enter name"
-  }
-}) }}
-{% endset -%}
-
-{{ govukRadios({
-  
-  fieldset: {
-    legend: {
-      name: "apptwho",
-      text: "",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--s"
-    }
-  },
-
-  items: [
-  {
-    name: "practitioner",
-    text: "	Philamina Rogers, this person's community probation practitioner"
-  },
-
-  {
-    name: "duty",
-    text: "Duty officer"
-  },
-
-
-  {
-    name: "someone-else",
-    text: "Someone else",
-    hint: {
-      text: "For example, someone at an approved premises or a different probation practitioner."
-    },
-    conditional: {
-      html: textHtmlOther
-    }
-
-  },
-
-      {
-      divider: "or"
-    },
-
-
-  {
-    name: "no-appointment",
-    text: "No appointment needed",
-    hint: {
-      html: "We will add the community probation practitioner's name to the licence and ask for some contact details. <br>This is so the person knows who to contact for support."
-    }
-  }
-
-
-  ]
-}) }}
-
-
-{% else %}
-
-<!--START set dynamic radio hide/show text-->
-{% from "govuk/components/radios/macro.njk" import govukRadios %}
-{% from "govuk/components/input/macro.njk" import govukInput %}
-
-{% set textHtmlOther %}
-{{ govukInput({
-  name: "who4",
-  classes: "govuk-fieldset__legend--s govuk-input govuk-input--width-30",
-  label: {
-    text: "Enter name"
-  }
-}) }}
-{% endset -%}
-
-
-{{ govukRadios({
-  
-  fieldset: {
-    legend: {
-      name: "apptwho",
-      text: "",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--s"
-    }
-  },
-
-  items: [
-  {
-    name: "who1",
-    text: "	Philamina Rogers, this person's community probation practitioner"
-  },
-
-  {
-    name: "who1",
-    text: "Duty officer"
-  },
-
-
-  {
-    name: "who3",
-    text: "Someone else",
-    hint: {
-      text: "For example, someone at an approved premises or a different probation practitioner."
-    },
-    conditional: {
-      html: textHtmlOther
-    }
-
-  }
-
-
-  ]
-}) }}
-
-
-{% endif %}
-
-
-<form method="post" action="./appt-where/saved-addresses">
-
-<button type="submit" class="govuk-button" data-module="govuk-button">Continue</button>
-
-
-</form>
-
-
-<!--OLD-->
-
-
-
 {% endblock %}
 
-
 {% block footer %}
-
-{% include "components/cvl-pp-footer/include.html" %}
-
+  {% include "components/cvl-pp-footer/include.html" %}
 {% endblock %}
