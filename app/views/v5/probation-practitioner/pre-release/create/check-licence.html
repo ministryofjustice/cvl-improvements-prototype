@@ -27,10 +27,7 @@
       Check licence details
         </h1>
 
-<!-- 
-        {% if data['scenario'] == 'licenceunlocked' %}
-        <p class="govuk-body">CONTENT: They have to ask prison to change initial appointment and first night for them </p>
-        {% endif %} -->
+
 
         <h2 class="govuk-heading-m">
           Initial appointment details
@@ -40,13 +37,35 @@
             <dl class="govuk-summary-list">
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
+                 Do this person need an initial appointment?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                   {% if data['whoApptWith'] == 'no-appointment' %}
+                   No
+                   {% else %}
+                   Yes
+                   {% endif %}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link govuk-link--no-visited-state" href="./appt-who">Change<span class="govuk-visually-hidden"> name</span></a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
                   Name
                 </dt>
                 <dd class="govuk-summary-list__value">
+                  {% if data['whoApptWith'] == 'no-appointment' %} 
+                  Leon Chen
+                  {% else %}
                   {{ data['whoApptWith'] or "Philamina Rogers" }}
+                  {% endif %}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link govuk-link--no-visited-state" href="../../../../_common/not-testing.html">Change<span class="govuk-visually-hidden"> name</span></a>
+                  {% if data['whoApptWith'] == 'no-appointment' %} 
+                  {% else %}
+                  <a class="govuk-link govuk-link--no-visited-state" href="./appt-who">Change<span class="govuk-visually-hidden"> name</span></a>
+                  {% endif %}
                 </dd>
               </div>
               <div class="govuk-summary-list__row">
@@ -86,6 +105,8 @@
                   <a class="govuk-link govuk-link--no-visited-state" href="../../../../_common/not-testing.html">Change<span class="govuk-visually-hidden"> contact phone number</span></a>
                 </dd>
               </div>
+      {% if data['whoApptWith'] == 'no-appointment' %} 
+      {% else %} 
            {% if data['appointment-time'] == 'specific' %}  
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -138,6 +159,7 @@
             </dd>
           </div>
          {% endif %} 
+      {% endif %} 
             </dl>
 
 
