@@ -26,26 +26,45 @@
         </h1>
 
         <h2 class="govuk-heading-m">
+          {% if data['whoApptWith'] == 'no-appointment' %}
+          Community probation practitioner details
+          {% else %}
           Initial appointment details
-            </h2>
+          {% endif %}
+        </h2>
     
         <dl class="govuk-summary-list govuk-!-margin-bottom-8">
+          <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                 Does this person need an initial appointment?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                   {% if data['whoApptWith'] == 'no-appointment' %}
+                   No
+                   {% else %}
+                   Yes
+                   {% endif %}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link govuk-link--no-visited-state" href="./appt-who-edit">Change<span class="govuk-visually-hidden"></span></a>
+                </dd>
+            </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Name
             </dt>
             <dd class="govuk-summary-list__value">
-            {% if data['hard-stop-who'] == 'dutyOfficer' %}  
-              Duty Officer
-            {% elif data['hard-stop-who'] == 'someoneElse' %}  
-              {{ data['hardStopEnterName'] }}
-            {% else %} 
+              {% if data['whoApptWith'] == 'no-appointment' %}
               Stephen McVeigh
-            {% endif %} 
+              {% else %}
+              {{ data['whoApptWith'] or "Stephen McVeigh" }}
+              {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> name</span></a>
-            </dd>
+              {% if data['whoApptWith'] == 'no-appointment' %} 
+                  {% else %}
+                  <a class="govuk-link govuk-link--no-visited-state" href="./appt-who-edit">Change<span class="govuk-visually-hidden"> name</span></a>
+                  {% endif %}
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -74,7 +93,8 @@
             </dd>
           </div>
 
-
+    {% if data['whoApptWith'] == 'no-appointment' %} 
+    {% else %} 
             {% if data['appointment-time'] == 'specific' %}  
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -131,6 +151,8 @@
             </dd>
           </div>
          {% endif %} 
+
+    {% endif %} 
         </dl>
 
 

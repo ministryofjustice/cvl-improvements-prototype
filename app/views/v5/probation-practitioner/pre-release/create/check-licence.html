@@ -30,8 +30,12 @@
 
 
         <h2 class="govuk-heading-m">
+          {% if data['whoApptWith'] == 'no-appointment' %}
           Community probation practitioner details
-            </h2>
+          {% else %}
+          Initial appointment details
+          {% endif %}
+        </h2>
     
     
             <dl class="govuk-summary-list">
@@ -47,8 +51,7 @@
                    {% endif %}
                 </dd>
                 <dd class="govuk-summary-list__actions">
-                  
-                  <a class="govuk-link govuk-link--no-visited-state" href="./appt-who-edit">Change<span class="govuk-visually-hidden"> name</span></a>
+                  <a class="govuk-link govuk-link--no-visited-state" href="./appt-who-edit">Change<span class="govuk-visually-hidden"></span></a>
                 </dd>
               </div>
               <div class="govuk-summary-list__row">
@@ -56,8 +59,8 @@
                   Name
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  {% if data['whoApptWith'] == 'no-appointment' %} 
-                  Leon Chen
+                  {% if data['whoApptWith'] == 'no-appointment' %}
+                  Philamina Rogers
                   {% else %}
                   {{ data['whoApptWith'] or "Philamina Rogers" }}
                   {% endif %}
