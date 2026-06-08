@@ -16,147 +16,97 @@
 
 {% block content %}
 
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <fieldset class="govuk-fieldset">
-      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l" style="margin-bottom: 20px;">
-        <h1 class="govuk-fieldset__heading">Who is the initial appointment with?</h1>
-      </legend>
+
+    <form method="post" action="./appt-where/saved-addresses">
+
+      {% set textHtmlOther %}
+        {{ govukInput({
+          name: "who4",
+          classes: "govuk-input--width-30",
+          label: {
+            text: "Enter name"
+          }
+        }) }}
+      {% endset %}
+
+      {{ govukRadios({
+        name: "whoApptWith",
+        fieldset: {
+          legend: {
+            text: "Who is the initial appointment with?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "duty",
+            text: "Duty officer",
+            hint: {
+              text: "Choose duty officer if you have not spoken to this person’s community probation practitioner or if a community probation practitioner has not been allocated."
+            }
+          },
+          {
+            value: "practitioner",
+            text: "Philamina Rogers, this person's community probation practitioner"
+          },
+          {
+            value: "someone-else",
+            text: "Someone else",
+            hint: {
+              text: "For example, someone at an approved premises or a different probation practitioner."
+            },
+            conditional: {
+              html: textHtmlOther
+            }
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "no-appointment",
+            text: "No appointment needed",
+            hint: {
+              html: "We will add the community probation practitioner's name to the licence and ask for some contact details.<br>This is so the person knows who to contact for support."
+            }
+          }
+        ]
+      }) }}
+
+      <div class="govuk-!-margin-top-8 govuk-!-margin-bottom-8">
+
+        <h2 class="govuk-heading-m">Help with initial appointments</h2>
+
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              When no initial appointment is needed
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            Select No appointment needed if the person is being released in the final third of their sentence, for example after a recall or prison adjudication.          </div>
+        </details>
+
+      </div>
+
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
   </div>
 </div>
-<span class="govuk-hint">Choose duty officer if you have not spoken to this person’s community probation<br> practitioner or if a community probation practitioner has not been allocated. </span>
-<br><br><br>
+{% endblock %}
 
 
+{% block footer %}
 
-{% if data['prisoner'] == 'charlie' %}  
-
-<!--START set dynamic radio hide/show text-->
-{% from "govuk/components/radios/macro.njk" import govukRadios %}
-{% from "govuk/components/input/macro.njk" import govukInput %}
-
-{% set textHtmlOther %}
-{{ govukInput({
-  id: "who4",
-  name: "who4",
-  classes: "govuk-fieldset__legend--s govuk-input govuk-input--width-30",
-  label: {
-    text: "Enter name"
-  }
-}) }}
-{% endset -%}
-
-
-{{ govukRadios({
-  
-  fieldset: {
-    legend: {
-      text: "",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--s"
-    }
-  },
-
-  items: [
-  {
-    name: "who1",
-    text: "Duty officer",
-    conditional: {
-      html: emailHtml
-    }
-  },
-
-  {
-    name: "who2",
-    text: "Philamina Rogers, this person's community probation practitioner",
-    conditional: {
-      html: emailHtml
-    }
-  },
-
-  {
-    name: "who3",
-    text: "Someone else",
-    hint: {
-      text: "For example, someone at an approved premises or a different probation practitioner."
-    },
-    conditional: {
-      html: textHtmlOther
-    }
-
-  }
-
-
-  ]
-}) }}
-
-
-{% else %} 
-
-<!--START set dynamic radio hide/show text-->
-{% from "govuk/components/radios/macro.njk" import govukRadios %}
-{% from "govuk/components/input/macro.njk" import govukInput %}
-
-{% set textHtmlOther %}
-{{ govukInput({
-  name: "who4",
-  classes: "govuk-fieldset__legend--s govuk-input govuk-input--width-30",
-  label: {
-    text: "Enter name"
-  }
-}) }}
-{% endset -%}
-
-
-{{ govukRadios({
-  
-  fieldset: {
-    legend: {
-      name: "apptwho",
-      text: "",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--s"
-    }
-  },
-
-  items: [
-  {
-    name: "who1",
-    text: "Duty officer",
-    conditional: {
-      html: emailHtml
-    }
-  },
-
-
-  {
-    name: "who3",
-    text: "Someone else",
-    hint: {
-      text: "For example, someone at an approved premises or a different probation practitioner."
-    },
-    conditional: {
-      html: textHtmlOther
-    }
-
-  }
-
-
-  ]
-}) }}
-
-
-{% endif %}  
-
-
-<form method="" action="./appt-where/saved-addresses">
-
-<button type="submit" class="govuk-button" data-module="govuk-button">Continue</button>
-
-
-</form>
-
-
+{% include "components/cvl-dm-ca-footer/include.html" %}
 
 {% endblock %}

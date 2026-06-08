@@ -18,7 +18,13 @@
 
     <div class="govuk-panel govuk-panel--confirmation">
       <h1 class="govuk-panel__title">
-        Licence conditions for Maxwell Kirby sent
+        Licence conditions for
+        {% if data['prisoner'] == 'marcus' %}
+
+        {% else %}
+        Maxwell Kirby
+        {% endif %}
+        sent
       </h1>
     </div>
     <h2 class="govuk-heading-m">
