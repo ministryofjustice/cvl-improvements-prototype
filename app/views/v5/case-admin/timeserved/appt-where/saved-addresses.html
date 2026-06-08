@@ -1,6 +1,6 @@
 {% extends "layouts/cvl.html" %}
 
-{% set pageName="Who is the initial appointment with?" %}
+{% set pageName="Where is the initial appointment?" %}
 
 {% set htmlClasses = 'app-width-wide' %}
 
@@ -21,11 +21,15 @@
       <div class="govuk-grid-column-two-thirds">
 
 
+        {% if data['whoApptWith'] == 'no-appointment' %}
+        <h1 class="govuk-heading-l">What is the community probation practitioner's contact address?</h1>
+        {% else %}
         <h1 class="govuk-heading-l">Where is the initial appointment?</h1>
+        {% endif %}
 
         <h2 class="govuk-heading-m" style="margin-top: 40px;">Use a saved address</h1>
 
-        <form action="../appt-phone" method="get">
+        <form action="../appt-contact" method="get">
 
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
