@@ -22,10 +22,18 @@
 
 
         {% if data['whoApptWith'] == 'no-appointment' %}
-        <h1 class="govuk-heading-l">What is the community probation practitioner's contact address?</h1>
+
+            {% if data['prisoner'] == 'dwayne' %} 
+            <!--TOM FOR YOU TO LOOK AT-->
+            <h1 class="govuk-heading-l">What is the probation office's contact address?</h1>
+            {% else %}
+            <h1 class="govuk-heading-l">What is the community probation practitioner's contact address?</h1>
+            {% endif %}
+
         {% else %}
         <h1 class="govuk-heading-l">Where is the initial appointment?</h1>
         {% endif %}
+
 
         <h2 class="govuk-heading-m" style="margin-top: 40px;">Use a saved address</h1>
 

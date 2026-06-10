@@ -22,7 +22,61 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form method="post" action="./check-licence">
+    <form method="post" action="./appt-where/saved-addresses">
+
+{% if data['prisoner'] == 'dwayne' %} 
+
+      {% set textHtmlOther %}
+        {{ govukInput({
+          name: "who4",
+          classes: "govuk-input--width-30",
+          label: {
+            text: "Enter name"
+          }
+        }) }}
+      {% endset %}
+
+      {{ govukRadios({
+        name: "whoApptWith",
+        fieldset: {
+          legend: {
+            text: "Who is the initial appointment with?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "Duty officer",
+            text: "Duty officer",
+            hint: {
+              text: "Choose duty officer if you have not spoken to this person’s community probation practitioner or if a community probation practitioner has not been allocated."
+            }
+          },
+          {
+            value: "someone-else",
+            text: "Someone else",
+            hint: {
+              text: "For example, someone at an approved premises or a different probation practitioner."
+            },
+            conditional: {
+              html: textHtmlOther
+            }
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "no-appointment",
+            text: "No appointment needed",
+            hint: {
+              html: "We will add the community probation practitioner's name to the licence and ask for some contact details.<br>This is so the person knows who to contact for support."
+            }
+          }
+        ]
+      }) }}
+
+{% else %} 
 
       {% set textHtmlOther %}
         {{ govukInput({
@@ -77,6 +131,9 @@
           }
         ]
       }) }}
+
+
+{% endif %} 
 
       <div class="govuk-!-margin-top-8 govuk-!-margin-bottom-8">
 
