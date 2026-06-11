@@ -5,7 +5,7 @@
 {% if data['prisoner'] == 'marcus' %}
 <span class="pipe-separated__item">CRN: L29A90N</span>
             <span class="pipe-separated__item">
-                Conditional release date: [Weekday] {{ "today" | duration(3) | govukDate(truncate=false) }}
+                Post-recall release date: [Weekday] {{ "today" | duration(3) | govukDate(truncate=false) }}
             </span>
             <span class="pipe-separated__item">Date of birth: 14 Mar 1992</span>
         </div>
@@ -227,7 +227,7 @@
     
   {% elif data['prisoner'] == 'kairo' %}  
           <span class="pipe-separated__item">CRN: R885645</span>
-          <span class="pipe-separated__item">Post-recall release date (PRRD): [Weekday] {{ "today" | duration(13) | govukDate(truncate=false) }}</span>
+          <span class="pipe-separated__item">Post-recall release date: [Weekday] {{ "today" | duration(13) | govukDate(truncate=false) }}</span>
           <span class="pipe-separated__item">Date of birth: 5 Dec 1966</span>
       </div>
       <span class="govuk-heading-m">Kairo Watson</span>
@@ -243,7 +243,7 @@
 
   {% elif data['prisoner'] == 'gabriel' %}  
               <span class="pipe-separated__item">CRN: V279953</span>
-              <span class="pipe-separated__item">Post-recall release date (PRRD): [Weekday] {{ "today" | duration(11) | govukDate(truncate=false) }}</span>
+              <span class="pipe-separated__item">Post-recall release date: [Weekday] {{ "today" | duration(11) | govukDate(truncate=false) }}</span>
               <span class="pipe-separated__item">Date of birth: 20 Feb 2000</span>
           </div>
           <span class="govuk-heading-m">Gabriel Collins</span>
