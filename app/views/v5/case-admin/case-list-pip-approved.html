@@ -267,6 +267,42 @@
                 </tr>
 
 
+                 <tr class="govuk-table__row">
+            
+                    <td class="govuk-table__cell">
+                    {% if data['marcus'] == 'approved' %}  
+                      <a href="./hard-stop/print-licence" class="govuk-link--no-visited-state pp-caselist-name">Maxwell Kirby</a>
+                    {% elif data['marcus'] == 'submitted' %}  
+                      <a href="#" class="govuk-link--no-visited-state pp-caselist-name">Maxwell Kirby</a>
+                    {% else %}  
+                      <a href="./hard-stop/are-you-sure-generate?prisoner=marcus" class="govuk-link--no-visited-state pp-caselist-name">Marcus Lane</a>
+                    {% endif %}  
+                    </td>
+              
+                    <td class="govuk-table__cell">L29A90N</td>
+              
+                    <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Stephen McVeigh</a></td>
+              
+                      
+                    <td class="govuk-table__cell" data-sort-value="3">
+                      Post-recall release date:<br>
+                      {{ "today" | duration(1) | govukDate(truncate=true) }}
+                    </td>
+                     
+                    <td class="govuk-table__cell">
+                       {% if data['marcus'] == 'approved' %}  
+                        John Cooper
+                      {% else %}  
+                      {% endif %}  
+                    </td>
+
+                  <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow status-badge">Not started</strong>
+                 
+                  </td>
+
+                </tr>
+
+
                 <tr class="govuk-table__row">
                       
                   <td class="govuk-table__cell">
