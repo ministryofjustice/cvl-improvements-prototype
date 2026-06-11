@@ -48,15 +48,18 @@
         items: [
           {
             value: "Philamina Rogers",
-            text: "Philamina Rogers, this person's community probation practitioner"
+            text: "Philamina Rogers, this person's community probation practitioner",
+            checked: data['whoApptWith'] == 'Philamina Rogers'
           },
           {
             value: "Duty officer",
-            text: "Duty officer"
+            text: "Duty officer",
+            checked: data['whoApptWith'] == 'Duty officer'
           },
           {
             value: "someone-else",
             text: "Someone else",
+            checked: data['whoApptWith'] == 'someone-else',
             hint: {
               text: "For example, someone at an approved premises or a different probation practitioner."
             },
@@ -70,6 +73,7 @@
           {
             value: "no-appointment",
             text: "No appointment needed",
+            checked: data['whoApptWith'] == 'no-appointment',
             hint: {
               html: "We will add the community probation practitioner's name to the licence and ask for some contact details.<br>This is so the person knows who to contact for support."
             }

@@ -28,7 +28,9 @@
           Name
         </dt>
         <dd class="govuk-summary-list__value">
-          {% if data['prisoner'] == 'adrian' %}
+          {% if data['prisoner'] == 'gabriel' %}
+          Gabriel Collins
+          {% elif data['prisoner'] == 'adrian' %}
           Adrian Cross
           {% elif data['prisoner'] == 'marcus' %}
           Marcus Lane
@@ -54,7 +56,9 @@
           CRN
         </dt>
         <dd class="govuk-summary-list__value">
-          {% if data['prisoner'] == 'adrian' %}
+          {% if data['prisoner'] == 'gabriel' %}
+          V279953
+          {% elif data['prisoner'] == 'adrian' %}
           C234RO7
           {% elif data['prisoner'] == 'marcus' %}
           L29A90N
@@ -75,16 +79,33 @@
         <dd class="govuk-summary-list__actions">
         </dd>
       </div> 
+      {% if data['prisoner'] == 'marcus' or data['prisoner'] == 'gabriel' %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Status
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <span class="urgent-highlight"> Fixed-term recall</span>
+          <span class="urgent-highlight urgent-highlight-message">Check their previous licence conditions.</br>You should do this using <a class="govuk-link--no-visited-state" href="#">EPF 2</a>.</span>
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+      {% endif %}
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
           {% if data['prisoner'] == 'hale' or data['prisoner'] == 'noto' or data['prisoner'] == 'sonny' %}
           HDC eligibility date
+          {% elif data['prisoner'] == 'marcus' or data['prisoner'] == 'gabriel' %}
+          Post-recall release date
           {% else %}
           Confirmed release date
           {% endif %}
         </dt>
         <dd class="govuk-summary-list__value">
-          {% if data['prisoner'] == 'marcus' or data['prisoner'] == 'adrian' %}
+          {% if data['prisoner'] == 'gabriel' %}
+          [Weekday] {{ "today" | duration(11) | govukDate(truncate=false) }}
+          {% elif data['prisoner'] == 'marcus' or data['prisoner'] == 'adrian' %}
           [Weekday] {{ "today" | duration(3) | govukDate(truncate=false) }}
           {% elif data['prisoner'] == 'sean' %}
           Tuesday {{ "today" | duration(14) | govukDate(truncate=false) }}
