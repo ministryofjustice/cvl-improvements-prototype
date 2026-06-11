@@ -23,7 +23,7 @@
   <div class="govuk-grid-column-two-thirds">
 
     {% if data['whoApptWith'] == 'no-appointment' %} 
-    <form method="post" action="./check-licence?appointment=notEnteredyet">
+    <form method="post" action="./appt-when-edit">
     {% else %} 
     <form method="post" action="./check-licence">
     {% endif %} 
