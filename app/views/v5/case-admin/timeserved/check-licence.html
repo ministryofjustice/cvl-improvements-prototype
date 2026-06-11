@@ -129,7 +129,7 @@
               By 2pm on the next working day after their release
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="./appt-when">Change</a>
+              <a class="govuk-link" href="./appt-when-edit">Change</a>
             </dd>
           </div>
           {% elseif data.appointment-time == "immediately" %}
@@ -141,23 +141,7 @@
               Immediately after release
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="./appt-when">Change</a>
-            </dd>
-          </div>
-          {% elif data['appointment'] == 'notEnteredyet' %} 
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Date/time
-            </dt>
-            <dd class="govuk-summary-list__value"> 
-              Not entered yet
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <ul class="govuk-summary-list__actions-list">
-                <li class="govuk-summary-list__actions-list-item">
-                  <a class="govuk-link govuk-link--no-visited-state" href="./appt-when-edit">Change<span class="govuk-visually-hidden"> time</span></a>
-                </li>
-              </ul>
+              <a class="govuk-link" href="./appt-when-edit">Change</a>
             </dd>
           </div>
           {% else %}
@@ -166,20 +150,14 @@
               Date
             </dt>
             <dd class="govuk-summary-list__value">
-              {{data.passportissuedday}} {{data.passportissuedmonth }} {{data.passportissuedyear}}
-              {%if (data.passportissuedday2) %}{{data.passportissuedday2}}.{{data.passportissuedmonth2}}{{data.whenam}}
-              {% elseif data.contact2=="As soon as possible by 2pm on the next working day after release" %}
-             
-              {{ "today" | duration(1) | govukDate("truncate") }}
-              {% else %}
-              {%if (data.contact2) %}{{data.contact2}}
-              {% else %}
+              {% if data['date'] %} 
+              {{ data['date'] | formatDateString("D/M/YYYY","D MMMM YYYY")}}
+              {% else %} 
               {{ "today" | govukDate("truncate") }}
-              {% endif %} {% endif %}
-              
+              {% endif %} 
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="./appt-when">Change</a>
+              <a class="govuk-link" href="./appt-when-edit">Change</a>
             </dd>
           </div>
 
@@ -189,20 +167,12 @@
               Time
             </dt>
             <dd class="govuk-summary-list__value">
-              {{data.passportissuedday}} {{data.passportissuedmonth }} {{data.passportissuedyear}}
-              {%if (data.passportissuedday2) %}{{data.passportissuedday2}}.{{data.passportissuedmonth2}}{{data.whenam}}
-              {% elseif data.contact2=="As soon as possible by 2pm on the next working day after release" %}
-             
-              {{ "today" | duration(1) | govukDate("truncate") }}
-              {% else %}
-              {%if (data.contact2) %}{{data.contact2}}
-              {% else %}
-              {{ "today" | govukDate("truncate") }}
-              {% endif %} {% endif %}
-              
+              {% if data['time-hour'] and data['time-minute'] and data['time-ampm'] %} 
+                {{ data | formatTime('1', '', 'pm') }}
+              {% endif %} 
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="./appt-when">Change</a>
+              <a class="govuk-link" href="./appt-when-edit">Change</a>
             </dd>
           </div>
           {% endif %}
