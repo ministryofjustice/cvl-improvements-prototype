@@ -271,9 +271,9 @@
             
                     <td class="govuk-table__cell">
                     {% if data['marcus'] == 'approved' %}  
-                      <a href="./hard-stop/print-licence" class="govuk-link--no-visited-state pp-caselist-name">Maxwell Kirby</a>
+                      <a href="./hard-stop/print-licence" class="govuk-link--no-visited-state pp-caselist-name">Marcus Lane</a>
                     {% elif data['marcus'] == 'submitted' %}  
-                      <a href="#" class="govuk-link--no-visited-state pp-caselist-name">Maxwell Kirby</a>
+                      <a href="#" class="govuk-link--no-visited-state pp-caselist-name">Marcus Lane</a>
                     {% else %}  
                       <a href="./hard-stop/are-you-sure-generate?prisoner=marcus" class="govuk-link--no-visited-state pp-caselist-name">Marcus Lane</a>
                     {% endif %}  
@@ -304,128 +304,39 @@
 
 
                 <tr class="govuk-table__row">
+            
+                    <td class="govuk-table__cell">
+                      <a href="./print-licence?prisoner=adrian" class="govuk-link--no-visited-state pp-caselist-name">Adrian Cross</a>
+                    </td>
+              
+                    <td class="govuk-table__cell">C234RO7</td>
+              
+                    <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Stephen McVeigh</a></td>
+              
                       
-                  <td class="govuk-table__cell">
-                    <a href="./print-licence?prisoner=lorin" class="govuk-link--no-visited-state pp-caselist-name">Lorin Mave Change</a>
-                  </td>
-            
-                  <td class="govuk-table__cell">L22M6C1</td>
-            
-                  <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
-            
-                  <td class="govuk-table__cell" data-sort-value="4">
-                    {% if data['scenario'] == 'hdcadCASadded' %}
-                    HDC actual date:</br>{{ "today" | duration(2) | govukDate(truncate=true) }}
-                    {% else %}
-                    HDC eligibility date:</br>{{ "today" | duration(1) | govukDate(truncate=true) }}
-                    {% endif %}
-                  </td>
+                    <td class="govuk-table__cell" data-sort-value="3">
+                      Conditional release date:<br>
+                      {{ "today" | duration(1) | govukDate(truncate=true) }}
+                    </td>
+                     
+                    <td class="govuk-table__cell">
+                      Stephen McVeigh 
+                    </td>
 
-                  <td class="govuk-table__cell">
-                  </td>
-                   
-                  <td class="govuk-table__cell"> 
-                    <strong class="govuk-tag govuk-tag--green status-badge">Approved</strong>
-                  </td>
-
-                </tr>
-
-                <tr class="govuk-table__row">
-            
-                  <td class="govuk-table__cell">
-                    <a href="./view-licence?prisoner=evan" class="govuk-link--no-visited-state pp-caselist-name">Evan Postwell</a>
-                  </td>
-
-                  <td class="govuk-table__cell">E54V5AN</td>
-            
-                  <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
-            
-                  <td class="govuk-table__cell" data-sort-value="5">
-                    <span class="hdc-highlight">HDC actual date:</br>{{ "today" | duration(2) | govukDate(truncate=true) }}</span>
-                    <span class="hdc-highlight hdc-highlight-message">HDC application postponed</span>
-                  </td>
-                   
-                  <td class="govuk-table__cell">
-                  </td>
-
-                  <td class="govuk-table__cell">
-                      <strong class="govuk-tag govuk-tag--pink status-badge">Submitted</strong>
-                  </td>
-
-                </tr>
-
-                <tr class="govuk-table__row">
-            
-                  <td class="govuk-table__cell">
-                    <a href="./view-licence?prisoner=sam" class="govuk-link--no-visited-state pp-caselist-name">Sam Submiton</a>
-                  </td>
-
-                  <td class="govuk-table__cell">S23A6M7</td>
-            
-                  <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
-            
-                  <td class="govuk-table__cell" data-sort-value="6">
-                    <span class="hdc-highlight">HDC actual date:</br>{{ "today" | duration(2) | govukDate(truncate=true) }}</span>
-                    <span class="hdc-highlight hdc-highlight-message">HDC application postponed</span>
-                  </td>
-                   
-                  <td class="govuk-table__cell">
-                  </td>
-
-                  <td class="govuk-table__cell">
-                      <strong class="govuk-tag govuk-tag--pink status-badge">Submitted</strong>
-                  </td>
-
-                </tr>
-
-                <tr class="govuk-table__row">
-            
-                  <td class="govuk-table__cell"><strong>Ian Progreski</strong></td>
-
-                  <td class="govuk-table__cell">I87A65N</td>
-            
-                  <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
-            
-                  <td class="govuk-table__cell" data-sort-value="7">
-                    <span class="hdc-highlight">HDC actual date:</br>{{ "today" | duration(2) | govukDate(truncate=true) }}</span>
-                    <span class="hdc-highlight hdc-highlight-message">HDC application postponed</span>
-                  </td>
-                   
-                  <td class="govuk-table__cell">
-                  </td>
-
-                  <td class="govuk-table__cell">
-                      <strong class="govuk-tag govuk-tag--blue status-badge">In progress</strong>
-                  </td>
-
-                </tr>
-
-                <tr class="govuk-table__row">
-            
-                  <td class="govuk-table__cell"><strong>Noto Startwick</strong></td>
-
-                  <td class="govuk-table__cell">N12O28T</td>
-            
-                  <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
-            
-                  <td class="govuk-table__cell" data-sort-value="8">
-                    <span class="hdc-highlight">HDC actual date:</br>{{ "today" | duration(2) | govukDate(truncate=true) }}</span>
-                    <span class="hdc-highlight hdc-highlight-message">HDC application postponed</span>
-                  </td>
-                   
-                  <td class="govuk-table__cell">
-                  </td>
-
-                  <td class="govuk-table__cell">
-                      <strong class="govuk-tag govuk-tag--yellow status-badge">Not started</strong>
+                  <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green status-badge">Approved</strong>
+                 
                   </td>
 
                 </tr>
 
 
-                    <tr class="govuk-table__row">
+
+
+               
+
+                  <tr class="govuk-table__row">
             
-                  <td class="govuk-table__cell"><strong>Gabriel Collins</strong></td>
+                  <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state pp-caselist-name">Gabriel Collins</a></td>
 
                   <td class="govuk-table__cell">V279953</td>
             
@@ -436,10 +347,11 @@
                   </td>
                    
                   <td class="govuk-table__cell">
+                    	Philamina Rogers
                   </td>
 
                   <td class="govuk-table__cell">
-                      <strong class="govuk-tag govuk-tag--yellow status-badge">Not started</strong>
+                      <strong class="govuk-tag govuk-tag--green status-badge">Approved</strong>
                   </td>
 
                 </tr>
