@@ -22,10 +22,10 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    {% if data['whoApptWith'] == 'no-appointment' %} 
+    {% if data['whoApptWith'] == 'Duty officer' or data['whoApptWith'] == 'Stephen McVeigh' or data['whoApptWith'] == 'someone-else' %} 
     <form method="post" action="./appt-when-edit">
     {% else %} 
-    <form method="post" action="./check-licence">
+    <form method="post" action="./print-licence">
     {% endif %} 
 
 
@@ -79,7 +79,7 @@
           {
             value: "no-appointment",
             text: "No appointment needed",
-            checked: data['whoApptWith'] == 'no-appointment',
+            checked: data['prisoner'] == 'adrian',
             hint: {
               html: "We will add the community probation practitioner's name to the licence and ask for some contact details.<br>This is so the person knows who to contact for support."
             }

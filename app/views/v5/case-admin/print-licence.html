@@ -19,6 +19,23 @@
     <div class="govuk-grid-column-full-from-desktop">
 
 
+      {% if data['appointment-time'] == 'specific' or data['appointment-time'] == 'immediately' or data['appointment-time'] == 'nextWorkingDay' %} 
+      <div role="region" class="moj-alert moj-alert--success" aria-label="success: Upload successful" data-module="moj-alert">
+  <div>
+    <svg class="moj-alert__icon" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" height="30" width="30">
+      <path d="M11.2869 24.6726L2.00415 15.3899L4.62189 12.7722L11.2869 19.4186L25.3781 5.32739L27.9958 7.96369L11.2869 24.6726Z" fill="currentColor" />
+    </svg>
+  </div>
+  <div class="moj-alert__content">Initial appointment details updated. You must now tell the community probation team. <a href="#">View and print new licence PDF</a></div>
+  <div class="moj-alert__action">
+    <button class="moj-alert__dismiss" hidden>Dismiss</button>
+  </div>
+</div>
+
+      {% else %}  
+      {% endif %}  
+    
+
       <h1 class="govuk-heading-l">
         Print licence for
         {% if data['prisoner'] == 'adrian' %}
@@ -31,8 +48,10 @@
  
         <!--CRD licence start-->
 
-
-        {% if data['prisoner'] == 'adrian' %}
+  
+        {% if data['appointment-time'] == 'specific' or data['appointment-time'] == 'immediately' or data['appointment-time'] == 'nextWorkingDay' %} 
+        <h2 class="govuk-heading-m">Initial appointment details</h2>
+        {% elif data['prisoner'] == 'adrian' %}
         <h2 class="govuk-heading-m">Community probation practitioner details</h2>
         {% else %}
         <h2 class="govuk-heading-m">Initial appointment details</h2>
@@ -45,11 +64,13 @@
                  Does this person need an initial appointment?
                 </dt>
                 <dd class="govuk-summary-list__value">
-                   {% if data['prisoner'] == 'adrian' %}
-                   No
-                   {% else %}
-                   Yes
-                   {% endif %}
+                  {% if data['appointment-time'] == 'specific' or data['appointment-time'] == 'immediately' or data['appointment-time'] == 'nextWorkingDay' %} 
+                  Yes
+                  {% elif data['prisoner'] == 'adrian' %}
+                  No
+                  {% else %}
+                  Yes
+                  {% endif %}
                 </dd>
                 <dd class="govuk-summary-list__actions">
                   <a class="govuk-link govuk-link--no-visited-state" href="./appt-who-edit">Change<span class="govuk-visually-hidden"></span></a>
@@ -63,7 +84,9 @@
               {{ data['whoApptWith'] or "Stephen McVeigh" }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              {% if data['prisoner'] == 'adrian' %}
+              {% if data['appointment-time'] == 'specific' or data['appointment-time'] == 'immediately' or data['appointment-time'] == 'nextWorkingDay' %} 
+              <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"></span></a>
+              {% elif data['prisoner'] == 'adrian' %}
               {% else %}
               <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"></span></a>
               {% endif %}
@@ -80,6 +103,9 @@
               {% if data['addressCounty'] %}{{ data['addressCounty'] | default('Fakeshire') }},{% endif %} 
               {{ data['addressPostcode'] or "FA1 1KE" }}
             </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"></span></a>
+            </dd>
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -87,6 +113,9 @@
             </dt>
             <dd class="govuk-summary-list__value">
               {{ data['phoneNumber'] or "01632 960901" }}             
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"></span></a>
             </dd>
           </div>
           <div class="govuk-summary-list__row">
@@ -96,7 +125,80 @@
             <dd class="govuk-summary-list__value">
               {{ data['AlternativePhoneNumber'] or "Not entered" }}       
             </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"></span></a>
+            </dd>
           </div>
+          
+          {% if data['appointment-time'] == 'specific' %}  
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['date'] %} 
+              {{ data['date'] | formatDateString("D/M/YYYY","D MMMM YYYY")}}
+              {% else %} 
+              11 March 2025
+              {% endif %} 
+             </dd>
+            <dd class="govuk-summary-list__actions">
+              <ul class="govuk-summary-list__actions-list">
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> date</span></a>
+                </li>
+              </ul>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Time
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data | formatTime('1', '', 'pm') }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <ul class="govuk-summary-list__actions-list">
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> time</span></a>
+                </li>
+              </ul>
+            </dd>
+          </div>
+         {% elif data['appointment-time'] == 'immediately' %}  
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date/time
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Immediately after release
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <ul class="govuk-summary-list__actions-list">
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> time</span></a>
+                </li>
+              </ul>
+            </dd>
+          </div>
+          {% elif data['appointment-time'] == 'nextWorkingDay' %}  
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date/time
+            </dt>
+            <dd class="govuk-summary-list__value">
+              By 2pm on the next working day after their release
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <ul class="govuk-summary-list__actions-list">
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"> time</span></a>
+                </li>
+              </ul>
+            </dd>
+          </div>
+          {% elif data['prisoner'] == 'adrian' %}
+          {% else %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Date
@@ -117,12 +219,45 @@
               {{ data | formatTime('1', '', 'pm') }}
             </dd>
           </div>
+          {% endif %}
         </dl>
 
 
 
 
-          {% if data['additionalConditionsPresent'] == 'yes' %}  
+
+          {% if data['prisoner'] == 'adrian' %}
+
+          
+          <div class="govuk-!-padding-top-8">
+            <h2 class="govuk-heading-m">
+              Additional licence conditions (2)
+                </h2>
+  
+            
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Programmes or activities
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      <p>To comply with any requirements specified by your supervising officer to register and engage with housing and benefits.</p>
+                      <p class="hint-condition-custom">housing, benefits</p>
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Programmes or activities
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      <p>To attend and engage with any appointments with staff at Job Centre Plus, unless otherwise approved by your supervising officer.</p>
+                    </dd>
+                  </div>
+                </dl>
+          </div>
+
+
+          {% elif data['additionalConditionsPresent'] == 'yes' %}  
 
           <div class="govuk-!-margin-bottom-9 govuk-!-margin-top-8">
             <h2 class="govuk-heading-m">
@@ -184,13 +319,17 @@
           </div>
           {% else %}  
   
-          <div class="govuk-!-margin-bottom-9">
-            <h2 class="govuk-heading-m">
-              Bespoke licence conditions (0)
-                </h2>
-  
+          <div class="govuk-!-padding-bottom-8 govuk-!-padding-top-8">
 
-              </div>
+          <h2 class="govuk-heading-m" style="display: inline;">
+            Bespoke licence conditions (0)
+              </h2>
+
+                <p class="govuk-body" style="margin-top: 20px; margin-bottom: 60px;">No bespoke licence conditions added</p>
+
+                <hr class="govuk-section-break govuk-section-break--visible">
+
+        </div>
   
           {% endif %}  
 
@@ -226,21 +365,16 @@
 
 
 
-        <form action="./case-list-pip-approved" method="post">
-
+       
           <div class="govuk-button-group" style="margin-top: 50px;">
 
-            <button type="submit" class="govuk-button" data-module="govuk-button">
-              View and print licence PDF
-            </button>
+            <a href="./print-licence-pdf" type="submit" class="govuk-button" data-module="govuk-button" target="_blank">View and print licence PDF</a>
 
-            <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-              Return to case list
-            </button>
+            <a href="./case-list-pip-approved" type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">Return to case list</a>
 
           </div>
 
-        </form>
+
        
          
 
