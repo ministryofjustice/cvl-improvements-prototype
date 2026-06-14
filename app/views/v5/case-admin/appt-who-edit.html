@@ -22,7 +22,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    {% if data['whoApptWith'] == 'Duty officer' or data['whoApptWith'] == 'Stephen McVeigh' or data['whoApptWith'] == 'someone-else' %} 
+    {% if data['prisoner'] == 'adrian' %} 
     <form method="post" action="./appt-when-edit">
     {% else %} 
     <form method="post" action="./print-licence">
