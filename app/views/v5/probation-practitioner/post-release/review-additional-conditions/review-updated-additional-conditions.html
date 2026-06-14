@@ -1,18 +1,22 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/cvl.html" %}
 
-{% block page_title %}
-  Create and vary a licence - Vary a licence - Review additional licence conditions that have changed
+{% set pageName="Review policy changes to additional licence conditions" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-pp-header/include.html" %}
 {% endblock %}
 
-
-{% block beforeContent %}
-<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:0">Back</a>
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% include "components/prisoner-subheader/include.html" %}
 {% endblock %}
 
 {% block content %}
+ <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
 
-
-<form action="/v18/check-your-answers" method="post">
   <div class="govuk-form-group">
     <fieldset class="govuk-fieldset">
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
@@ -23,7 +27,7 @@
 
 <div class="govuk-form-group">
 
-<p>Seven of the additional conditions that were previously chosen for this licence have changed</br>
+<p>Five of the additional conditions that were previously chosen for this licence have changed</br>
   in the Licence Conditions Policy Framework to use new wording or have different options.
 </br> </p>
 
@@ -33,19 +37,14 @@
 </legend>
 
 <p>
-  You must review these changes on the next screens so the updated licence conditions can be used.</br>
-    
-    If necessary, you will also need to add some extra information to complete the licence condition.</p>
+  You must review these changes on the next screens so the updated licence conditions can be used. If necessary, you will also need to add some extra information to complete the licence condition.</p>
   
-  <p>We only ask you to do this when varying a licence containing conditions that have changed.
-  </p>
+  <p>We only ask you to do this when varying a licence containing conditions that have changed.</p>
 
 
-<!--<button type="submit" class="govuk-button" data-module="govuk-button">Continue</button>-->
-<br />
-    <input type="hidden" name="9a" value="no">
-    <a href="./check-licence-condition-3c" class="govuk-button show-continue" style="display: inline;">
-      Continue</a>
+  <a href="./changed-conditions/check-licence-condition-5a" class="govuk-button" style="margin-top: 5px;">Continue</a>
 
-</form>
+
+  </div>
+</div>
 {% endblock %}

@@ -1,0 +1,62 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Review policy changes to additional licence conditions" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-pp-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% include "components/prisoner-subheader/include.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <span class="govuk-caption-l">Change 1 of 5</span>
+        <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-2">
+          Review policy change
+        </h1>
+      </legend>
+
+
+      <p>The licence condition below has been changed in policy.</p>
+
+      <p>Before you can continue varying this licence, you must review this change and then accept it or delete the condition.</p>
+
+      <p>If you accept the change, the licence will be updated automatically.</br> 
+      You do not need to provide any more information for this change.</p>
+
+
+
+<div class="govuk-form-group">
+
+
+<h2 class="govuk-heading-m govuk-!-margin-top-8">Licence condition being changed</h2>
+
+<p>Not to own or possess more than one mobile phone or SIM card without the prior approval of your supervising officer and to provide your supervising officer with details of that mobile telephone or one you have regular use of, including the IMEI number and the SIM card that you possess.</p>
+
+<h2 class="govuk-heading-m govuk-!-margin-top-6">New licence condition</h2>
+
+<p class="govuk-hint">Requirement not to install an e-sim added.</p>
+
+<div class="govuk-inset-text">
+Not to own or possess more than one mobile phone or SIM card, or install an e-sim, without the prior approval of your supervising officer and to provide your supervising officer with details of that mobile telephone or one you have regular use of, including the IMEI number and the SIM card that you possess.
+</div>
+
+
+
+<a href="./check-licence-condition-6d" class="govuk-button show-continue" style="margin-top: 10px;">Accept change</a>
+    
+<a href="../delete-condition-confirm" class="govuk-button govuk-button--secondary" style="margin-top: 10px; margin-left: 10px;">Delete this condition</a>
+
+
+  </div>
+</div>
+{% endblock %}

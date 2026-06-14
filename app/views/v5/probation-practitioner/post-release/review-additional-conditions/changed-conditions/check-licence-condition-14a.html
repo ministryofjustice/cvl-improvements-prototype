@@ -1,0 +1,61 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Review policy changes to additional licence conditions" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-pp-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% include "components/prisoner-subheader/include.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <span class="govuk-caption-l">Change 5 of 5</span>
+        <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-2">
+          Review policy change
+        </h1>
+      </legend>
+
+
+      <p>The licence condition below has been changed in policy.</p>
+
+      <p>Before you can continue varying this licence, you must review this change and then accept it or delete the condition.</p>
+
+      <p>You need to add or check some information before we can update the licence.</p>
+
+
+
+<div class="govuk-form-group">
+
+
+<h2 class="govuk-heading-m govuk-!-margin-top-8">Licence condition being changed</h2>
+
+<p>Allow person(s) as designated by your supervising officer to install an electronic monitoring tag on you and access to install any associated equipment in your property, and for the purpose of ensuring that equipment is functioning correctly. You must not damage or tamper with these devices and ensure that the tag is charged, and report to your supervising officer and the EM provider immediately if the tag or the associated equipment are not working correctly. This will be for the purpose of monitoring your [INSERT TYPES OF CONDITIONS TO BE ELECTRONICALLY MONITORED HERE] licence condition(s) unless otherwise authorised by your supervising officer.</p>
+
+<h2 class="govuk-heading-m govuk-!-margin-top-6">New licence condition</h2>
+
+<p class="govuk-hint">You must add the date the tagging will end.</p>
+
+<div class="govuk-inset-text">
+Your electronic monitoring tag will check [CONDITIONS TO BE MONITORED]. You must wear the tag until [END DATE].
+</div>
+
+
+
+<a href="./complete-licence-condition-14a.html" class="govuk-button show-continue" style="margin-top: 10px;">Continue</a>
+    
+<a href="../delete-condition-confirm" class="govuk-button govuk-button--secondary" style="margin-top: 10px; margin-left: 10px;">Delete this condition</a>
+
+
+  </div>
+</div>
+{% endblock %}

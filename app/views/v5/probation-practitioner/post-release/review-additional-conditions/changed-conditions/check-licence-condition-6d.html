@@ -1,0 +1,60 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Review policy changes to additional licence conditions" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-pp-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% include "components/prisoner-subheader/include.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <span class="govuk-caption-l">Change 2 of 5</span>
+        <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-2">
+          Review policy change
+        </h1>
+      </legend>
+
+
+      <p>The licence condition below has been changed in policy.</p>
+
+      <p>Before you can continue varying this licence, you must review this change and then accept it.</br>
+        The licence will then be updated automatically.</p>
+
+
+
+<div class="govuk-form-group">
+
+
+<h2 class="govuk-heading-m govuk-!-margin-top-8">Licence condition being changed</h2>
+
+<p>To notify your supervising officer of the details of any passport that you possess (including passport number), and of any intention to apply for a new passport.</p>
+
+<h2 class="govuk-heading-m govuk-!-margin-top-6">New licence condition</h2>
+
+<p class="govuk-hint">This is now a standard condition and will appear on the licence by default.</p>
+
+<div class="govuk-inset-text">
+Give your passport to your supervising officer and speak to them before applying for a new passport. 
+</div>
+
+
+
+
+<a href="./check-licence-condition-7a" class="govuk-button" style="margin-top: 10px;">Accept change</a>
+    
+
+
+  </div>
+</div>
+{% endblock %}

@@ -64,7 +64,7 @@
                 </div>
             
                 <p class="moj-timeline__date">
-                  <time datetime="2019-05-28T10:45:00.000Z">19 November 2024 at 05:20 pm</time>
+                  <time datetime="2019-05-28T10:45:00.000Z">{{ "today" | duration(-3) | govukDate(truncate=true) }} at 05:20 pm</time>
                 </p>
             
                 <div class="moj-timeline__description">
