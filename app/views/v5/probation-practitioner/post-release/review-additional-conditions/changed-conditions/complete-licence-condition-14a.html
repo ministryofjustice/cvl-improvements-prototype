@@ -1,0 +1,143 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Complete the licence condition" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-pp-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% include "components/prisoner-subheader/include.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+<div class="govuk-form-group govuk-!-margin-bottom-8">
+  <fieldset class="govuk-fieldset" aria-describedby="condition-tag-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <span class="govuk-caption-l">Change 5 of 5</span>
+      <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-3">
+        Complete the licence condition
+      </h1>
+    </legend>
+      <p>Your electronic monitoring tag will check [CONDITIONS TO BE MONITORED]. You must wear the tag until [END DATE].</p>
+   
+      <div id="hint" class="govuk-hint hint-condition-custom" style="padding-top: 20px;">Select all that apply
+    
+      <div class="govuk-checkboxes" data-module="govuk-checkboxes" style="margin-top: 15px;">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="condition-tag" name="condition-tag" type="checkbox" value="exclusion">
+        <label class="govuk-label govuk-checkboxes__label" for="condition-tag">
+          that you do not go to areas you must not enter (exclusion zones)
+        </label>
+      </div>
+            <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="condition-tag" name="condition-tag" type="checkbox" value="exclusion">
+        <label class="govuk-label govuk-checkboxes__label" for="condition-tag">
+          that you do not leave areas you must stay in (restriction zones)
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="condition-tag-2" name="condition-tag" type="checkbox" value="curfew" checked>
+        <label class="govuk-label govuk-checkboxes__label" for="condition-tag-2">
+         that you comply with your curfew
+        </label>
+      </div>
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="condition-tag-3" name="condition-tag" type="checkbox" value="location-monitoring">
+        <label class="govuk-label govuk-checkboxes__label" for="condition-tag-3">
+          that you do not drink any alcohol
+        </label>
+      </div>
+            <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="condition-tag-4" name="condition-tag" type="checkbox" value="attendance" checked>
+        <label class="govuk-label govuk-checkboxes__label" for="condition-tag-4">
+          that you attend appointments
+        </label>
+      </div>
+            <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="condition-tag-5" name="condition-tag" type="checkbox" value="alcohol-monitoring" checked>
+        <label class="govuk-label govuk-checkboxes__label" for="condition-tag-5">
+          your alcohol consumption
+        </label>
+      </div>
+            <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="condition-tag-6" name="condition-tag" type="checkbox" value="alcohol-abstinence">
+        <label class="govuk-label govuk-checkboxes__label" for="condition-tag-6">
+          your location
+        </label>
+      </div>
+    </div>
+
+
+<div class="govuk-form-group govuk-!-margin-top-8">
+  <fieldset class="govuk-fieldset" role="group" aria-describedby="trail-monitoring-hint">
+    <legend class="govuk-fieldset__legend hint-condition-custom">
+      Enter the end date
+    </legend>
+    <div id="passport-issued-hint" class="govuk-hint">
+      For example, 18 05 2026
+    </div>
+    <div class="govuk-date-input" id="trail-monitoring">
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="trail-monitoring-day">
+            Day
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="trail-monitoring-day" name="trail-monitoring-day" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="trail-monitoring-month">
+            Month
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="trail-monitoring-month" name="trail-monitoring-month" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="trail-monitoring-year">
+            Year
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="trail-monitoring-year" name="trail-monitoring-year" type="text" inputmode="numeric">
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+
+
+
+
+
+  </fieldset>
+</div>
+
+
+<a href="../check-your-answers" class="govuk-button show-continue" style="margin-top: 10px;">Continue</a>
+    
+<a href="../delete-condition-confirm" class="govuk-button govuk-button--secondary" style="margin-top: 10px; margin-left: 10px;">Delete this condition</a>
+
+
+
+  </div>
+</div>
+{% endblock %}
+
+
+{% block footer %}
+
+{% include "components/cvl-pp-footer/include.html" %}
+
+{% endblock %}

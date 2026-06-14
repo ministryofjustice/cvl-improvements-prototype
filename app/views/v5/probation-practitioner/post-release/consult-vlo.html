@@ -20,8 +20,11 @@
   <div class="govuk-grid-column-two-thirds">
 
 
-
+    {% if data['prisoner'] == 'kieranvary' %}
+    <form action="./review-additional-conditions/review-updated-additional-conditions" method="get">
+    {% else %}
     <form action="vary-licence-details" method="get">
+    {% endif %}
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">

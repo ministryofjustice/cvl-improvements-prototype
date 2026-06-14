@@ -149,8 +149,71 @@
 
           <!--HDC case END-->
 
+          {% if data['prisoner'] == 'kieranvary' %}  
 
-          {% if data['additionalConditionsPresent'] == 'yes' %}  
+          <div class="govuk-!-margin-bottom-9 govuk-!-margin-top-8">
+            <h2 class="govuk-heading-m">
+              Additional licence conditions (5)
+                </h2>
+  
+        
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Possession, ownership, control or inspection of specified items or documents
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      <p>Not to own or possess more than one mobile phone or SIM card without the prior approval of your supervising officer and to provide your supervising officer with details of that mobile telephone or one you have regular use of, including the IMEI number and the SIM card that you possess.</p>
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Disclosure of information
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      <p>To notify your supervising officer of the details of any passport that you possess (including passport number), and of any intention to apply for a new passport.</p>
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Curfew arrangement
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      <p>Your curfew hours are between 8am and 10am, 12pm and 1pm, and 5pm and 9pm daily.</p>
+                      <p class="hint-condition-custom">
+                        8am</br>
+                        10am</br>
+                        12pm</br>
+                        1pm</br>
+                        5pm</br>
+                        9pm
+                      </p>
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      ????Drug
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      <p>Attend a location, as required by your supervising officer, to give a sample of oral fluid / urine in order to test whether you have any specified Class A and specified Class B drugs in your body, for the purpose of ensuring that you are complying with the condition of your licence requiring you to be of good behaviour. Do not take any action that could hamper or frustrate the drug testing process.</p>
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Electronic monitoring
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      <p>Your electronic monitoring tag will check that you comply with your curfew, that you attend appointments and your alcohol consumption. You must wear the tag until 21 May 2027.</p>
+                      <p class="hint-condition-custom">
+                        that you comply with your curfew, that you attend appointments, your alcohol consumption</br>
+                        21 May 2027
+                      </p>
+                    </dd>
+                  </div>
+                </dl>
+          </div>
+
+          {% elif data['additionalConditionsPresent'] == 'yes' %}  
 
           <div class="govuk-!-margin-bottom-9 govuk-!-margin-top-8">
             <h2 class="govuk-heading-m">
@@ -168,7 +231,6 @@
                       <p>You will be subject to trail monitoring. Your whereabouts will be electronically monitored by GPS Satellite Tagging, ending on Thursday 18th December 2025, and you must cooperate with the monitoring as directed by your supervising officer unless otherwise authorised by your supervising officer.</p>
                       <p class="hint-condition-custom">Thursday 18th December 2025</p>
                     </dd>
-
                   </div>
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
