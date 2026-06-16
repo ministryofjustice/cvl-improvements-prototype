@@ -31,7 +31,7 @@
 
         <h2 class="govuk-heading-m">
           {% if data['whoApptWith'] == 'no-appointment' %}
-          Community probation practitioner details
+          Community probation team contact details
           {% else %}
           Initial appointment details
           {% endif %}
@@ -56,7 +56,11 @@
               </div>
               <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
-                  Name
+                  {% if data['whoApptWith'] == 'no-appointment' %}
+                    Community probation practitioner name
+                  {% else %}
+                    Initial appointment details
+                  {% endif %}
                 </dt>
                 <dd class="govuk-summary-list__value">
                   {% if data['whoApptWith'] == 'no-appointment' %}
