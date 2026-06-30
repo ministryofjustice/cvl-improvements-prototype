@@ -11,6 +11,14 @@
         </div>
         <span class="govuk-heading-m">Kieran Pace</span>
 
+{% elif data['prisoner'] == 'jo' %}
+<span class="pipe-separated__item">CRN: B42L89O</span>
+            <span class="pipe-separated__item">
+                Conditional release date: [Weekday] {{ "today" | duration(64) | govukDate(truncate=false) }}
+            </span>
+            <span class="pipe-separated__item">Date of birth: 4 June 1984</span>
+        </div>
+        <span class="govuk-heading-m">Joe Blocks</span>
 
 {% elif data['prisoner'] == 'marcus' %}
 <span class="pipe-separated__item">CRN: L29A90N</span>
