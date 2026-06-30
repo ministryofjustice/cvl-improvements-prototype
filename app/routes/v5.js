@@ -340,8 +340,16 @@ router.post(version + '/licence-need-changing-answer-ts', function(request, resp
 })
 
 
+// PP - Review policy changes journey
+router.post(version + '/policy-change-not-needed', function(request, response) {
 
-
+    var conditionNotneeded = request.session.data['condition-not-needed']
+    if (conditionNotneeded == "yes"){
+        response.redirect(version + "/probation-practitioner/post-release/review-additional-conditions/changed-conditions/check-licence-condition-6d")
+    } else {
+        response.redirect(version + "/probation-practitioner/post-release/review-additional-conditions/changed-conditions/check-licence-condition-5a")
+    }
+})
 
 
 
