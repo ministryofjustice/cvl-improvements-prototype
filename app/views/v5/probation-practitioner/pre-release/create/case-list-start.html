@@ -207,6 +207,9 @@
           </tr>
 
 
+    
+
+
           <tr class="govuk-table__row">
 
             <td class="govuk-table__cell">
@@ -767,12 +770,31 @@
 
                      <tr class="govuk-table__row">
 
+            <td class="govuk-table__cell">
+              <a href="./blocking-licence-creation?prisoner=jo" class="govuk-link--no-visited-state pp-caselist-name">Joe Blocks</a>
+              <span class="govuk-!-font-size-16 pp-caselist-crn">CRN: B42L89O</span>
+            </td>
+      
+            <!--<td class="govuk-table__cell">Standard determinate</td>-->
+      
+            <td class="govuk-table__cell" data-sort-value="26">
+              Conditional release date:</br>
+              {{ "today" | duration(64) | govukDate(truncate=true) }}
+            </td>
+      
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow status-badge">Not started</strong></td>
+          
+          </tr>
+
+
+                     <tr class="govuk-table__row">
+
                       <td class="govuk-table__cell">
                         <a href="../../global/limited-access-offender" class="govuk-link--no-visited-state pp-caselist-name">Access restricted on NDelius</a>
                         <span class="govuk-!-font-size-16 pp-caselist-crn">CRN: J50075</span>
                       </td>
                 
-                      <td class="govuk-table__cell" data-sort-value="26">Restricted</td>
+                      <td class="govuk-table__cell" data-sort-value="27">Restricted</td>
                 
                       <td class="govuk-table__cell">Restricted</td>
 

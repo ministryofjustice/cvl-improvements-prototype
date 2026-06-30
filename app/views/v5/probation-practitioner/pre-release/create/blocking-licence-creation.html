@@ -1,0 +1,48 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Create and vary a licence – Access restricted on NDelius" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-pp-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% include "components/prisoner-subheader/include.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <h1 class="govuk-heading-l">Blocking case</h1>
+  
+    <p class="govuk-body">Copy</p>
+    
+
+    <form action="../pre-release/create/case-list-start" method="post">
+
+      <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Return to cases
+      </button>
+
+    </form>
+    
+      
+  </div>
+</div>
+
+{% endblock %}
+
+
+{% block footer %}
+
+{% include "components/cvl-pp-footer/include.html" %}
+
+{% endblock %}
