@@ -22,6 +22,12 @@
 
     <form method="post" action="./appt-where/saved-addresses">
 
+      <style>
+        .govuk-radios__divider {
+        margin-bottom: 25px;
+        }
+      </style>
+
       {% set textHtmlOther %}
         {{ govukInput({
           name: "who4",
