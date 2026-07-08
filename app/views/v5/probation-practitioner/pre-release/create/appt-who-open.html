@@ -22,6 +22,12 @@
 
     <form method="post" action="./appt-where/saved-addresses">
 
+      <style>
+        .govuk-radios__divider {
+        margin-bottom: 25px;
+        }
+      </style>
+
       {% set textHtmlOther %}
         {{ govukInput({
           name: "who4",
@@ -67,37 +73,22 @@
             value: "no-appointment",
             text: "No appointment needed",
             hint: {
-              html: "Select no appointment needed if this person is being released in the final third of a standard determinate sentence. Some kind of reference to further eligibility criteria."
-            }
-          }
-        ]
-      }) }}
-
-      <div class="govuk-!-margin-top-8 govuk-!-margin-bottom-8">
-
-        <h2 class="govuk-heading-m">Help with final third</h2>
-
-        <details class="govuk-details" data-module="govuk-details">
-          <summary class="govuk-details__summary">
-            <span class="govuk-details__summary-text">
-              When no initial appointment is needed
-            </span>
-          </summary>
-          <div class="govuk-details__text">
-            TBC Select no appointment needed if this person is being released in the final third of a standard determinate sentence and is not:
-              <ul class="govuk-list govuk-list--bullet" style="margin-top: 5px">
+              html: "
+              <p class='govuk-hint'>Select no appointment needed if this person is being released in the final third of a standard determinate sentence and is not:</p>
+              <ul class='govuk-list govuk-list--bullet govuk-hint' style='margin-top: -10px'>
                 <li>MAPPA eligible</li>
                 <li>named on a child protection plan</li>
                 <li>sentenced for a state threat or a terrorist risk offence</li>
                 <li>tier A, B or C</li>
                 <li>serving a standard determinate sentence plus</li>
               </ul>
-          
-          
-          </div>
-        </details>
+                "
+            }
+          }
+        ]
+      }) }}
 
-      </div>
+      
 
       <button type="submit" class="govuk-button" data-module="govuk-button">
         Continue
