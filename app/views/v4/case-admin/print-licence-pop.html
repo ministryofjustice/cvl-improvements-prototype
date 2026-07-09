@@ -22,64 +22,10 @@
   <div class="govuk-grid-column-full">
 
 
-        {% if data['scenario'] == 'FNcurfewChanged' %}
-        <div role="region" class="moj-alert moj-alert--success" aria-label="success: Upload successful" data-module="moj-alert" style="margin-bottom: 40px;">
-          <div>
-            <svg class="moj-alert__icon" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" height="30" width="30">
-              <path d="M11.2869 24.6726L2.00415 15.3899L4.62189 12.7722L11.2869 19.4186L25.3781 5.32739L27.9958 7.96369L11.2869 24.6726Z" fill="currentColor" />
-            </svg>
-          </div>
-          <div class="moj-alert__content">HDC curfew details updated. You must now tell the community probation team. <a class="govuk-link" href="./print-licence-pdf">View and print new licence PDF</a></div>
-          <div class="moj-alert__action">
-            <button class="moj-alert__dismiss" hidden>Dismiss</button>
-          </div>
-        </div>
-        {% elif data['scenario'] == 'initialappChanged' %}
-        <div role="region" class="moj-alert moj-alert--success" aria-label="success: Upload successful" data-module="moj-alert" style="margin-bottom: 40px;">
-          <div>
-            <svg class="moj-alert__icon" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" height="30" width="30">
-              <path d="M11.2869 24.6726L2.00415 15.3899L4.62189 12.7722L11.2869 19.4186L25.3781 5.32739L27.9958 7.96369L11.2869 24.6726Z" fill="currentColor" />
-            </svg>
-          </div>
-          <div class="moj-alert__content">Initial appointment details updated. You must now tell the community probation team. <a class="govuk-link" href="./print-licence-pdf">View and print new licence PDF</a></div>
-          <div class="moj-alert__action">
-            <button class="moj-alert__dismiss" hidden>Dismiss</button>
-          </div>
-        </div>
-        {% else %}
-        {% endif %}
-
-
-
-      
-        {% if data['scenario'] == 'hdcadCASadded' or data['scenario'] == 'hdcadadded' or data['prisoner'] == 'hale' or data['scenario'] == 'FNcurfewChanged' or data['scenario'] == 'initialappChanged' %}
-        {% elif data['prisoner'] == 'lorin'  %}
-        <div role="region" class="moj-alert moj-alert--warning" aria-label="warning: Some information could not be imported" data-module="moj-alert" style="margin-bottom: 60px;">
-          <div>
-            <svg class="moj-alert__icon" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" height="30" width="30">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M15 2.44922L28.75 26.1992H1.25L15 2.44922ZM13.5107 9.49579H16.4697L16.2431 17.7678H13.7461L13.5107 9.49579ZM13.1299 21.82C13.1299 21.5661 13.1787 21.3285 13.2764 21.1071C13.374 20.8793 13.5075 20.6807 13.6768 20.5114C13.8525 20.3421 14.0544 20.2087 14.2822 20.111C14.5101 20.0134 14.7542 19.9645 15.0146 19.9645C15.2686 19.9645 15.5062 20.0134 15.7275 20.111C15.9554 20.2087 16.154 20.3421 16.3232 20.5114C16.4925 20.6807 16.626 20.8793 16.7236 21.1071C16.8213 21.3285 16.8701 21.5661 16.8701 21.82C16.8701 22.0804 16.8213 22.3246 16.7236 22.5524C16.626 22.7803 16.4925 22.9789 16.3232 23.1481C16.154 23.3174 15.9554 23.4509 15.7275 23.5485C15.5062 23.6462 15.2686 23.695 15.0146 23.695C14.7542 23.695 14.5101 23.6462 14.2822 23.5485C14.0544 23.4509 13.8525 23.3174 13.6768 23.1481C13.5075 22.9789 13.374 22.7803 13.2764 22.5524C13.1787 22.3246 13.1299 22.0804 13.1299 21.82Z" fill="currentColor" />
-            </svg>
-          </div>
-          <div class="moj-alert__content">HDC actual date and curfew address must be entered before this licence can be printed.</div>
-          <div class="moj-alert__action">
-            <button class="moj-alert__dismiss" hidden>Dismiss</button>
-          </div>
-        </div>
-        {% else %}
-        {% endif %}
-      
-      
-
-
-
-
+ 
       <h1 class="govuk-heading-l">
         Print licence for
-        {% if data['prisoner'] == 'lorin' %} 
-        Lorin Mave Change
-        {% elif data['prisoner'] == 'hale' %}  
-        Hale Draven Corvath
-        {% elif data['prisoner'] == 'dee' %}  
+        {% if data['prisoner'] == 'dee' %}  
         Dee Houseman
         {% else %}  
         Cyphoonifer Bransabert
@@ -107,7 +53,6 @@
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="./hdc/appt-who">Change</a>
             </dd>
           </div>
 
@@ -126,7 +71,6 @@
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="./hdc/appt-where/manual-entry">Change</a>  
             </dd>
           </div>
 
@@ -142,7 +86,6 @@
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="./hdc/appt-phone">Change</a>
             </dd>
           </div>
 
@@ -154,7 +97,6 @@
               Not entered
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="./hdc/appt-phone">Change</a>
             </dd>
           </div>
 
@@ -168,7 +110,6 @@
               By 2pm on the next working day after their release
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="./hdc/appt-when">Change</a>
             </dd>
           </div>
           {% elseif data.appointment-time == "immediately" %}
@@ -180,7 +121,6 @@
               Immediately after release
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="./hdc/appt-when">Change</a>
             </dd>
           </div>
           {% else %}
@@ -192,7 +132,6 @@
               {{ "today" | duration(2) | govukDate(truncate=false) }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="./hdc/appt-when">Change</a>
             </dd>
           </div>
           <div class="govuk-summary-list__row">
@@ -203,7 +142,6 @@
               1pm
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="./hdc/appt-when">Change</a>
             </dd>
           </div>
           {% endif %}
@@ -225,11 +163,7 @@
               HDC eligibility date
             </dt>
             <dd class="govuk-summary-list__value">
-              {% if data['prisoner'] == 'lorin' %} 
-              [Weekday] {{ "today" | duration(1) | govukDate(truncate=false) }}
-              {% else %} 
               [Weekday] {{ "today" | duration(-1) | govukDate(truncate=false) }}
-              {% endif %} 
             </dd>
             <dd class="govuk-summary-list__actions">
             </dd>
@@ -239,11 +173,7 @@
               HDC actual date
             </dt>
             <dd class="govuk-summary-list__value">
-              {% if data['scenario'] == 'hdcadCASadded' or data['prisoner'] == 'hale' or data['scenario'] == 'FNcurfewChanged' or data['scenario'] == 'initialappChanged' %} 
               [Weekday] {{ "today" | duration(6) | govukDate(truncate=false) }}
-              {% else %} 
-              Not yet entered. Enter this in <a href="" class="govuk-link govuk-link--no-visited-state">Calculate release dates</a>.
-              {% endif %} 
             </dd>
             <dd class="govuk-summary-list__actions">
             </dd>
@@ -253,13 +183,7 @@
               Address
             </dt>
             <dd class="govuk-summary-list__value">
-              {% if data['scenario'] == 'hdcadCASadded' or data['scenario'] == 'FNcurfewChanged' or data['scenario'] == 'initialappChanged' %} 
-              Hampshire Court, Newcastle, NE4 7YJ
-              {% elif data['prisoner'] == 'lorin' %}
-              Not yet entered. Check the <a href="#">HDC service</a>. 
-              {% else %} 
-              60 Marsh Road, Newcastle, NC5R 2TT 
-              {% endif %} 
+              60 Marsh Road, Newcastle, NC5R 2TT
             </dd>
             <dd class="govuk-summary-list__actions">
             </dd>
@@ -269,14 +193,9 @@
               First night curfew hours
             </dt>
             <dd class="govuk-summary-list__value">
-              {% if data['curfewdetails'] == 'updated' %}
               4pm to 8am
-              {% else %} 
-              3pm to 7am
-              {% endif %} 
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="./hdc/first-night-curfew">Change<span class="govuk-visually-hidden"> first night curfew hours</span></a>
             </dd>
           </div>
 
@@ -693,17 +612,7 @@
 
         
         
-        
-
-         
-        <!--HDC simulation start-->
-        {% if data['scenario'] == 'hdcadCASadded' or data['prisoner'] == 'hale' or data['scenario'] == 'FNcurfewChanged' or data['scenario'] == 'initialappChanged' %}
-        {% elif data['prisoner'] == 'lorin' %} 
-        <a class="govuk-link" href="./print-licence?scenario=hdcadCASadded">For testing only: Simulation of user adding address and HDCAD</a>
-        {% else %} 
-        {% endif %} 
-        <!--HDC simulation end-->
-
+    
 
 
   
