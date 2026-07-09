@@ -65,17 +65,30 @@
 {% elif data['prisoner'] == 'lorin' %}  
             <span class="pipe-separated__item">Prison number: L22M6C1</span>
             <span class="pipe-separated__item">
-                HDC actual date : [Weekday] {{ "today" | duration(2) | govukDate(truncate=false) }}
+                HDC actual date: [Weekday] {{ "today" | duration(2) | govukDate(truncate=false) }}
             </span>
             <span class="pipe-separated__item">Date of birth: 12 Dec 1999</span>
         </div>
         <span class="govuk-heading-m">Lorin Mave Change</span>
 
+{% elif data['prisoner'] == 'dee' %}  
+            <span class="pipe-separated__item">Prison number: H87D13C</span>
+            <span class="pipe-separated__item">
+                {% if data['scenario'] == 'HDC actual date added' %}
+                HDC actual date: [Weekday] {{ "today" | duration(6) | govukDate(truncate=false) }}
+                {% else %}
+                HDC eligibility date: [Weekday] {{ "today" | duration(2) | govukDate(truncate=false) }}
+                {% endif %}
+            </span>
+            <span class="pipe-separated__item">Date of birth: 12 Dec 1999</span>
+        </div>
+        <span class="govuk-heading-m">Dee Houseman</span>
+
 {% elif data['prisoner'] == 'hale' %}  
             <span class="pipe-separated__item">Prison number: H87D13C</span>
             <span class="pipe-separated__item">
                 {% if data['scenario'] == 'HDC actual date added' %}
-                HDC actual date : [Weekday] {{ "today" | duration(6) | govukDate(truncate=false) }}
+                HDC actual date: [Weekday] {{ "today" | duration(6) | govukDate(truncate=false) }}
                 {% else %}
                 HDC eligibility date: [Weekday] {{ "today" | duration(2) | govukDate(truncate=false) }}
                 {% endif %}
@@ -90,6 +103,16 @@
             <span class="pipe-separated__item">Date of birth: 4 Sep 1973</span>
         </div>
         <span class="govuk-heading-m">NDelius Missing</span>
+
+
+{% else %}  
+    <span class="pipe-separated__item">CRN: A693826</span>
+
+ <span class="pipe-separated__item">Conditional release date: [Weekday] 27 May 2025</span>
+ 
+ <span class="pipe-separated__item">Date of birth: 10 Nov 1970</span>
+    </div>
+    <span class="govuk-heading-m">Cyphoonifer Bransabert</span>
 
 {% endif %}  
 
