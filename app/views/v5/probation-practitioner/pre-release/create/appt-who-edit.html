@@ -75,7 +75,7 @@
             text: "No appointment needed",
             checked: data['whoApptWith'] == 'no-appointment',
             hint: {
-              html: "We will add the community probation practitioner's name to the licence and ask for some contact details. This is so the person knows who to contact for support."
+              html: "For people being released in the final third of a standard determinate sentence. Check the help section below for eligibility information."
             }
           }
         ]
@@ -92,10 +92,17 @@
             </span>
           </summary>
           <div class="govuk-details__text">
-            Select No appointment needed if the person is being released in the final third of their sentence, for example after a recall or prison adjudication.          </div>
-        </details>
-
-      </div>
+            Select no appointment needed if this person is being released in the final third of a standard determinate sentence and is not:
+              <ul class="govuk-list govuk-list--bullet" style="margin-top: 5px">
+                <li>MAPPA eligible</li>
+                <li>named on a child protection plan</li>
+                <li>sentenced for a state threat or a terrorist risk offence</li>
+                <li>tier A, B or C</li>
+                <li>serving a standard determinate sentence plus</li>
+              </ul>
+          
+          
+          </div>
 
       <button type="submit" class="govuk-button" data-module="govuk-button">
         Continue
