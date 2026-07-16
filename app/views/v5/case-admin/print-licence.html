@@ -49,13 +49,8 @@
         <!--CRD licence start-->
 
   
-        {% if data['appointment-time'] == 'specific' or data['appointment-time'] == 'immediately' or data['appointment-time'] == 'nextWorkingDay' %} 
-        <h2 class="govuk-heading-m">Initial appointment details</h2>
-        {% elif data['prisoner'] == 'adrian' %}
+
         <h2 class="govuk-heading-m">Community probation team contact details</h2>
-        {% else %}
-        <h2 class="govuk-heading-m">Initial appointment details</h2>
-        {% endif %}
 
     
         <dl class="govuk-summary-list">
