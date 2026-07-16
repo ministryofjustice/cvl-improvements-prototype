@@ -18,7 +18,7 @@
 
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
+  <div class="govuk-grid-column-two-thirds">
 
 
         <h1 class="govuk-heading-l">
@@ -34,9 +34,25 @@
           Community probation team contact details
         </h2>
 
+        {% if data['prisoner'] == 'marcus' %}
+        <p>TBC: To request a change to this person's initial appointment, contact Pentonville (HMP) at test.justice.gov.uk.</p>
+        {% else %}
         <p>To request a change to this person's initial appointment, contact Pentonville (HMP) at test.justice.gov.uk.</p>
+        {% endif %}
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-8">
+          <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                 Does this person need an initial appointment?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                   {% if data['prisoner'] == 'marcus' %}
+                   No
+                   {% else %}
+                   Yes
+                   {% endif %}
+                </dd>
+              </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Name
@@ -71,9 +87,17 @@
               {{ data['contactNumber'] or "01234567890" }}
             </dd>
           </div>
+          <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Alternative contact phone number
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['AlternativePhoneNumber'] or "Not entered" }}       
+                </dd>
+              </div>
 
-
-            {% if data['appointment-time'] == 'specific' %}  
+          {% if data['prisoner'] == 'marcus' %}
+          {% elif data['appointment-time'] == 'specific' %}  
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Date
@@ -111,26 +135,28 @@
         </dl>
 
 
-        <h2 class="govuk-heading-m">
-          Licence conditions
-        </h2>
+        <h2 class="govuk-heading-m" style="margin-top: 40px;">Licence conditions</h2>
 
-        <p>By default, the licence will automatically contain the following restrictions:</p>
+        <p>The licence will contain standard licence conditions. By default, it will also automatically contain an additional condition.</p>
 
-        <ul class="govuk-list govuk-list--bullet">
-         <li>standard conditions</li>
-         <li>the following additional condition:</li>
-        </ul>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+         <div class="govuk-summary-list__row">
+           <dt class="govuk-summary-list__key">
+            Making or maintaining contact with a person
+           </dt>
+          <dd class="govuk-summary-list__value">
+            Not to approach or communicate with any victims of your offences without the prior approval of your supervising officer.
+          </dd>
+         </div>
+        </dl>
+        
 
-        <div class="govuk-inset-text">
-          Not to approach or communicate with any victims of your offences without the prior approval of your supervising officer.
-        </div>
+        <p>The prison cannot add any other additional or bespoke conditions.</br>
+        If you need to add any additional or bespoke licence conditions, you can do so after release.</p>
 
-        <p>The prison <strong>cannot</strong> add any other additional or bespoke conditions.</p>
 
-        <p class="govuk-!-margin-bottom-8">If you need to add any additional or bespoke licence conditions, you can do so after release.</p>
+            <div class="govuk-button-group" style="margin-top: 40px;">
 
-            <div class="govuk-button-group">
               <a href="#" type="submit" class="govuk-button" data-module="govuk-button">
                 View and print licence PDF
             </a>
