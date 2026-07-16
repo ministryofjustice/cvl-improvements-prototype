@@ -25,20 +25,16 @@
           Licence has been created by prison
         </h1>
 
-        <p>A licence for this person has been created by the prison because you did not get one approved in time for their final release checks.</p>
+        <p>A licence for this person has been created by Pentonville (HMP) because none was submitted in time for their final release checks.</p>
 
-        <p>Once the person is released, you will need to review this licence and make any changes you require.</p>
+        <p>Once this person is released, the licence must be reviewed. If changes are needed, the licence can be varied.</p>
 
 
         <h2 class="govuk-heading-m">
           Community probation team contact details
         </h2>
 
-        {% if data['prisoner'] == 'marcus' %}
-        <p>TBC: To request a change to this person's initial appointment, contact Pentonville (HMP) at test.justice.gov.uk.</p>
-        {% else %}
-        <p>To request a change to this person's initial appointment, contact Pentonville (HMP) at test.justice.gov.uk.</p>
-        {% endif %}
+        <p>To request a change to these details, contact Pentonville (HMP) at test.justice.gov.uk</p>
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-8">
           <div class="govuk-summary-list__row">
@@ -133,7 +129,24 @@
           </div>
          {% endif %} 
         </dl>
-
+         <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              When no initial appointment is needed
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            An initial appointment is not needed if this person is being released in the final third of a standard determinate sentence and is not:
+              <ul class="govuk-list govuk-list--bullet" style="margin-top: 5px">
+                <li>MAPPA eligible</li>
+                <li>named on a child protection plan</li>
+                <li>sentenced for a state threat or a terrorist risk offence</li>
+                <li>tier A, B or C</li>
+                <li>serving a standard determinate sentence plus</li>
+              </ul>
+        
+          </div>
+        </details>
 
         <h2 class="govuk-heading-m" style="margin-top: 40px;">Licence conditions</h2>
 
