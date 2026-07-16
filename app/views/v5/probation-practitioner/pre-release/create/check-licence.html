@@ -22,6 +22,13 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
 
+    {% if data['error'] == 'notreadytosubmit' and data['appointment-time'] == 'immediately' %} 
+    {% elif data['error'] == 'notreadytosubmit' and data['appointment-time'] == 'nextWorkingDay' %} 
+    {% elif data['error'] == 'notreadytosubmit' %} 
+    Show error placeholder
+    {% else %} 
+    {% endif %} 
+
     
     <h1 class="govuk-heading-l">
       Check licence details
@@ -30,11 +37,7 @@
 
 
         <h2 class="govuk-heading-m">
-          {% if data['whoApptWith'] == 'no-appointment' %}
           Community probation team contact details
-          {% else %}
-          Initial appointment details
-          {% endif %}
         </h2>
     
     
@@ -109,10 +112,14 @@
                   <a class="govuk-link govuk-link--no-visited-state" href="../../../../_common/not-testing.html">Change<span class="govuk-visually-hidden"> contact phone number</span></a>
                 </dd>
               </div>
+
+
+              
+   
       {% if data['whoApptWith'] == 'no-appointment' %} 
       {% else %} 
 
-           {% if data['appointment-time'] == 'specific' %}  
+          {% if data['appointment-time'] == 'specific' %}  
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Date
@@ -153,16 +160,18 @@
               Date/time
             </dt>
             <dd class="govuk-summary-list__value"> 
-              {% if data['whenAppt'] == 'emptystate' %} 
-              Not entered yet
-              {% else %} 
+              {% if data['appointment-time'] == 'immediately' %} 
               Immediately after release
+              {% elif data['appointment-time'] == 'nextWorkingDay' %} 
+              By 2pm on the next working day after their release
+              {% elif data['whenAppt'] == 'emptystate' %} 
+              Not entered yet
               {% endif %} 
             </dd>
             <dd class="govuk-summary-list__actions">
               <ul class="govuk-summary-list__actions-list">
                 <li class="govuk-summary-list__actions-list-item">
-                  <a class="govuk-link govuk-link--no-visited-state" href="../../../../_common/not-testing.html">Change<span class="govuk-visually-hidden"> time</span></a>
+                  <a class="govuk-link govuk-link--no-visited-state" href="./appt-when-edit">Change<span class="govuk-visually-hidden"> time</span></a>
                 </li>
               </ul>
             </dd>
@@ -505,14 +514,19 @@
         
 
         <div class="govuk-button-group">
-          {% if data['scenario'] == 'licenceunlocked' %}
-          <a href="confirmation?scenario=licenceunlocked" type="submit" class="govuk-button" data-module="govuk-button">Send to prison for approval</a>
+
+          {% if data['error'] == 'notreadytosubmit' and data['appointment-time'] == 'immediately' %} 
+          <a href="confirmation" type="submit" class="govuk-button" data-module="govuk-button">Send to prison for approval</a>
+          {% elif data['error'] == 'notreadytosubmit' and data['appointment-time'] == 'nextWorkingDay' %} 
+          <a href="confirmation" type="submit" class="govuk-button" data-module="govuk-button">Send to prison for approval</a>
+          {% elif data['whenAppt'] == 'emptystate' %} 
+          <a href="./check-licence?error=notreadytosubmit" type="submit" class="govuk-button" data-module="govuk-button">Send to prison for approval</a>
           {% else %}
           <a href="confirmation" type="submit" class="govuk-button" data-module="govuk-button">Send to prison for approval</a>
-          {% endif %}
-        <a class="govuk-link govuk-!-font-size-19 govuk-link--no-visited-state" href="./case-list-start">
-            Return to caselist
-        </a>
+          {% endif %} 
+          
+          <a class="govuk-link govuk-!-font-size-19 govuk-link--no-visited-state" href="./case-list-start">Return to caselist</a>
+        
         </div>
 
 
