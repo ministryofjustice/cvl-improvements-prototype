@@ -18,8 +18,8 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full-from-desktop">
 
-
-      {% if data['appointment-time'] == 'specific' or data['appointment-time'] == 'immediately' or data['appointment-time'] == 'nextWorkingDay' %} 
+      {% if data['prisoner'] == 'adrian' and data['appointment-time'] == 'specific' or data['appointment-time'] == 'immediately' or data['appointment-time'] == 'nextWorkingDay' %}
+      {% elif data['prisoner'] == 'adrian' and data['whoApptWith'] == 'Duty officer' %}
       <div role="region" class="moj-alert moj-alert--success" aria-label="success: Upload successful" data-module="moj-alert">
   <div>
     <svg class="moj-alert__icon" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" height="30" width="30">
@@ -124,7 +124,8 @@
               <a class="govuk-link govuk-link--no-visited-state" href="#">Change<span class="govuk-visually-hidden"></span></a>
             </dd>
           </div>
-          
+
+        
           {% if data['appointment-time'] == 'specific' %}  
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -192,7 +193,22 @@
               </ul>
             </dd>
           </div>
-          {% elif data['prisoner'] == 'adrian' %}
+          {% elif data['prisoner'] == 'adrian' and data['whoApptWith'] == 'Duty officer' %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date/time
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Not entered yet
+             </dd>
+            <dd class="govuk-summary-list__actions">
+              <ul class="govuk-summary-list__actions-list">
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link govuk-link--no-visited-state" href="./appt-when-edit">Change<span class="govuk-visually-hidden"> date</span></a>
+                </li>
+              </ul>
+            </dd>
+          </div>
           {% else %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
