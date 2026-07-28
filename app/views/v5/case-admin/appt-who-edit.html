@@ -23,9 +23,9 @@
   <div class="govuk-grid-column-two-thirds">
 
     {% if data['prisoner'] == 'adrian' %} 
-    <form method="post" action="./print-licence">
+    <form method="post" action="./print-licence?NoAppt=Changed">
     {% else %} 
-
+    <form method="post" action="./print-licence">
     {% endif %} 
 
 
