@@ -14,21 +14,30 @@
   <div class="govuk-grid-column-two-thirds">
 
 
-<form action="8h-overview" method="post">
+<form action="8a-overview" method="post">
 
 
   <div class="govuk-form-group">
     <fieldset class="govuk-fieldset">
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-        <span class="govuk-caption-l">Area this person must not leave (restriction zone)</span>
+        <span class="govuk-caption-l">Area this person must not enter during an event (exclusion zone)</span>
         <h1 class="govuk-fieldset__heading">Complete the licence condition</h1>
       </legend>
 
-      <p>Not to leave the area as defined by the attached map without the prior approval of your supervising officer.</p>
+      <p>Not to enter the area as defined by the attached map, during the period that [NAME OF EVENT] takes place, including all occasions that the event takes place, without the prior approval of your supervising officer.</p>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-!-font-weight-bold" for="eventName width-20">
+          Enter the name of the event
+        </label>
+
+        <input class="govuk-input govuk-input--width-20" id="eventName width-20" name="eventName" type="text">
+
+      </div>
 
         <div class="govuk-form-group" style="margin-top: 30px;">
           <label class="govuk-label" for="file-upload-1">
-            <strong>Select a PDF map of the area this person must not leave</strong>
+            <strong>Select a PDF map of the area this person must not enter</strong>
           </label>
             <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
         </div>  
@@ -41,17 +50,6 @@
     <h2 class="govuk-heading-m" style="margin-top: 50px;">Help with this licence condition<h2>
 
     <details class="govuk-details" data-module="govuk-details" style="margin-top: 20px;">
-      <summary class="govuk-details__summary">
-        <span class="govuk-details__summary-text">
-          If you need to add more than one map
-        </span>
-      </summary>
-      <div class="govuk-details__text">
-       Add your first map on this page. You can add more from the next page.
-      </div>
-    </details>
-
-    <details class="govuk-details" data-module="govuk-details" style="margin-top: -20px;">
       <summary class="govuk-details__summary">
         <span class="govuk-details__summary-text">
           If you do not have a map
