@@ -18,10 +18,12 @@
           <h1 class="govuk-panel__title">
             Licence approved
           </h1>
+          {% if data['prisoner'] == 'dwayne' %}
           <div class="govuk-panel__body">
             Check a case administrator has contacted</br>
             the probation team
           </div>
+          {% endif %}
         </div>
 
         <h2 class="govuk-heading-m" style="margin-top: 30px;">What happens next</h2>
@@ -33,20 +35,27 @@
           Charlie Martin.
           {% elif data['prisoner'] == 'maxwell' %}
           Maxwell Kirby.
+          {% elif data['prisoner'] == 'nicholas' %}
+          Nicholas Alistair-Nolan
           {% else %}
           Cyphoonifer Bransabert.
           {% endif %}
         </p>
           
+        {% if data['prisoner'] == 'dwayne' %}
         <p>Check a case administrator has notified the probation team that this licence has been generated.</br>
           We do not have their contact details to do this automatically.</p>
+          {% elif data['prisoner'] == 'nicholas' %}
+          <p>We will email the probation practitioner automatically to tell them this licence has been approved.</p>
+          {% endif %}
         
 
         <h2 class="govuk-heading-m">If changes are made</h2>
-
-        <p>Only the initial appointment can be changed. You will not need to approve the licence again.</p>
-        
-      
+        {% if data['prisoner'] == 'dwayne' %}
+        <p>Only the contact details that will be shown on the licence can be changed, for example if an initial appointment is needed. You will not need to approve the licence again.</p>
+        {% elif data['prisoner'] == 'nicholas' %}
+        <p>Probation practitioners can make changes up to 2 days before release. After this, they can only ask the prison to change the contact details that will be shown on the licence, for example if an initial appointment is needed. Other changes must then be made after release.</p>
+        {% endif %}
         
         <form action="./case-list-app-needed" method="post">
 

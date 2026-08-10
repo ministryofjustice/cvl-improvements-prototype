@@ -285,6 +285,7 @@
               </h3>
             </div>
             <div id="accordion-default-content-1" class="govuk-accordion__section-content">
+              <p class="govuk-body">Philamina Rogers has told us that this person does not need an initial appointment. The details below will be shown on the licence so this person knows who to contact for support.</p>
               <dl class="govuk-summary-list">
                 <div class="govuk-summary-list__row">
                   <dt class="govuk-summary-list__key">
@@ -326,12 +327,12 @@
                     {{ data['contactNumber'] or "01234567890" }}
                   </dd>
                 </div>
-           {% if data['appointment-time'] == 'specific' %}  
-          <div class="govuk-summary-list__row">
+           <!-- {% if data['appointment-time'] == 'specific' %}   -->
+          <!-- <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Date
-            </dt>
-            <dd class="govuk-summary-list__value">
+            </dt> -->
+            <!-- <dd class="govuk-summary-list__value">
               {% if data['date'] %} 
               {{ data['date'] | formatDateString("D/M/YYYY","D MMMM YYYY")}}
               {% else %} 
@@ -360,7 +361,7 @@
             {% endif %} 
             </dd>
           </div>
-         {% endif %} 
+         {% endif %}  -->
               </dl>   
             </div>
           </div>

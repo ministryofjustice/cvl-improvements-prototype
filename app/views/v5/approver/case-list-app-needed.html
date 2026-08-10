@@ -125,6 +125,23 @@
       </tr>
       {% endif %}
 
+      <tr class="govuk-table__row">
+           
+        <td class="govuk-table__cell"><a href="approve-licence-no-appointment-needed.html?prisoner=nicholas" class="govuk-link--no-visited-state">Nicholas Alistair-Nolan</a></td>
+  
+        <td class="govuk-table__cell">A693826</td>
+  
+        <td class="govuk-table__cell"><a href="./pp-page" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
+  
+        <td class="govuk-table__cell">Philamina Rogers</td>
+  
+        <td class="govuk-table__cell" data-sort-value="11">
+        Conditional release date:</br>
+        {{ "today" | duration(7) | govukDate(truncate=true) }}
+        </td>
+  
+      </tr>
+
 
       <tr class="govuk-table__row">
         <td class="govuk-table__cell"><a href="./hdc/approve-licence?prisoner=evan" class="govuk-link--no-visited-state">Evan Postwell</a></td>
