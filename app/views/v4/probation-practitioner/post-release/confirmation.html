@@ -56,7 +56,7 @@
         </a>
 
 
-        {% if data['prisoner'] == 'halevary' %}
+        
 
           {% if data['exitsurvey'] == 'hdcvariation' %}
           <hr class="govuk-section-break govuk-section-break--visible" style="margin-bottom: 30px; margin-top: 15px;">
@@ -72,12 +72,8 @@
             <li style="margin-bottom: 10px"><a class="govuk-link" href="#">complete a short survey</a></li>
             <li><a class="govuk-link" href="#">report a technical problem on Technology Portal</a></li>
           </ul>
-          {% else %}
-          {% endif %}
-
-        {% elif data['prisoner'] == 'charlie' %}
-
-          {% if data['exitsurvey'] == 'timeserved' %}
+          
+          {% elif data['exitsurvey'] == 'timeserved' %}
           <hr class="govuk-section-break govuk-section-break--visible" style="margin-bottom: 30px; margin-top: 15px;">
 
           <h2 class="govuk-heading-m">
@@ -94,9 +90,6 @@
           {% else %}
           {% endif %}
 
-
-        {% else %}
-        {% endif %}
 
 
         <!--<p class="govuk-!-margin-top-6"><a href="/v4/pdu-head/case-list" class="govuk-link--no-visited-state">Jump to PDU head approval flow</a></p>-->
