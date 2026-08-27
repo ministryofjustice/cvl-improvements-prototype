@@ -2,5 +2,10 @@
   "low": true,
   "package-manager": "auto",
   "registry": "https://registry.npmjs.org",
-  "allowlist": []
+  "allowlist": [
+    "GHSA-v56q-mh7h-f735|@x-govuk/govuk-prototype-filters>govuk-prototype-kit>browser-sync>immutable",
+    "GHSA-v56q-mh7h-f735|browser-sync-ui>immutable>",
+    "GHSA-xvcm-6775-5m9r|@x-govuk/govuk-prototype-filters>govuk-prototype-kit>browser-sync>immutable",
+    "GHSA-xvcm-6775-5m9r|browser-sync-ui>immutable>"
+  ]
 }
