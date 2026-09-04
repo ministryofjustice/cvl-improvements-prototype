@@ -25,7 +25,11 @@
           Licence has been created by prison
         </h1>
 
+        {% if data['scenario'] == 'timeserved' %}
+        <p>A licence for this person has been created by Pentonville (HMP) because they are being released immediately following sentencing having served time on remand.</p>
+        {% else %}
         <p>A licence for this person has been created by Pentonville (HMP) because none was submitted in time for their final release checks.</p>
+        {% endif %}
 
         <p>Once this person is released, the licence must be reviewed. If changes are needed, the licence can be varied.</p>
 
