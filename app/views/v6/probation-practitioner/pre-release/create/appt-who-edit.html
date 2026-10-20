@@ -1,0 +1,119 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName = "Who is the initial appointment with?" %}
+{% set htmlClasses = "app-width-wide" %}
+
+{% block header %}
+  {% include "components/cvl-pp-header/include.html" %}
+{% endblock %}
+
+{% block beforeContent %}
+  <a href="javascript:history.back()" class="govuk-back-link">Back</a>
+  {% include "components/prisoner-subheader/include.html" %}
+{% endblock %}
+
+{% block content %}
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% if data['whoApptWith'] == 'no-appointment' %} 
+    <form method="post" action="./check-licence?whenAppt=emptystate">
+    {% else %} 
+    <form method="post" action="./check-licence">
+    {% endif %} 
+
+      {% set textHtmlOther %}
+        {{ govukInput({
+          name: "who4",
+          classes: "govuk-input--width-30",
+          label: {
+            text: "Enter name"
+          }
+        }) }}
+      {% endset %}
+
+      {{ govukRadios({
+        name: "whoApptWith",
+        fieldset: {
+          legend: {
+            text: "Who is the initial appointment with?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "Philamina Rogers",
+            text: "Philamina Rogers, this person's community probation practitioner",
+            checked: data['whoApptWith'] == 'Philamina Rogers'
+          },
+          {
+            value: "Duty officer",
+            text: "Duty officer",
+            checked: data['whoApptWith'] == 'Duty officer'
+          },
+          {
+            value: "someone-else",
+            text: "Someone else",
+            checked: data['whoApptWith'] == 'someone-else',
+            hint: {
+              text: "For example, someone at an approved premises or a different probation practitioner."
+            },
+            conditional: {
+              html: textHtmlOther
+            }
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "no-appointment",
+            text: "No appointment needed",
+            checked: data['whoApptWith'] == 'no-appointment',
+            hint: {
+              html: "For people being released in the final third of a standard determinate sentence. Check the help section below for eligibility information."
+            }
+          }
+        ]
+      }) }}
+
+      <div class="govuk-!-margin-top-8 govuk-!-margin-bottom-8">
+
+        <h2 class="govuk-heading-m">Help with initial appointments</h2>
+
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              When no initial appointment is needed
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            Select no appointment needed if this person is being released in the final third of a standard determinate sentence and is not:
+              <ul class="govuk-list govuk-list--bullet" style="margin-top: 5px">
+                <li>MAPPA eligible</li>
+                <li>named on a child protection plan</li>
+                <li>sentenced for a state threat or a terrorist risk offence</li>
+                <li>tier A, B or C</li>
+                <li>serving a standard determinate sentence plus</li>
+              </ul>
+          
+          
+          </div>
+  </div>
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+
+</div>
+{% endblock %}
+
+{% block footer %}
+  {% include "components/cvl-pp-footer/include.html" %}
+{% endblock %}
