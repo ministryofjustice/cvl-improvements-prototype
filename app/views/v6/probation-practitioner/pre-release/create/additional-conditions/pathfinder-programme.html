@@ -1,0 +1,86 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Are they being tagged as part of a pathfinder or programme?" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-pp-header/include.html" %}
+{% endblock %}
+
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% include "components/prisoner-subheader/include.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+    <form action="../bespoke-conditions" method="get">
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        Are they being tagged as part of a pathfinder or programme?
+      </h1>
+    </legend>
+    <div id="changedName-hint" class="govuk-hint">
+      For example, DAPOL (domestic abuse perpetrator on licence) or EMAC (EM acquisitive crime)
+    </div>
+    <div class="govuk-radios" data-module="govuk-radios">
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="pathfinder-choice" name="pathfinder-choice" type="radio" value="yes" data-aria-controls="conditional-pathfinder-choice">
+        <label class="govuk-label govuk-radios__label" for="pathfinder-choice">
+          Yes
+        </label>
+      </div>
+      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-pathfinder-choice">
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="more-detail">
+              What is the name of the pathfinder or programme (this information will not appear on the licence)?
+         </label>
+         <textarea class="govuk-textarea" id="pathfinder-detail" name="pathfinderDetail" rows="5"></textarea>
+        </div>
+
+      </div>
+
+            <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="pathfinder-choice-2" name="pathfinder-choice" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="pathfinder-choice-2">
+          No
+        </label>
+      </div>
+
+      
+    </div>
+  </fieldset>
+</div>
+
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+        </form>
+
+    
+
+  </div>
+</div>
+
+{% endblock %}
+
+
+{% block footer %}
+
+{% include "components/cvl-pp-footer/include.html" %}
+
+{% endblock %}

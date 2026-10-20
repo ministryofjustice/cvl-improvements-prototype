@@ -1,0 +1,70 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Licence approved" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-dm-header/include.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+    
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            Licence approved
+          </h1>
+          <div class="govuk-panel__body"></div>
+        </div>
+
+        <h2 class="govuk-heading-m" style="margin-top: 30px;">What happens next</h2>
+
+        <p>A case administrator can now print the licence for
+          {% if data['prisoner'] == 'lorin' %}
+          Lorin Mave Change.
+          {% elif data['prisoner'] == 'hale' %}
+          Hale Draven Corvath.
+          {% else %}
+          Cyphoonifer Bransabert.
+          {% endif %}
+        </p>
+          
+        <p>We will email the probation practitioner automatically to tell them this licence has been approved.</p>
+        
+
+        <h2 class="govuk-heading-m">If changes are made</h2>
+
+        <p>Changes to the initial appointment or first night curfew can be made without reapproval. If a community probation practitioner changes additional or bespoke conditions, the licence will need to be approved again.</p>
+        
+      
+  
+        <form action="../case-list-app-needed" method="post">
+
+          <button type="submit" class="govuk-button" data-module="govuk-button" style="margin-top: 10px">
+            Approve another licence
+          </button>
+
+        </form>
+
+      
+
+
+  </div>
+</div>
+
+
+
+
+
+
+{% endblock %}
+
+{% block footer %}
+
+{% include "components/cvl-dm-ca-footer/include.html" %}
+
+{% endblock %}

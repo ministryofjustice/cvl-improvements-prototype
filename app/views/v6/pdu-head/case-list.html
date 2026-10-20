@@ -1,0 +1,189 @@
+{% extends "layouts/main.html" %}
+
+{% block beforeContent %}
+<a href="javascript:history.back()" class="govuk-back-link" style="margin-bottom:0">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">Select a person to approve their licence variation</h1>
+
+  </div>
+</div>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+
+
+    <div class="moj-search govuk-!-margin-bottom-8">
+
+      <form action="../list-search-results-empty" method="post">
+    
+        <div class="govuk-form-group">
+          <label class="govuk-label moj-search__label govuk-!-font-weight-bold" for="search">
+            Find a case
+          </label>
+    
+          <div id="search-hint" class="govuk-hint moj-search__hint" style="width:400px">
+            Search by name, CRN or probation practitioner
+          </div>
+    
+          <input class="govuk-input moj-search__input " id="search" name="search" type="search" aria-describedby="search-hint">
+        </div>
+    
+        <button class="govuk-button moj-search__button " data-module="govuk-button">
+          Search
+        </button>
+    
+      </form>
+    </div>
+
+
+</div>
+</div>
+
+
+
+
+    <nav class="moj-sub-navigation" aria-label="Sub navigation">
+     <ul class="moj-sub-navigation__list" style="margin-bottom:0px;">
+       <li class="moj-sub-navigation__item">
+         <a class="moj-sub-navigation__link" aria-current="page" href="#">Cases in this PDU</a>
+       </li>
+       <li class="moj-sub-navigation__item">
+         <a class="moj-sub-navigation__link" href="#">All cases in this region</a>
+       </li>
+     </ul>
+   </nav>
+
+
+
+
+   <h2 class="govuk-heading-l">Cases in this PDU</h2>
+   
+
+
+
+  <table class="govuk-table" data-module="moj-sortable-table">
+
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header" aria-sort="none">Name</th>
+        <!--<th scope="col" class="govuk-table__header app-custom-class" >Licence type</th>-->
+        <th scope="col" class="govuk-table__header app-custom-class" aria-sort="none">Probation practitioner</th>
+        <th scope="col" class="govuk-table__header app-custom-class" aria-sort="ascending">Variation request date</th>
+        <th scope="col" class="govuk-table__header app-custom-class" aria-sort="none">Release date</th>
+      </tr>
+    </thead>
+
+
+    <tbody class="govuk-table__body">
+
+
+      <tr class="govuk-table__row">
+
+           <td class="govuk-table__cell">
+            <a href="vary-approve-harry" class="govuk-link--no-visited-state pp-caselist-name">Harry Jection</a>
+            <span class="govuk-!-font-size-16 pp-caselist-crn">CRN: 376533</span>
+          </td>
+
+          <!--<td class="govuk-table__cell">Standard determinate</td>-->
+          
+          <td class="govuk-table__cell"><a href="probation-details">John Farrell</a></td>
+          <td class="govuk-table__cell" data-sort-value="1">{{ "today" | duration(-3) | govukDate(truncate=true) }}</td>
+          <td class="govuk-table__cell">
+            Confirmed release date:</br>
+            {{ "today" | duration(-200) | govukDate(truncate=true) }}
+          </td>
+
+        </tr>
+
+
+
+        <tr class="govuk-table__row">
+
+          <td class="govuk-table__cell">
+            <a href="vary-approve" class="govuk-link--no-visited-state pp-caselist-name">Avary Bradshaw</a>
+            <span class="govuk-!-font-size-16 pp-caselist-crn">CRN: 122345</span>
+          </td>
+
+          <!--<td class="govuk-table__cell">Standard determinate</td>-->
+          
+          <td class="govuk-table__cell"><a href="probation-details">Obi Twokan</a></td>
+          <td class="govuk-table__cell" data-sort-value="2">{{ "today" | duration(-2) | govukDate(truncate=true) }}</td>
+          <td class="govuk-table__cell">
+            Confirmed release date:</br>
+            {{ "today" | duration(-500) | govukDate(truncate=true) }}
+          </td>
+
+        </tr>
+
+
+        
+        <tr class="govuk-table__row">
+
+           <td class="govuk-table__cell">
+            <a href="vary-deferred" class="govuk-link--no-visited-state pp-caselist-name">Andi Ferd</a>
+            <span class="govuk-!-font-size-16 pp-caselist-crn">CRN: 877262</span>
+          </td>
+
+          <!--<td class="govuk-table__cell">Standard determinate</td>-->
+          
+          <td class="govuk-table__cell"><a href="probation-details">Obi Twokan</a></td>
+          <td class="govuk-table__cell" data-sort-value="3">{{ "today" | duration(-2) | govukDate(truncate=true) }}</td>
+          <td class="govuk-table__cell">
+            Confirmed release date:</br>
+            {{ "today" | duration(-100) | govukDate(truncate=true) }}
+          </td>
+
+        </tr>
+
+
+        
+        <tr class="govuk-table__row">
+
+          <td class="govuk-table__cell">
+            <a href="vary-discarded" class="govuk-link--no-visited-state pp-caselist-name">Jodie Scard</a>
+            <span class="govuk-!-font-size-16 pp-caselist-crn">CRN: 565662</span>
+          </td>
+
+          <!--<td class="govuk-table__cell">Standard determinate</td>-->
+          
+          <td class="govuk-table__cell"><a href="probation-details">Obi Twokan</a></td>
+          <td class="govuk-table__cell" data-sort-value="4">{{ "today" | duration(0) | govukDate(truncate=true) }}</td>
+          <td class="govuk-table__cell">
+            Confirmed release date:</br>
+            {{ "today" | duration(-900) | govukDate(truncate=true) }}
+          </td>
+          
+        </tr>
+
+
+        <tr class="govuk-table__row">
+
+          <td class="govuk-table__cell">
+            <a href="./variation-summary?prisoner=halevary" class="govuk-link--no-visited-state pp-caselist-name">Hale Draven Corvath</a>
+            <span class="govuk-!-font-size-16 pp-caselist-crn">CRN: H87D13C</span>
+          </td>
+
+          <!--<td class="govuk-table__cell">Standard determinate</td>-->
+          
+          <td class="govuk-table__cell"><a href="probation-details">Philamina Rogers</a></td>
+          <td class="govuk-table__cell" data-sort-value="5">{{ "today" | duration(0) | govukDate(truncate=true) }}</td>
+          <td class="govuk-table__cell">
+            HDC actual date:</br>
+            {{ "today" | duration(-10) | govukDate(truncate=true) }}
+          </td>
+
+        </tr>
+
+
+
+    </tbody>
+  </table>
+{% endblock %}

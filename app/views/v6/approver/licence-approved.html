@@ -1,0 +1,103 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Licence approved" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-dm-header/include.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+    
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            Licence approved
+          </h1>
+          {% if data['prisoner'] == 'dwayne' %}
+          <div class="govuk-panel__body">
+            Check a case administrator has contacted</br>
+            the probation team
+          </div>
+          {% endif %}
+        </div>
+
+        <h2 class="govuk-heading-m" style="margin-top: 30px;">What happens next</h2>
+
+        <p>A case administrator can now print the licence for
+          {% if data['prisoner'] == 'dwayne' %}
+          Dwayne Briggs.
+          {% elif data['prisoner'] == 'charlie' %}
+          Charlie Martin.
+          {% elif data['prisoner'] == 'maxwell' %}
+          Maxwell Kirby.
+          {% elif data['prisoner'] == 'nicholas' %}
+          Nicholas Alistair-Nolan
+          {% else %}
+          Cyphoonifer Bransabert.
+          {% endif %}
+        </p>
+          
+        {% if data['prisoner'] == 'dwayne' %}
+        <p>Check a case administrator has notified the probation team that this licence has been generated.</br>
+          We do not have their contact details to do this automatically.</p>
+          {% elif data['prisoner'] == 'nicholas' %}
+          <p>We will email the probation practitioner automatically to tell them this licence has been approved.</p>
+          {% endif %}
+        
+
+        <h2 class="govuk-heading-m">If changes are made</h2>
+        {% if data['prisoner'] == 'dwayne' %}
+        <p>Only the contact details that will be shown on the licence can be changed, for example if an initial appointment is needed. You will not need to approve the licence again.</p>
+        {% elif data['prisoner'] == 'nicholas' %}
+        <p>Probation practitioners can make changes up to 2 days before release. After this, they can only ask the prison to change the contact details that will be shown on the licence, for example if an initial appointment is needed. Other changes must then be made after release.</p>
+        {% endif %}
+        
+        <form action="./case-list-app-needed" method="post">
+
+          {% if data['prisoner'] == 'charlie' %} 
+            <input type="hidden" name="timeservedapproved" value="charlie">
+          {% elif data['prisoner'] == 'dwayne' %}  
+            <input type="hidden" name="timeservedapproved" value="dwayne">
+          {% else %}
+          {% endif %}    
+
+          <button type="submit" class="govuk-button" data-module="govuk-button" style="margin-top: 10px">
+            Approve another licence
+          </button>
+
+        </form>
+
+        
+
+      {% if data['prisoner'] == 'maxwell' %}  
+        <p class="govuk-!-margin-top-6"><a href="/v6/case-admin/case-list-pip-approved?maxwell=approved" class="govuk-link--no-visited-state">Jump to case admin flow</a></p>
+
+        <p class="govuk-!-margin-top-6"><a href="/v6/probation-practitioner/pre-release/create/case-list-start?maxwell=approved" class="govuk-link--no-visited-state">Jump to probation practitioner flow</a></p>
+
+      {% else %}  
+        <p class="govuk-!-margin-top-6"><a href="/v6/probation-practitioner/pre-release/edit/case-list" class="govuk-link--no-visited-state">Jump to probation practitioner edit flow</a></p>
+        
+        <p class=""><a href="/v6/probation-practitioner/post-release/case-list-view?varyFlow=True" class="govuk-link--no-visited-state">Jump to probation practitioner vary flow</a></p>
+      {% endif %}  
+
+
+  </div>
+</div>
+
+
+
+
+
+
+{% endblock %}
+
+{% block footer %}
+
+{% include "components/cvl-dm-ca-footer/include.html" %}
+
+{% endblock %}

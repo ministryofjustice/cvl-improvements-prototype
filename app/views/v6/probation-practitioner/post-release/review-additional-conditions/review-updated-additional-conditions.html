@@ -1,0 +1,50 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Review policy changes to additional licence conditions" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-pp-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% include "components/prisoner-subheader/include.html" %}
+{% endblock %}
+
+{% block content %}
+ <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <h1 class="govuk-fieldset__heading">
+          Review policy changes to additional licence conditions</h1>
+      </legend><br>
+
+
+<div class="govuk-form-group">
+
+<p>Six of the additional conditions that were previously chosen for this licence have changed</br>
+  in the Licence Conditions Policy Framework to use new wording or have different options.
+</br> </p>
+
+<legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+  <h2 class="govuk-fieldset__heading" style="margin-top: 10px;">
+    Before varying this licence</h2>
+</legend>
+
+<p>
+  You must review these changes on the next screens so the updated licence conditions can be used. If necessary, you will also need to add some extra information to complete the licence condition.</p>
+  
+  <p>We only ask you to do this when varying a licence containing conditions that have changed.</p>
+
+
+  <a href="./changed-conditions/check-licence-condition-5a" class="govuk-button" style="margin-top: 5px;">Continue</a>
+
+
+  </div>
+</div>
+{% endblock %}

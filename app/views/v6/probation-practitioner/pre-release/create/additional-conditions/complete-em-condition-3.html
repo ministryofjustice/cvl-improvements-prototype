@@ -1,0 +1,88 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Complete the licence condition" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-pp-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% include "components/prisoner-subheader/include.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="pathfinder-programme" method="get">
+
+      <h1 class="govuk-heading-l">
+        Complete the licence condition
+      </h1>
+
+  <p>You must stay at [APPROVED ADDRESS] between 5pm and midnight every day until your electronic tag is installed unless otherwise authorised by your supervising officer.
+</p>
+<fieldset class="govuk-fieldset govuk-!-margin-bottom-6">
+    <legend class="govuk-fieldset__legend hint-condition-custom">
+      Enter the approved address
+    </legend>
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="approved-address-line-1">
+      Building and street
+    </label>
+    <input class="govuk-input govuk-!-width-one-half" id="approved-address-line-1" name="approvedAddressLine1" type="text" autocomplete="approved-address-line1">
+  </div>
+  <div class="govuk-form-group">
+    <!-- <label class="govuk-label" for="approved-address-line-2">
+      Address line 2 (optional)
+    </label> -->
+    <input class="govuk-input govuk-!-width-one-half" id="approved-address-line-2" name="approvedAddressLine2" type="text" autocomplete="approved-address-line2">
+  </div>
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="approved-address-town">
+      Town or city
+    </label>
+    <input class="govuk-input govuk-!-width-one-third" id="approved-address-town" name="approvedAddressTown" type="text" autocomplete="approved-address-town">
+  </div>
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="approved-address-county">
+      County (optional)
+    </label>
+    <input class="govuk-input govuk-!-width-one-third" id="approved-address-county" name="approvedAddressCounty" type="text">
+  </div>
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="approved-address-postcode">
+      Postcode
+    </label>
+    <input class="govuk-input govuk-input--width-10" id="approved-address-postcode" name="approvedAddressPostcode" type="text" autocomplete="approved-address-postal-code">
+  </div>
+</fieldset>
+
+
+
+<div class="govuk-button-group">
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Continue
+  </button>
+  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+    Delete this condition
+  </button>
+</div>
+        </form>
+  </div>
+</div>
+
+{% endblock %}
+
+
+{% block footer %}
+
+{% include "components/cvl-pp-footer/include.html" %}
+
+{% endblock %}

@@ -1,0 +1,107 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Prison will create this licence" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-pp-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% include "components/prisoner-subheader/include.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+        <h1 class="govuk-heading-l">
+          Prison will create this licence
+        </h1>
+
+        {% if data['scenario'] == 'timeserved' %}
+        <p>Pentonville (HMP) will create a licence for this person because they are being released immediately following sentencing having served time on remand.</p>
+        {% else %}
+        <p>Pentonville (HMP) will create a licence for this person as none was submitted in time for their final release checks.</p>
+        {% endif %}
+
+        <p>This licence must be reviewed after this person is released.</p>
+
+
+        <h2 class="govuk-heading-m">
+          Initial appointment
+        </h2>
+
+        <p>If you need Pentonville (HMP) to set the initial appointment for a specific date and time or if no appointment is required, you must contact them to request this. You can email test@test.gov.uk</p>
+
+        <p>Otherwise, the prison can schedule the appointment for immediately after release or by 2pm the next working day.</p>
+
+         <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              When no initial appointment is needed
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            Select no appointment needed if this person is being released in the final third of a standard determinate sentence and is not:
+              <ul class="govuk-list govuk-list--bullet" style="margin-top: 5px">
+                <li>serving a sentence for rape, serious sexual abuse against children or organised child sexual exploitation or grooming offences</li>
+                <li>MAPPA eligible</li>
+                <li>named on a child protection plan</li>
+                <li>serving a sentence for a state threat or a terrorist risk offence</li>
+                <li>tier A, B or C</li>
+                <li>serving a standard determinate sentence plus</li>
+              </ul>
+        
+          </div>
+        </details>
+
+
+
+
+        <h2 class="govuk-heading-m" style="margin-top: 40px;">Licence conditions</h2>
+
+        <p>The licence will contain standard licence conditions. By default, it will also automatically contain an additional condition.</p>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+         <div class="govuk-summary-list__row">
+           <dt class="govuk-summary-list__key">
+            Making or maintaining contact with a person
+           </dt>
+          <dd class="govuk-summary-list__value">
+            Not to approach or communicate with any victims of your offences without the prior approval of your supervising officer.
+          </dd>
+         </div>
+        </dl>
+        
+
+        <p>The prison cannot add any other additional or bespoke conditions.</br>
+        If you need to add any additional or bespoke licence conditions, you can do so after release.</p>
+
+    <form action="case-list-start" method="get">
+          <button type="submit" class="govuk-button govuk-!-margin-top-4" data-module="govuk-button">
+           Return to case list
+          </button>
+    </form>
+
+   
+    <p class="govuk-!-margin-top-6"><a href="/v6/case-admin/cvl-home" class="govuk-link--no-visited-state">Jump to case admin flow</a></p>
+
+
+  </div>
+</div>
+
+{% endblock %}
+
+
+{% block footer %}
+
+{% include "components/cvl-pp-footer/include.html" %}
+
+{% endblock %}
