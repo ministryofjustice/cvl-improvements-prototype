@@ -84,7 +84,7 @@ router.post(version + '/probationadvisordetailstimeserved', function(request, re
     if (ProbationAdvisor == "continue"){
         response.redirect(version + "/case-admin/timeserved/conditions/additional-conditions/additional-conditions")
 
-    } else if (ProbationAdvised == "back") {
+    } else if (ProbationAdvisor == "back") {
         response.redirect(version + "/case-admin/timeserved/probation-advised")
     }
 })

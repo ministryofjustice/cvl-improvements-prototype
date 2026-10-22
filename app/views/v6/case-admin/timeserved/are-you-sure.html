@@ -10,7 +10,7 @@
 
 {%- block beforeContent -%}
 <a href="javascript:history.back()" class="govuk-back-link">Back</a>
-{% include "components/prisoner-subheader/include.html" %}
+{% include "components/prisoner-subheader/prisonnumber.html" %}
 {% endblock %}
 
 
@@ -28,32 +28,22 @@
           Name
         </dt>
         <dd class="govuk-summary-list__value">
-          Dwayne Briggs
+          {% if data['prisoner'] == 'axel' %}
+          Axel Wurth
+          {% else %}
+          {% endif %}
         </dd>
         <dd class="govuk-summary-list__actions">
         </dd>
       </div>
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-          CRN
+          Prison number
         </dt>
         <dd class="govuk-summary-list__value">
-          {% if data['prisoner'] == 'gabriel' %}
-          V279953
-          {% elif data['prisoner'] == 'marcus' %}
-          L29A90N
-          {% elif data['prisoner'] == 'sean' %} 
-          R21E99J
-          {% elif data['prisoner'] == 'sonny' %} 
-          O34P43T
-          {% elif data['prisoner'] == 'nikolai' %} 
-          O78P87T
-          {% elif data['prisoner'] == 'noto' %} 
-          N12O28T
-          {% elif data['prisoner'] == 'hale' %}  
-          H87D13C
+          {% if data['prisoner'] == 'axel' %}
+          G5613GT
           {% else %}  
-          A693826
           {% endif %}  
         </dd>
         <dd class="govuk-summary-list__actions">
@@ -83,22 +73,9 @@
           {% endif %}
         </dt>
         <dd class="govuk-summary-list__value">
-          {% if data['prisoner'] == 'gabriel' %}
-          [Weekday] {{ "today" | duration(11) | govukDate(truncate=false) }}
-          {% elif data['prisoner'] == 'marcus' or data['prisoner'] == 'adrian' %}
-          [Weekday] {{ "today" | duration(3) | govukDate(truncate=false) }}
-          {% elif data['prisoner'] == 'sean' %}
-          Tuesday {{ "today" | duration(14) | govukDate(truncate=false) }}
-          {% elif data['prisoner'] == 'sonny' %}
-          Thursday {{ "today" | duration(14) | govukDate(truncate=false) }}
-          {% elif data['prisoner'] == 'nikolai' %}
-          Thursday {{ "today" | duration(4) | govukDate(truncate=true) }}
-          {% elif data['prisoner'] == 'noto' %} 
-          Tuesday {{ "today" | duration(1) | govukDate(truncate=false) }}
-          {% elif data['prisoner'] == 'hale' %}  
-          [Weekday] {{ "today" | duration(2) | govukDate(truncate=false) }}
+          {% if data['prisoner'] == 'axel' %}
+          [Weekday] {{ "today" | duration(0) | govukDate(truncate=false) }}
           {% else %}
-          Wednesday 10 December 2025
           {% endif %}
         </dd>
         <dd class="govuk-summary-list__actions">
