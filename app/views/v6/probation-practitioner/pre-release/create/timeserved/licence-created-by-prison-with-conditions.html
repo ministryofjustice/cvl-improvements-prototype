@@ -1,0 +1,201 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Licence has been created by prison" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-pp-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% include "components/prisoner-subheader/include.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+        <h1 class="govuk-heading-l">
+          Licence has been created by prison
+        </h1>
+
+        {% if data['scenario'] == 'timeserved' %}
+        <p>A licence for this person has been created by Pentonville (HMP) because they are being released immediately following sentencing having served time on remand.</p>
+        {% else %}
+        <p>A licence for this person has been created by Pentonville (HMP) because none was submitted in time for their final release checks.</p>
+        {% endif %}
+
+        <p>Once this person is released, the licence must be reviewed. If changes are needed, the licence can be varied.</p>
+
+
+        <h2 class="govuk-heading-m">
+          Community probation team contact details
+        </h2>
+
+        <p>To request a change to these details, contact Pentonville (HMP) at test.justice.gov.uk</p>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-8">
+          <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                 Does this person need an initial appointment?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                   {% if data['prisoner'] == 'marcus' %}
+                   No
+                   {% else %}
+                   Yes
+                   {% endif %}
+                </dd>
+              </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+            {% if data['hard-stop-who'] == 'dutyOfficer' %}  
+              Duty Officer
+            {% elif data['hard-stop-who'] == 'someoneElse' %}  
+              {{ data['hardStopEnterName'] }}
+            {% else %} 
+              Stephen McVeigh
+            {% endif %} 
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['addressLine1'] or "123 Fake St" }},
+              {% if data['addressLine2'] %}{{ data['addressLine2'] | default('Fake on Fake') }},{% endif %} 
+              {{ data['addressTown'] or "Fakerton" }}, 
+              {% if data['addressCounty'] %}{{ data['addressCounty'] | default('Fakeshire') }},{% endif %} 
+              {{ data['addressPostcode'] or "FA1 1KE" }}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Contact phone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['contactNumber'] or "01234567890" }}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Alternative contact phone number
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['AlternativePhoneNumber'] or "Not entered" }}       
+                </dd>
+              </div>
+
+          {% if data['prisoner'] == 'marcus' %}
+          {% elif data['appointment-time'] == 'specific' %}  
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['date'] %} 
+              {{ data['date'] | formatDateString("D/M/YYYY","D MMMM YYYY")}}
+              {% else %} 
+              11 March 2025
+              {% endif %} 
+             </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Time
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data | formatTime('1', '', 'pm') }}
+            </dd>
+          </div>
+         {% else %} 
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date/time
+            </dt>
+            <dd class="govuk-summary-list__value">
+            {% if data['appointment-time'] == 'immediately' %}  
+              Immediately after release
+             {% else %} 
+              By 2pm on the next working day after their release
+            {% endif %} 
+            </dd>
+          </div>
+         {% endif %} 
+        </dl>
+         <details class="govuk-details" data-module="govuk-details" style="margin-top: -25px; margin-bottom: 60px;">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              When no initial appointment is needed
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            Select no appointment needed if this person is being released in the final third of a standard determinate sentence and is not:
+              <ul class="govuk-list govuk-list--bullet" style="margin-top: 5px">
+                <li>serving a sentence for rape, serious sexual abuse against children or organised child sexual exploitation or grooming offences</li>
+                <li>MAPPA eligible</li>
+                <li>named on a child protection plan</li>
+                <li>serving a sentence for a state threat or a terrorist risk offence</li>
+                <li>tier A, B or C</li>
+                <li>serving a standard determinate sentence plus</li>
+              </ul>
+        
+          </div>
+        </details>
+
+        <h2 class="govuk-heading-m" style="margin-top: 40px;">Licence conditions</h2>
+
+        <p>The licence will contain standard licence conditions. By default, it will also automatically contain an additional condition.</p>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+         <div class="govuk-summary-list__row">
+           <dt class="govuk-summary-list__key">
+            Making or maintaining contact with a person
+           </dt>
+          <dd class="govuk-summary-list__value">
+            Not to approach or communicate with any victims of your offences without the prior approval of your supervising officer.
+          </dd>
+         </div>
+        </dl>
+        
+
+        <p style="margin-top: -20px;">The prison cannot add any other additional or bespoke conditions.</br>
+        If you need to add any additional or bespoke licence conditions, you can do so after release.</p>
+
+
+            <div class="govuk-button-group" style="margin-top: 40px;">
+
+              <a href="#" type="submit" class="govuk-button" data-module="govuk-button">
+                View and print licence PDF
+            </a>
+              <a href="#" type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                Return to case list
+            </a>
+            </div>
+
+   
+   <p class="govuk-!-margin-top-6"><a href="/v6/probation-practitioner/post-release/cvl-home" class="govuk-link--no-visited-state">Jump to probation practitioner vary flow</a></p> 
+
+
+
+  </div>
+</div>
+
+{% endblock %}
+
+
+{% block footer %}
+
+{% include "components/cvl-pp-footer/include.html" %}
+
+{% endblock %}

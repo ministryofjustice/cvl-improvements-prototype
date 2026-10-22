@@ -1,0 +1,82 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Has a probation practitioner advised you to add conditions to this licence?" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-dm-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% include "components/prisoner-subheader/prisonnumber.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  
+  <form action="/v6/probationadvisedtimeserved" method="post">
+
+
+  <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="ProbationAdvised-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+       Has a probation practitioner advised you to add conditions to this licence?
+      </h1>
+    </legend>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="ProbationAdvised" name="ProbationAdvised" type="radio" aria-describedby="ProbationAdvised-item-hint" value="yes" >
+        <label class="govuk-label govuk-radios__label" for="ProbationAdvised">
+          Yes
+        </label>
+        <div id="ProbationAdvised-item-hint" class="govuk-hint govuk-radios__hint">
+          You must enter the details of the person who told you which conditions to add or change on the next screen.
+        </div>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="ProbationAdvised-2" name="ProbationAdvised" type="radio" aria-describedby="ProbationAdvised-2-item-hint" value="no" >
+        <label class="govuk-label govuk-radios__label" for="ProbationAdvised-2">
+          No
+        </label>
+        <div id="ProbationAdvised-2-item-hint" class="govuk-hint govuk-radios__hint">
+          You can generate a licence that contains standard conditions, as well as a requirement for the person not to contact any victims.
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+
+     
+      <div class="govuk-button-group">
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+        <a class="govuk-link" href="../case-list-pip-approved">Return to case list</a>
+      </div>
+
+  
+
+  </form>
+  
+
+  </div>
+</div>
+{% endblock %}
+
+
+{% block footer %}
+
+{% include "components/cvl-dm-ca-footer/include.html" %}
+
+{% endblock %}

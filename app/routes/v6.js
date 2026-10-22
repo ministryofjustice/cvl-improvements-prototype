@@ -59,6 +59,36 @@ router.post(version + '/appointmentNeededca', function(request, response) {
 })
 
 
+// Time-served 2.0 - CA adding conditions advised by probation
+// Has a probation practitioner told you which conditions to add to this licence?
+
+router.post(version + '/probationadvisedtimeserved', function(request, response) {
+
+    var ProbationAdvised = request.session.data['ProbationAdvised'];
+    
+    if (ProbationAdvised == "yes"){
+        response.redirect(version + "/case-admin/timeserved/probation-advisor-details")
+
+    } else if (ProbationAdvised == "no") {
+        response.redirect(version + "/case-admin/timeserved/check-licence")
+    }
+})
+
+
+// Enter the details of the probation practitioner who told you which conditions to add or change
+
+router.post(version + '/probationadvisordetailstimeserved', function(request, response) {
+
+    var ProbationAdvisor = request.session.data['ProbationAdvisor'];
+    
+    if (ProbationAdvisor == "continue"){
+        response.redirect(version + "/case-admin/timeserved/conditions/additional-conditions/additional-conditions")
+
+    } else if (ProbationAdvised == "back") {
+        response.redirect(version + "/case-admin/timeserved/probation-advised")
+    }
+})
+
 
 
 //Additional conditions
@@ -80,108 +110,6 @@ router.post(version + '/delete-restrictionzone', function (req, res) {
   }
 
 })
-
-
-
-// HDC Curfew hours
-
-router.post(version + '/standard-curfew-answer', function(request, response) {
-
-    var standard = request.session.data['standardCurfew']
-    if (standard == "yes"){
-        response.redirect(version + "/probation-practitioner/pre-release/create/additional-conditions/additional-conditions")
-    } else {
-        response.redirect(version + "/probation-practitioner/pre-release/create/hdc/curfews/same-each-day")
-    }
-})
-
-router.post(version + '/same-each-day-answer', function(request, response) {
-
-    var sameDay = request.session.data['sameEachDay']
-    if (sameDay == "yes"){
-        response.redirect(version + "/probation-practitioner/pre-release/create/hdc/curfews/enter-curfew-same")
-    } else {
-        response.redirect(version + "/probation-practitioner/pre-release/create/hdc/curfews/enter-curfew-diff")
-    }
-})
-
-
-router.post(version + '/standard-curfew-edit-answer', function(request, response) {
-
-    var standard = request.session.data['standardCurfew']
-    if (standard == "yes"){
-        response.redirect(version + "/probation-practitioner/pre-release/create/check-licence")
-    } else {
-        response.redirect(version + "/probation-practitioner/pre-release/create/hdc/curfews/same-each-day-edit")
-    }
-})
-
-router.post(version + '/same-each-day-edit-answer', function(request, response) {
-
-    var sameDay = request.session.data['sameEachDay']
-    if (sameDay == "yes"){
-        response.redirect(version + "/probation-practitioner/pre-release/create/hdc/curfews/enter-curfew-same-edit")
-    } else {
-        response.redirect(version + "/probation-practitioner/pre-release/create/hdc/curfews/enter-curfew-diff-edit")
-    }
-})
-
-router.post(version + '/standard-curfew-edit-2-answer', function(request, response) {
-
-    var standard = request.session.data['standardCurfew']
-    if (standard == "yes"){
-        response.redirect(version + "/probation-practitioner/pre-release/create/check-licence-edit")
-    } else {
-        response.redirect(version + "/probation-practitioner/pre-release/create/hdc/curfews/same-each-day-edit-2")
-    }
-})
-
-router.post(version + '/same-each-day-edit-2-answer', function(request, response) {
-
-    var sameDay = request.session.data['sameEachDay']
-    if (sameDay == "yes"){
-        response.redirect(version + "/probation-practitioner/pre-release/create/hdc/curfews/enter-curfew-same-edit-2")
-    } else {
-        response.redirect(version + "/probation-practitioner/pre-release/create/hdc/curfews/enter-curfew-diff-edit-2")
-    }
-})
-
-
-// HDC Vary journey - Address type and address checks
-
-router.post(version + '/whataddresstype', function(request, response) {
-
-    var addressType = request.session.data['addressType']
-    if (addressType == "res"){
-        response.redirect(version + "/probation-practitioner/post-release/hdc/address-checks")
-    } else {
-        response.redirect(version + "/probation-practitioner/post-release/hdc/enter-new-address/postcode-search")
-    }
-})
-
-
-router.post(version + '/varyaddresschecks', function(request, response) {
-
-    var addressChecks = request.session.data['addressChecks']
-    if (addressChecks == "yes"){
-        response.redirect(version + "/probation-practitioner/post-release/hdc/enter-new-address/postcode-search")
-    } else {
-        response.redirect(version + "/probation-practitioner/post-release/hdc/address-checks-reason")
-    }
-})
-
-
-router.post(version + '/varyaddresschecks-edit', function(request, response) {
-
-    var addressChecks = request.session.data['addressChecks']
-    if (addressChecks == "yes"){
-        response.redirect(version + "/probation-practitioner/post-release/hdc/vary-licence-details")
-    } else {
-        response.redirect(version + "/probation-practitioner/post-release/hdc/address-checks-reason-edit")
-    }
-})
-
-
 
 
 
