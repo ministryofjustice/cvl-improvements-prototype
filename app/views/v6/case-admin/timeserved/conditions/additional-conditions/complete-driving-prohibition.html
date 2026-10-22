@@ -1,0 +1,371 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Complete the licence condition" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-pp-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% include "components/prisoner-subheader/include.html" %}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+
+<form action="#" method="get">
+
+  
+<div class="govuk-form-group govuk-!-margin-bottom-8">
+  <fieldset class="govuk-fieldset" aria-describedby="condition-tag-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-3">
+        Complete the licence condition
+      </h1>
+    </legend>
+
+    <p>Not to use [ANY MOTOR VEHICLE / TYPES OF MOTOR VEHICLE] [AT ANY TIME / BETWEEN SPECIFIED TIMES] [AT ANY LOCATION / IN SPECIFIED LOCATIONS] without the prior approval of your supervising officer.</p>
+
+
+    <!--MOTOR VEHICLE start-->
+
+    <!--START set dynamic radio hide/show text-->
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+    {% from "govuk/components/input/macro.njk" import govukInput %}
+
+    {% set typemotorvehicleHtmlOther %}
+    {{ govukInput({
+      id: "entermotorvehicle",
+      name: "entermotorvehicle",
+      classes: "govuk-fieldset__legend--s govuk-input govuk-input--width-30",
+      label: {
+        text: "Enter one or more types of motor vehicle"
+      }
+    }) }}
+    {% endset -%}
+
+    <!--END set dynamic radio hide/show text-->
+
+    {{ govukRadios({
+      idPrefix: "location",
+      name: "location",
+      fieldset: {
+        legend: {
+          text: "Vehicle types",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--s"
+        }
+      },
+
+      items: [
+      {
+        value: "anymotorvehicle",
+        text: "Any motor vehicle",
+        conditional: {
+          html: anymotorvehicleHtml
+        }
+      },
+      {
+        value: "typemotorvehicle",
+        text: "Types of motor vehicle",
+        conditional: {
+          html: typemotorvehicleHtmlOther
+        }
+      }
+      ]
+    }) }}
+
+    <!--MOTOR VEHICLE end-->
+
+
+    <!--TIME start-->
+
+    <!--START set dynamic radio hide/show text-->
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+    {% from "govuk/components/input/macro.njk" import govukInput %}
+
+  
+    {% set specifiedtimeHtmlOther %}
+    
+    <!--1st time slot START-->
+    <div class="govuk-form-group" style="padding-top: 20px;">
+    <div class="time-picker">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+      <h1 class="govuk-fieldset__heading">
+         Enter first start time
+      </h1>
+    </legend>
+    <!--<div id="passport-issued-hint" class="govuk-hint">
+    For example, 9:30am or 2:55pm
+    </div>-->
+    <div class="govuk-date-input" id="passport-issued">
+    <div class="govuk-date-input__item">
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+          Hour
+        </label>
+        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+    </div>
+    <div class="govuk-date-input__item">
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+          Minute
+        </label>
+        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+    </div>
+    <div class="govuk-date-input__item">
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+          am or pm
+        </label>
+        <select class="govuk-select" id="when-am" name="when-am">
+          <option value="am" selected>am</option>
+          <option value="pm">pm</option>
+        </select>
+      </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="govuk-form-group" style="padding-top: 20px;">
+    <div class="time-picker">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+      <h1 class="govuk-fieldset__heading">
+        Enter first end time
+      </h1>
+    </legend>
+    <!--<div id="passport-issued-hint" class="govuk-hint">
+    For example, 9:30am or 2:55pm
+    </div>-->
+    <div class="govuk-date-input" id="passport-issued">
+    <div class="govuk-date-input__item">
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+          Hour
+        </label>
+        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+    </div>
+    <div class="govuk-date-input__item">
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+          Minute
+        </label>
+        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+    </div>
+    <div class="govuk-date-input__item">
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+          am or pm
+        </label>
+        <select class="govuk-select" id="when-am" name="when-am">
+          <option value="am" selected>am</option>
+          <option value="pm">pm</option>
+        </select>
+      </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <!--1st time slot END-->
+
+    <!--2nd time slot START-->
+    <div class="govuk-form-group" style="padding-top: 40px;">
+    <div class="time-picker">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+      <h1 class="govuk-fieldset__heading">
+         Enter second start time (optional)
+      </h1>
+    </legend>
+    <!--<div id="passport-issued-hint" class="govuk-hint">
+    For example, 9:30am or 2:55pm
+    </div>-->
+    <div class="govuk-date-input" id="passport-issued">
+    <div class="govuk-date-input__item">
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+          Hour
+        </label>
+        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+    </div>
+    <div class="govuk-date-input__item">
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+          Minute
+        </label>
+        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+    </div>
+    <div class="govuk-date-input__item">
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+          am or pm
+        </label>
+        <select class="govuk-select" id="when-am" name="when-am">
+          <option value="am" selected>am</option>
+          <option value="pm">pm</option>
+        </select>
+      </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="govuk-form-group" style="padding-top: 20px;">
+    <div class="time-picker">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+      <h1 class="govuk-fieldset__heading">
+        Enter second end time (optional)
+      </h1>
+    </legend>
+    <!--<div id="passport-issued-hint" class="govuk-hint">
+    For example, 9:30am or 2:55pm
+    </div>-->
+    <div class="govuk-date-input" id="passport-issued">
+    <div class="govuk-date-input__item">
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+          Hour
+        </label>
+        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+    </div>
+    <div class="govuk-date-input__item">
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+          Minute
+        </label>
+        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+    </div>
+    <div class="govuk-date-input__item">
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+          am or pm
+        </label>
+        <select class="govuk-select" id="when-am" name="when-am">
+          <option value="am" selected>am</option>
+          <option value="pm">pm</option>
+        </select>
+      </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <!--2nd time slot END-->
+
+    {% endset -%}
+
+    <!--END set dynamic radio hide/show text-->
+
+    {{ govukRadios({
+      idPrefix: "time",
+      name: "time",
+      fieldset: {
+        legend: {
+          text: "Time restriction",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--s"
+        }
+      },
+
+      items: [
+      {
+        value: "atanytime",
+        text: "At any time",
+        conditional: {
+          html: atanytimeHtml
+        }
+      },
+      {
+        value: "specifiedtime",
+        text: "Between specified times",
+        conditional: {
+          html: specifiedtimeHtmlOther
+        }
+      }
+      ]
+    }) }}
+
+    <!--TIME end-->
+
+
+    <!--LOCATION start-->
+
+    <!--START set dynamic radio hide/show text-->
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+    {% from "govuk/components/input/macro.njk" import govukInput %}
+
+    {% set specifiedlocationHtmlOther %}
+    {{ govukInput({
+      id: "location",
+      name: "location",
+      classes: "govuk-fieldset__legend--s govuk-input govuk-input--width-30",
+      label: {
+        text: "Enter one or more locations"
+      }
+    }) }}
+    {% endset -%}
+
+    <!--END set dynamic radio hide/show text-->
+
+    {{ govukRadios({
+      idPrefix: "motorvehicle",
+      name: "motorvehicle",
+      fieldset: {
+        legend: {
+          text: "Location restriction",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--s"
+        }
+      },
+
+      items: [
+      {
+        value: "anylocation",
+        text: "At any location",
+        conditional: {
+          html: anylocationHtml
+        }
+      },
+      {
+        value: "specifiedlocation",
+        text: "In specified locations",
+        conditional: {
+          html: specifiedlocationHtmlOther
+        }
+      }
+      ]
+    }) }}
+
+    <!--LOCATION end-->
+
+  </fieldset>
+</div>
+
+
+<div class="govuk-button-group">
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Continue
+  </button>
+  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+    Delete this condition
+  </button>
+</div>
+
+</form>
+  
+
+  </div>
+</div>
+{% endblock %}
+
+
+{% block footer %}
+
+{% include "components/cvl-pp-footer/include.html" %}
+
+{% endblock %}
