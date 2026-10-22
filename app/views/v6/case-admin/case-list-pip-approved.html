@@ -139,37 +139,29 @@
                 <tr class="govuk-table__row">
             
                   <td class="govuk-table__cell">
-                    {% if data.timeservedsubmitted=="dwayne" %}
-                    <a href="#" class="govuk-link--no-visited-state pp-caselist-name">Dwayne Briggs</a>
-                    {% elseif data.systemchoice=="nomisdwayne" %}
-                    <a href="" class="govuk-link--no-visited-state pp-caselist-name">Dwayne Briggs</a>
-                    {% else %}
-                    <a href="./timeserved/are-you-sure?prisoner=dwayne" class="govuk-link--no-visited-state pp-caselist-name">Dwayne Briggs</a>
-                    {% endif %}
+                    <a href="./timeserved/are-you-sure?prisoner=axel" class="govuk-link--no-visited-state pp-caselist-name">Axel Wurth</a>
                   </td>
             
                   <td class="govuk-table__cell">G5613GT</td>
             
                   <td class="govuk-table__cell">Not allocated yet</td>
             
-                    
+      
                   <td class="govuk-table__cell" data-sort-value="1">
                     <span class="urgent-highlight">Conditional release date:</br>{{ "today" | duration(0) | govukDate(truncate=true) }}</span>
                     <span class="urgent-highlight urgent-highlight-message">Time-served release</span>
                   </td>
                    
                   <td class="govuk-table__cell">
-                    {% if data.timeservedsubmitted=="dwayne" %}
+                    {% if data.timeservedsubmitted=="axel" %}
                     Joanne Cooper
                     {% else %}
                     {% endif %}
                   </td>
 
                   <td class="govuk-table__cell">
-                    {% if data.timeservedsubmitted=="dwayne" %}
+                    {% if data.timeservedsubmitted=="axel" %}
                     <strong class="govuk-tag govuk-tag--pink status-badge">Submitted</strong>
-                    {% elseif data.systemchoice=="nomisdwayne" %}
-                      <strong class="govuk-tag govuk-tag--grey status-badge">NOMIS licence</strong>
                     {% else %}
                     <strong class="govuk-tag govuk-tag--yellow status-badge">Not started</strong>
                     {% endif %}
