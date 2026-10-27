@@ -13,21 +13,21 @@
     "npm": ">=12"
   },
   "dependencies": {
-    "@govuk-prototype-kit/common-templates": "3.0.0",
+    "@govuk-prototype-kit/common-templates": "3.0.1",
     "@govuk-prototype-kit/step-by-step": "3.0.0",
     "@govuk-prototype-kit/task-list": "2.0.0",
     "@ministryofjustice/frontend": "^10.0.1",
-    "@x-govuk/govuk-prototype-filters": "^2.2.0",
-    "govuk-frontend": "^6.4.0",
+    "@x-govuk/govuk-prototype-filters": "^2.2.1",
+    "govuk-frontend": "^6.6.0",
     "govuk-prototype-kit": "^13.20.3",
-    "hmrc-frontend": "^7.29.0",
+    "hmrc-frontend": "^7.41.0",
     "jquery": "^4.0.0",
     "luxon": "^3.7.2",
-    "notifications-node-client": "^8.4.0"
+    "notifications-node-client": "^8.5.0"
   },
   "devDependencies": {
     "audit-ci": "7.1.0",
-    "npm-check-updates": "23.0.2"
+    "npm-check-updates": "23.1.1"
   },
   "allowScripts": {
     "fsevents@2.3.3": true,
