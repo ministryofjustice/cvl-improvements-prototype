@@ -10,7 +10,7 @@
 
 {%- block beforeContent -%}
 <a href="javascript:history.back()" class="govuk-back-link">Back</a>
-{% include "components/prisoner-subheader/include.html" %}
+{% include "components/prisoner-subheader/prisonnumber.html" %}
 {% endblock %}
 
 
@@ -21,29 +21,25 @@
   <div class="govuk-grid-column-two-thirds">
 
 
-
-    <form action="/v6/bespoke-conditions-answer2" method="post">
+    <form action="/v6/additional-conditions-caseadmin" method="post">
 
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-fieldset__heading">
-                Do they need bespoke licence conditions?
+                Do they need additional licence conditions?
               </h1>
             </legend>
-            <div id="event-name-hint" class="govuk-hint">
-              You must have Public Protection Casework Section (PPCS) appoval to add a bespoke condition.
-            </div>
             <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="bespokeConditions" name="bespokeConditions" type="radio" value="yes">
-                <label class="govuk-label govuk-radios__label" for="bespokeConditions">
+                <input class="govuk-radios__input" id="additionalConditions" name="additionalConditions" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="additionalConditions">
                   Yes
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="bespokeConditions-2" name="bespokeConditions" type="radio" value="no">
-                <label class="govuk-label govuk-radios__label" for="bespokeConditions-2">
+                <input class="govuk-radios__input" id="additionalConditions-2" name="additionalConditions" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="additionalConditions-2">
                   No
                 </label>
               </div>
@@ -53,7 +49,7 @@
           <button type="submit" class="govuk-button" data-module="govuk-button">
            Continue
           </button>
-          </form>
+        </form>
   </div>
 </div>
 
