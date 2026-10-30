@@ -345,7 +345,6 @@
 
   <p>You confirmed that xxxx</p>
 
-
       {% if data.action == "delete"  %}
         <details class="govuk-details">
             <summary class="govuk-details__summary">
@@ -354,44 +353,70 @@
               </span>
             </summary>
             <div class="govuk-details__text">
-              <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    Name
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    {{ data['advisorName'] }}
-                  </dd>
-                  {% if data.prisoner == "tim" %}
-                  {% else %}
-                  <dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="">Change<span class="govuk-visually-hidden"> name</span></a></dd>
-                  {% endif %}
+              
+
+              <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                  <h2 class="govuk-summary-card__title">
+                    Summary of activity
+                  </h2>
                 </div>
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                  Email
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    {{ data['advisorEmail'] }}
-                  </dd>
-                  {% if data.prisoner == "tim" %}
-                  {% else %}
-                  <dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="">Change<span class="govuk-visually-hidden"> email</span></a></dd>
-                  {% endif %}
+                <div class="govuk-summary-card__content">
+                  <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                      <dd class="govuk-summary-list__value">
+                        1 additional condition was deleted
+                      </dd>
+                    </div>
+                  </dl>
                 </div>
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    Job title
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    {{ data['advisorJobtitle'] }}
-                  </dd>
-                  {% if data.prisoner == "tim" %}
-                  {% else %}
-                  <dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="">Change<span class="govuk-visually-hidden"> email</span></a></dd>
-                  {% endif %}
+              </div>
+
+              <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                  <h2 class="govuk-summary-card__title">
+                    Details of person who authorised this
+                  </h2>
                 </div>
-              </dl>
+                <div class="govuk-summary-card__content">
+                  <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        First name
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Tia
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Last name
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Probin
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Email address
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        tia.probin@justice.gov.uk
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Job title
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Probation practitioner
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
+              </div>
+
+
             </div>
           </details>
 
@@ -402,50 +427,76 @@
               </span>
             </summary>
             <div class="govuk-details__text">
-              <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    Name
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    {{ data['advisorName'] }}
-                  </dd>
-                  {% if data.prisoner == "tim" %}
-                  {% else %}
-                  <dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="">Change<span class="govuk-visually-hidden"> name</span></a></dd>
-                  {% endif %}
+
+
+              <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                  <h2 class="govuk-summary-card__title">
+                    Summary of activity
+                  </h2>
                 </div>
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                  Email
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    {{ data['advisorEmail'] }}
-                  </dd>
-                  {% if data.prisoner == "tim" %}
-                  {% else %}
-                  <dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="">Change<span class="govuk-visually-hidden"> email</span></a></dd>
-                  {% endif %}
+                <div class="govuk-summary-card__content">
+                  <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                      <dd class="govuk-summary-list__value">
+                        2 additional conditions were added
+                      </dd>
+                    </div>
+                  </dl>
                 </div>
-                <div class="govuk-summary-list__row">
-                  <dt class="govuk-summary-list__key">
-                    Job title
-                  </dt>
-                  <dd class="govuk-summary-list__value">
-                    {{ data['advisorJobtitle'] }}
-                  </dd>
-                  {% if data.prisoner == "tim" %}
-                  {% else %}
-                  <dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="">Change<span class="govuk-visually-hidden"> email</span></a></dd>
-                  {% endif %}
+              </div>
+
+              <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                  <h2 class="govuk-summary-card__title">
+                    Details of person who authorised this
+                  </h2>
                 </div>
-              </dl>
+                <div class="govuk-summary-card__content">
+                  <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        First name
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Tia
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Last name
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Probin
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Email address
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        tia.probin@justice.gov.uk
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Job title
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Probation practitioner
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
+              </div>
+              
+              
             </div>
           </details>
 
       {% else %}
 
-      
+
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
