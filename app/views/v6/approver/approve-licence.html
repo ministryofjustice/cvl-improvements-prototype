@@ -65,7 +65,7 @@
                 Release date
               </dt>
               <dd class="govuk-summary-list__value">
-                {% if data['prisoner'] == 'dwayne' %} 
+                {% if data['prisoner'] == 'alex' %} 
                 {{ "today" | duration(0) | govukDate(truncate=false) }}
                 {% elif data['prisoner'] == 'charlie' %} 
                 {{ "today" | duration(0) | govukDate(truncate=false) }}
@@ -81,7 +81,7 @@
                  Licence start date
               </dt>
               <dd class="govuk-summary-list__value">
-                {% if data['prisoner'] == 'dwayne' %} 
+                {% if data['prisoner'] == 'alex' %} 
                 {{ "today" | duration(0) | govukDate(truncate=false) }}
                 {% elif data['prisoner'] == 'charlie' %} 
                 {{ "today" | duration(0) | govukDate(truncate=false) }}
@@ -97,7 +97,7 @@
                 Licence expiry date
               </dt>
               <dd class="govuk-summary-list__value">
-                {% if data['prisoner'] == 'dwayne' %} 
+                {% if data['prisoner'] == 'alex' %} 
                 {{ "today" | duration(120) | govukDate(truncate=false) }}
                 {% elif data['prisoner'] == 'charlie' %} 
                 {{ "today" | duration(120) | govukDate(truncate=false) }}
@@ -112,7 +112,7 @@
          </div>
       </div>
 
-    {% if data.prisoner == 'dwayne' or data.prisoner == 'charlie' %}
+    {% if data.prisoner == 'alex' or data.prisoner == 'charlie' %}
     <div class="govuk-accordion__section govuk-accordion__section--expanded">
       <div class="govuk-accordion__section-header">
         <h3 class="govuk-accordion__section-heading">
@@ -391,7 +391,7 @@
             <div id="accordion-default-content-2" class="govuk-accordion__section-content">
 
 
-              {% if data['prisoner'] == 'dwayne' %} 
+              {% if data['prisoner'] == 'alex' %} 
               <p class="govuk-body">Not allocated yet</p>
               {% else %} 
               <dl class="govuk-summary-list">
@@ -437,7 +437,7 @@
       <h2 class="govuk-heading-l">Approve this licence</h2>
 
        
-      {% if (data['prisoner'] == 'dwayne') or (data['prisoner'] == 'charlie') %}
+      {% if (data['prisoner'] == 'alex') or (data['prisoner'] == 'charlie') %}
         <p>Contact Joanne Cooper if you need more information about something.</br>
           They will only be able to change the initial appointment.</p>
       {% elif data['prisoner'] == 'maxwell' %}  
