@@ -251,6 +251,8 @@
                     <dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="./probation-advisor-details">Change<span class="govuk-visually-hidden"> condition</span></a></dd>
                   </div>
 
+                  {% if data.action == "delete" %}
+                  {% else %}
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                       Restriction of specified conduct or specified acts
@@ -260,6 +262,7 @@
                     </dd>
                     <dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="./probation-advisor-details?action=delete">Delete<span class="govuk-visually-hidden"> condition</span></a></dd>
                   </div>
+                  {% endif %}
 
                 </dl>
           </div>
@@ -343,13 +346,13 @@
 {% if data.additionalConditions == "yes" or data.bespokeConditions == "yes" or data.prisoner == "tim"   %}
   <h2 class="govuk-heading-m">Record of work on this licence</h2>
 
-  <p>You confirmed that xxxx</p>
+  <p>I confirmed I will keep evidence of the conditions I was told to add or change.</p>
 
       {% if data.action == "delete"  %}
         <details class="govuk-details">
             <summary class="govuk-details__summary">
               <span class="govuk-details__summary-text">
-                David Smith at 3:00pm on [Weekday] {{ "today" | duration(0) | govukDate(truncate=true) }}
+                David Smith at 3:00pm on [Weekday] {{ "today" | duration(0) | govukDate(truncate=false) }}
               </span>
             </summary>
             <div class="govuk-details__text">
@@ -377,6 +380,11 @@
                   <h2 class="govuk-summary-card__title">
                     Details of person who authorised this
                   </h2>
+                  <ul class="govuk-summary-card__actions">
+                    <li class="govuk-summary-card__action">
+                      <a class="govuk-link govuk-link--no-visited-state" href="./probation-advisor-details-edit">Change<span class="govuk-visually-hidden"></span></a>
+                    </li>
+                  </ul>
                 </div>
                 <div class="govuk-summary-card__content">
                   <dl class="govuk-summary-list">
@@ -385,7 +393,7 @@
                         First name
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        Tia
+                        {{ data['advisorFirstname'] or "Tia" }}
                       </dd>
                     </div>
                     <div class="govuk-summary-list__row">
@@ -393,7 +401,7 @@
                         Last name
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        Probin
+                        {{ data['advisorLastname'] or "Probin" }}
                       </dd>
                     </div>
                     <div class="govuk-summary-list__row">
@@ -401,7 +409,7 @@
                         Email address
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        tia.probin@justice.gov.uk
+                        {{ data['advisorEmail'] or "tia.probin@justice.gov.uk" }}
                       </dd>
                     </div>
                     <div class="govuk-summary-list__row">
@@ -409,7 +417,7 @@
                         Job title
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        Probation practitioner
+                        {{ data['advisorJobtitle'] or "Probation practitioner" }}
                       </dd>
                     </div>
                   </dl>
@@ -420,10 +428,10 @@
             </div>
           </details>
 
-         <details class="govuk-details">
+         <details class="govuk-details" style="margin-top: -10px;">
             <summary class="govuk-details__summary">
               <span class="govuk-details__summary-text">
-                Joanne Cooper at 12:00am on [Weekday] {{ "today" | duration(0) | govukDate(truncate=true) }}
+                Joanne Cooper at 12:00am on [Weekday] {{ "today" | duration(0) | govukDate(truncate=false) }}
               </span>
             </summary>
             <div class="govuk-details__text">
@@ -496,45 +504,76 @@
 
       {% else %}
 
+      <h2 class="govuk-heading-s">Joanne Cooper at 12:00am on [Weekday] {{ "today" | duration(0) | govukDate(truncate=false) }}</h2>
+      
 
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Name
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['advisorName'] }}
-            </dd>
-            {% if data.prisoner == "tim" %}
-            {% else %}
-            <dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="">Change<span class="govuk-visually-hidden"> name</span></a></dd>
-            {% endif %}
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-             Email
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['advisorEmail'] }}
-            </dd>
-            {% if data.prisoner == "tim" %}
-            {% else %}
-            <dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="">Change<span class="govuk-visually-hidden"> email</span></a></dd>
-            {% endif %}
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Job title
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['advisorJobtitle'] }}
-            </dd>
-            {% if data.prisoner == "tim" %}
-            {% else %}
-            <dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="">Change<span class="govuk-visually-hidden"> email</span></a></dd>
-            {% endif %}
-          </div>
-        </dl>
+       <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                  <h2 class="govuk-summary-card__title">
+                    Summary of activity
+                  </h2>
+                </div>
+                <div class="govuk-summary-card__content">
+                  <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                      <dd class="govuk-summary-list__value">
+                        2 additional conditions were added
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
+              </div>
+
+              <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                  <h2 class="govuk-summary-card__title">
+                    Details of person who authorised this
+                  </h2>
+                  <ul class="govuk-summary-card__actions">
+                    <li class="govuk-summary-card__action">
+                      <a class="govuk-link govuk-link--no-visited-state" href="./probation-advisor-details-edit">Change<span class="govuk-visually-hidden"></span></a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="govuk-summary-card__content">
+                  <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        First name
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        {{ data['advisorFirstname'] or "Tia" }}
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Last name
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        {{ data['advisorLastname'] or "Probin" }}
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Email address
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        {{ data['advisorEmail'] or "tia.probin@justice.gov.uk" }}
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Job title
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        {{ data['advisorJobtitle'] or "Probation practitioner" }}
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
+              </div>
+
+       
       {% endif%}
 
 
