@@ -82,9 +82,9 @@ router.post(version + '/probationadvisordetailstimeserved', function(request, re
     var ProbationAdvisor = request.session.data['ProbationAdvisor'];
     
     if (ProbationAdvisor == "continue"){
-        response.redirect(version + "/case-admin/timeserved/conditions/additional-conditions/additional-conditions")
+        response.redirect(version + "/case-admin/timeserved/conditions/additional/additional-conditions")
 
-    } else if (ProbationAdvisor == "back") {
+gi    } else if (ProbationAdvisor == "back") {
         response.redirect(version + "/case-admin/timeserved/probation-advised")
     }
 })
@@ -112,8 +112,30 @@ router.post(version + '/delete-restrictionzone', function (req, res) {
 })
 
 
+//Licence conditions case admin
 
-// Licence conditions
+router.post(version + '/additional-conditions-caseadmin', function(request, response) {
+
+    var addConditions = request.session.data['additionalConditions']
+    if (addConditions == "yes"){
+        response.redirect(version + "/case-admin/timeserved/conditions/additional/enter-additional-conditions")
+    } else {
+        response.redirect(version + "/case-admin/timeserved/conditions/bespoke/bespoke-conditions")
+    }
+})
+
+router.post(version + '/bespoke-conditions-caseadmin', function(request, response) {
+
+    var bespConditions = request.session.data['bespokeConditions']
+    if (bespConditions == "yes"){
+        response.redirect(version + "/case-admin/timeserved/conditions/bespoke/create-bespoke-condition")
+    } else {
+        response.redirect(version + "/case-admin/timeserved/check-licence")
+    }
+})
+
+
+// Licence conditions probation practitioner
 
 router.post(version + '/additional-conditions-answer2', function(request, response) {
 

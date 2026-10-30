@@ -179,7 +179,19 @@
         </dl>
 
 
-<h2 class="govuk-heading-m">Licence conditions</h2>
+
+{% if data.ProbationAdvised == "no" or data.additionalConditions == "no" and data.bespokeConditions == "no"  %}
+<div class="govuk-!-margin-bottom-4 govuk-!-margin-top-4">
+
+            <h2 class="govuk-heading-m" style="display: inline;">Licence conditions</h2>
+
+                <a href="./probation-advisor-details">
+                  <button type="submit" style="float: right;" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                    Add conditions
+                  </button>
+                </a>
+
+  </div>
 
 <p class="govuk-body">By default, the licence will automatically contain the following restrictions:</p>
   
@@ -189,6 +201,122 @@
             <p class="govuk-inset-text">Not to approach or communicate with any victims of your offences without the prior approval of your supervising officer.
             </p>
           </ul>
+{% else %}
+
+
+
+        {% if data.additionalConditions == "yes" %}
+        
+
+        {% else %}
+          <div class="govuk-!-padding-bottom-8 govuk-!-padding-top-8">
+
+              <h2 class="govuk-heading-m" style="display: inline;">Additional licence conditions (0)</h2>
+
+                  <a href="../../../../_common/not-testing.html">
+                    <button type="submit" style="float: right;" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                      Add conditions
+                    </button>
+                  </a>
+
+                  <p class="govuk-body" style="margin-top: 20px; margin-bottom: 60px;">No additional licence conditions added</p>
+    
+                  <hr class="govuk-section-break govuk-section-break--visible">
+    
+          </div>
+        {% endif %}
+
+
+
+        {% if data.bespokeConditions == "yes" %}
+          <div class="govuk-!-margin-bottom-9">
+
+            <h2 class="govuk-heading-m" style="display: inline;">Bespoke licence conditions (1)</h2>
+
+                  <a href="../../../../_common/not-testing.html">
+                    <button type="submit" style="float: right;" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                      Add or remove conditions
+                    </button>
+                  </a>
+  
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Bespoke condition	
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data['bespokeDetail'] or "Do not enter your local park" }}
+                    </dd>
+                    <dd class="govuk-summary-list__action"></dd>
+                  </div>
+                </dl>
+
+            </div>
+        {% else %}
+          <div class="govuk-!-padding-bottom-8 govuk-!-padding-top-8">
+
+              <h2 class="govuk-heading-m" style="display: inline;">Bespoke licence conditions (0)</h2>
+
+                  <a href="../../../../_common/not-testing.html">
+                    <button type="submit" style="float: right;" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                      Add conditions
+                    </button>
+                  </a>
+
+                  <p class="govuk-body" style="margin-top: 20px; margin-bottom: 60px;">No additional licence conditions added</p>
+    
+                  <hr class="govuk-section-break govuk-section-break--visible">
+
+          </div>
+        {% endif %}
+
+
+{% endif %}
+
+
+
+
+
+{% if data.additionalConditions == "yes" or data.bespokeConditions == "yes"  %}
+  <h2 class="govuk-heading-m">COPY: New paragraph</h2>
+
+  <p>You confirmed that xxxx</p>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['advisorName'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+             Email
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['advisorEmail'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="">Change<span class="govuk-visually-hidden"> email</span></a></dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Job title
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['advisorJobtitle'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="">Change<span class="govuk-visually-hidden"> email</span></a></dd>
+          </div>
+
+{% else  %}
+{% endif %}
+
+
+
+
 
   
         <form action="/v6/checkyouranswers" method="post">
