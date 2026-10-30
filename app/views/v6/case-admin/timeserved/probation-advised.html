@@ -1,6 +1,6 @@
 {% extends "layouts/cvl.html" %}
 
-{% set pageName="Has a probation practitioner advised you to add conditions to this licence?" %}
+{% set pageName="Has a probation practitioner told you to add conditions to this licence?" %}
 
 {% set htmlClasses = 'app-width-wide' %}
 
@@ -30,8 +30,9 @@
   <fieldset class="govuk-fieldset" aria-describedby="ProbationAdvised-hint">
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
       <h1 class="govuk-fieldset__heading">
-       Has a probation practitioner advised you to add conditions to this licence?
+       Has a probation practitioner told you to add conditions to this licence? 
       </h1>
+      <p>A probation practitioner such as a community probation practitioner or a probation POM must have told you which conditions to add. If not, you can still create a licence, but without being able to add any conditions.</p>
     </legend>
     <div class="govuk-radios" data-module="govuk-radios">
       <div class="govuk-radios__item">
@@ -40,7 +41,7 @@
           Yes
         </label>
         <div id="ProbationAdvised-item-hint" class="govuk-hint govuk-radios__hint">
-          You must enter the details of the person who told you which conditions to add or change on the next screen.
+          Before you can add conditions, you must enter the details of the practitioner who told you to do this. 
         </div>
       </div>
       <div class="govuk-radios__item">
@@ -49,7 +50,7 @@
           No
         </label>
         <div id="ProbationAdvised-2-item-hint" class="govuk-hint govuk-radios__hint">
-          You can generate a licence that contains standard conditions, as well as a requirement for the person not to contact any victims.
+          You can generate a licence that contains standard conditions and an additional condition telling this person not to approach or communicate with any victims of their offences. 
         </div>
       </div>
     </div>
