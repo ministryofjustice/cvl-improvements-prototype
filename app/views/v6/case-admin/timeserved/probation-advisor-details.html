@@ -19,7 +19,11 @@
   <div class="govuk-grid-column-two-thirds">
 
 
+    {% if data.action == "delete"  %}
+    <form action="./check-licence" method="post">
+    {% else  %}
     <form action="/v6/probationadvisordetailstimeserved" method="post">
+    {% endif %}
 
 
     

@@ -18,6 +18,22 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full-from-desktop">
 
+
+      {% if data.action == "delete"  %}
+      <div role="region" class="moj-alert moj-alert--success" aria-label="success: Upload successful" data-module="moj-alert">
+        <div>
+          <svg class="moj-alert__icon" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" height="30" width="30">
+            <path d="M11.2869 24.6726L2.00415 15.3899L4.62189 12.7722L11.2869 19.4186L25.3781 5.32739L27.9958 7.96369L11.2869 24.6726Z" fill="currentColor" />
+          </svg>
+        </div>
+        <div class="moj-alert__content">Deleted</div>
+        <div class="moj-alert__action">
+          <button class="moj-alert__dismiss" hidden>Dismiss</button>
+        </div>
+      </div>
+      {% else %}
+      {% endif %}
+
       <h1 class="govuk-heading-l">Check licence details</h1><br>
 
 
@@ -205,15 +221,58 @@
 
 
 
-        {% if data.additionalConditions == "yes" %}
-        
+        {% if data.additionalConditions == "yes" or data.prisoner == "tim"  %}
 
+          <div class="govuk-!-margin-bottom-9 govuk-!-margin-top-8">
+            <h2 class="govuk-heading-m">
+              Additional licence conditions (2)
+                </h2>
+
+                {% if data.prisoner == "tim"  %}
+                  <a href="./probation-advisor-details">
+                  {% else %}
+                  <a href="../../../../_common/not-testing.html">
+                  {% endif%}
+                    <button type="submit" style="float: right;" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                      Add or remove conditions
+                    </button>
+                  </a>
+
+
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Freedom of movement
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      <p>Not to enter a drinking establishment at any time without the prior approval of your supervising officer. This means any location where you can buy alcohol without needing to buy food or stay overnight. It also means places that stay open past midnight for entertainment reasons (things like music or shows) which also serve alcohol.</p>
+                      <p class="hint-condition-custom">At any time</p>
+                    </dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="./probation-advisor-details">Change<span class="govuk-visually-hidden"> condition</span></a></dd>
+                  </div>
+
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Restriction of specified conduct or specified acts
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      <p>Not to partake in gambling, or making payments for other games of chance without the prior permission of your supervising officer.</p>
+                    </dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="./probation-advisor-details?action=delete">Delete<span class="govuk-visually-hidden"> condition</span></a></dd>
+                  </div>
+
+                </dl>
+          </div>
         {% else %}
           <div class="govuk-!-padding-bottom-8 govuk-!-padding-top-8">
 
               <h2 class="govuk-heading-m" style="display: inline;">Additional licence conditions (0)</h2>
 
+                  {% if data.prisoner == "tim"  %}
+                  <a href="./probation-advisor-details">
+                  {% else %}
                   <a href="../../../../_common/not-testing.html">
+                  {% endif%}
                     <button type="submit" style="float: right;" class="govuk-button govuk-button--secondary" data-module="govuk-button">
                       Add conditions
                     </button>
@@ -228,12 +287,16 @@
 
 
 
-        {% if data.bespokeConditions == "yes" %}
+        {% if data.bespokeConditions == "yes" or data.prisoner == "tim" %}
           <div class="govuk-!-margin-bottom-9">
 
             <h2 class="govuk-heading-m" style="display: inline;">Bespoke licence conditions (1)</h2>
 
+                  {% if data.prisoner == "tim"  %}
+                  <a href="./probation-advisor-details">
+                  {% else %}
                   <a href="../../../../_common/not-testing.html">
+                  {% endif%}
                     <button type="submit" style="float: right;" class="govuk-button govuk-button--secondary" data-module="govuk-button">
                       Add or remove conditions
                     </button>
@@ -277,11 +340,112 @@
 
 
 
-{% if data.additionalConditions == "yes" or data.bespokeConditions == "yes"  %}
-  <h2 class="govuk-heading-m">COPY: New paragraph</h2>
+{% if data.additionalConditions == "yes" or data.bespokeConditions == "yes" or data.prisoner == "tim"   %}
+  <h2 class="govuk-heading-m">Record of work on this licence</h2>
 
   <p>You confirmed that xxxx</p>
 
+
+      {% if data.action == "delete"  %}
+        <details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                David Smith at 3:00pm on [Weekday] {{ "today" | duration(0) | govukDate(truncate=true) }}
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Name
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ data['advisorName'] }}
+                  </dd>
+                  {% if data.prisoner == "tim" %}
+                  {% else %}
+                  <dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                  {% endif %}
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                  Email
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ data['advisorEmail'] }}
+                  </dd>
+                  {% if data.prisoner == "tim" %}
+                  {% else %}
+                  <dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="">Change<span class="govuk-visually-hidden"> email</span></a></dd>
+                  {% endif %}
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Job title
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ data['advisorJobtitle'] }}
+                  </dd>
+                  {% if data.prisoner == "tim" %}
+                  {% else %}
+                  <dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="">Change<span class="govuk-visually-hidden"> email</span></a></dd>
+                  {% endif %}
+                </div>
+              </dl>
+            </div>
+          </details>
+
+         <details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Joanne Cooper at 12:00am on [Weekday] {{ "today" | duration(0) | govukDate(truncate=true) }}
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Name
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ data['advisorName'] }}
+                  </dd>
+                  {% if data.prisoner == "tim" %}
+                  {% else %}
+                  <dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+                  {% endif %}
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                  Email
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ data['advisorEmail'] }}
+                  </dd>
+                  {% if data.prisoner == "tim" %}
+                  {% else %}
+                  <dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="">Change<span class="govuk-visually-hidden"> email</span></a></dd>
+                  {% endif %}
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Job title
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {{ data['advisorJobtitle'] }}
+                  </dd>
+                  {% if data.prisoner == "tim" %}
+                  {% else %}
+                  <dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="">Change<span class="govuk-visually-hidden"> email</span></a></dd>
+                  {% endif %}
+                </div>
+              </dl>
+            </div>
+          </details>
+
+      {% else %}
+
+      
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -290,7 +454,10 @@
             <dd class="govuk-summary-list__value">
               {{ data['advisorName'] }}
             </dd>
+            {% if data.prisoner == "tim" %}
+            {% else %}
             <dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="">Change<span class="govuk-visually-hidden"> name</span></a></dd>
+            {% endif %}
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -299,7 +466,10 @@
             <dd class="govuk-summary-list__value">
               {{ data['advisorEmail'] }}
             </dd>
+            {% if data.prisoner == "tim" %}
+            {% else %}
             <dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="">Change<span class="govuk-visually-hidden"> email</span></a></dd>
+            {% endif %}
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -308,8 +478,14 @@
             <dd class="govuk-summary-list__value">
               {{ data['advisorJobtitle'] }}
             </dd>
+            {% if data.prisoner == "tim" %}
+            {% else %}
             <dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="">Change<span class="govuk-visually-hidden"> email</span></a></dd>
+            {% endif %}
           </div>
+        </dl>
+      {% endif%}
+
 
 {% else  %}
 {% endif %}

@@ -211,6 +211,37 @@
                 </tr>
 
 
+
+                 <tr class="govuk-table__row">
+            
+                  <td class="govuk-table__cell">
+                    <a href="./timeserved/check-licence?prisoner=tim" class="govuk-link--no-visited-state pp-caselist-name">Tim Underway</a>
+                  </td>
+
+                  <td class="govuk-table__cell">M62I86T</td>
+            
+                  <td class="govuk-table__cell"><a href="#" class="govuk-link--no-visited-state">Not allocated yet</a></td>
+            
+                  <td class="govuk-table__cell" data-sort-value="2">
+                    <span class="urgent-highlight">Conditional release date:</br>{{ "today" | duration(0) | govukDate(truncate=true) }}</span>
+                    <span class="urgent-highlight urgent-highlight-message">Time-served release</span>
+                  </td>
+                   
+                  <td class="govuk-table__cell">
+                    Joanne Cooper
+                  </td>
+
+                  <td class="govuk-table__cell">
+                    {% if data.timeservedsubmitted=="tim" %}
+                      <strong class="govuk-tag govuk-tag--pink status-badge">Submitted</strong>
+                    {% else %}
+                      <strong class="govuk-tag govuk-tag--blue status-badge">In progress</strong>
+                    {% endif %}
+                  </td>
+
+                </tr>
+
+
                 <tr class="govuk-table__row">
             
                     <td class="govuk-table__cell">

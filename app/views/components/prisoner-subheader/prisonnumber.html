@@ -44,6 +44,13 @@
         </div>
         <span class="govuk-heading-m">Axel Wurth</span>
 
+{% elif data['prisoner'] == 'tim' %}  
+            <span class="pipe-separated__item">Prison number: M62I86T</span>
+            <span class="pipe-separated__item">Conditional release date: [Weekday] {{ "today" | duration(0) | govukDate(truncate=false) }}</span>
+            <span class="pipe-separated__item">Date of birth: 3 Jul 1966</span>
+        </div>
+        <span class="govuk-heading-m">Tim Underway</span>
+
 {% elif data['prisoner'] == 'kane' %}  
             <span class="pipe-separated__item">Prison number: K4A85NE</span>
             <span class="pipe-separated__item">
