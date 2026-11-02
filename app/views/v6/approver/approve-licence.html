@@ -68,7 +68,7 @@
                 Release date
               </dt>
               <dd class="govuk-summary-list__value">
-                {% if data['prisoner'] == 'axel' or data['prisoner'] == 'charlie' %} 
+                {% if data['prisoner'] == 'axel' or data['prisoner'] == 'theo' %} 
                 {{ "today" | duration(0) | govukDate(truncate=false) }}
                 {% elif data['prisoner'] == 'maxwell' %}  
                 {{ "today" | duration(14) | govukDate(truncate=false) }}
@@ -82,7 +82,7 @@
                  Licence start date
               </dt>
               <dd class="govuk-summary-list__value">
-                {% if data['prisoner'] == 'axel' or data['prisoner'] == 'charlie' %} 
+                {% if data['prisoner'] == 'axel' or data['prisoner'] == 'theo' %} 
                 {{ "today" | duration(0) | govukDate(truncate=false) }}
                 {% elif data['prisoner'] == 'maxwell' %}  
                 {{ "today" | duration(14) | govukDate(truncate=false) }}
@@ -96,7 +96,7 @@
                 Licence expiry date
               </dt>
               <dd class="govuk-summary-list__value">
-                {% if data['prisoner'] == 'axel' or data['prisoner'] == 'charlie' %} 
+                {% if data['prisoner'] == 'axel' or data['prisoner'] == 'theo' %} 
                 {{ "today" | duration(120) | govukDate(truncate=false) }}
                 {% elif data['prisoner'] == 'maxwell' %}  
                 {{ "today" | duration(114) | govukDate(truncate=false) }}
@@ -111,7 +111,7 @@
 
 
     <!--Time-served case standard licence START-->
-    {% if data.prisoner == 'charlie' %}
+    {% if data.prisoner == 'theo' %}
     <div class="govuk-accordion__section govuk-accordion__section--expanded">
       <div class="govuk-accordion__section-header">
         <h3 class="govuk-accordion__section-heading">
@@ -534,7 +534,7 @@
                   <dd class="govuk-summary-list__value">
                     {% if data.prisoner == 'axel' %}
                       Duty Officer
-                    {% elif data['prisoner'] == 'charlie' %}  
+                    {% elif data['prisoner'] == 'theo' %}  
                       Philamina Rogers
                     {% elif data['prisoner'] == 'maxwell' %}  
                        {% if data['hard-stop-who'] == 'dutyOfficer' %}  
@@ -668,7 +668,7 @@
       <h2 class="govuk-heading-l">Approve this licence</h2>
 
        
-      {% if (data['prisoner'] == 'axel') or (data['prisoner'] == 'charlie') %}
+      {% if (data['prisoner'] == 'axel') or (data['prisoner'] == 'theo') %}
         <p>Contact Joanne Cooper if you need more information about something.<br>
           They will only be able to change the initial appointment.</p>
       {% elif data['prisoner'] == 'maxwell' %}  

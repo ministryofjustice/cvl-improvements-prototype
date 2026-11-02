@@ -19,7 +19,7 @@
 
 
         {% if data.timeservedsubmitted=="yes" %}
-        {% elseif (data.systemchoice=="nomischarlie") or (data.systemchoice=="nomisdwayne") %}
+        {% elseif (data.systemchoice=="nomistheo") or (data.systemchoice=="nomisdwayne") %}
         <div role="region" class="moj-alert moj-alert--success moj-alert--with-heading" aria-label="success: File uploaded successfully" data-module="moj-alert">
           <div>
             <svg class="moj-alert__icon" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" height="30" width="30">
@@ -173,12 +173,12 @@
                 <tr class="govuk-table__row">
             
                   <td class="govuk-table__cell">
-                    {% if data.timeservedsubmitted=="charlie" %}
-                    <a href="#" class="govuk-link--no-visited-state pp-caselist-name">Charlie Martin</a>
-                    {% elseif data.systemchoice=="nomischarlie" %}
-                    <a href="" class="govuk-link--no-visited-state pp-caselist-name">Charlie Martin</a>
+                    {% if data.timeservedsubmitted=="theo" %}
+                    <a href="#" class="govuk-link--no-visited-state pp-caselist-name">Theo Stanford</a>
+                    {% elseif data.systemchoice=="nomistheo" %}
+                    <a href="" class="govuk-link--no-visited-state pp-caselist-name">Theo Stanford</a>
                     {% else %}
-                    <a href="./timeserved/are-you-sure?prisoner=charlie" class="govuk-link--no-visited-state pp-caselist-name">Charlie Martin</a>
+                    <a href="./timeserved/are-you-sure?prisoner=theo" class="govuk-link--no-visited-state pp-caselist-name">Theo Stanford</a>
                     {% endif %}
                   </td>
 
@@ -192,16 +192,16 @@
                   </td>
                    
                   <td class="govuk-table__cell">
-                    {% if data.timeservedsubmitted=="charlie" %}
+                    {% if data.timeservedsubmitted=="theo" %}
                     Joanne Cooper
                     {% else %}
                     {% endif %}
                   </td>
 
                   <td class="govuk-table__cell">
-                    {% if data.timeservedsubmitted=="charlie" %}
+                    {% if data.timeservedsubmitted=="theo" %}
                       <strong class="govuk-tag govuk-tag--pink status-badge">Submitted</strong>
-                    {% elseif data.systemchoice=="nomischarlie" %}
+                    {% elseif data.systemchoice=="nomistheo" %}
                       <strong class="govuk-tag govuk-tag--grey status-badge">NOMIS licence</strong>
                     {% else %}
                       <strong class="govuk-tag govuk-tag--yellow status-badge">Not started</strong>
