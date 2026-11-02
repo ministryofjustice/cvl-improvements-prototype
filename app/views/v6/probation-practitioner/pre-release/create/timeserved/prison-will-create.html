@@ -25,12 +25,8 @@
           Prison will create this licence
         </h1>
 
-        {% if data['scenario'] == 'timeserved' %}
         <p>Pentonville (HMP) will create a licence for this person because they are being released immediately following sentencing having served time on remand.</p>
-        {% else %}
-        <p>Pentonville (HMP) will create a licence for this person as none was submitted in time for their final release checks.</p>
-        {% endif %}
-
+        
         <p>This licence must be reviewed after this person is released.</p>
 
 
@@ -91,8 +87,7 @@
     </form>
 
    
-    <p class="govuk-!-margin-top-6"><a href="/v6/case-admin/cvl-home" class="govuk-link--no-visited-state">Jump to case admin flow</a></p>
-
+    
 
   </div>
 </div>

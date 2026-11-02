@@ -215,20 +215,43 @@
         <span class="govuk-heading-m">Hale Draven Corvath</span>
 
 {% elif data['prisoner'] == 'ndelius' %}  
-            <span class="pipe-separated__item">Prison number: UV6401P</span>
+            <span class="pipe-separated__item">CRN: UV6401P</span>
             <span class="pipe-separated__item">Conditional release date: [Weekday] {{ "today" | duration(5) | govukDate(truncate=false) }}</span>
             <span class="pipe-separated__item">Date of birth: 4 Sep 1973</span>
         </div>
         <span class="govuk-heading-m">NDelius Missing</span>
 
-{% elif data['prisoner'] == 'charlie' %}  
+
+        {% elif data['prisoner'] == 'tim' %}  
+            <span class="pipe-separated__item">CRN: M62I86T</span>
+            <span class="pipe-separated__item">Conditional release date: [Weekday] {{ "today" | duration(0) | govukDate(truncate=false) }}</span>
+            <span class="pipe-separated__item">Date of birth: 3 Jul 1966</span>
+        </div>
+        <span class="govuk-heading-m">Tim Underway</span>
+
+{% elif data['prisoner'] == 'theo' %}  
+            <span class="pipe-separated__item">CRN: C389095</span>
+            <span class="pipe-separated__item">Confirmed release date: [Weekday] {{ "today" | duration(0) | govukDate(truncate=false) }}</span>
+            <span class="pipe-separated__item">Date of birth: 20 May 1984</span>
+        </div>
+        <span class="govuk-heading-m">Theo Stanford</span>
+
+        {% elif data['prisoner'] == 'charlie' %}  
             <span class="pipe-separated__item">CRN: C389095</span>
             <span class="pipe-separated__item">Confirmed release date: [Weekday] {{ "today" | duration(0) | govukDate(truncate=false) }}</span>
             <span class="pipe-separated__item">Date of birth: 20 May 1984</span>
         </div>
         <span class="govuk-heading-m">Charlie Martin</span>
 
-{% elif data['prisoner'] == 'dwayne' %}  
+
+{% elif data['prisoner'] == 'axel' %}  
+            <span class="pipe-separated__item">CRN: G5613GT</span>
+            <span class="pipe-separated__item">Conditional release date: [Weekday] {{ "today" | duration(0) | govukDate(truncate=false) }}</span>
+            <span class="pipe-separated__item">Date of birth: 13 Apr 1977</span>
+        </div>
+        <span class="govuk-heading-m">Axel Wurth</span>
+
+        {% elif data['prisoner'] == 'dwayne' %}  
             <span class="pipe-separated__item">CRN: G5613GT</span>
             <span class="pipe-separated__item">Conditional release date: [Weekday] {{ "today" | duration(0) | govukDate(truncate=false) }}</span>
             <span class="pipe-separated__item">Date of birth: 13 Apr 1977</span>
