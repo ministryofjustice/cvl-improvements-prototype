@@ -71,20 +71,13 @@
              </div>  -->
     <table class="govuk-table" data-module="moj-sortable-table">
 
-    <thead class="govuk-table__head">
-      <tr class="govuk-table__row">
-
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
       <th scope="col" class="govuk-table__header" aria-sort="none">Name</th>
-
       <th scope="col" class="govuk-table__header" aria-sort="none">Prison number</th>
-
       <th scope="col" class="govuk-table__header" aria-sort="none">Probation practitioner</th>
-
       <th scope="col" class="govuk-table__header" aria-sort="none">Submitted by</th>
-
       <th scope="col" class="govuk-table__header" aria-sort="ascending">Release date</th>
-
-
     </tr>
   </thead>
 
@@ -108,6 +101,7 @@
       {% endif %}
 
 
+
       {% if data.timeservedapproved=="charlie" %}
       {% else %}
       <tr class="govuk-table__row">
@@ -125,33 +119,14 @@
       </tr>
       {% endif %}
 
-      <tr class="govuk-table__row">
-           
-        <td class="govuk-table__cell"><a href="approve-licence-no-appointment-needed.html?prisoner=nicholas" class="govuk-link--no-visited-state">Nicholas Alistair-Nolan</a></td>
-  
-        <td class="govuk-table__cell">A693826</td>
-  
-        <td class="govuk-table__cell"><a href="./pp-page" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
-  
-        <td class="govuk-table__cell">Philamina Rogers</td>
-  
-        <td class="govuk-table__cell" data-sort-value="11">
-        Conditional release date:</br>
-        {{ "today" | duration(7) | govukDate(truncate=true) }}
-        </td>
-  
-      </tr>
-
 
      
-
-
       <tr class="govuk-table__row">
         <td class="govuk-table__cell"><a href="approve-licence?prisoner=maxwell" class="govuk-link--no-visited-state">Maxwell Kirby</a></td>
         <td class="govuk-table__cell">A5677DD</td>
         <td class="govuk-table__cell"><a href="../../../_common/not-testing.html" class="govuk-link--no-visited-state">Stephen McVeigh</a></td>
         <td class="govuk-table__cell">Stephen McVeigh</td>
-        <td class="govuk-table__cell" data-sort-value="5">
+        <td class="govuk-table__cell" data-sort-value="3">
           <span class="urgent-highlight">
             Conditional release date:</br>
             {{ "today" | duration(2) | govukDate(truncate=true) }}
@@ -161,7 +136,33 @@
       </tr>
 
 
-       
+              {% if data['approved'] != 'True' %}  
+
+               <tr class="govuk-table__row">
+                 <td class="govuk-table__cell"><a href="approve-licence" class="govuk-link--no-visited-state">Cyphoonifer Bransabert</a></td>
+                 <td class="govuk-table__cell">A693826</td>
+                 <td class="govuk-table__cell"><a href="./pp-page" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
+                 <td class="govuk-table__cell">Philamina Rogers</td>
+                 <td class="govuk-table__cell" data-sort-value="4">
+                  Conditional release date:</br>
+                  {{ "today" | duration(14) | govukDate(truncate=true) }}
+                  </td>
+                </tr>
+           
+              {% endif %} 
+
+
+
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell"><a href="approve-licence-no-appointment-needed.html?prisoner=nicholas" class="govuk-link--no-visited-state">Nicholas Alistair-Nolan</a></td>
+        <td class="govuk-table__cell">A693826</td>
+        <td class="govuk-table__cell"><a href="./pp-page" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
+        <td class="govuk-table__cell">Philamina Rogers</td>
+        <td class="govuk-table__cell" data-sort-value="5">
+        Conditional release date:</br>
+        {{ "today" | duration(7) | govukDate(truncate=true) }}
+        </td>
+      </tr>
 
 
      
@@ -175,7 +176,7 @@
   
         <td class="govuk-table__cell">Moira Reagan</td>
   
-        <td class="govuk-table__cell" data-sort-value="8">
+        <td class="govuk-table__cell" data-sort-value="6">
           Confirmed release date:</br>
           {{ "today" | duration(8) | govukDate(truncate=true) }}
         </td>
@@ -193,7 +194,7 @@
       
             <td class="govuk-table__cell">Tom Scott</td>
       
-            <td class="govuk-table__cell" data-sort-value="9">
+            <td class="govuk-table__cell" data-sort-value="7">
               Post-recall release date:</br>
               {{ "today" | duration(10) | govukDate(truncate=true) }}
             </td>
@@ -210,32 +211,12 @@
         
               <td class="govuk-table__cell">Fiona Lyon</td>
         
-              <td class="govuk-table__cell" data-sort-value="10">
+              <td class="govuk-table__cell" data-sort-value="8">
                 Conditional release date:</br>
                 {{ "today" | duration(12) | govukDate(truncate=true) }}</td>
                </tr>
 
-               {% if data['approved'] != 'True' %}  
-
-               <tr class="govuk-table__row">
-           
-                 <td class="govuk-table__cell"><a href="approve-licence" class="govuk-link--no-visited-state">Cyphoonifer Bransabert</a></td>
-           
-                 <td class="govuk-table__cell">A693826</td>
-           
-                 <td class="govuk-table__cell"><a href="./pp-page" class="govuk-link--no-visited-state">Philamina Rogers</a></td>
-           
-                 <td class="govuk-table__cell">Philamina Rogers</td>
-           
-                 <td class="govuk-table__cell" data-sort-value="11">
-                  Conditional release date:</br>
-                  {{ "today" | duration(14) | govukDate(truncate=true) }}
-                </td>
-           
-                  </tr>
-           
-                  {% endif %} 
-
+               
                <tr class="govuk-table__row">
 
                 <td class="govuk-table__cell"><a href="../../../_common/not-testing.html" class="govuk-link--no-visited-state">Damiano De Angelis</a></td>
@@ -246,7 +227,7 @@
           
                 <td class="govuk-table__cell">Granville Hart</td>
           
-                <td class="govuk-table__cell" data-sort-value="12">
+                <td class="govuk-table__cell" data-sort-value="9">
                   Conditional release date:</br>
                   {{ "today" | duration(18) | govukDate(truncate=true) }}
                 </td>
