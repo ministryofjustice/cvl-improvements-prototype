@@ -209,35 +209,47 @@
 
   </div>
 
-<p class="govuk-body">By default, the licence will automatically contain the following restrictions:</p>
-  
-          <ul class="govuk-list govuk-list--bullet" style="margin-top: 10px; margin-bottom: 10px;">
-            <li>standard conditions</li>
-            <li>the following additional condition:</li>
-            <p class="govuk-inset-text">Not to approach or communicate with any victims of your offences without the prior approval of your supervising officer.
-            </p>
-          </ul>
+  <p>The licence will contain standard licence conditions.<br>
+    By default, it will also automatically contain an additional condition.</p>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+         <div class="govuk-summary-list__row">
+           <dt class="govuk-summary-list__key">
+            Making or maintaining contact with a person
+           </dt>
+          <dd class="govuk-summary-list__value">
+            Not to approach or communicate with any victims of your offences without the prior approval of your supervising officer.
+          </dd>
+          <dd class="govuk-summary-list__actions"></dd>
+         </div>
+        </dl>
+        
+
+
+
+
 {% else %}
 
 
 
         {% if data.additionalConditions == "yes" or data.prisoner == "tim"  %}
 
-          <div class="govuk-!-margin-bottom-9 govuk-!-margin-top-8">
+          <div class="govuk-!-margin-bottom-9 " style="margin-top: 80px;">
             <h2 class="govuk-heading-m">
               Additional licence conditions (2)
-                </h2>
+                
 
                 {% if data.prisoner == "tim"  %}
                   <a href="./probation-advisor-details">
                   {% else %}
-                  <a href="../../../../_common/not-testing.html">
+                  <a href="../timeserved/conditions/additional/enter-additional-conditions">
                   {% endif%}
                     <button type="submit" style="float: right;" class="govuk-button govuk-button--secondary" data-module="govuk-button">
                       Add or remove conditions
                     </button>
                   </a>
 
+                </h2>
 
                 <dl class="govuk-summary-list">
                   <div class="govuk-summary-list__row">
@@ -248,7 +260,11 @@
                       <p>Not to enter a drinking establishment at any time without the prior approval of your supervising officer. This means any location where you can buy alcohol without needing to buy food or stay overnight. It also means places that stay open past midnight for entertainment reasons (things like music or shows) which also serve alcohol.</p>
                       <p class="hint-condition-custom">At any time</p>
                     </dd>
+                    {% if data.prisoner == "tim"  %}
                     <dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="./probation-advisor-details">Change<span class="govuk-visually-hidden"> condition</span></a></dd>
+                    {% else %}
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="../timeserved/conditions/additional/complete-drinking-establishment-prohibition">Change<span class="govuk-visually-hidden"> condition</span></a></dd>
+                    {% endif %}
                   </div>
 
                   {% if data.action == "delete" %}
@@ -274,7 +290,7 @@
                   {% if data.prisoner == "tim"  %}
                   <a href="./probation-advisor-details">
                   {% else %}
-                  <a href="../../../../_common/not-testing.html">
+                  <a href="./conditions/additional/enter-additional-conditions">
                   {% endif%}
                     <button type="submit" style="float: right;" class="govuk-button govuk-button--secondary" data-module="govuk-button">
                       Add conditions
@@ -291,14 +307,14 @@
 
 
         {% if data.bespokeConditions == "yes" or data.prisoner == "tim" %}
-          <div class="govuk-!-margin-bottom-9">
+          <div style="margin-top: 80px;">
 
             <h2 class="govuk-heading-m" style="display: inline;">Bespoke licence conditions (1)</h2>
 
                   {% if data.prisoner == "tim"  %}
                   <a href="./probation-advisor-details">
                   {% else %}
-                  <a href="../../../../_common/not-testing.html">
+                  <a href="./conditions/bespoke/create-bespoke-condition">
                   {% endif%}
                     <button type="submit" style="float: right;" class="govuk-button govuk-button--secondary" data-module="govuk-button">
                       Add or remove conditions
@@ -313,7 +329,7 @@
                     <dd class="govuk-summary-list__value">
                       {{ data['bespokeDetail'] or "Do not enter your local park" }}
                     </dd>
-                    <dd class="govuk-summary-list__action"></dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="../timeserved/conditions/bespoke/create-bespoke-condition">Change<span class="govuk-visually-hidden"> condition</span></a></dd>
                   </div>
                 </dl>
 
@@ -346,9 +362,9 @@
 {% if data.additionalConditions == "yes" or data.bespokeConditions == "yes" or data.prisoner == "tim"   %}
 
  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-two-thirds" style="margin-bottom: 25px">
 
-  <h2 class="govuk-heading-m">Record of work on this licence</h2>
+  <h2 class="govuk-heading-m" style="margin-top: 60px;">Record of work on this licence</h2>
 
   <p>You must keep evidence of who told you which conditions to add or change. For example, emails. <br>This evidence may be needed if there is a Serious Further Offence review. </p>
 
@@ -453,7 +469,8 @@
                   <dl class="govuk-summary-list">
                     <div class="govuk-summary-list__row">
                       <dd class="govuk-summary-list__value">
-                        2 additional conditions were added
+                        2 additional conditions were added</br>
+                        1 bespoke condition was added
                       </dd>
                     </div>
                   </dl>
@@ -481,7 +498,7 @@
                         First name
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        Tia
+                        {{ data['advisorFirstname'] or "Tia" }}
                       </dd>
                     </div>
                     <div class="govuk-summary-list__row">
@@ -489,7 +506,7 @@
                         Last name
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        Probin
+                        {{ data['advisorLastname'] or "Probin" }}
                       </dd>
                     </div>
                     <div class="govuk-summary-list__row">
@@ -497,7 +514,7 @@
                         Email address
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        tia.probin@justice.gov.uk
+                        {{ data['advisorEmail'] or "tia.probin@justice.gov.uk" }}
                       </dd>
                     </div>
                     <div class="govuk-summary-list__row">
@@ -505,7 +522,7 @@
                         Job title
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        Probation practitioner
+                        {{ data['advisorJobtitle'] or "Probation practitioner" }}
                       </dd>
                     </div>
                   </dl>
@@ -529,7 +546,7 @@
   
         <form action="/v6/checkyouranswers" method="post">
 
-          <div class="govuk-button-group" style="margin-top: 50px;">
+          <div class="govuk-button-group" style="margin-top: 0px;">
             <button type="submit" class="govuk-button" data-module="govuk-button" name="sendlicenceforapproval" value="yes">
               Send for approval
             </button>
