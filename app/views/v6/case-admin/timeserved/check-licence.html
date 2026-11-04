@@ -344,6 +344,10 @@
 
 
 {% if data.additionalConditions == "yes" or data.bespokeConditions == "yes" or data.prisoner == "tim"   %}
+
+ <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
   <h2 class="govuk-heading-m">Record of work on this licence</h2>
 
   <p>You must keep evidence of who told you which conditions to add or change. For example, emails. <br>This evidence may be needed if there is a Serious Further Offence review. </p>
@@ -427,8 +431,10 @@
 
             </div>
           </details>
+      {% endif %}
 
-         <details class="govuk-details" style="margin-top: -10px;">
+
+        <details class="govuk-details" style="margin-top: -10px;">
             <summary class="govuk-details__summary">
               <span class="govuk-details__summary-text">
                 Joanne Cooper at 12:00am on [Weekday] {{ "today" | duration(0) | govukDate(truncate=false) }}
@@ -459,6 +465,14 @@
                   <h2 class="govuk-summary-card__title">
                     Details of person who authorised this
                   </h2>
+                  {% if data.prisoner == "tim"  %}
+                  {% else %}
+                  <ul class="govuk-summary-card__actions">
+                    <li class="govuk-summary-card__action">
+                      <a class="govuk-link govuk-link--no-visited-state" href="./probation-advisor-details-edit">Change<span class="govuk-visually-hidden"></span></a>
+                    </li>
+                  </ul>
+                  {% endif %}
                 </div>
                 <div class="govuk-summary-card__content">
                   <dl class="govuk-summary-list">
@@ -501,86 +515,14 @@
               
             </div>
           </details>
-
-      {% else %}
-
-      <h2 class="govuk-heading-s">Joanne Cooper at 12:00am on [Weekday] {{ "today" | duration(0) | govukDate(truncate=false) }}</h2>
-      
-
-       <div class="govuk-summary-card">
-                <div class="govuk-summary-card__title-wrapper">
-                  <h2 class="govuk-summary-card__title">
-                    Summary of activity
-                  </h2>
-                </div>
-                <div class="govuk-summary-card__content">
-                  <dl class="govuk-summary-list">
-                    <div class="govuk-summary-list__row">
-                      <dd class="govuk-summary-list__value">
-                        2 additional conditions were added
-                      </dd>
-                    </div>
-                  </dl>
-                </div>
-              </div>
-
-              <div class="govuk-summary-card">
-                <div class="govuk-summary-card__title-wrapper">
-                  <h2 class="govuk-summary-card__title">
-                    Details of person who authorised this
-                  </h2>
-                  <ul class="govuk-summary-card__actions">
-                    <li class="govuk-summary-card__action">
-                      <a class="govuk-link govuk-link--no-visited-state" href="./probation-advisor-details-edit">Change<span class="govuk-visually-hidden"></span></a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="govuk-summary-card__content">
-                  <dl class="govuk-summary-list">
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        First name
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        {{ data['advisorFirstname'] or "Tia" }}
-                      </dd>
-                    </div>
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Last name
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        {{ data['advisorLastname'] or "Probin" }}
-                      </dd>
-                    </div>
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Email address
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        {{ data['advisorEmail'] or "tia.probin@justice.gov.uk" }}
-                      </dd>
-                    </div>
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Job title
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        {{ data['advisorJobtitle'] or "Probation practitioner" }}
-                      </dd>
-                    </div>
-                  </dl>
-                </div>
-              </div>
-
        
-      {% endif%}
 
 
 {% else  %}
 {% endif %}
 
-
+</div>
+</div>
 
 
 
