@@ -30,7 +30,10 @@
         <dd class="govuk-summary-list__value">
           {% if data['prisoner'] == 'axel' %}
           Axel Wurth
+          {% elif data['prisoner'] == 'theo' %} 
+          Theo Stanford
           {% else %}
+          Maxwell Kirby
           {% endif %}
         </dd>
         <dd class="govuk-summary-list__actions">
@@ -43,7 +46,10 @@
         <dd class="govuk-summary-list__value">
           {% if data['prisoner'] == 'axel' %}
           G5613GT
-          {% else %}  
+          {% elif data['prisoner'] == 'theo' %} 
+          C389095
+          {% else %}
+          A5677DD
           {% endif %}  
         </dd>
         <dd class="govuk-summary-list__actions">
@@ -64,16 +70,14 @@
       {% endif %}
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-          {% if data['prisoner'] == 'hale' or data['prisoner'] == 'noto' or data['prisoner'] == 'sonny' %}
-          HDC eligibility date
-          {% elif data['prisoner'] == 'marcus' or data['prisoner'] == 'gabriel' %}
+          {% if data['prisoner'] == 'marcus' or data['prisoner'] == 'gabriel' %}
           Post-recall release date
           {% else %}
           Confirmed release date
           {% endif %}
         </dt>
         <dd class="govuk-summary-list__value">
-          {% if data['prisoner'] == 'axel' %}
+          {% if data['prisoner'] == 'axel' or data['prisoner'] == 'theo' %}
           [Weekday] {{ "today" | duration(0) | govukDate(truncate=false) }}
           {% else %}
           {% endif %}
