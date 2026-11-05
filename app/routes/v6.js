@@ -60,21 +60,6 @@ router.post(version + '/appointmentNeededca', function(request, response) {
 
 
 // Time-served 2.0 - CA adding conditions advised by probation
-// Has a probation practitioner told you which conditions to add to this licence?
-
-router.post(version + '/probationadvisedtimeserved', function(request, response) {
-
-    var ProbationAdvised = request.session.data['ProbationAdvised'];
-    
-    if (ProbationAdvised == "yes"){
-        response.redirect(version + "/case-admin/timeserved/probation-advisor-details")
-
-    } else if (ProbationAdvised == "no") {
-        response.redirect(version + "/case-admin/timeserved/check-licence")
-    }
-})
-
-
 // Enter the details of the probation practitioner who told you which conditions to add or change
 
 router.post(version + '/probationadvisordetailstimeserved', function(request, response) {
@@ -82,10 +67,10 @@ router.post(version + '/probationadvisordetailstimeserved', function(request, re
     var ProbationAdvisor = request.session.data['ProbationAdvisor'];
     
     if (ProbationAdvisor == "continue"){
-        response.redirect(version + "/case-admin/timeserved/conditions/additional/additional-conditions")
+        response.redirect(version + "/case-admin/timeserved/contact-the-probation-team")
 
 gi    } else if (ProbationAdvisor == "back") {
-        response.redirect(version + "/case-admin/timeserved/probation-advised")
+        response.redirect(version + "/case-admin/timeserved/check-licence")
     }
 })
 
@@ -266,13 +251,17 @@ router.post(version + '/nomisuse', function(request, response) {
 })
 
 
-// CA - Send licence for approval (contact probation page) or return to case list
+// CA - Send licence for approval (probation advisor details or contact probation page) or return to case list
 router.post(version + '/checkyouranswers', function(request, response) {
 
     var SendLicenceForApproval = request.session.data['sendlicenceforapproval']
-    if (SendLicenceForApproval == "yes"){
+    if (SendLicenceForApproval == "probationadvised"){
+        response.redirect(version + "/case-admin/timeserved/probation-advisor-details")
+
+    } else if (SendLicenceForApproval == "yes"){
         response.redirect(version + "/case-admin/timeserved/contact-the-probation-team")
-    } else {
+
+    } else if (SendLicenceForApproval == "no"){
         response.redirect(version + "/case-admin/case-list-pip-approved")
     }
 })
