@@ -19,6 +19,17 @@
 
 <h1 class="govuk-heading-l">Are you sure you want to create this person's licence?</h1>
 
+{% if data['prisoner'] == 'axel' or data['prisoner'] == 'theo' %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <p>For time-served releases, you can add conditions if a probation practitioner tells you which ones to use. Otherwise, create the licence with standard conditions and an additional condition stopping the person contacting any victims of their offences.</p>
+
+</div>
+</div>
+  {% endif %}
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
@@ -61,8 +72,20 @@
           Status
         </dt>
         <dd class="govuk-summary-list__value">
-          <span class="urgent-highlight"> Fixed-term recall</span>
+          <span class="urgent-highlight">Fixed-term recall</span>
           <span class="urgent-highlight urgent-highlight-message">Check their previous licence conditions.</br>You should do this using <a class="govuk-link--no-visited-state" href="#">EPF 2</a>.</span>
+        </dd>
+        <dd class="govuk-summary-list__actions">
+        </dd>
+      </div>
+      {% elif data['prisoner'] == 'axel' or data['prisoner'] == 'theo' %}
+            <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Status
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <span class="urgent-highlight">Time-served release</span>
+          <span class="urgent-highlight urgent-highlight-message">This person is being released immediately following sentencing having served time on remand.</span>
         </dd>
         <dd class="govuk-summary-list__actions">
         </dd>
