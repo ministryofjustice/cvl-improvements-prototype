@@ -258,6 +258,9 @@ router.post(version + '/checkyouranswers', function(request, response) {
     if (SendLicenceForApproval == "probationadvised"){
         response.redirect(version + "/case-admin/timeserved/probation-advisor-details")
 
+    } else if (SendLicenceForApproval == "edit"){
+        response.redirect(version + "/case-admin/timeserved/edit/check-licence")
+
     } else if (SendLicenceForApproval == "yes"){
         response.redirect(version + "/case-admin/timeserved/contact-the-probation-team")
 

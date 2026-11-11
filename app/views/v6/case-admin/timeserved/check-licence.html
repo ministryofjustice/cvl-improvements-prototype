@@ -41,7 +41,7 @@
 
 
       {% if data.prisoner == "finn"  %}
-      <button type="submit" class="govuk-button" data-module="govuk-button" style="margin-top: 10px;">
+      <button type="submit" class="govuk-button" data-module="govuk-button" style="margin-top: 10px;" name="sendlicenceforapproval" value="edit">
         Edit licence conditions
       </button>
       {% endif  %}
@@ -243,18 +243,20 @@
 
 
 
-        {% if data.additionalConditions == "yes" or data.prisoner == "tim" or data.prisoner == "finn"    %}
+        {% if data.additionalConditions == "yes" or data.prisoner == "tim" or data.prisoner == "finn" %}
 
           <div class="govuk-!-margin-bottom-9 " style="margin-top: 80px;">
             <h2 class="govuk-heading-m">
               Additional licence conditions (2)
                 
-
+                  {% if data.prisoner == "finn" %}
+                  {% else %}
                   <a href="../timeserved/conditions/additional/enter-additional-conditions">
                     <button type="submit" style="float: right;" class="govuk-button govuk-button--secondary" data-module="govuk-button">
                       Add or remove conditions
                     </button>
                   </a>
+                  {% endif %}
 
                 </h2>
 
@@ -267,7 +269,10 @@
                       <p>Not to enter a drinking establishment at any time without the prior approval of your supervising officer. This means any location where you can buy alcohol without needing to buy food or stay overnight. It also means places that stay open past midnight for entertainment reasons (things like music or shows) which also serve alcohol.</p>
                       <p class="hint-condition-custom">At any time</p>
                     </dd>
+                    {% if data.prisoner == "finn" %}
+                    {% else %}
                     <dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="../timeserved/conditions/additional/complete-drinking-establishment-prohibition">Change<span class="govuk-visually-hidden"> condition</span></a></dd>
+                    {% endif %}
                   </div>
 
                   {% if data.action == "delete" %}
@@ -279,7 +284,10 @@
                     <dd class="govuk-summary-list__value">
                       <p>Not to partake in gambling, or making payments for other games of chance without the prior permission of your supervising officer.</p>
                     </dd>
+                    {% if data.prisoner == "finn" %}
+                    {% else %}
                     <dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="./check-licence?action=delete">Delete<span class="govuk-visually-hidden"> condition</span></a></dd>
+                    {% endif %}
                   </div>
                   {% endif %}
 
@@ -310,13 +318,17 @@
 
             <h2 class="govuk-heading-m" style="display: inline;">Bespoke licence conditions (1)</h2>
 
+                  {% if data.prisoner == "finn" %}
+                  {% else %}
                   <a href="./conditions/bespoke/create-bespoke-condition">
                     <button type="submit" style="float: right;" class="govuk-button govuk-button--secondary" data-module="govuk-button">
                       Add or remove conditions
                     </button>
                   </a>
+                  {% endif %}
+
   
-                <dl class="govuk-summary-list">
+                <dl class="govuk-summary-list" style="margin-top: 30px;">
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                       Bespoke condition	
@@ -324,7 +336,10 @@
                     <dd class="govuk-summary-list__value">
                       {{ data['bespokeDetail'] or "Do not enter your local park" }}
                     </dd>
+                    {% if data.prisoner == "finn" %}
+                    {% else %}
                     <dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="../timeserved/conditions/bespoke/create-bespoke-condition">Change<span class="govuk-visually-hidden"> condition</span></a></dd>
+                    {% endif %}
                   </div>
                 </dl>
 
