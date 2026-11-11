@@ -75,6 +75,19 @@ gi    } else if (ProbationAdvisor == "back") {
 })
 
 
+router.post(version + '/are-you-sure-edit-ca', function(request, response) {
+
+    var areyousureEdit = request.session.data['editLicence']
+    if (areyousureEdit == "yes"){
+        response.redirect(version + "/case-admin/timeserved/edit/check-licence")
+    } else {
+        response.redirect(version + "/case-admin/timeserved/check-licence")
+    }
+})
+
+
+
+
 
 //Additional conditions
 //Restriction zone
@@ -259,7 +272,7 @@ router.post(version + '/checkyouranswers', function(request, response) {
         response.redirect(version + "/case-admin/timeserved/probation-advisor-details")
 
     } else if (SendLicenceForApproval == "edit"){
-        response.redirect(version + "/case-admin/timeserved/edit/check-licence")
+        response.redirect(version + "/case-admin/timeserved/edit/are-you-sure")
 
     } else if (SendLicenceForApproval == "yes"){
         response.redirect(version + "/case-admin/timeserved/contact-the-probation-team")
