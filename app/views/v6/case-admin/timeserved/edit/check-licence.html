@@ -1,0 +1,543 @@
+{% extends "layouts/cvl.html" %}
+
+{% set pageName="Check licence details" %}
+
+{% set htmlClasses = 'app-width-wide' %}
+
+{% block header %}
+{% include "components/cvl-dm-header/include.html" %}
+{% endblock %}
+
+{%- block beforeContent -%}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% include "components/prisoner-subheader/prisonnumber.html" %}
+{% endblock %}
+
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full-from-desktop">
+
+
+      {% if data.action == "delete"  %}
+      <div role="region" class="moj-alert moj-alert--success" aria-label="success: Upload successful" data-module="moj-alert">
+        <div>
+          <svg class="moj-alert__icon" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" height="30" width="30">
+            <path d="M11.2869 24.6726L2.00415 15.3899L4.62189 12.7722L11.2869 19.4186L25.3781 5.32739L27.9958 7.96369L11.2869 24.6726Z" fill="currentColor" />
+          </svg>
+        </div>
+        <div class="moj-alert__content">Licence condition deleted</div>
+        <div class="moj-alert__action">
+          <button class="moj-alert__dismiss" hidden>Dismiss</button>
+        </div>
+      </div>
+      {% else %}
+      {% endif %}
+
+      <h1 class="govuk-heading-l">Check licence details</h1>
+
+
+      <form action="/v6/checkyouranswers" method="post">
+
+
+
+
+
+        <h2 class="govuk-heading-m" style="margin-top: 40px;">
+          Community probation team contact details
+        </h2>
+
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                 Does this person need an initial appointment?
+                </dt>
+                <dd class="govuk-summary-list__value">
+                   {% if data['whoApptWith'] == 'no-appointment' %}
+                   No
+                   {% else %}
+                   Yes
+                   {% endif %}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link govuk-link--no-visited-state" href="./appt-who-edit">Change<span class="govuk-visually-hidden"></span></a>
+                </dd>
+            </div>
+          {% if data['whoApptWith'] == 'no-appointment' and data['prisoner'] == 'dwayne' %} 
+          {% else %} 
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['whoApptWith'] == 'no-appointment' %}
+                Philamina Rogers
+              {% else %}
+                {{ data['whoApptWith'] or " Philamina Rogers" }}
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              {% if data['whoApptWith'] == 'no-appointment' %} 
+              {% else %}
+                <a class="govuk-link govuk-link--no-visited-state" href="./appt-who-edit">Change<span class="govuk-visually-hidden"> name</span></a>
+              {% endif %}
+            </dd>
+          </div>
+          {% endif %} 
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+             Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Probation Office, 62-72 Victoria Street, St Albans, Hertfordshire, AL1 3SD
+
+              {% if data.postcodeaddress-1=="AL1 3SD" %}{{data.postcodeaddress-1}}
+
+              {% elseif data.postcodeaddress-2=="AL13 9SF" %}{{data.postcodeaddress-2}}
+              
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change</a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Contact phone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {%if (data.contactnumber1) %}{{data.contactnumber1}}
+              {% elseif (data.contactnumber2) %}{{data.contactnumber2}}
+              {% elseif (data.contactnumber3) %}{{data.contactnumber3}}
+              {% else %}01273 800 900
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change</a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+             Alternative contact phone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {%if (data.contactnumber1) %}{{data.contactnumber1}}
+              {% elseif (data.contactnumber2) %}{{data.contactnumber2}}
+              {% elseif (data.contactnumber3) %}{{data.contactnumber3}}
+              {% else %}01273 800 900
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change</a>
+            </dd>
+          </div>
+
+    {% if data['whoApptWith'] == 'no-appointment' %} 
+    {% else %}
+          {% if data.appointment-time == "nextWorkingDay" %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date/time
+            </dt>
+            <dd class="govuk-summary-list__value">
+              By 2pm on the next working day after their release
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="./appt-when-edit">Change</a>
+            </dd>
+          </div>
+          {% elseif data.appointment-time == "immediately" %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date/time
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Immediately after release
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="./appt-when-edit">Change</a>
+            </dd>
+          </div>
+          {% else %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['date'] %} 
+              {{ data['date'] | formatDateString("D/M/YYYY","D MMMM YYYY")}}
+              {% else %} 
+              {{ "today" | govukDate("truncate") }}
+              {% endif %} 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="./appt-when-edit">Change</a>
+            </dd>
+          </div>
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Time
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['time-hour'] and data['time-minute'] and data['time-ampm'] %} 
+                {{ data | formatTime('1', '', 'pm') }}
+              {% endif %} 
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="./appt-when-edit">Change</a>
+            </dd>
+          </div>
+          {% endif %}
+
+
+  {% endif %}
+
+        </dl>
+
+
+
+{% if data.ProbationAdvised == "no" or data.additionalConditions == "no" and data.bespokeConditions == "no"  %}
+<div class="govuk-!-margin-bottom-4 govuk-!-margin-top-4">
+
+            <h2 class="govuk-heading-m" style="display: inline;">Licence conditions</h2>
+
+                <a href="./conditions/additional/additional-conditions">
+                  <button type="submit" style="float: right;" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                    Add conditions
+                  </button>
+                </a>
+
+  </div>
+
+  <p>The licence will contain standard licence conditions.<br>
+    By default, it will also automatically contain an additional condition.</p>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+         <div class="govuk-summary-list__row">
+           <dt class="govuk-summary-list__key">
+            Making or maintaining contact with a person
+           </dt>
+          <dd class="govuk-summary-list__value">
+            Not to approach or communicate with any victims of your offences without the prior approval of your supervising officer.
+          </dd>
+          <dd class="govuk-summary-list__actions"></dd>
+         </div>
+        </dl>
+        
+
+
+
+
+{% else %}
+
+
+
+        {% if data.additionalConditions == "yes" or data.prisoner == "tim" or data.prisoner == "finn" %}
+
+          <div class="govuk-!-margin-bottom-9 " style="margin-top: 80px;">
+            <h2 class="govuk-heading-m">
+              Additional licence conditions (2)
+                
+                  <a href="../timeserved/conditions/additional/enter-additional-conditions">
+                    <button type="submit" style="float: right;" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                      Add or remove conditions
+                    </button>
+                  </a>
+  
+
+                </h2>
+
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Freedom of movement
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      <p>Not to enter a drinking establishment at any time without the prior approval of your supervising officer. This means any location where you can buy alcohol without needing to buy food or stay overnight. It also means places that stay open past midnight for entertainment reasons (things like music or shows) which also serve alcohol.</p>
+                      <p class="hint-condition-custom">At any time</p>
+                    </dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="../timeserved/conditions/additional/complete-drinking-establishment-prohibition">Change<span class="govuk-visually-hidden"> condition</span></a></dd>
+                  </div>
+
+                  {% if data.action == "delete" %}
+                  {% else %}
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Restriction of specified conduct or specified acts
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      <p>Not to partake in gambling, or making payments for other games of chance without the prior permission of your supervising officer.</p>
+                    </dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="./check-licence?action=delete">Delete<span class="govuk-visually-hidden"> condition</span></a></dd>
+                  </div>
+                  {% endif %}
+
+                </dl>
+          </div>
+        {% else %}
+          <div class="govuk-!-padding-bottom-8 govuk-!-padding-top-8">
+
+              <h2 class="govuk-heading-m" style="display: inline;">Additional licence conditions (0)</h2>
+
+                  <a href="./conditions/additional/enter-additional-conditions">
+                    <button type="submit" style="float: right;" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                      Add conditions
+                    </button>
+                  </a>
+
+                  <p class="govuk-body" style="margin-top: 20px; margin-bottom: 60px;">No additional licence conditions added</p>
+    
+                  <hr class="govuk-section-break govuk-section-break--visible">
+    
+          </div>
+        {% endif %}
+
+
+
+        {% if data.bespokeConditions == "yes" or data.prisoner == "tim" or data.prisoner == "finn" %}
+          <div style="margin-top: 80px;">
+
+            <h2 class="govuk-heading-m" style="display: inline;">Bespoke licence conditions (1)</h2>
+
+                  <a href="./conditions/bespoke/create-bespoke-condition">
+                    <button type="submit" style="float: right;" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                      Add or remove conditions
+                    </button>
+                  </a>
+
+  
+                <dl class="govuk-summary-list" style="margin-top: 30px;">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Bespoke condition	
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data['bespokeDetail'] or "Do not enter your local park" }}
+                    </dd>
+                    <dd class="govuk-summary-list__actions"><a class="govuk-link govuk-link--no-visited-state" href="../timeserved/conditions/bespoke/create-bespoke-condition">Change<span class="govuk-visually-hidden"> condition</span></a></dd>
+                  </div>
+                </dl>
+
+            </div>
+        {% else %}
+          <div class="govuk-!-padding-bottom-8 govuk-!-padding-top-8">
+
+              <h2 class="govuk-heading-m" style="display: inline;">Bespoke licence conditions (0)</h2>
+
+                  <a href="../../../../_common/not-testing.html">
+                    <button type="submit" style="float: right;" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                      Add conditions
+                    </button>
+                  </a>
+
+                  <p class="govuk-body" style="margin-top: 20px; margin-bottom: 60px;">No additional licence conditions added</p>
+    
+                  <hr class="govuk-section-break govuk-section-break--visible">
+
+          </div>
+        {% endif %}
+
+
+{% endif %}
+
+
+
+{% if data.prisoner == "finn"  %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+    <h2 class="govuk-heading-m" style="margin-top: 80px;">History of licence condition requests</h2>
+
+    <p>Licence conditions were added, changed or removed following requests from the people listed in each section below.</p>
+
+        <details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Licence conditions updated by David Smith at 3:00 pm on [Weekday] {{ "today" | duration(0) | govukDate(truncate=false) }}
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              
+
+              <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                  <h2 class="govuk-summary-card__title">
+                    Summary
+                  </h2>
+                </div>
+                <div class="govuk-summary-card__content">
+                  <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                      <dd class="govuk-summary-list__value">
+                        1 additional condition was deleted
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
+              </div>
+
+              <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                  <h2 class="govuk-summary-card__title">
+                    Details of person who requested this
+                  </h2>
+                </div>
+                <div class="govuk-summary-card__content">
+                  <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        First name
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        {{ data['advisorFirstname'] or "Tia" }}
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Last name
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        {{ data['advisorLastname'] or "Probin" }}
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Email address
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        {{ data['advisorEmail'] or "tia.probin@justice.gov.uk" }}
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Job title
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        {{ data['advisorJobtitle'] or "Probation practitioner" }}
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
+              </div>
+
+
+            </div>
+          </details>
+
+         <details class="govuk-details" style="margin-top: -10px;">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Licence conditions updated by Joanne Cooper at 12:00 pm on [Weekday] {{ "today" | duration(0) | govukDate(truncate=false) }}
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+
+
+              <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                  <h2 class="govuk-summary-card__title">
+                    Summary
+                  </h2>
+                </div>
+                <div class="govuk-summary-card__content">
+                  <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                      <dd class="govuk-summary-list__value">
+                        2 additional conditions were added</br>
+                        1 bespoke condition was added
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
+              </div>
+
+              <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                  <h2 class="govuk-summary-card__title">
+                    Details of person who requested this
+                  </h2>
+                </div>
+                <div class="govuk-summary-card__content">
+                  <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        First name
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Tia
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Last name
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Probin
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Email address
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        tia.probin@justice.gov.uk
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Job title
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        Probation practitioner
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
+              </div>
+              
+              
+            </div>
+          </details>
+
+
+</div>
+</div>          
+{% endif  %}
+
+
+
+
+  
+        
+
+          <div class="govuk-button-group" style="margin-top: 80px;">
+
+            {% if data.additionalConditions == "yes" or data.bespokeConditions == "yes" or data.prisoner == "tim" or data.prisoner == "finn" %}
+            <button type="submit" class="govuk-button" data-module="govuk-button" name="sendlicenceforapproval" value="probationadvised">
+              Continue
+            </button>
+            {% else %}
+              <button type="submit" class="govuk-button" data-module="govuk-button" name="sendlicenceforapproval" value="yes">
+              Send for approval
+              </button>
+            {% endif %}
+
+            <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="sendlicenceforapproval" value="no">
+              Return to case list
+            </button>
+          </div>
+
+        </form>
+
+
+
+  
+  </div>
+</div>
+{% endblock %}
