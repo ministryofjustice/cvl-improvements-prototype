@@ -91,7 +91,77 @@
 
   <tbody class="govuk-table__body"> 
 
+        <tr class="govuk-table__row">
 
+      <td class="govuk-table__cell">
+        <a href="./timeserved/licence-history?prisoner=axel" class="govuk-link--no-visited-state pp-caselist-name">
+        Axel Wurth</a>
+        <span class="govuk-!-font-size-16 pp-caselist-crn">CRN: A5677DD</span>
+      </td>
+
+      <!--<td class="govuk-table__cell">Standard determinate</td>-->
+
+      
+       {% if data['maxwell'] == 'active' %}  
+        <td class="govuk-table__cell" data-sort-value="1">{{ "today" | duration(0) | govukDate(truncate=true) }}</td>
+       {% else %}  
+       <td class="govuk-table__cell" data-sort-value="1"><span class="urgent-highlight">
+        Confirmed release date:</br>
+        {{ "today" | duration(0) | govukDate(truncate=true) }}</span>
+        <span class="urgent-highlight urgent-highlight-message">Timed out</span>
+      </td>
+       {% endif %}  
+
+      <td class="govuk-table__cell">
+        {% if data['maxwell'] == 'active' %}  
+        <strong class="govuk-tag govuk-tag--turquoise status-badge">
+          Active
+        </strong>
+        {% else %}  
+        <strong class="govuk-tag govuk-tag--red status-badge">
+        Review needed
+      </strong>
+      {% endif %}  
+      </td>
+
+    </tr>
+
+        <tr class="govuk-table__row">
+
+      <td class="govuk-table__cell">
+        <a href="./timeserved/licence-history?prisoner=theo" class="govuk-link--no-visited-state pp-caselist-name">
+        Theo Standford</a>
+        <span class="govuk-!-font-size-16 pp-caselist-crn">CRN: A5677DD</span>
+      </td>
+
+      <!--<td class="govuk-table__cell">Standard determinate</td>-->
+
+      
+       {% if data['maxwell'] == 'active' %}  
+        <td class="govuk-table__cell" data-sort-value="1">{{ "today" | duration(0) | govukDate(truncate=true) }}</td>
+       {% else %}  
+       <td class="govuk-table__cell" data-sort-value="1"><span class="urgent-highlight">
+        Confirmed release date:</br>
+        {{ "today" | duration(0) | govukDate(truncate=true) }}</span>
+        <span class="urgent-highlight urgent-highlight-message">Timed out</span>
+      </td>
+       {% endif %}  
+
+      <td class="govuk-table__cell">
+        {% if data['maxwell'] == 'active' %}  
+        <strong class="govuk-tag govuk-tag--turquoise status-badge">
+          Active
+        </strong>
+        {% else %}  
+        <strong class="govuk-tag govuk-tag--red status-badge">
+        Review needed
+      </strong>
+      {% endif %}  
+      </td>
+
+    </tr>
+
+{#
     <tr class="govuk-table__row">
 
       <td class="govuk-table__cell">
@@ -197,7 +267,7 @@
 
     </tr>
 
-
+#}
 
 
      <tr class="govuk-table__row">
