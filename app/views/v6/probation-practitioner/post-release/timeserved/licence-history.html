@@ -79,10 +79,8 @@
              <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
              <strong class="govuk-warning-text__text">
              <span class="govuk-visually-hidden">Warning</span>
-              {% if data['prisoner'] == 'axel' %}
-                Review needed – This person’s licence was created by Pentonville (HMP) for a time-served release. The licence contains conditions added by the prison.
-              {% elif data['prisoner'] == 'theo' %}
-                Review needed – This person’s licence was created by Pentonville (HMP) for a time-served release. An additional condition was automatically added by this service stopping this person contacting their victims.
+              {% if data['prisoner'] == 'axel' or data['prisoner'] == 'theo' %}
+                Review needed – This person’s licence was created by Pentonville (HMP) for a time-served release.
               {% endif %}</strong>
             </div>
 
@@ -90,7 +88,7 @@
           </div>
 
             <div class="govuk-button-group">
-              <a href="licence-need-changing">
+              <a href="licence-need-changing?prisoner={{ data['prisoner'] }}">
               <button type="submit" class="govuk-button" data-module="govuk-button">
                 Review licence
               </button>
@@ -147,6 +145,83 @@
             
                 </ul>
                 </div>
+
+                {% if data['prisoner'] == 'axel' %}
+
+                <details class="govuk-details govuk-!-margin-top-5 govuk-!-margin-left-1">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Licence conditions requested at 3:00pm on [Weekday] 12 November 2026              
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              
+
+              <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                  <h2 class="govuk-summary-card__title">
+                    Summary
+                  </h2>
+                </div>
+                <div class="govuk-summary-card__content">
+                  <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                      <dd class="govuk-summary-list__value">
+                        1 additional condition was deleted
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
+              </div>
+
+              <div class="govuk-summary-card">
+                <div class="govuk-summary-card__title-wrapper">
+                  <h2 class="govuk-summary-card__title">
+                    Details of person who requested this
+                  </h2>
+                </div>
+                <div class="govuk-summary-card__content">
+                  <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        First name
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        {{ data['advisorFirstname'] or "Tia" }}
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Last name
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        {{ data['advisorLastname'] or "Probin" }}
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Email address
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        {{ data['advisorEmail'] or "tia.probin@justice.gov.uk" }}
+                      </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Job title
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        {{ data['advisorJobtitle'] or "Probation practitioner" }}
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
+              </div>
+
+
+            </div>
+          </details>
+                {% endif %}
             
               </div>
             </div>
