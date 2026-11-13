@@ -1,6 +1,6 @@
 {% extends "layouts/cvl.html" %}
 
-{% set pageName="Licence sent" %}
+{% set pageName="Licence sent for approval" %}
 
 {% set htmlClasses = 'app-width-wide' %}
 
@@ -20,17 +20,7 @@
 
         <div class="govuk-panel govuk-panel--confirmation">
           <h1 class="govuk-panel__title">
-            Licence for</br>
-            {% if data['prisoner'] == 'axel' %} 
-            Axel Wurth
-            {% elif data['prisoner'] == 'theo' %} 
-            Theo Stanford
-            {% elif data['prisoner'] == 'tim' %} 
-            Tim Underway
-            {% else %}
-            Maxwell Kirby
-            {% endif %}
-            sent
+            Licence submitted for approval
           </h1>
         </div>
 
@@ -38,15 +28,19 @@
 
         <h2 class="govuk-heading-m" style="margin-top: 30px;">What happens next</h2>
         
-        <p class="govuk-body">We have sent the licence licence for approval. This is usually done by the prison governor.</p>
+        <p class="govuk-body">The licence has been submitted for approval. This is usually done by the prison governor.</p>
+
+        <p>Once the licence has been approved, it can be printed from this service.</p>
         
+        <h2 class="govuk-heading-m">If you need to make changes</h2>
 
-        <h2 class="govuk-heading-m">If you need to make any changes</h2>
+        <p>You can edit the licence until the person is released.</p>
 
-       <p>You can edit the licence in this service until this person is released. At this point, the community probation team can vary the licence.</p>
-          
-        <p class="govuk-body">Only changes to additional or bespoke licence conditions must be approved again. Community probation team contact details and any initial appointment details can be changed without reapproval.</p>
+        <p>Changes to additional or bespoke licence conditions must be approved again.</p>
 
+        <p>You can change community probation team contact details and initial appointment details without getting approval again.</p>
+
+        <p>After the person is released, only the community probation team can make changes to the licence.</p>
 
           <form action="../case-list-pip-approved" method="post">
 
