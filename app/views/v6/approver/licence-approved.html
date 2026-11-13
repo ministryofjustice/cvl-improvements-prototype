@@ -46,7 +46,7 @@
           {% endif %}
         </p>
           
-        {% if data['prisoner'] == 'axel' or data['prisoner'] == 'axel' %}
+        {% if data['prisoner'] == 'axel' or data['prisoner'] == 'theo' %}
         <p>The community probation team that will be supervising this person must also be notified that this licence has been created. This service cannot notify this team automatically. </p>
           {% elif data['prisoner'] == 'nicholas' %}
           <p>We will email the probation practitioner automatically to tell them this licence has been approved.</p>
@@ -60,7 +60,7 @@
         {% elif data['prisoner'] == 'nicholas' %}
         <p>Probation practitioners can make changes up to 2 days before release. After this, they can only ask the prison to change the contact details that will be shown on the licence, for example if an initial appointment is needed. Other changes must then be made after release.</p>
         {% elif data['prisoner'] == 'axel' or data['prisoner'] == 'theo' %}
-        <p>Only changes to licence conditions need to be approved again. If an initial appointment is needed, details of this can be changed without reapproval.</p>
+        <p>Only changes to licence conditions need to be approved again. Initial appointment details can be changed without reapproval.</p>
         {% endif %}
         
         <form action="./case-list-app-needed" method="post">
