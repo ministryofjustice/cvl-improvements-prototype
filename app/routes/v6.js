@@ -282,7 +282,6 @@ router.post(version + '/checkyouranswers', function(request, response) {
     }
 })
 
-
 // PP - Reviewing the licence
 router.post(version + '/licence-need-changing-answer-ts', function(request, response) {
 

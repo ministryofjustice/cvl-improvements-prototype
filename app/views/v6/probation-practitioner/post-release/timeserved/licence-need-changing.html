@@ -31,7 +31,16 @@
       </h1>
     </legend>
 
-    <p>NEW COPY? <a class="govuk-link" href="#">View or print this licence PDF</a></p>
+
+    <div class="govuk-hint govuk-!-margin-bottom-5">
+     {% if data['prisoner'] == 'axel' %}
+        The licence contains conditions added by Pentonville (HMP). <a class="govuk-link--no-visited-state" href="#" target="_blank">Check the licence PDF before deciding if changes are needed (opens in new tab)</a>.
+     {% elif data['prisoner'] == 'theo' %}
+       An additional condition was automatically added by this service stopping this person contacting their victims. <a class="govuk-link--no-visited-state" href="#" target="_blank">Check the licence PDF before deciding if changes are needed (opens in new tab)</a>.
+     {% endif %}
+    </div>
+
+
 
 
     <div class="govuk-radios" data-module="govuk-radios">
@@ -59,34 +68,6 @@
 
 
 </form>
-
-
-<!--MIGHT NOT NEED THIS ANYMORE?-->
-
-<!--<details class="govuk-details">
-  <summary class="govuk-details__summary">
-    <span class="govuk-details__summary-text">
-      What does this licence contain?
-    </span>
-  </summary>
-  <div class="govuk-details__text">
-
-        <p>This licence contains:</p>
-
-        <ul class="govuk-list govuk-list--bullet">
-         <li>standard conditions</li>
-         <li>the following additional condition:</li>
-        </ul>
-
-        <div class="govuk-inset-text">
-          Not to approach or communicate with any victims of your offences without the prior approval of your supervising officer.
-        </div>
-
-        <p><a href="govuk-link--no-visited-state">View or print this licence PDF</a></p>
-  </div>
-</details>-->
-
-
 
   </div>
 </div>
