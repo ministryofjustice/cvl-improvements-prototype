@@ -49,7 +49,7 @@
             </a>
 
 
-            {% if data['prisoner'] == 'dwayne' %}  
+            {% if data['prisoner'] == 'axel' %}  
             <a href="../case-list-team?dwayne=active">
               <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
                 Return to case list
@@ -127,9 +127,13 @@
             
                 <div class="moj-timeline__header">
                   <h2 class="moj-timeline__title">Licence created</h2>
-            
                   <p class="moj-timeline__byline">by Joanne Cooper, Pentonville (HMP)</p>
-            
+                  {% if data['prisoner'] == 'axel' %}  
+                  </br>
+                  <h2 class="moj-timeline__title">[COPY CONDITIONS]</h2>
+                  <p class="moj-timeline__byline">by [COPY PROBATION ADVISOR]</p>
+                  {% else %}  
+                  {% endif %}
               </div>
             
                 <p class="moj-timeline__date">
