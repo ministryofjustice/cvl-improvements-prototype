@@ -61,7 +61,7 @@
               </li>
               <li class="moj-sub-navigation__item">
                   <a class="moj-sub-navigation__link" aria-current="page" href="./case-list-team">Team cases
-                  {% if data['dwayne'] == 'active' %}
+                  {% if data['axel'] == 'active' %}
                   {% elif data['maxwell'] == 'active' %}  
                   {% else %}   
                     <span id="notifications" class="moj-notification-badge">1</span>
@@ -91,7 +91,7 @@
     <tr class="govuk-table__row">
 
       <td class="govuk-table__cell">
-        <a href="./timeserved/licence-history?prisoner=dwayne" class="govuk-link--no-visited-state pp-caselist-name">Dwayne Briggs</a>
+        <a href="./timeserved/licence-history?prisoner=axel" class="govuk-link--no-visited-state pp-caselist-name">Axel Wurth</a>
         <span class="govuk-!-font-size-16 pp-caselist-crn">CRN: G5613GT</span>
       </td>
 
@@ -102,13 +102,13 @@
       <td class="govuk-table__cell" data-sort-value="1">
         <span class="urgent-highlight">
         Confirmed release date:</br>
-        {{ "today" | duration(0) | govukDate(truncate=true) }}
+        {{ "today" | duration(-1) | govukDate(truncate=true) }}
         </span>
         <span class="urgent-highlight urgent-highlight-message">Time-served release</span>
       </td>
 
       <td class="govuk-table__cell">
-        {% if data['dwayne'] == 'active' %}  
+        {% if data['axel'] == 'active' %}  
         <strong class="govuk-tag govuk-tag--turquoise status-badge">Active</strong>
         {% else %}  
         <strong class="govuk-tag govuk-tag--red status-badge">Review needed</strong>
