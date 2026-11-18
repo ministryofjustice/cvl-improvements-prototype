@@ -40,7 +40,7 @@
       <form action="/v6/checkyouranswers" method="post">
 
 
-      {% if data.prisoner == "finn"  %}
+      {% if data.prisoner == "finn" or data.prisoner == "jonathan" %}
       <button type="submit" class="govuk-button" data-module="govuk-button" style="margin-top: 10px;" name="sendlicenceforapproval" value="edit">
         Edit licence conditions
       </button>
@@ -207,16 +207,19 @@
 
 
 
-{% if data.ProbationAdvised == "no" or data.additionalConditions == "no" and data.bespokeConditions == "no"  %}
+{% if data.ProbationAdvised == "no" or data.additionalConditions == "no" and data.bespokeConditions == "no" or data.prisoner == "brandon" or data.prisoner == "jonathan" %}
 <div class="govuk-!-margin-bottom-4 govuk-!-margin-top-4">
 
             <h2 class="govuk-heading-m" style="display: inline;">Licence conditions</h2>
 
+                {% if data.prisoner == "jonathan" %}
+                {% else %}
                 <a href="./conditions/additional/additional-conditions">
                   <button type="submit" style="float: right;" class="govuk-button govuk-button--secondary" data-module="govuk-button">
                     Add conditions
                   </button>
                 </a>
+                {% endif %}
 
   </div>
 
@@ -367,7 +370,7 @@
 
 
 
-{% if data.prisoner == "finn"  %}
+{% if data.prisoner == "finn" %}
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
@@ -542,7 +545,7 @@
               Continue
             </button>
             {% else %}
-              {% if data.prisoner == "finn"  %}
+              {% if data.prisoner == "finn" or data.prisoner == "jonathan" %}
               <button type="submit" class="govuk-button" data-module="govuk-button" style="margin-top: -10px; margin-bottom: 40px;" name="sendlicenceforapproval" value="edit">
                 Edit licence conditions
               </button>
