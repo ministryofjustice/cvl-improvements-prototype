@@ -42,6 +42,10 @@
 
         <p>After the person is released, only the community probation team can make changes to the licence.</p>
 
+
+
+
+
           <form action="../case-list-pip-approved" method="post">
 
             {% if data['prisoner'] == 'charlie' %} 
@@ -56,9 +60,32 @@
 
           </form>
 
+
+
+          {% if data['exitsurvey'] == 'timeserved' %}
+
+ <hr class="curfew-hr">
+
+ <h2 class="govuk-heading-m govuk-!-margin-top-6">
+    Help improve this service
+ </h2>
+
+ <p>Fixed-term recalls are new to this service. Your feedback will help make it better. To give feedback you can:</p>
+
+ <ul class="govuk-list govuk-list--bullet"> 
+  <li><a href="#" class="govuk-link--no-visited-state">complete a short survey</a></li>
+  <li><a href="#" class="govuk-link--no-visited-state">report a specific problem</a></li>
+ </ul>
+
+ {% endif %}
+
           
             
           </div>
+
+
+
+  
        
       
   </div>
