@@ -238,6 +238,9 @@
                 </tr>
 
 
+
+
+
                  <tr class="govuk-table__row">
             
                   <td class="govuk-table__cell">
@@ -259,6 +262,63 @@
 
                   <td class="govuk-table__cell">
                     <strong class="govuk-tag govuk-tag--pink status-badge">Submitted</strong>
+                  </td>
+
+                </tr>
+
+
+
+                  <tr class="govuk-table__row">
+            
+                  <td class="govuk-table__cell">
+                    <a href="./timeserved/check-licence?prisoner=brandon" class="govuk-link--no-visited-state pp-caselist-name">Brandon Baxter</a>
+                  </td>
+
+                  <td class="govuk-table__cell">B25A53X</td>
+            
+                  <td class="govuk-table__cell">Not allocated yet</td>
+            
+                  <td class="govuk-table__cell" data-sort-value="2">
+                    <span class="urgent-highlight">Conditional release date:</br>{{ "today" | duration(0) | govukDate(truncate=true) }}</span>
+                    <span class="urgent-highlight urgent-highlight-message">Time-served release</span>
+                  </td>
+                   
+                  <td class="govuk-table__cell">
+                    David Smith
+                  </td>
+
+                  <td class="govuk-table__cell">
+                    {% if data.timeservedsubmitted=="brandon" %}
+                      <strong class="govuk-tag govuk-tag--pink status-badge">Submitted</strong>
+                    {% else %}
+                      <strong class="govuk-tag govuk-tag--blue status-badge">In progress</strong>
+                    {% endif %}
+                  </td>
+
+                </tr>
+
+
+                 <tr class="govuk-table__row">
+            
+                  <td class="govuk-table__cell">
+                    <a href="./timeserved/check-licence?prisoner=jonathan" class="govuk-link--no-visited-state pp-caselist-name">Jonathan Dunne</a>
+                  </td>
+
+                  <td class="govuk-table__cell">J37O97N</td>
+            
+                  <td class="govuk-table__cell">Not allocated yet</td>
+            
+                  <td class="govuk-table__cell" data-sort-value="2">
+                    <span class="urgent-highlight">Conditional release date:</br>{{ "today" | duration(0) | govukDate(truncate=true) }}</span>
+                    <span class="urgent-highlight urgent-highlight-message">Time-served release</span>
+                  </td>
+                   
+                  <td class="govuk-table__cell">
+                    David Smith
+                  </td>
+
+                  <td class="govuk-table__cell">
+                      <strong class="govuk-tag govuk-tag--pink status-badge">Submitted</strong>
                   </td>
 
                 </tr>
